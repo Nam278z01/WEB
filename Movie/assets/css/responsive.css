@@ -17,6 +17,16 @@
         width: auto;
     }
 
+    .header__nav-menu-res::after {
+        content: "";
+        display: block;
+        position: absolute;
+        height: 25px;
+        width: 65px;
+        top: 25px;
+        z-index: 5;
+    }
+
     .header__nav-menu-res:hover .header__nav-menu{
         display: block;
     }
@@ -117,6 +127,16 @@
     
     .header__nav-menu-res {
         width: auto;
+    }
+
+    .header__nav-menu-res::after {
+        content: "";
+        display: block;
+        position: absolute;
+        height: 25px;
+        width: 65px;
+        top: 25px;
+        z-index: 5;
     }
 
     .header__nav-menu-res:hover .header__nav-menu{
