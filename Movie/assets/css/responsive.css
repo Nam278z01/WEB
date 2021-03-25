@@ -1,0 +1,171 @@
+/* Phone */
+@media (max-width: 739px){
+    .header__nav {
+        border: none;
+    }
+
+    .header__first-nav {
+        position: relative;
+    }
+
+    .header__nav-bar-icon.fas {
+        display: block;
+        cursor: pointer;
+    }
+
+    .header__nav-menu-res {
+        width: auto;
+    }
+
+    .header__nav-menu-res:hover .header__nav-menu{
+        display: block;
+    }
+
+    .header__nav-menu {
+        display: block;
+        position: absolute;
+        top: 40px;
+        background-color: rgba(17, 17, 17, 0.9);
+        left: -6%;
+        padding: 0;
+        width: 101vw;
+        display: none;
+    }
+
+    .header__tap {
+        margin: 10px;
+        width: 100vw;
+    }
+
+    .header__tap-link {
+        width: 100vw;
+        display: block;
+        text-align: center;
+    }
+
+    .header__video-info {
+        display: none;
+    }
+
+    .header__search-input {
+        width: 120px;
+    }
+
+    .header__video-content {
+        top: 100px;
+    }
+
+    .header__video-name {
+        width: 180px;
+        height: 40px;
+    }
+    
+    .header__button {
+        display: block;
+    }
+
+    .header__button-play {
+        margin: 12px 11px;
+    }
+
+    .content {
+        top: 435px;
+    }
+
+    .row__container {
+        justify-content: space-around;
+    }
+
+    .row__img {
+        width: 185px;
+        height: 104px;
+    }
+
+    .footer {
+        margin: 3%;
+        flex-wrap: wrap;
+    }
+
+    .footer__social {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    /* My List */
+    .row__container-mylist {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+}
+
+/* Table */
+@media (min-width: 740px) and (max-width: 1023px){
+    /* Home */
+    .header__nav {
+        border: none;
+    }
+
+    .header__first-nav {
+        position: relative;
+    }
+
+    .header__nav-bar-icon.fas {
+        display: block;
+        cursor: pointer;
+    }
+    
+    .header__nav-menu-res {
+        width: auto;
+    }
+
+    .header__nav-menu-res:hover .header__nav-menu{
+        display: block;
+    }
+
+    .header__nav-menu {
+        display: block;
+        position: absolute;
+        top: 40px;
+        background-color: rgba(17, 17, 17, 0.9);
+        left: -6%;
+        padding: 0;
+        width: 101vw;
+        display: none;
+    }
+
+    .header__tap {
+        margin: 10px;
+        width: 100vw;
+    }
+
+    .header__tap-link {
+        width: 100vw;
+        display: block;
+        text-align: center;
+    }
+
+    .header__video-info {
+        display: none;
+    }
+
+    .row__container {
+        justify-content: space-around;
+    }
+
+    .footer {
+        margin: 0 10%;
+    }
+
+    /* My List */
+    .row__container-mylist {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+}
+
+/* PC */
+@media (min-width: 1024px){
+    
+}
