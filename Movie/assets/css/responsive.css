@@ -1,5 +1,4 @@
-/* Phone */
-@media (max-width: 739px){
+@media (max-width: 1023px) {
     .header__nav {
         border: none;
     }
@@ -41,7 +40,6 @@
         width: 101vw;
         display: none;
     }
-
     .header__tap {
         margin: 10px;
         width: 100vw;
@@ -52,11 +50,12 @@
         display: block;
         text-align: center;
     }
-
     .header__video-info {
         display: none;
     }
-
+}
+/* Phone */
+@media (max-width: 739px) {
     .header__search-input {
         width: 120px;
     }
@@ -110,65 +109,8 @@
 }
 
 /* Table */
-@media (min-width: 740px) and (max-width: 1023px){
+@media (min-width: 740px) and (max-width: 1023px) {
     /* Home */
-    .header__nav {
-        border: none;
-    }
-
-    .header__first-nav {
-        position: relative;
-    }
-
-    .header__nav-bar-icon.fas {
-        display: block;
-        cursor: pointer;
-    }
-    
-    .header__nav-menu-res {
-        width: auto;
-    }
-
-    .header__nav-menu-res::after {
-        content: "";
-        display: block;
-        position: absolute;
-        height: 25px;
-        width: 65px;
-        top: 25px;
-        z-index: 5;
-    }
-
-    .header__nav-menu-res:hover .header__nav-menu{
-        display: block;
-    }
-
-    .header__nav-menu {
-        display: block;
-        position: absolute;
-        top: 40px;
-        background-color: rgba(17, 17, 17, 0.9);
-        left: -6%;
-        padding: 0;
-        width: 101vw;
-        display: none;
-    }
-
-    .header__tap {
-        margin: 10px;
-        width: 100vw;
-    }
-
-    .header__tap-link {
-        width: 100vw;
-        display: block;
-        text-align: center;
-    }
-
-    .header__video-info {
-        display: none;
-    }
-
     .row__container {
         justify-content: space-around;
     }
@@ -186,6 +128,6 @@
 }
 
 /* PC */
-@media (min-width: 1024px){
+@media (min-width: 1024px) {
     
 }
