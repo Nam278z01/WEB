@@ -15,6 +15,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Allura&family=Roboto&display=swap" rel="stylesheet">
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <div class="app">
@@ -30,35 +31,88 @@
                         Justice League hay còn được biết đến với cái tên Liên Minh Công Lý, là tập hợp những siêu anh hùng mang trong mình sức mạnh phi thường để giải cứu thế giới khỏi những thế lực đen tối trong vũ trụ DC. Lần này, nhân loại phải đối mặt với tên ác quỷ vô cùng tàn độc – Steppenwolf. Hắn là một trong những tay sai đắc lực của Darksied – một ác nhân và cũng chính là kẻ thù lớn nhất-99 của Liên Minh Công Lý.
                     </p>
                     <div class="header__button">
-                        <a class="button header__button-play" title="Xem ngay Zack Snyder's Justice League" href="#">
+                        <button class="button button--play" title="Xem ngay Zack Snyder's Justice League">
                             <i class="fas fa-play"></i>
                             <span>Xem ngay</span>
-                        </a>
-                        <a class="button header__button-moreinfo" title="Chi tiết Zack Snyder's Justice League" href="#">
+                        </button>
+                        <button class="button button--moreinfo" title="Chi tiết Zack Snyder's Justice League">
                             <i class="fas fa-info-circle"></i>
                             <span>Chi tiết</span>
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>
             <!-- thanh điều hướng -->
             <div class="header__nav" id="mynav">
+                <!-- Mobile menu -->
+                <label for="nav-mobile-input" class="header__nav-bar-icon fas fa-bars"></label>
+                <input type="checkbox" name="" id="nav-mobile-input">
+                <label for="nav-mobile-input" class="nav__overlay"></label>
+                <div class="nav__mobile">
+                    <div class="nav__mobile-first">
+                        <label for="nav-mobile-input">
+                            <i class="fas fa-times"></i>
+                        </label>
+                        <a href="#" class="header__brand-name">NMovies</a>
+                    </div>
+                    <ul class="nav__mobile-items">
+                        <li class="nav__mobile-item nav__mobile-item--active">
+                            <a href="#">
+                                <div class="nav__mobile-icon">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <span class="nav__mobile-item-info">Trang chủ</span>
+                            </a>
+                        </li>
+                        <li class="nav__mobile-item">
+                            <a href="#">
+                                <div class="nav__mobile-icon">
+                                    <i class="fas fa-tv"></i>
+                                </div>
+                                <span class="nav__mobile-item-info">Phim bộ</span>
+                            </a>
+                        </li>
+                        <li class="nav__mobile-item">
+                            <a href="#">
+                                <div class="nav__mobile-icon">
+                                    <i class="fas fa-film"></i>
+                                </div>
+                                <span class="nav__mobile-item-info">Phim lẻ</span>
+                            </a>
+                        </li>
+                        <li class="nav__mobile-item">
+                            <a href="#">
+                                <div class="nav__mobile-icon">
+                                    <i class="fas fa-fire"></i>
+                                </div>
+                                <span class="nav__mobile-item-info">Mới và Phổ biến</span>
+                            </a>
+                        </li>
+                        <li class="nav__mobile-item">
+                            <a href="mylist.html">
+                                <div class="nav__mobile-icon">
+                                    <i class="far fa-plus-square"></i>
+                                </div>
+                                <span href="" class="nav__mobile-item-info">Danh sách của tôi</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
                 <div class="header__first-nav">
                     <a href="#" class="header__brand-name">NMovies</a>
                     <div class="header__nav-menu-res">
-                        <i class="header__nav-bar-icon fas fa-bars"></i>
                         <ul class="header__nav-menu">
-                            <li class="header__tap">
-                                <a href="#" class="header__tap-link header__tap-link--active">Trang chủ</a>
+                            <li class="header__tap header__tap--active">
+                                <a href="#" class="header__tap-link">Trang chủ</a>
                             </li>
                             <li class="header__tap">
-                                <a href="#" class="header__tap-link">Phim Bộ</a>
+                                <a href="#" class="header__tap-link">Phim bộ</a>
                             </li>
                             <li class="header__tap">
-                                <a href="#" class="header__tap-link">Phim Điện Ảnh</a>
+                                <a href="#" class="header__tap-link">Phim lẻ</a>
                             </li>
                             <li class="header__tap">
-                                <a href="#" class="header__tap-link">Mới và Phổ Biến</a>
+                                <a href="#" class="header__tap-link">Mới và Phổ biến</a>
                             </li>
                             <li class="header__tap">
                                 <a href="mylist.html" class="header__tap-link">Danh sách của tôi</a>
@@ -67,18 +121,26 @@
                     </div>
                 </div>
                 <div class="header__second-nav">
+                    <div class="buy-vip">
+                        <a href="#" class="buy-vip-link">Mua gói</a>
+                    </div>
                     <div class="header__search">
-                        <input type="checkbox" id="header__search-click" />
-                        <label for="header__search-click">
-                            <i class="header__search-icon fas fas fa-search"></i>
-                        </label>
-                        <input type="text" class="header__search-input" placeholder="Tìm kiếm phim, diễn viên..." />
+                        <button class="fas fa-search" id="icon-search"></button>
+                        <div id="search-wrap">
+                            <button id="search-tnof" class="header-icon fas fa-chevron-right"></button>
+                            <form action="" name="searchFrom" id="searchForm">
+                                <button id="btn-search">
+                                    <i class="header-icon fas fa-search"></i>
+                                </button>
+                                <input type="text" name="searchIp" placeholder="Tìm kiếm phim, diễn viên, đạo diễn...">
+                            </form>
+                        </div>
                     </div>
                     <div class="header__notify" title="Thông Báo">
-                        <i class="header__search-icon fas fa-bell"></i>
+                        <i class="header-icon fas fa-bell"></i>
                     </div>
                     <div class="header__account" title="Tài khoản">
-                        <i class="header__search-icon fas fa-user-circle"></i>
+                        <i class="header-icon fas fa-user-circle"></i>
                     </div>
                 </div>
             </div>
@@ -98,29 +160,6 @@
                                 <a href="#" class="">
                                     <img src="./assets/img/image1.jpg" alt="" class="row__img">
                                 </a>
-                                <!-- Test -->
-                                <div class="noname">
-                                    <a href="" class="">
-                                        <video autoplay muted id="noname__video">
-                                            <source src="./assets/video/daredevil.mp4" type="video/mp4">
-                                        </video>
-                                    </a>
-                                    <img src="./assets/img/image_name2.png" alt="" class="noname__video-name">
-                                    <div class="noname__button">
-                                        <a class="button noname__button-play" href="#" title="Xem ngay Daredevil">
-                                            <i class="fas fa-play"></i>
-                                            <span>Xem ngay</span>
-                                        </a>
-                                        <button class="button noname__button-addlist" title="Loại bỏ khỏi danh sách của tôi">
-                                            <i class="fas fa-check"></i>
-                                            <span>Danh sách</span>
-                                        </button>
-                                        <a class="button noname__button-moreinfo" href="#" title="Chi tiết Daredevil">
-                                            <i class="fas fa-info-circle"></i>
-                                            <span>Chi tiết</span>
-                                        </a>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <a href="#" class="row__img-link">
@@ -152,29 +191,6 @@
                                 <a href="#" class="row__img-link">
                                     <img src="./assets/img/image7.jpg" alt="" class="row__img">
                                 </a>
-                                <!-- Test -->
-                                <div class="noname">
-                                    <a href="" class="">
-                                        <video autoplay muted id="noname__video">
-                                            <source src="./assets/video/daredevil.mp4" type="video/mp4">
-                                        </video>
-                                    </a>
-                                    <img src="./assets/img/image_name2.png" alt="" class="noname__video-name">
-                                    <div class="noname__button">
-                                        <a class="button noname__button-play" href="#" title="Xem ngay Daredevil">
-                                            <i class="fas fa-play"></i>
-                                            <span>Xem ngay</span>
-                                        </a>
-                                        <button class="button noname__button-addlist" title="Thêm vào danh sách của tôi">
-                                            <i class="fas fa-plus"></i>
-                                            <span>Danh sách</span>
-                                        </button>
-                                        <a class="button noname__button-moreinfo" href="#" title="Chi tiết Daredevil">
-                                            <i class="fas fa-info-circle"></i>
-                                            <span>Chi tiết</span>
-                                        </a>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <a href="#" class="row__img-link">
@@ -248,6 +264,30 @@
                     <a href="#" class="footer__other-info">Chính sách về sở hữu trí tuệ</a>
                 </div>
             </footer>
+        </div>
+    </div>
+    <!-- Hover phim -->
+    <div class="hover-movie" id="hover">
+        <a href="" class="hover-movie-link">
+            <img src="./assets/img/image1.jpg" alt="" class="hover-movie__img">
+            <video autoplay muted id="hover-movie__video">
+                <source src="./assets/video/justiceleague.mp4" type="video/mp4">
+            </video>
+        </a>
+        <img src="./assets/img/image_name2.png" alt="" class="hover-movie__video-name">
+        <div class="hover-movie__button">
+            <button class="button hover-movie__button--play" title="Xem ngay Daredevil">
+                <i class="fas fa-play"></i>
+                <span>Xem ngay</span>
+            </button>
+            <button class="button hover-movie__button--addlist" title="Thêm vào danh sách của tôi">
+                <i class="fas fa-plus"></i>
+                <span>Danh sách</span>
+            </button>
+            <button class="button hover-movie__button--moreinfo" href="#" title="Chi tiết Daredevil">
+                <i class="fas fa-info-circle"></i>
+                <span>Chi tiết</span>
+            </button>
         </div>
     </div>
     <script src="assets/js/main.js"></script>

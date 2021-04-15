@@ -1,58 +1,24 @@
 @media (max-width: 1023px) {
-    .header__nav {
-        border: none;
+    .header__nav-menu-res {
+        display: none;
     }
-
-    .header__first-nav {
-        position: relative;
-    }
-
     .header__nav-bar-icon.fas {
-        display: block;
+        display: inline-block !important;
         cursor: pointer;
     }
 
-    .header__nav-menu-res {
-        width: auto;
-    }
-
-    .header__nav-menu-res::after {
-        content: "";
-        display: block;
-        position: absolute;
-        height: 25px;
-        width: 65px;
-        top: 25px;
-        z-index: 5;
-    }
-
-    .header__nav-menu-res:hover .header__nav-menu{
-        display: block;
-    }
-
-    .header__nav-menu {
-        display: block;
-        position: absolute;
-        top: 40px;
-        background-color: rgba(17, 17, 17, 0.9);
-        left: -6%;
-        padding: 0;
-        width: 101vw;
-        display: none;
-    }
-    .header__tap {
-        margin: 10px;
-        width: 100vw;
-    }
-
-    .header__tap-link {
-        width: 100vw;
-        display: block;
-        text-align: center;
-    }
     .header__video-info {
         display: none;
     }
+
+    .header__first-nav {
+        width: 20%;
+    }
+
+    .header__second-nav {
+        width: 80%;
+    }
+    
 }
 /* Phone */
 @media (max-width: 739px) {
@@ -61,20 +27,39 @@
     }
 
     .header__video-content {
-        top: 100px;
+        width: 95%;
+        top: 25%;
+    }
+
+    .button.button--play {
+        padding: 9px 16px;
+    }
+
+    .button.button--moreinfo {
+        padding: 6px 16px;
     }
 
     .header__video-name {
         width: 180px;
         height: 40px;
     }
-    
-    .header__button {
-        display: block;
+
+    #search-wrap {
+        position: fixed;
+        right: 0px;
+        top: 0px;
+        left: 0px;
+        background-color: var(--primary-color-sc);
+        height: 58px;
+        padding-right: 12px;
     }
 
-    .header__button-play {
-        margin: 12px 11px;
+    #searchForm{
+        width: 100%;
+    }
+
+    #search-wrap > button {
+        display: block;
     }
 
     .content {
@@ -106,11 +91,21 @@
         flex-wrap: wrap;
         justify-content: space-around;
     }
+
+    .buy-vip {
+        display: none;
+    }
 }
 
 /* Table */
 @media (min-width: 740px) and (max-width: 1023px) {
     /* Home */
+    .header__video-content {
+        width: 360px;
+        height: 160px;
+        top: 300px;
+    }
+
     .row__container {
         justify-content: space-around;
     }
@@ -118,7 +113,7 @@
     .footer {
         margin: 0 10%;
     }
-
+    
     /* My List */
     .row__container-mylist {
         display: flex;
