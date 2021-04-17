@@ -54,6 +54,16 @@ body {
 .button span {
     margin: 0 5px;
 }
+.btn-icon {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    color: var(--white-color);
+    font-size: 2rem;
+    padding: 10px;
+    margin: 0 5px;
+    cursor: pointer;
+}
 
 /* Hover phim */
 .hover-movie {

@@ -344,13 +344,13 @@
 }
 
 #btn-search {
-    background-color: var(--primary-color-sc);
+    background-color: transparent;
     outline: none;
     border: none;
     color: var(--white-color);
     font-size: 2rem;
     padding: 5px;
-    margin: 0 10px;
+    margin: 0 5px;
     cursor: pointer;
 }
 
@@ -369,14 +369,6 @@ input[name="searchIp"] {
 }
 
 .header__account {
-}
-
-.header-icon {
-  color: var(--white-color);
-  font-size: 2rem;
-  padding: 10px;
-  margin: 0 5px;
-  cursor: pointer;
 }
 
 #btn-search > i {
@@ -401,10 +393,17 @@ input[name="searchIp"] {
 }
 
 .main__row {
-  
+
 }
 
 .row__header {
+  padding: 0 3%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.row__header-icon {
+
 }
 
 .row__header-link {
@@ -421,13 +420,24 @@ input[name="searchIp"] {
 
 .row__container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  overflow-x: auto;
+  width: 100%;
+}
+
+.row__container::-webkit-scrollbar {
+  display: none;
 }
 
 .row__img-link {
   border-radius: 2px;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
+  flex-shrink: 0;
+  margin-right: 10px;
+  transition: all 0.4s;
+}
+
+.row__img-link:first-child {
+  margin-left: 3%;
 }
 
 .row__img {

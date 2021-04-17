@@ -16,4 +16,10 @@ $("#icon-search").click(function () {
 $("#search-tnof").click(function () {
     $("#search-wrap").css("display", "none");
 });
+$(".row__item-next").click(function () {
+    $("#row__img-first").css("margin-left", "-205px");
+})
+$(".row__item-back").click(function () {
+    $("#row__img-first").css("margin-left", "0");
+})
 
