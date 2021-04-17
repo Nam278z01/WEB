@@ -1,5 +1,6 @@
 window.addEventListener('scroll', function (e) {
     var nav = document.getElementById('mynav');
+    var nav_mobile = document.getElementsByClassName('nav-mobile')[0];
     if (document.documentElement.scrollTop || document.body.scrollTop > window.innerHeight) {
         nav.classList.add('nav-colored');
         nav.classList.remove('nav-transparent');
@@ -15,9 +16,4 @@ $("#icon-search").click(function () {
 $("#search-tnof").click(function () {
     $("#search-wrap").css("display", "none");
 });
-window.onclick = function (event) {
-    var search = document.getElementById("search-wrap");
-    if (event.target == search) {
-        search.style.display = "none";
-    }
-}
+

@@ -1,7 +1,8 @@
 :root {
     --primary-color: rgb(229, 9, 20);
-    --primary-color-sc: rgb(20, 20, 20);
-    --primary-color-th: #212121;
+    --primary-color-sc: #090c10;
+    --primary-color-th: rgb(13, 17, 23);
+    --primary-color-fr: #21262d;
     --text-color: #808080;
     --text-color-sc: #e5e5e5;
     --white-color: #fff;

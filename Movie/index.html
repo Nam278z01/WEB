@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Allura&family=Roboto&display=swap" rel="stylesheet">
-    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <script src="./assets/js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <div class="app">
@@ -44,104 +44,141 @@
             </div>
             <!-- thanh điều hướng -->
             <div class="header__nav" id="mynav">
-                <!-- Mobile menu -->
-                <label for="nav-mobile-input" class="header__nav-bar-icon fas fa-bars"></label>
-                <input type="checkbox" name="" id="nav-mobile-input">
-                <label for="nav-mobile-input" class="nav__overlay"></label>
-                <div class="nav__mobile">
-                    <div class="nav__mobile-first">
-                        <label for="nav-mobile-input">
-                            <i class="fas fa-times"></i>
-                        </label>
-                        <a href="#" class="header__brand-name">NMovies</a>
-                    </div>
-                    <ul class="nav__mobile-items">
-                        <li class="nav__mobile-item nav__mobile-item--active">
-                            <a href="#">
-                                <div class="nav__mobile-icon">
-                                    <i class="fas fa-home"></i>
-                                </div>
-                                <span class="nav__mobile-item-info">Trang chủ</span>
-                            </a>
-                        </li>
-                        <li class="nav__mobile-item">
-                            <a href="#">
-                                <div class="nav__mobile-icon">
-                                    <i class="fas fa-tv"></i>
-                                </div>
-                                <span class="nav__mobile-item-info">Phim bộ</span>
-                            </a>
-                        </li>
-                        <li class="nav__mobile-item">
-                            <a href="#">
-                                <div class="nav__mobile-icon">
-                                    <i class="fas fa-film"></i>
-                                </div>
-                                <span class="nav__mobile-item-info">Phim lẻ</span>
-                            </a>
-                        </li>
-                        <li class="nav__mobile-item">
-                            <a href="#">
-                                <div class="nav__mobile-icon">
-                                    <i class="fas fa-fire"></i>
-                                </div>
-                                <span class="nav__mobile-item-info">Mới và Phổ biến</span>
-                            </a>
-                        </li>
-                        <li class="nav__mobile-item">
-                            <a href="mylist.html">
-                                <div class="nav__mobile-icon">
-                                    <i class="far fa-plus-square"></i>
-                                </div>
-                                <span href="" class="nav__mobile-item-info">Danh sách của tôi</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="header__first-nav">
-                    <a href="#" class="header__brand-name">NMovies</a>
-                    <div class="header__nav-menu-res">
-                        <ul class="header__nav-menu">
-                            <li class="header__tap header__tap--active">
-                                <a href="#" class="header__tap-link">Trang chủ</a>
+                <!-- Tablet nav -->
+                <div class="nav-table">
+                    <label for="nav-tablet-input" class="header__nav-bar-icon fas fa-bars"></label>
+                    <input type="checkbox" name="" id="nav-tablet-input">
+                    <label for="nav-tablet-input" class="nav__overlay"></label>
+                    <div class="nav__tablet">
+                        <div class="nav__tablet-first">
+                            <label for="nav-tablet-input">
+                                <i class="fas fa-times"></i>
+                            </label>
+                            <a href="#" class="header__brand-name">NMovies</a>
+                        </div>
+                        <ul class="nav__tablet-items">
+                            <li class="nav__tablet-item nav__tablet-item--active">
+                                <a href="#">
+                                    <div class="nav__tablet-icon">
+                                        <i class="fas fa-home"></i>
+                                    </div>
+                                    <span class="nav__tablet-item-info">Trang chủ</span>
+                                </a>
                             </li>
-                            <li class="header__tap">
-                                <a href="#" class="header__tap-link">Phim bộ</a>
+                            <li class="nav__tablet-item">
+                                <a href="#">
+                                    <div class="nav__tablet-icon">
+                                        <i class="fas fa-tv"></i>
+                                    </div>
+                                    <span class="nav__tablet-item-info">Phim bộ</span>
+                                </a>
                             </li>
-                            <li class="header__tap">
-                                <a href="#" class="header__tap-link">Phim lẻ</a>
+                            <li class="nav__tablet-item">
+                                <a href="#">
+                                    <div class="nav__tablet-icon">
+                                        <i class="fas fa-film"></i>
+                                    </div>
+                                    <span class="nav__tablet-item-info">Phim lẻ</span>
+                                </a>
                             </li>
-                            <li class="header__tap">
-                                <a href="#" class="header__tap-link">Mới và Phổ biến</a>
+                            <li class="nav__tablet-item">
+                                <a href="#">
+                                    <div class="nav__tablet-icon">
+                                        <i class="fas fa-fire"></i>
+                                    </div>
+                                    <span class="nav__tablet-item-info">Mới và Phổ biến</span>
+                                </a>
                             </li>
-                            <li class="header__tap">
-                                <a href="mylist.html" class="header__tap-link">Danh sách của tôi</a>
+                            <li class="nav__tablet-item">
+                                <a href="mylist.html">
+                                    <div class="nav__tablet-icon">
+                                        <i class="far fa-plus-square"></i>
+                                    </div>
+                                    <span href="" class="nav__tablet-item-info">Danh sách của tôi</span>
+                                </a>
+                            </li>
+                            <li class="nav__tablet-item">
+                                <a href="#">
+                                    <div class="nav__tablet-icon">
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                    <span href="" class="nav__tablet-item-info">Vip</span>
+                                </a>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <div class="header__second-nav">
-                    <div class="buy-vip">
-                        <a href="#" class="buy-vip-link">Mua gói</a>
-                    </div>
-                    <div class="header__search">
-                        <button class="fas fa-search" id="icon-search"></button>
-                        <div id="search-wrap">
-                            <button id="search-tnof" class="header-icon fas fa-chevron-right"></button>
-                            <form action="" name="searchFrom" id="searchForm">
-                                <button id="btn-search">
-                                    <i class="header-icon fas fa-search"></i>
-                                </button>
-                                <input type="text" name="searchIp" placeholder="Tìm kiếm phim, diễn viên, đạo diễn...">
-                            </form>
+                <!-- PC nav -->
+                <div class="nav-pc">
+                    <div class="header__first-nav">
+                        <a href="#" class="header__brand-name">NMovies</a>
+                        <div class="header__nav-menu-res">
+                            <ul class="header__nav-menu">
+                                <li class="header__tap header__tap--active">
+                                    <a href="#" class="header__tap-link">Trang chủ</a>
+                                </li>
+                                <li class="header__tap">
+                                    <a href="#" class="header__tap-link">Phim bộ</a>
+                                </li>
+                                <li class="header__tap">
+                                    <a href="#" class="header__tap-link">Phim lẻ</a>
+                                </li>
+                                <li class="header__tap">
+                                    <a href="#" class="header__tap-link">Mới và Phổ biến</a>
+                                </li>
+                                <li class="header__tap">
+                                    <a href="mylist.html" class="header__tap-link">Danh sách của tôi</a>
+                                </li>
+                                <li class="header__tap">
+                                    <a href="#" class="header__tap-link">Vip</a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="header__notify" title="Thông Báo">
-                        <i class="header-icon fas fa-bell"></i>
+                    <div class="header__second-nav">
+                        <div class="buy-vip">
+                            <a href="#" class="buy-vip-link">Mua gói</a>
+                        </div>
+                        <div class="header__search">
+                            <button class="header-icon fas fa-search" id="icon-search"></button>
+                            <div id="search-wrap">
+                                <button id="search-tnof" class="header-icon fas fa-chevron-right"></button>
+                                <form action="" name="searchFrom" id="searchForm">
+                                    <button id="btn-search" class="fas fa-search"></button>
+                                    <input type="text" name="searchIp" placeholder="Tìm kiếm phim, diễn viên, đạo diễn...">
+                                </form>
+                            </div>
+                        </div>
+                        <div class="header__notify" title="Thông Báo">
+                            <i class="header-icon fas fa-bell"></i>
+                        </div>
+                        <div class="header__account" title="Tài khoản">
+                            <i class="header-icon fas fa-user-circle"></i>
+                        </div>
                     </div>
-                    <div class="header__account" title="Tài khoản">
-                        <i class="header-icon fas fa-user-circle"></i>
-                    </div>
+                </div>
+                <!-- Mobile nav -->
+                <div class="nav-mobile">
+                    <ul class="header__nav-menu">
+                        <li class="header__tap header__tap--active">
+                            <a href="#" class="header__tap-link">Trang chủ</a>
+                        </li>
+                        <li class="header__tap">
+                            <a href="#" class="header__tap-link">Phim bộ</a>
+                        </li>
+                        <li class="header__tap">
+                            <a href="#" class="header__tap-link">Phim lẻ</a>
+                        </li>
+                        <li class="header__tap">
+                            <a href="#" class="header__tap-link">Mới và Phổ biến</a>
+                        </li>
+                        <li class="header__tap">
+                            <a href="mylist.html" class="header__tap-link">Danh sách của tôi</a>
+                        </li>
+                        <li class="header__tap">
+                            <a href="#" class="header__tap-link">Vip</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </header>
@@ -290,6 +327,6 @@
             </button>
         </div>
     </div>
-    <script src="assets/js/main.js"></script>
+    <script src="./assets/js/main.js"></script>
 </body>
 </html>
