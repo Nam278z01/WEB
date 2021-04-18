@@ -43,10 +43,6 @@
         display: none;
     }
 
-    .header__video-info {
-        display: none;
-    }
-
     .header__first-nav {
         width: 20%;
     }
@@ -138,10 +134,6 @@
     .header__nav-bar-icon.fas {
         display: inline-block !important;
         cursor: pointer;
-    }
-
-    .header__video-info {
-        display: none;
     }
 
     .header__first-nav {

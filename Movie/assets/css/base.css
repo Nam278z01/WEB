@@ -3,6 +3,7 @@
     --primary-color-sc: #090c10;
     --primary-color-th: rgb(13, 17, 23);
     --primary-color-fr: #21262d;
+    --primary-color-fn: rgba(13, 17, 23, 0.8);
     --text-color: #808080;
     --text-color-sc: #e5e5e5;
     --white-color: #fff;
@@ -24,6 +25,26 @@ html {
 body {
     margin: 0;
     background-color: var(--primary-color-sc);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--primary-color-sc);
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color-fr); 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-color); 
 }
 
 .button {
@@ -65,20 +86,6 @@ body {
     cursor: pointer;
 }
 
-/* Hover phim */
-.hover-movie {
-    width: 400px;
-    background-color: var(--primary-color-sc);
-    animation: growth ease 1s;
-    transform-origin: left;
-    border-radius: 2px;
-    box-shadow: rgb(0 0 0 / 75%) 0px 3px 10px;
-    display: none;
-    position: absolute;
-    z-index: 6;
-    top: 100px;
-}
-
 @keyframes growth {
     from {
         transform: scale(0.7);
@@ -95,6 +102,18 @@ body {
     to {
         opacity: 1;
     }
+}
+
+/* Hover phim */
+.hover-movie {
+    width: 400px;
+    background-color: var(--primary-color-sc);
+    animation: growth ease 0.3s;
+    border-radius: 2px;
+    box-shadow: rgb(0 0 0 / 75%) 0px 3px 10px;
+    position: absolute;
+    z-index: 10;
+    top: 0;
 }
 
 .hover-movie__img,

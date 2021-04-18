@@ -1,5 +1,5 @@
 .nav-colored {
-  background-color: rgba(13, 17, 23, 0.8);
+  background-color: var(--primary-color-fn);
 }
 .nav-transparent {
   background-color: transparent;
@@ -28,12 +28,22 @@
 }
 
 .header__video {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.header__video-img {
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 #myVideo {
   position: fixed;
   top: 0;
   width: 100%;
+  display: none;
 }
 
 .header__video-content {
@@ -89,6 +99,22 @@
 .button--moreinfo span {
   font-size: 1.6rem;
   color: var(--white-color);
+}
+
+.btn-icon.header-btn-i {
+  background-color: rgb(13, 17, 23, 0.6);
+  border-radius: 50%;
+  width: 5rem;
+  height: 5rem;
+  position: fixed;
+  z-index: 2;
+  right: 30px;
+  bottom: 20%;
+  display: none;
+}
+
+.btn-icon.header-btn-i:hover {
+  background-color: rgb(13, 17, 23, 0.9);
 }
 
 /* Navigation */
@@ -393,7 +419,7 @@ input[name="searchIp"] {
 }
 
 .main__row {
-
+  position: relative;
 }
 
 .row__header {
@@ -408,6 +434,7 @@ input[name="searchIp"] {
 
 .row__header-link {
   text-decoration: none;
+  margin: 15px 0;
 }
 
 .row__title {
@@ -416,6 +443,7 @@ input[name="searchIp"] {
   text-transform: uppercase;
   text-shadow: 2px 2px 4px rgb(0 0 0 / 45%);
   display: inline-block;
+  margin: 5px 0;
 }
 
 .row__container {
@@ -433,7 +461,7 @@ input[name="searchIp"] {
   margin-bottom: 30px;
   flex-shrink: 0;
   margin-right: 10px;
-  transition: all 0.4s;
+  transition: all ease-in 0.2s;
 }
 
 .row__img-link:first-child {
