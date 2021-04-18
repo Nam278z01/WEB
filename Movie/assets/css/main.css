@@ -27,16 +27,15 @@
   z-index: 4;
 }
 
-.header__video {
+.header__img-mobile,
+.header__video-img{
   position: fixed;
   top: 0;
   width: 100%;
 }
 
-.header__video-img {
-  position: fixed;
-  top: 0;
-  width: 100%;
+.header__img-mobile {
+  display: none;
 }
 
 #myVideo {
@@ -473,10 +472,6 @@ input[name="searchIp"] {
 
 .row__wrap > a {
   height: 100%;
-  display: block;
-}
-
-.row__container:hover .btn-icon.row__item-next{
   display: block;
 }
 
