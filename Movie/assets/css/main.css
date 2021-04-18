@@ -419,6 +419,7 @@ input[name="searchIp"] {
 }
 
 .main__row {
+  margin-bottom: 30px;
   position: relative;
 }
 
@@ -428,8 +429,9 @@ input[name="searchIp"] {
   justify-content: space-between;
 }
 
-.row__header-icon {
-
+.main__row:hover .row__view-all {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .row__header-link {
@@ -444,12 +446,62 @@ input[name="searchIp"] {
   text-shadow: 2px 2px 4px rgb(0 0 0 / 45%);
   display: inline-block;
   margin: 5px 0;
+  font-weight: 400;
+}
+
+.row__view-all {
+  font-size: 1.4rem;
+  color: var(--white-color);
+  padding: 0 20px;
+  opacity: 0;
+  transform: translateX(-50%);
+  transition: all 0.5s;
+  display: inline-block;
 }
 
 .row__container {
   display: flex;
   overflow-x: auto;
   width: 100%;
+  position: relative;
+  height: 115px;
+}
+
+.row__wrap {
+  height: 100%;
+}
+
+.row__wrap > a {
+  height: 100%;
+  display: block;
+}
+
+.row__container:hover .btn-icon.row__item-next{
+  display: block;
+}
+
+.btn-icon.row__item-back {
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 40px;
+  background-color: var(--primary-color-sx);
+  margin: 0;
+  font-size: 3.8rem;
+  color: var(--text-color-sc);
+  display: none;
+}
+/* Dung 1 class row__item display:none ko tac dung???? */
+.btn-icon.row__item-next {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 40px;
+  background-color: var(--primary-color-sx);
+  font-size: 3.8rem;
+  margin: 0;
+  color: var(--text-color-sc);
+  display: none;
 }
 
 .row__container::-webkit-scrollbar {
@@ -458,13 +510,12 @@ input[name="searchIp"] {
 
 .row__img-link {
   border-radius: 2px;
-  margin-bottom: 30px;
   flex-shrink: 0;
-  margin-right: 10px;
-  transition: all ease-in 0.2s;
+  margin-right: 8px;
+  transition: all ease-in-out 0.7s;
 }
 
-.row__img-link:first-child {
+.row__img-link:nth-child(3) {
   margin-left: 3%;
 }
 
@@ -502,6 +553,7 @@ input[name="searchIp"] {
 }
 
 .footer__other {
+
 }
 
 .footer__title {
@@ -509,6 +561,7 @@ input[name="searchIp"] {
   color: var(--text-color);
   padding: 15px 15px 0;
   margin: 0 0 20px;
+  font-weight: 400;
 }
 
 .footer__other-info {
