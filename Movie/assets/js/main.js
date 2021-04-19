@@ -115,7 +115,8 @@ $(document).ready(function () {
         var parent;
         var child;
         $(".row__img-link").mouseenter(function (e) {
-            var left = $(this).offset().left + 'px';
+            var margin = $(window).width() * 3 / 100;
+            var left = $(this).offset().left;
             parent = $(this).parent().parent();
             child = parent.html();
             myTimeout = setTimeout(function () {
@@ -144,7 +145,15 @@ $(document).ready(function () {
                                 </div>`;
                 parent.after(addChild);
                 $("#hover").css("top", "-30px");
-                $("#hover").css("left", left);
+                if (left < 50) {
+                    $("#hover").css("left", margin + "px");
+                    $("#hover").css("transform-origin", "left");
+                } else if (left < $(window).width() - 300){
+                    $("#hover").css("left", left-100 + "px");
+                } else {
+                    $("#hover").css("transform-origin", "right");
+                    $("#hover").css("right", margin + "px");
+                }
                 $("#myVideo").get(0).pause();
                 myTimeout2 = setTimeout(function () {
                     $(".hover-movie__img").hide();

@@ -109,7 +109,7 @@ body {
 .hover-movie {
     width: 400px;
     background-color: var(--primary-color-sc);
-    animation: growth ease 0.3s;
+    animation: growth ease-in 0.2s;
     border-radius: 2px;
     box-shadow: rgb(0 0 0 / 75%) 0px 3px 10px;
     position: absolute;
