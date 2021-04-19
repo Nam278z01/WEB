@@ -19,47 +19,75 @@ $(document).ready(function () {
             }
         }
     });
+    //Search
+    $("#icon-search").click(function () {
+        $("#search-wrap").css("display", "flex");
+    });
+    $("#search-tnof").click(function () {
+        $("#search-wrap").hide();
+    });
 
+    // Slide
+    $(".row__container").hover(function () {
+        var jump = 0;
+        var margin = 0;
+        var childNext = $(this).children(".row__item-next");
+        var childBack = $(this).children(".row__item-back");
+        var slide = $(this).children(".row__container-sc");
+        //if (show >= -100) {
+            childNext.show();
+        //}
+        //if (show < 0) {
+            childBack.show();
+        //}
+        childNext.click(function () {
+            if (jump >= -100) {
+                jump -= 100;
+                margin += $(window).width() * 6 / 100;
+                slide.css("transform", "translateX(calc(" + margin + "px + " + jump + "%))");
+            }
+            // if (jump == -200) {
+            //     childNext.hide();
+            // }
+        });
+        childBack.click(function () {
+            if (jump <= -100) {
+                jump += 100;
+                margin -= $(window).width() * 6 / 100;
+                slide.css("transform", "translateX(calc(" + margin + "px + " + jump + "%))");
+            }
+            // if (jump == 0) {
+            //     childBack.hide();
+            // }
+        });
+    }, function () {
+        var childNext = $(this).children(".row__item-next");
+        var childBack = $(this).children(".row__item-back");
+        childNext.hide();
+        childBack.hide();
+    });
 
-    //Slider
-    // var margin_left = $(window).width() * 3 / 100;
-    // $(".row__item-next").click(function () {
-    //     var parent = $(this).parent();
-    //     var slide = $(this).parent().children(".row__img-link:nth-child(3)");
-    //     if (margin_left <= 56 && margin_left > - 2400) {
-    //         margin_left -= (213) * 2;
-    //         slide.css("margin-left", margin_left.toString() + "px");
-
-    //     }
-    // });
-
-    // var back = parent.children(".row__item-back").show();
-    // if (margin_left > 56) {
-    //     back.click(function () {
-    //         var back = $(this).parent().children(".row__img-link:nth-child(3)");
-    //         console.log(next);
-    //         margin_left -= (213) * 2;
-    //         slide.css("margin-left", margin_left.toString() + "px");
-
-    //     })
-    // }
     if ($(window).width() >= 1024) {
+        // show video header sau 3s
         setTimeout(function () {
             $(".header__video-img:first-child").hide();
             $("#myVideo").show();
             $("#myVideo").get(0).play();
             $(".header-btn-i:nth-child(2)").show();
         }, 3000);
+        // Tat tieng video header
         $(".header-btn-i:nth-child(2)").click(function (e) {
             $(this).hide();
             $(".header-btn-i:first-child").show();
             $("#myVideo").prop('muted', true);
         });
+        // Bat tieng video header
         $(".header-btn-i:nth-child(1)").click(function (e) {
             $(this).hide();
             $(".header-btn-i:nth-child(2)").show();
             $("#myVideo").prop('muted', false);
         });
+        // Xem lai video header
         $(".header-btn-i:last-child").click(function (e) {
             $(this).hide();
             if ($("#myVideo").get(0).muted == true) {
@@ -67,12 +95,12 @@ $(document).ready(function () {
             } else {
                 $(".header-btn-i:nth-child(2)").show();
             }
-
             $("#myVideo").get(0).pause();
             $("#myVideo").get(0).currentTime = 0;
             $("#myVideo").get(0).play();
 
         });
+        // Bat tat video hesder
         setInterval(function () {
             if ($("#myVideo").get(0).currentTime >= $("#myVideo").get(0).duration - 10) {
                 $(".header-btn-i:last-child").show();
@@ -81,67 +109,58 @@ $(document).ready(function () {
             }
             ;
         }, 10000)
-
-        $("#icon-search").click(function () {
-            $("#search-wrap").css("display", "flex");
-        });
-        $("#search-tnof").click(function () {
-            $("#search-wrap").hide();
-        });
-
         // hover phim
         var myTimeout;
+        var myTimeout2;
         var parent;
         var child;
         $(".row__img-link").mouseenter(function (e) {
-            console.log([$(this)]);
             var left = $(this).offset().left + 'px';
-            // var top = $(this).offset().top + 'px';
-            // alert(top);
-            parent = $(this).parent();
+            parent = $(this).parent().parent();
             child = parent.html();
             myTimeout = setTimeout(function () {
                 var addChild = `<div class="hover-movie" id="hover">
-                <a href="#" class="hover-movie-link">
-                    <img src="./assets/img/image1.jpg" alt="" class="hover-movie__img">
-                    <video id="hover-movie__video">
-                        <source src="./assets/video/armyofthedead.mp4" type="video/mp4">
-                    </video>
-                </a>
-                <img src="./assets/img/image_name1.png" alt="" class="hover-movie__video-name">
-                <div class="hover-movie__button">
-                    <button class="button hover-movie__button--play" title="Xem ngay Daredevil">
-                        <i class="fas fa-play"></i>
-                        <span>Xem ngay</span>
-                    </button>
-                    <button class="button hover-movie__button--addlist" title="Thêm vào danh sách của tôi">
-                        <i class="fas fa-plus"></i>
-                        <span>Danh sách</span>
-                    </button>
-                    <button class="button hover-movie__button--moreinfo" href="#" title="Chi tiết Daredevil">
-                        <i class="fas fa-info-circle"></i>
-                        <span>Chi tiết</span>
-                    </button>
-                </div>
-            </div>`;
+                                    <a href="#" class="hover-movie-link">
+                                        <img src="./assets/img/image1.jpg" alt="" class="hover-movie__img">
+                                        <video id="hover-movie__video">
+                                            <source src="./assets/video/armyofthedead.mp4" type="video/mp4">
+                                        </video>
+                                    </a>
+                                    <img src="./assets/img/image_name1.png" alt="" class="hover-movie__video-name">
+                                    <div class="hover-movie__button">
+                                        <button class="button hover-movie__button--play" title="Xem ngay Daredevil">
+                                            <i class="fas fa-play"></i>
+                                            <span>Xem ngay</span>
+                                        </button>
+                                        <button class="button hover-movie__button--addlist" title="Thêm vào danh sách của tôi">
+                                            <i class="fas fa-plus"></i>
+                                            <span>Danh sách</span>
+                                        </button>
+                                        <button class="button hover-movie__button--moreinfo" href="#" title="Chi tiết Daredevil">
+                                            <i class="fas fa-info-circle"></i>
+                                            <span>Chi tiết</span>
+                                        </button>
+                                    </div>
+                                </div>`;
                 parent.after(addChild);
                 $("#hover").css("top", "-30px");
                 $("#hover").css("left", left);
                 $("#myVideo").get(0).pause();
-                $("#hover-movie__video").get(0).currentTime = 0;
-                setTimeout(function () {
+                myTimeout2 = setTimeout(function () {
                     $(".hover-movie__img").hide();
                     $("#hover-movie__video").show();
+                    $("#hover-movie__video").get(0).pause();
+                    $("#hover-movie__video").get(0).currentTime = 0;
                     $("#hover-movie__video").get(0).play();
                 }, 3000);
             }, 700);
         }).mouseleave(function () {
             clearTimeout(myTimeout);
             $("#hover").mouseleave(function () {
-                clearTimeout(myTimeout);
+                clearTimeout(myTimeout2);
                 $(this).remove();
             });
-        })
+        });
     };
 });
 
