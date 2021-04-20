@@ -1,31 +1,32 @@
 :root {
-    --primary-color: rgb(229, 9, 20);
-    --primary-color-sc: #090c10;
-    --primary-color-th: rgb(13, 17, 23);
-    --primary-color-fr: #21262d;
-    --primary-color-fn: rgba(13, 17, 23, 0.8);
-    --primary-color-sx: rgba(13, 17, 23, 0.6);
-    --text-color: #808080;
-    --text-color-sc: #e5e5e5;
-    --white-color: #fff;
-    --black-color: #000;
-    --black-color-sc: #111;
+  --primary-color: rgb(229, 9, 20);
+  --primary-color-sc: #090c10;
+  --primary-color-th: rgb(13, 17, 23);
+  --primary-color-fr: #21262d;
+  --primary-color-fn: rgba(13, 17, 23, 0.8);
+  --primary-color-sx: rgba(13, 17, 23, 0.6);
+  --text-color: #808080;
+  --text-color-sc: #e5e5e5;
+  --white-color: #fff;
+  --white-color-sc: rgba(255, 255, 255, 0.8);
+  --black-color: #000;
+  --black-color-sc: #111;
 }
 
 * {
-    box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 html {
-    font-size: 62.5%;
-    line-height: 1.6rem;
-    font-family: 'Roboto', sans-serif;
-    box-sizing: border-box;
+  font-size: 62.5%;
+  line-height: 1.6rem;
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    background-color: var(--primary-color-sc);
+  margin: 0;
+  background-color: var(--primary-color-sc);
 }
 
 ::-webkit-scrollbar {
@@ -36,139 +37,148 @@ body {
 ::-webkit-scrollbar-track {
   background: var(--primary-color-sc);
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: var(--primary-color-fr); 
+  background: var(--primary-color-fr);
   border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--text-color); 
+  background: var(--text-color);
 }
 
 .button {
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   text-decoration: none;
-   border: none;
-   outline: none;
-   color: var(--white-color);
-   background-color: var(--primary-color-sc);
-   cursor: pointer;
-   padding: 12px 32px;
-   min-width: 120px;
-   border-radius: 2px;
-   transition: filter 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  color: var(--white-color);
+  background-color: var(--primary-color-sc);
+  cursor: pointer;
+  padding: 12px 32px;
+  min-width: 120px;
+  border-radius: 2px;
+  transition: filter 0.2s;
 }
 
 .button:hover {
-    filter: brightness(70%);
+  filter: brightness(70%);
 }
 
 .button + .button {
-    margin-left: 16px;
+  margin-left: 16px;
 }
 
 .button i,
 .button span {
-    margin: 0 5px;
+  margin: 0 5px;
 }
 .btn-icon {
-    background-color: transparent;
-    outline: none;
-    border: none;
-    color: var(--white-color);
-    font-size: 2rem;
-    padding: 10px;
-    margin: 0 5px;
-    cursor: pointer;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  color: var(--white-color);
+  font-size: 2rem;
+  padding: 10px;
+  margin: 0 5px;
+  cursor: pointer;
 }
 
 @keyframes growth {
-    from {
-        transform: scale(0.7);
-    }
-    to {
-        transform: scale(1);
-    }
+  from {
+    transform: scale(0.7);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes growth-sc {
+  from {
+    transform: scale(0.2);
+  }
+  to {
+    transform: scale(1);
+  }
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* Hover phim */
 .hover-movie {
-    width: 400px;
-    background-color: var(--primary-color-sc);
-    animation: growth ease-in 0.2s;
-    border-radius: 2px;
-    box-shadow: rgb(0 0 0 / 75%) 0px 3px 10px;
-    position: absolute;
-    z-index: 10;
-    top: 0;
+  width: 400px;
+  background-color: var(--primary-color-sc);
+  animation: growth ease-in 0.1s;
+  border-radius: 2px;
+  box-shadow: rgb(0 0 0 / 75%) 0px 3px 10px;
+  position: absolute;
+  z-index: 10;
+  top: 0;
 }
 
 .hover-movie__img,
 #hover-movie__video {
-    width: 100%;
-    height: 230px;
-    object-fit: cover;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 #hover-movie__video {
-    display: none;
+  display: none;
 }
 
 .display {
-    display: block;
+  display: block;
 }
 
 .hover-movie__video-name {
-    position: absolute;
-    width: 180px;
-    height: 100px;
-    top: 150px;
-    left: 10px;
+  position: absolute;
+  width: 180px;
+  height: 100px;
+  top: 130px;
+  left: 10px;
 }
 
 .hover-movie__button {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px;
 }
 
-.hover-movie__button > .button{
-    height: 40px;
-    padding: 12px 0;
-    margin: 0;
+.hover-movie__button > .button {
+  height: 40px;
+  padding: 12px 0;
+  margin: 0;
 }
 
 .button.hover-movie__button--play {
-    background-color: var(--white-color);
-    color: var(--black-color);
+  background-color: var(--white-color);
+  color: var(--black-color);
 }
 
 .button.hover-movie__button--addlist,
 .button.hover-movie__button--moreinfo {
-    border: 1px solid var(--white-color);
+  border: 1px solid var(--white-color);
 }
 
-.hover-movie__button > .button > i{
-    font-size: 1.6rem;
+.hover-movie__button > .button > i {
+  font-size: 1.6rem;
 }
 
 .hover-movie__button > .button > span {
-    font-size: 1.4rem;
+  font-size: 1.4rem;
 }

@@ -14,19 +14,36 @@ $(document).ready(function () {
             if (pos_body > 400) {
                 $("#myVideo").get(0).pause();
             }
-            else {
+            if (pos_body < 200){
                 $("#myVideo").get(0).play();
             }
+        }
+        var search = $("#search-wrap");
+        if (search.show()) {
+            search.hide();
         }
     });
     //Search
     $("#icon-search").click(function () {
         $("#search-wrap").css("display", "flex");
+        $("#searchForm > input").focus();
     });
     $("#search-tnof").click(function () {
         $("#search-wrap").hide();
     });
-
+    $("#searchForm > input").keyup(function () {
+        var text = $(this).val();
+        if (text) {
+            $("#btn-search-delete").css("visibility", "visible");
+        }
+        else {
+            $("#btn-search-delete").css("visibility", "hidden");
+        }
+    })
+    $("#btn-search-delete").click(function (e) {
+        e.preventDefault();
+        $("#searchForm > input").val("");
+    })
     // Slide
     $(".row__container").hover(function () {
         var jump = 0;
@@ -35,10 +52,10 @@ $(document).ready(function () {
         var childBack = $(this).children(".row__item-back");
         var slide = $(this).children(".row__container-sc");
         //if (show >= -100) {
-            childNext.show();
+            childNext.css("transform", "translate(0)");
         //}
         //if (show < 0) {
-            childBack.show();
+            childBack.css("transform", "translate(0)");
         //}
         childNext.click(function () {
             if (jump >= -100) {
@@ -63,8 +80,8 @@ $(document).ready(function () {
     }, function () {
         var childNext = $(this).children(".row__item-next");
         var childBack = $(this).children(".row__item-back");
-        childNext.hide();
-        childBack.hide();
+        childNext.css("transform", "translate(100%)");
+        childBack.css("transform", "translate(-100%)");
     });
 
     if ($(window).width() >= 1024) {
@@ -113,18 +130,20 @@ $(document).ready(function () {
         var myTimeout;
         var myTimeout2;
         var parent;
-        var child;
         $(".row__img-link").mouseenter(function (e) {
+            var hover = $("#hover");
+            if (hover) {
+                hover.remove();
+            }
             var margin = $(window).width() * 3 / 100;
             var left = $(this).offset().left;
             parent = $(this).parent().parent();
-            child = parent.html();
             myTimeout = setTimeout(function () {
                 var addChild = `<div class="hover-movie" id="hover">
                                     <a href="#" class="hover-movie-link">
-                                        <img src="./assets/img/image1.jpg" alt="" class="hover-movie__img">
+                                        <img src="./assets/img/image_big1.jpg" alt="" class="hover-movie__img">
                                         <video id="hover-movie__video">
-                                            <source src="./assets/video/armyofthedead.mp4" type="video/mp4">
+                                            <source src="./assets/video/video1.mp4" type="video/mp4">
                                         </video>
                                     </a>
                                     <img src="./assets/img/image_name1.png" alt="" class="hover-movie__video-name">
@@ -161,7 +180,7 @@ $(document).ready(function () {
                     $("#hover-movie__video").get(0).pause();
                     $("#hover-movie__video").get(0).currentTime = 0;
                     $("#hover-movie__video").get(0).play();
-                }, 3000);
+                }, 2000);
             }, 700);
         }).mouseleave(function () {
             clearTimeout(myTimeout);
