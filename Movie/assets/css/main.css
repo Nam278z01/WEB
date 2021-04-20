@@ -532,6 +532,26 @@ input[name="searchIp"] {
   height: 115px;
 }
 
+.row__container::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 38px;
+  background-color: var(--primary-color-sv);
+  z-index: 9;
+}
+
+.row__container::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 38px;
+  background-color: var(--primary-color-sv);
+  z-index: 9;
+}
+
 .row__container-sc {
   display: flex;
   width: 100%;
