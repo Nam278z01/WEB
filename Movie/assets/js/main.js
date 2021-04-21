@@ -43,6 +43,7 @@ $(document).ready(function () {
     $("#btn-search-delete").click(function (e) {
         e.preventDefault();
         $("#searchForm > input").val("");
+        $(this).hide();
     });
     // Nav mobile
     const menuMb = $(".nav-mobile-menu");
