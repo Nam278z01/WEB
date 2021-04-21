@@ -2,15 +2,64 @@
   .row__img-link {
     width: 45%;
   }
+
+  .content {
+    /* top: 525px; */
+    top: 225%;
+  }
 }
-@media (min-width: 520px) and (max-width: 739px){
+@media (min-width: 520px) and (max-width: 739px) {
   .row__img-link {
     width: 30%;
+  }
+
+  .content {
+    top: 192%;
   }
 }
 /* Phone */
 @media (max-width: 739px) {
   /* Home */
+  .header::before {
+    height: 30px;
+    top: 55px;
+    position: absolute;
+  }
+  .header::after {
+    bottom: -60px;
+  }
+
+  #myVideo {
+    top: 55px;
+  }
+
+  .header__video-content {
+    width: 93%;
+    top: 90%;
+  }
+
+  .btn-icon.header-btn-i {
+    width: 5rem;
+    height: 5rem;
+    right: 15px;
+    top: 95%;
+    font-size: 2rem;
+  }
+
+  .button.button--play {
+    padding: 9px 16px;
+  }
+
+  .button.button--moreinfo {
+    padding: 6px 16px;
+  }
+
+  .header__video-name {
+    width: 180px;
+    height: 60px;
+    margin: 0;
+  }
+
   .header__nav {
     display: block;
   }
@@ -51,24 +100,6 @@
     width: 120px;
   }
 
-  .header__video-content {
-    width: 95%;
-    top: 55%;
-  }
-
-  .button.button--play {
-    padding: 9px 16px;
-  }
-
-  .button.button--moreinfo {
-    padding: 6px 16px;
-  }
-
-  .header__video-name {
-    width: 180px;
-    height: 40px;
-  }
-
   #search-wrap {
     position: fixed;
     right: 0px;
@@ -85,10 +116,6 @@
 
   #search-wrap > button {
     display: block;
-  }
-
-  .content {
-    top: 720px;
   }
 
   .row__title {
@@ -133,6 +160,18 @@
 /* Tablet */
 @media (min-width: 740px) and (max-width: 1023px) {
   /* Home */
+  .header__video-info {
+    /* display: none; */
+  }
+
+  .header::after {
+    bottom: 0px;
+  }
+
+  .btn-icon.header-btn-i {
+    /* bottom: 20%; */
+  }
+
   .header__nav-menu-res {
     display: none;
   }
@@ -150,10 +189,24 @@
   }
 
   .header__video-content {
-    width: 360px;
-    height: 160px;
-    top: 300px;
+    width: 50%;
+    /* height: 160px; */
+    /* top: 300px; */
+    top: 25%;
   }
+
+  .header__video-name {
+    /* margin-bottom: 20px; */
+  }
+
+  .content {
+   top: 120%;
+  }
+  
+  .main {
+    top: -175px;
+  }
+
   .row__img-link {
     /* border-radius: 2px; */
     /* flex-shrink: 0; */
@@ -183,5 +236,4 @@
 
 /* PC */
 @media (min-width: 1024px) {
- 
 }

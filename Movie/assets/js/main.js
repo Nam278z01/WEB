@@ -121,9 +121,11 @@ $(document).ready(function () {
             var childBack = $(this).children(".row__item-back");
             var slide = $(this).children(".row__container-sc");
             //if (show >= -100) {
+            childNext.css("display", "block");
             childNext.css("transform", "translate(0)");
             //}
             //if (show < 0) {
+            childBack.css("display", "block");
             childBack.css("transform", "translate(0)");
             //}
             childNext.click(function () {
