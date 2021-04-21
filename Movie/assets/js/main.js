@@ -14,7 +14,7 @@ $(document).ready(function () {
             if (pos_body > 400) {
                 $("#myVideo").get(0).pause();
             }
-            if (pos_body < 200){
+            if (pos_body < 200) {
                 $("#myVideo").get(0).play();
             }
         }
@@ -39,93 +39,120 @@ $(document).ready(function () {
         else {
             $("#btn-search-delete").css("visibility", "hidden");
         }
-    })
+    });
     $("#btn-search-delete").click(function (e) {
         e.preventDefault();
         $("#searchForm > input").val("");
-    })
-    // Slide
-    $(".row__container").hover(function () {
-        var jump = 0;
-        var margin = 0;
-        var childNext = $(this).children(".row__item-next");
-        var childBack = $(this).children(".row__item-back");
-        var slide = $(this).children(".row__container-sc");
-        //if (show >= -100) {
-            childNext.css("transform", "translate(0)");
-        //}
-        //if (show < 0) {
-            childBack.css("transform", "translate(0)");
-        //}
-        childNext.click(function () {
-            if (jump >= -100) {
-                jump -= 100;
-                margin += $(window).width() * 6 / 100;
-                slide.css("transform", "translateX(calc(" + margin + "px + " + jump + "%))");
-            }
-            // if (jump == -200) {
-            //     childNext.hide();
-            // }
-        });
-        childBack.click(function () {
-            if (jump <= -100) {
-                jump += 100;
-                margin -= $(window).width() * 6 / 100;
-                slide.css("transform", "translateX(calc(" + margin + "px + " + jump + "%))");
-            }
-            // if (jump == 0) {
-            //     childBack.hide();
-            // }
-        });
-    }, function () {
-        var childNext = $(this).children(".row__item-next");
-        var childBack = $(this).children(".row__item-back");
-        childNext.css("transform", "translate(100%)");
-        childBack.css("transform", "translate(-100%)");
     });
-
-    if ($(window).width() >= 1024) {
-        // show video header sau 3s
-        setTimeout(function () {
-            $(".header__video-img:first-child").hide();
-            $("#myVideo").show();
-            $("#myVideo").get(0).play();
-            $(".header-btn-i:nth-child(2)").show();
-        }, 3000);
-        // Tat tieng video header
-        $(".header-btn-i:nth-child(2)").click(function (e) {
-            $(this).hide();
+    // Nav mobile
+    const menuMb = $(".nav-mobile-menu");
+    var isDown = false;
+    var startX;
+    var scrollLeft;
+    menuMb.mousedown(function (e) {
+        isDown = true;
+        startX = e.pageX;
+        scrollLeft = menuMb.scrollLeft();
+    });
+    menuMb.mouseleave(function (e) {
+        isDown = false;
+    });
+    menuMb.mouseup(function (e) {
+        isDown = false;
+    });
+    menuMb.mousemove(function (e) {
+        if (!isDown) {
+            return
+        }
+        e.preventDefault();
+        const x = e.pageX;
+        const walk = startX - x;
+        menuMb.scrollLeft(walk + scrollLeft);
+    })
+    
+    // show video header sau 3s
+    setTimeout(function () {
+        $(".header__video-img:first-child").hide();
+        $("#myVideo").show();
+        $("#myVideo").get(0).play();
+        $(".header-btn-i:nth-child(2)").show();
+    }, 3000);
+    // Tat tieng video header
+    $(".header-btn-i:nth-child(2)").click(function (e) {
+        $(this).hide();
+        $(".header-btn-i:first-child").show();
+        $("#myVideo").prop('muted', true);
+    });
+    // Bat tieng video header
+    $(".header-btn-i:nth-child(1)").click(function (e) {
+        $(this).hide();
+        $(".header-btn-i:nth-child(2)").show();
+        $("#myVideo").prop('muted', false);
+    });
+    // Xem lai video header
+    $(".header-btn-i:last-child").click(function (e) {
+        $(this).hide();
+        if ($("#myVideo").get(0).muted == true) {
             $(".header-btn-i:first-child").show();
-            $("#myVideo").prop('muted', true);
-        });
-        // Bat tieng video header
-        $(".header-btn-i:nth-child(1)").click(function (e) {
-            $(this).hide();
+        } else {
             $(".header-btn-i:nth-child(2)").show();
-            $("#myVideo").prop('muted', false);
-        });
-        // Xem lai video header
-        $(".header-btn-i:last-child").click(function (e) {
-            $(this).hide();
-            if ($("#myVideo").get(0).muted == true) {
-                $(".header-btn-i:first-child").show();
-            } else {
-                $(".header-btn-i:nth-child(2)").show();
-            }
-            $("#myVideo").get(0).pause();
-            $("#myVideo").get(0).currentTime = 0;
-            $("#myVideo").get(0).play();
+        }
+        $("#myVideo").get(0).pause();
+        $("#myVideo").get(0).currentTime = 0;
+        $("#myVideo").get(0).play();
 
+    });
+    // Bat tat video header
+    setInterval(function () {
+        if ($("#myVideo").get(0).currentTime >= $("#myVideo").get(0).duration - 10) {
+            $(".header-btn-i:last-child").show();
+            $(".header-btn-i:first-child").hide();
+            $(".header-btn-i:nth-child(2)").hide();
+        }
+        ;
+    }, 10000)
+    //Tren pc
+    if ($(window).width() >= 1024) {
+        // Slide
+        $(".row__container").hover(function () {
+            var jump = 0;
+            var margin = 0;
+            var childNext = $(this).children(".row__item-next");
+            var childBack = $(this).children(".row__item-back");
+            var slide = $(this).children(".row__container-sc");
+            //if (show >= -100) {
+            childNext.css("transform", "translate(0)");
+            //}
+            //if (show < 0) {
+            childBack.css("transform", "translate(0)");
+            //}
+            childNext.click(function () {
+                if (jump >= -100) {
+                    jump -= 100;
+                    margin += $(window).width() * 6 / 100;
+                    slide.css("transform", "translateX(calc(" + margin + "px + " + jump + "%))");
+                    // $(this).parent().scrollLeft(-jump);
+                }
+                // if (jump == -200) {
+                //     childNext.hide();
+                // }
+            });
+            childBack.click(function () {
+                if (jump <= -100) {
+                    jump += 100;
+                    margin -= $(window).width() * 6 / 100;
+                    slide.css("transform", "translateX(calc(" + margin + "px + " + jump + "%))");
+                }
+                // if (jump == 0) {
+                //     childBack.hide();
+                // }
+            });
+        }, function () {
+            var childNext = $(this).children(".row__item-next");
+            var childBack = $(this).children(".row__item-back");
+            childNext.css("transform", "translate(100%)");
+            childBack.css("transform", "translate(-100%)");
         });
-        // Bat tat video hesder
-        setInterval(function () {
-            if ($("#myVideo").get(0).currentTime >= $("#myVideo").get(0).duration - 10) {
-                $(".header-btn-i:last-child").show();
-                $(".header-btn-i:first-child").hide();
-                $(".header-btn-i:nth-child(2)").hide();
-            }
-            ;
-        }, 10000)
         // hover phim
         var myTimeout;
         var myTimeout2;
@@ -145,10 +172,10 @@ $(document).ready(function () {
                                         <video id="hover-movie__video">
                                             <source src="./assets/video/video1.mp4" type="video/mp4">
                                         </video>
+                                        <img src="./assets/img/image_name1.png" alt="" class="hover-movie__video-name">
                                     </a>
-                                    <img src="./assets/img/image_name1.png" alt="" class="hover-movie__video-name">
                                     <div class="hover-movie__button">
-                                        <button class="button hover-movie__button--play" title="Xem ngay Daredevil">
+                                        <button class="button hover-movie__button--play" title="Xem ngay Army of the dead">
                                             <i class="fas fa-play"></i>
                                             <span>Xem ngay</span>
                                         </button>
@@ -156,7 +183,7 @@ $(document).ready(function () {
                                             <i class="fas fa-plus"></i>
                                             <span>Danh sách</span>
                                         </button>
-                                        <button class="button hover-movie__button--moreinfo" href="#" title="Chi tiết Daredevil">
+                                        <button class="button hover-movie__button--moreinfo" href="#" title="Chi tiết Army of the dead">
                                             <i class="fas fa-info-circle"></i>
                                             <span>Chi tiết</span>
                                         </button>
@@ -168,7 +195,7 @@ $(document).ready(function () {
                     $("#hover").css("left", margin + "px");
                     $("#hover").css("transform-origin", "left");
                 } else if (left < $(window).width() - 300){
-                    $("#hover").css("left", left-100 + "px");
+                    $("#hover").css("left", left-111+24 + "px");
                 } else {
                     $("#hover").css("transform-origin", "right");
                     $("#hover").css("right", margin + "px");
@@ -180,16 +207,16 @@ $(document).ready(function () {
                     $("#hover-movie__video").get(0).pause();
                     $("#hover-movie__video").get(0).currentTime = 0;
                     $("#hover-movie__video").get(0).play();
-                }, 2000);
-            }, 700);
+                }, 2000)
+            }, 700)
         }).mouseleave(function () {
             clearTimeout(myTimeout);
             $("#hover").mouseleave(function () {
                 clearTimeout(myTimeout2);
                 $(this).remove();
-            });
-        });
-    };
-});
+            })
+        })
+    }
+})
 
 

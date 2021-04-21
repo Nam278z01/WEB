@@ -17,16 +17,18 @@
   content: "";
   display: block;
   width: 100%;
-  height: 1px;
-  background-color: black;
-  position: absolute;
-  top: -1px;
+  height: 58px;
+  position: fixed;
+  top: 0px;
   left: 0;
-  box-shadow: 0px 8px 32px 16px black;
+  background-image: linear-gradient(
+    360deg,
+    var(--color-start) 0,
+    var(--primary-color-th) 100%
+  );
   z-index: 4;
 }
 
-.header__img-mobile,
 .header__video-img {
   position: fixed;
   top: 0;
@@ -81,12 +83,13 @@
 
 .button--play span {
   font-size: 1.6rem;
-  font-weight: 600;
+  font-weight: bold;
 }
 
 .button--moreinfo {
   padding: 9px 32px;
   border: 1px solid var(--white-color);
+  background-color: var(--primary-color-sv);
 }
 
 .button--moreinfo i {
@@ -100,7 +103,7 @@
 }
 
 .btn-icon.header-btn-i {
-  background-color: rgb(13, 17, 23, 0.6);
+  background-color: var(--primary-color-sv);
   border-radius: 50%;
   width: 5rem;
   height: 5rem;
@@ -112,7 +115,7 @@
 }
 
 .btn-icon.header-btn-i:hover {
-  background-color: rgb(13, 17, 23, 0.9);
+  background-color: var(--primary-color-fn);
 }
 
 /* Navigation */
@@ -140,7 +143,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgb(13, 17, 23, 0.6);
+  background-color: var(--primary-color-sx);
   display: none;
   animation: fadeIn linear 0.2s;
   z-index: 100;
@@ -162,7 +165,7 @@
 
 .nav__tablet-first {
   height: 58px;
-  border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+  border-bottom: 1px solid var(--white-color-sc);
   display: flex;
   align-items: center;
 }
@@ -194,7 +197,7 @@
 .nav__tablet-item .fas,
 .nav__tablet-item .far {
   font-size: 2rem;
-  color: rgb(229, 229, 229, 0.8);
+  color: var(--white-color-sc);
 }
 
 .nav__tablet-icon {
@@ -206,7 +209,7 @@
 
 .nav__tablet-item-info {
   font-size: 1.5rem;
-  color: var(--text-color-sc);
+  color: var(--white-color-sc);
 }
 
 .nav__tablet-item:hover {
@@ -254,6 +257,22 @@
   height: 30px;
   width: 100%;
   line-height: 30px;
+}
+
+.nav-mobile-menu {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  height: 30px;
+  overflow-x: auto;
+  width: 100%;
+  justify-content: flex-start;
+  cursor: -webkit-grabbing;
+}
+
+.nav-mobile-menu::-webkit-scrollbar {
+    display: none;
 }
 
 /*PC nav*/
@@ -317,9 +336,10 @@
   width: 510px;
   top: 37px;
   display: none;
-  border-radius: 2px;
+  /* border-radius: 2px; */
   animation: growth-sc linear 0.3s;
   transform-origin: left 10%;
+  border-top: 2px solid var(--white-color);
 }
 
 .genres-sub-nav::before {
@@ -327,10 +347,10 @@
   display: block;
   border-width: 20px 40px;
   border-style: solid;
-  border-color: transparent transparent var(--primary-color-fn) transparent;
+  border-color: transparent transparent var(--white-color) transparent;
   position: absolute;
   z-index: 53;
-  top: -40px;
+  top: -42px;
 }
 
 .genres-items {
@@ -439,7 +459,7 @@
   cursor: pointer;
 }
 
-#btn-search-delete{
+#btn-search-delete {
   font-size: 1.6rem;
   visibility: hidden;
 }
@@ -524,20 +544,12 @@ input[name="searchIp"] {
   display: inline-block;
 }
 
-.row__container {
-  display: flex;
-  overflow-x: auto;
-  width: 100%;
-  position: relative;
-  height: 115px;
-}
-
-.row__container::after {
+/* .row__container::after {
   content: "";
   position: absolute;
   left: 0;
   height: 100%;
-  width: 38px;
+  width: 3%;
   background-color: var(--primary-color-sv);
   z-index: 9;
 }
@@ -547,16 +559,24 @@ input[name="searchIp"] {
   position: absolute;
   right: 0;
   height: 100%;
-  width: 38px;
+  width: 3%;
   background-color: var(--primary-color-sv);
   z-index: 9;
+} */
+
+.row__container {
+  /* display: flex; */
+  overflow-x: auto;
+  width: 100%;
+  position: relative;
+  /* height: 115px; */
 }
 
 .row__container-sc {
   display: flex;
   width: 100%;
   height: 100%;
-  transition: all ease-in-out 0.7s;
+  transition: all linear 0.5s;
 }
 
 .row__container::-webkit-scrollbar {
@@ -564,9 +584,10 @@ input[name="searchIp"] {
 }
 
 .row__img-link {
-  border-radius: 2px;
+  /* border-radius: 2px; */
   flex-shrink: 0;
-  margin-right: 8px;
+  margin-right: 11px;
+  width: 18%;
 }
 
 .row__img-link:first-child {
@@ -583,9 +604,11 @@ input[name="searchIp"] {
 }
 
 .row__img {
-  border-radius: 2px;
-  width: 205px;
-  height: 115px;
+  /* border-radius: 2px; */
+  /* width: 205px; */
+  width: 100%;
+  /* height: 115px; */
+  height: 100%;
 }
 
 .btn-icon.row__item-back {
@@ -593,24 +616,32 @@ input[name="searchIp"] {
   left: 0;
   height: 100%;
   width: 40px;
-  background-color: var(--primary-color-sx);
+  background-image: linear-gradient(
+    270deg,
+    var(--color-start) 0,
+    var(--primary-color-th) 100%
+  );
   margin: 0;
   font-size: 3.8rem;
-  color: var(--text-color-sc);
+  color: var(--white-color-sc);
   transform: translateX(-100%);
   z-index: 10;
   transition: transform 0.2s;
 }
 /* Dung 1 class row__item display:none ko tac dung???? */
 .btn-icon.row__item-next {
+  background-image: linear-gradient(
+    90deg,
+    var(--color-start) 0,
+    var(--primary-color-th) 100%
+  );
   position: absolute;
   right: 0;
   height: 100%;
   width: 40px;
-  background-color: var(--primary-color-sx);
   font-size: 3.8rem;
   margin: 0;
-  color: var(--text-color-sc);
+  color: var(--white-color-sc);
   transform: translateX(100%);
   z-index: 10;
   transition: transform 0.2s;
