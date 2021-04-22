@@ -1,9 +1,3 @@
-.nav-colored {
-  background-color: var(--primary-color-fn);
-}
-.nav-transparent {
-  background-color: transparent;
-}
 /* Home */
 /* Header */
 .app {
@@ -45,8 +39,8 @@
 }
 
 .header__video-img {
-  position: fixed;
-  top: 0;
+  /* position: relative; */
+  /* top: 0; */
   width: 100%;
 }
 
@@ -604,8 +598,8 @@ input[name="searchIp"] {
 
 .row__img-link {
   flex-shrink: 0;
-  margin-right: 11px;
-  width: 18%;
+  margin-right: 6px;
+  width: 18.4%;
 }
 
 .row__img-link:first-child {
@@ -730,11 +724,13 @@ input[name="searchIp"] {
 .row__container-sc-ge {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 6px;
 }
 
 .row__img-link-ge {
   margin: 0 0 60px 0;
-  width: 97.5%;
+  width: 100%;
+  position: relative;
 }
 
 .row__img-link-ge:first-child {
