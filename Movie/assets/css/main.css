@@ -39,7 +39,7 @@
 }
 
 .header__video-img {
-  /* position: relative; */
+  position: relative;
   /* top: 0; */
   width: 100%;
 }
