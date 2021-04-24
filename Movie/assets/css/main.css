@@ -600,6 +600,7 @@ input[name="searchIp"] {
   flex-shrink: 0;
   margin-right: 6px;
   width: 18.4%;
+  cursor: pointer;
 }
 
 .row__img-link:first-child {

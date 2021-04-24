@@ -192,10 +192,15 @@ $(document).ready(function () {
                                             <span>Chi tiết</span>
                                         </button>
                                     </div>
+                                    <div class="hover-movie__info">
+                                        <span class="hm_info">2018</span>
+                                        <span class="hm_info">1g23p</span>
+                                        <span class="hm_info">HD</span>
+                                    </div>
                                 </div>`;
                 parent.after(addChild);
                 var hoverAf = $("#hover");
-                hoverAf.css("top", "-30px");
+                hoverAf.css("top", "-55px");
                 if (left < 50) {
                     hoverAf.css("left", margin + "px");
                     hoverAf.css("transform-origin", "left");
@@ -227,7 +232,7 @@ $(document).ready(function () {
                     if (isStop) { //Nếu bị cuộn dừng sẽ tự động chạy lại video
                         $("#myVideo").get(0).play();
                     }
-                }, 500);               
+                }, 500);
             });
             addStorage();
         });
@@ -250,47 +255,169 @@ $(document).ready(function () {
     //Only PC
     if ($(window).width() >= 1024) {
         hover_Home();
-        sliderHome();
+        //sliderHome();
+        sliderGe($("#topRow"));
+        sliderGe($("#secondRow"));
+        sliderGe($("#thirdRow"));
     }
-    // Slider
-    function sliderHome() {
-        $(".row__container").hover(function () {
-            const childNext = $(this).children(".row__item-next");
-            const childBack = $(this).children(".row__item-back");
-            childNext.css("display", "block");
-            childNext.css("transform", "translate(0)");
-            childBack.css("display", "block");
-            childBack.css("transform", "translate(0)");
-            //----------------
-            var slides = $(this).children(".row__container-sc");
-            var slide = slides.children(".row__img-link");
-            var currentIdx = 0;
-            var marginSlide = 6;
-            var slideCount = slide.length;
-            var slideWidth = slide.width();
-            var move = marginSlide + slideWidth;
-            //----------------
-            function moveSlide(index) {
-                slides.css({ transform: 'translateX(calc(-' + move*index + 'px)' });
-                currentIdx = index;
-            }
-            childNext.click(function () {
-                if (currentIdx <= slideCount - 6) {
-                    moveSlide(currentIdx + 1);
-                }
-            });
-            childBack.click(function () {
-                if (currentIdx > 0) {
-                    moveSlide(currentIdx - 1);
-                }
-            });
+    // hover hàng phim
+    function hoverRowMovie(parent, button) {
+        parent.hover(function () {
+            button.css("transform", "translate(0)");
+            button.css("display", "block");
         }, function () {
-            var childNext = $(this).children(".row__item-next");
-            var childBack = $(this).children(".row__item-back");
-            childNext.css("transform", "translate(100%)");
-            childBack.css("transform", "translate(-100%)");
-            childNext.css("display", "none");
-            childBack.css("display", "none");
+            button.css("transform", "translate(-100%)");
+            button.css("display", "none");
         });
     }
+    //Slider
+    function sliderGe(slideRan, jump) {
+        var childBtnNext = slideRan.children(".row__item-next"),
+            childBtnBack = slideRan.children(".row__item-back");
+
+        var slides = slideRan.children('.row__container-sc'),
+            slide = slides.children(".row__img-link"),
+            currentIdx = 0,
+            marginSlide = 6,
+            slideCount = slide.length,
+            slideWidth = slide.width(),
+            move = marginSlide + slideWidth;
+        var newSlideWidth;
+        var widthW = $(window).width();
+        var number;
+        if (widthW > 1023) {
+            number = 5;
+        } else if (widthW < 1024 && widthW > 739) {
+            number = 4;
+        } else if (widthW < 740 && widthW > 519) {
+            number = 3;
+        } else {
+            number = 2;
+        }
+
+        hoverRowMovie(slideRan, childBtnNext);
+
+        childBtnNext.click(function () {
+            if (currentIdx < (slideCount - number)) {
+                // Nếu số phim còn lại nhỏ hơn lượt lướt chuẩn
+                if (slideCount - currentIdx - number < number) {
+                    moveSlide(slideCount - number);
+                }
+                else {
+                    moveSlide(currentIdx + number);
+                }
+            }
+            if (currentIdx >= slideCount - number) {
+                setTimeout(() => {
+                    $(this).hide();
+                    slideRan.unbind();
+                    hoverRowMovie(slideRan, childBtnBack);
+                }, 400);
+            }
+            childBtnBack.css("transform", "translate(0)");
+            childBtnBack.css("display", "block");
+            hoverRowMovie(slideRan, childBtnBack);
+
+        });
+
+        childBtnBack.click(function () {
+            if (currentIdx > 0) {
+                if (currentIdx < number) {
+                    moveSlide(0);
+                } else {
+                    moveSlide(currentIdx - number);
+                }
+            }
+            if (currentIdx <= 0) {
+                setTimeout(() => {
+                    $(this).hide();
+                    slideRan.unbind();
+                    hoverRowMovie(slideRan, childBtnNext);
+                }, 400);
+            }
+            childBtnNext.css("transform", "translate(0)");
+            childBtnNext.css("display", "block");
+            hoverRowMovie(slideRan, childBtnNext);
+        });
+
+        function moveSlide(index) {
+            slides.css({ transition: 'all linear' })
+            slides.css({ transition: '0.5s' })
+            slides.css({ transform: 'translateX(calc(-' + move * index + 'px)' });
+            currentIdx = index;
+        }
+        // Responsive slider
+        $(window).resize(function () {
+            widthW = $(window).width();
+            if (widthW > 1023) {
+                number = 5;
+            } else if (widthW < 1024 && widthW > 739) {
+                number = 4;
+            } else if (widthW < 740 && widthW > 519) {
+                number = 3;
+            } else {
+                number = 2;
+            }
+            newSlideWidth = slide.width();
+            move = newSlideWidth + marginSlide;
+            slides.css({ transition: '0s' })
+            slides.css({ transform: 'translateX(calc(-' + move * currentIdx + 'px)' });
+        });
+    }
+    // function sliderHome() {
+    //     var childNext = $(".row__item-next"),
+    //         childBack = $(".row__item-back");
+        
+    //     var slides,
+    //         slide,
+    //         currentIdx = 0,
+    //         marginSlide = 6,
+    //         slideCount,
+    //         slideWidth,
+    //         newSlideWidth,
+    //         number,
+    //         move;
+
+    //     childNext.click(function () {
+    //         var slidesClick = $(this).parent().children(".row__container-sc");
+    //         slides = slidesClick;
+    //         slide = slides.children(".row__img-link");
+    //         slideCount = slide.length;
+    //         slideWidth = slide.width();
+    //         move = marginSlide + slideWidth;
+    //         if (currentIdx <= slideCount - 6) {
+    //             moveSlide(currentIdx + 1);
+    //         }
+    //     });
+
+    //     childBack.click(function () {
+    //         var slidesClick = $(this).parent().children(".row__container-sc");
+    //         slides = slidesClick;
+    //         slide = slides.children(".row__img-link");
+    //         slideCount = slide.length;
+    //         slideWidth = slide.width();
+    //         if (currentIdx > 0) {
+    //             moveSlide(currentIdx - 1);
+    //         }
+    //     });
+
+    //     function moveSlide(index) {
+    //         slides.css({ transition: 'all linear' })
+    //         slides.css({ transition: '0.5s' })
+    //         slides.css({ transform: 'translateX(calc(-' + move * index + 'px)' });
+    //         currentIdx = index;
+    //     }
+
+    //     // Responsive slider
+    //     $(window).resize(function () {
+    //         newSlideWidth = slide.width();
+    //         move = newSlideWidth + marginSlide;
+    //         slides.css({ transition: '0s' })
+    //         slides.css({ transform: 'translateX(calc(-' + move * currentIdx + 'px)' });
+    //         console.log(move);
+            
+    //     });
+    // }
+    
+    //console.log($(".row__container").get(0))
 });

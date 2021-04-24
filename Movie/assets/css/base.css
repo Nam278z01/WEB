@@ -13,7 +13,7 @@
   --black-color: #000;
   --black-color-sc: #111;
   --color-start: #15151500;
-  --color-end: #151515FF;
+  --color-end: #151515ff;
   /* --primary-color-sc: #141414;
   --primary-color-th: #212121;
   --primary-color-fr: #383838;
@@ -71,7 +71,6 @@ body {
   padding: 12px 32px;
   min-width: 120px;
   transition: filter 0.2s;
-  border-radius: 0px;
 }
 
 .button:hover {
@@ -95,6 +94,11 @@ body {
   padding: 10px;
   margin: 0 5px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
 }
 
 @keyframes growth {
@@ -185,6 +189,7 @@ body {
   justify-content: space-between;
   width: 100%;
   padding: 10px;
+  margin: 10px 0 0 0;
 }
 
 .hover-movie__button > .button {
@@ -198,6 +203,7 @@ body {
   color: var(--black-color);
   font-weight: bold;
 }
+
 .hover-movie__button--removelist,
 .button.hover-movie__button--addlist,
 .button.hover-movie__button--moreinfo {
@@ -211,4 +217,158 @@ body {
 .hover-movie__button > .button > span {
   font-size: 1.4rem;
 }
-/* Modal */
+
+.hover-movie__info {
+
+}
+
+.hm_info{
+  display: inline-block;
+  font-size: 1.6rem;
+  color: var(--white-color);
+  padding: 0px 10px;
+  margin: 20px 0;
+}
+
+.hm_info + .hm_info {
+  border-left: 1px solid var(--white-color-sc);
+}
+/* Modal box*/
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  animation: fadeIn linear 0.2s;
+  z-index: 200;
+  display: none;
+}
+
+.modal__overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--primary-color-sx);
+}
+
+.modal__body {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  animation: growth linear 0.2s;
+  overflow-y: auto;
+}
+
+.modal-movie {
+  margin: 3rem auto;
+  width: 70%;
+  background-color: var(--primary-color-sc);
+  border-radius: 6px;
+  position: relative;
+}
+
+.modal-turnoff.fas.fa-times {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 2.4rem;
+  color: var(--white-color-sc);
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: var(--primary-color-sv);
+  z-index: 205;
+  text-align: center;
+  line-height: 35px;
+}
+
+.modal-turnoff.fas.fa-times:hover {
+  cursor: pointer;
+  background-color: var(--primary-color-fn);
+}
+
+.modal-movie__header {
+  position: relative;
+}
+
+.hover-movie-link.modal-movie-link {
+  display: block;
+  height: auto;
+}
+
+.modal-movie__img,
+#modal-movie__video {
+  width: 100%;
+  object-fit: cover;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+#modal-movie__video {
+  display: none;
+}
+
+.header-movie__content {
+  position: absolute;
+  left: 0;
+  bottom: 7%;
+  z-index: 205;
+}
+
+.modal-movie__video-name {
+  width: 50%;
+  padding-left: 3%;
+}
+
+.modal-movie__button {
+  display: flex;
+  padding-left: 3%;
+  padding-top: 4%;
+  align-items: center;
+}
+
+.button.modal-movie__button--play {
+  background-color: var(--white-color);
+  color: var(--black-color);
+  font-weight: bold;
+}
+
+.button.modal-movie__button--removelist,
+.button.modal-movie__button--addlist {
+  border: 1px solid var(--white-color);
+  background-color: var(--primary-color-sv);
+  padding: 9px 32px;
+}
+
+/* .modal-movie__button .btn-icon {
+  margin-left: 10px;
+  border: 2px solid var(--white-color-sc);
+}
+
+.modal-movie__button .btn-icon:hover {
+  border: 2px solid var(--white-color)
+} */
+
+.modal-movie__button > .button > i {
+  font-size: 2.2rem;
+}
+
+.modal-movie__button > .button > span {
+  font-size: 1.6rem;
+}
+
+.btn-icon.header-movie-btn-i {
+  background-color: var(--primary-color-sv);
+  border-radius: 50%;
+  width: 5rem;
+  height: 5rem;
+  position: absolute;
+  right: 30px;
+  bottom: 5%;
+  display: none;
+  z-index: 205;
+  border-radius: 50%;
+}
+
+
