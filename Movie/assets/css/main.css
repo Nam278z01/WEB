@@ -36,6 +36,7 @@
     var(--primary-color-sc) 100%
   );
   z-index: 1;
+  display: none;
 }
 
 .header__video-img {
@@ -65,12 +66,15 @@
 }
 
 .header__video-name {
-  width: 288px;
-  height: 90px;
-  /* transform-origin: top;
-  transform: scale(0.6) translate3d(0px, 50px, 0px);
+  /* width: 288px;
+  height: 90px; */
+  width: 576px;
+  height: 180px;
+  transform-origin: bottom left;
+  /* transform: scale(0.6) translate3d(0px, 50px, 0px);
   transition-duration: 1300ms;
   transition-delay: 5000ms; */
+  animation: ZoomOut linear 1.3s 5s;
 }
 
 .header__video-info {
@@ -516,6 +520,22 @@ input[name="searchIp"] {
   padding-bottom: 60px;
 }
 
+.main::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 125px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(
+    180deg,
+    var(--color-start) 0,
+    var(--primary-color-sc) 100%
+  );
+  z-index: -1;
+}
+
 .main__row {
   margin-bottom: 30px;
   position: relative;
@@ -590,6 +610,7 @@ input[name="searchIp"] {
   width: 100%;
   height: 100%;
   transition: all linear 0.5s;
+  box-sizing: content-box;
 }
 
 .row__container::-webkit-scrollbar {
@@ -605,6 +626,10 @@ input[name="searchIp"] {
 
 .row__img-link:first-child {
   margin-left: 3%;
+}
+
+.row__img-link:last-child {
+  padding-right: 3%;
 }
 
 .row__wrap {

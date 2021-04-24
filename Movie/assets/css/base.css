@@ -128,6 +128,15 @@ body {
   }
 }
 
+@keyframes ZoomOut {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.6);
+  }
+}
+
 /* Hover phim */
 .hover-movie {
   width: 400px;

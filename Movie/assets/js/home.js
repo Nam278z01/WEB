@@ -1,4 +1,7 @@
 $(document).ready(function () {
+    setTimeout(function () {
+        $(".header__video-name").css("transform", "scale(0.6)");
+    }, 5000)
     // Scroll nav
     var isStop = true;//Nếu cuộn dừng sẽ false
     var isPlay = true;//False cuộn sẽ ko chạy video --> hàm Hover_Video
