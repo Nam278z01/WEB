@@ -177,20 +177,20 @@ $(document).ready(function () {
                                     <a href="#" class="hover-movie-link">
                                         <img src="./assets/img/image_big${number}.jpg" alt="" class="hover-movie__img">
                                         <video id="hover-movie__video">
-                                            <source src="./assets/video/video1.mp4" type="video/mp4">
+                                            <source src="./assets/video/video9.mp4" type="video/mp4">
                                         </video>
                                         <img src="./assets/img/image_name${number}.png" alt="" class="hover-movie__video-name">
                                     </a>
                                     <div class="hover-movie__button">
-                                        <button class="button hover-movie__button--play" title="Xem ngay Army of the dead">
+                                        <button class="button hover-movie__button--play">
                                             <i class="fas fa-play"></i>
                                             <span>Xem ngay</span>
                                         </button>
-                                        <button class="button hover-movie__button--addlist" title="Thêm vào danh sách của tôi">
+                                        <button class="button hover-movie__button--addlist">
                                             <i class="fas fa-plus"></i>
                                             <span>Danh sách</span>
                                         </button>
-                                        <button class="button hover-movie__button--moreinfo" href="#" title="Chi tiết Army of the dead">
+                                        <button class="button hover-movie__button--moreinfo">
                                             <i class="fas fa-info-circle"></i>
                                             <span>Chi tiết</span>
                                         </button>
@@ -203,7 +203,7 @@ $(document).ready(function () {
                                 </div>`;
                 parent.after(addChild);
                 var hoverAf = $("#hover");
-                hoverAf.css("top", "-55px");
+                hoverAf.css("top", "-40px");
                 if (left < 50) {
                     hoverAf.css("left", margin + "px");
                     hoverAf.css("transform-origin", "left");
@@ -367,60 +367,4 @@ $(document).ready(function () {
             slides.css({ transform: 'translateX(calc(-' + move * currentIdx + 'px)' });
         });
     }
-    // function sliderHome() {
-    //     var childNext = $(".row__item-next"),
-    //         childBack = $(".row__item-back");
-        
-    //     var slides,
-    //         slide,
-    //         currentIdx = 0,
-    //         marginSlide = 6,
-    //         slideCount,
-    //         slideWidth,
-    //         newSlideWidth,
-    //         number,
-    //         move;
-
-    //     childNext.click(function () {
-    //         var slidesClick = $(this).parent().children(".row__container-sc");
-    //         slides = slidesClick;
-    //         slide = slides.children(".row__img-link");
-    //         slideCount = slide.length;
-    //         slideWidth = slide.width();
-    //         move = marginSlide + slideWidth;
-    //         if (currentIdx <= slideCount - 6) {
-    //             moveSlide(currentIdx + 1);
-    //         }
-    //     });
-
-    //     childBack.click(function () {
-    //         var slidesClick = $(this).parent().children(".row__container-sc");
-    //         slides = slidesClick;
-    //         slide = slides.children(".row__img-link");
-    //         slideCount = slide.length;
-    //         slideWidth = slide.width();
-    //         if (currentIdx > 0) {
-    //             moveSlide(currentIdx - 1);
-    //         }
-    //     });
-
-    //     function moveSlide(index) {
-    //         slides.css({ transition: 'all linear' })
-    //         slides.css({ transition: '0.5s' })
-    //         slides.css({ transform: 'translateX(calc(-' + move * index + 'px)' });
-    //         currentIdx = index;
-    //     }
-
-    //     // Responsive slider
-    //     $(window).resize(function () {
-    //         newSlideWidth = slide.width();
-    //         move = newSlideWidth + marginSlide;
-    //         slides.css({ transition: '0s' })
-    //         slides.css({ transform: 'translateX(calc(-' + move * currentIdx + 'px)' });
-    //         console.log(move);
-            
-    //     });
-    // }
-    
-    //console.log($(".row__container").get(0))
 });

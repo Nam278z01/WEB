@@ -44,15 +44,14 @@
   }
 
   .header::after {
-    bottom: -54px;
+    bottom: -56px;
     display: block;
   }
-  
 
   .header__video-img {
     top: 55px;
   }
-  
+
   #myVideo {
     top: 55px;
   }
@@ -60,6 +59,10 @@
   .header__video-content {
     width: 93%;
     top: 80%;
+  }
+
+  .header__video-info {
+    -webkit-line-clamp: 2;
   }
 
   .content {
@@ -84,7 +87,6 @@
 
   .header__video-name {
     width: 300px;
-    height: 100px;
     margin: 0;
   }
 
@@ -127,7 +129,7 @@
 
   input[name="searchIp"] {
     flex-grow: 1;
-    width: auto;
+    width: 0;
   }
 
   #search-wrap {
@@ -199,8 +201,12 @@
   }
 
   .header__video-content {
-    width: 70%;
-    top: 0;
+    top: 35px;
+    width: 60%;
+  }
+
+  .header__video-name {
+    width: 400px;
   }
 
   .content {
@@ -227,7 +233,5 @@
 
 /* PC */
 @media (min-width: 1025px) {
-  .header__video-info {
-    -webkit-line-clamp: 3;
-  }
+
 }
