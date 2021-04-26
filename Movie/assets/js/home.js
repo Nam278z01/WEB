@@ -1,7 +1,7 @@
 $(document).ready(function () {
-    setTimeout(function () {
-        $(".header__video-name").css("transform", "scale(0.6)");
-    }, 6000)
+    $(".header__video-name").on("webkitAnimationEnd", function () {
+        $(this).css("transform", "scale(0.6)");
+    })
     // Scroll nav
     var isStop = true;//Nếu cuộn dừng sẽ false
     var isPlay = true;//False cuộn sẽ ko chạy video --> hàm Hover_Video
