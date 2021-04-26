@@ -12,10 +12,6 @@
     font-size: 1.2rem;
   }
 
-  .content {
-    top: 365px;
-  }
-
   /* My list */
   .row__container-sc-ge {
     grid-template-columns: 1fr 1fr;
@@ -30,9 +26,6 @@
     width: 30%;
   }
 
-  .content {
-    top: 310px;
-  }
   /* My list */
   .row__container-sc-ge {
     grid-template-columns: 1fr 1fr 1fr;
@@ -67,6 +60,10 @@
   .header__video-content {
     width: 93%;
     top: 80%;
+  }
+
+  .content {
+    top: 305px;
   }
 
   .btn-icon.header-btn-i {
@@ -130,6 +127,7 @@
 
   input[name="searchIp"] {
     flex-grow: 1;
+    width: auto;
   }
 
   #search-wrap {
@@ -229,4 +227,7 @@
 
 /* PC */
 @media (min-width: 1025px) {
+  .header__video-info {
+    -webkit-line-clamp: 3;
+  }
 }

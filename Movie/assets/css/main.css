@@ -75,6 +75,10 @@
   font-size: 1.6rem;
   line-height: 2rem;
   text-shadow: 2px 2px 4px rgb(0 0 0 / 45%);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .header__button {
