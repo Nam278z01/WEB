@@ -67,7 +67,7 @@ $(document).ready(function () {
                                     <a href="#" class="hover-movie-link">
                                         <img src="./assets/img/image_big${number}.jpg" alt="" class="hover-movie__img">
                                         <video id="hover-movie__video">
-                                            <source src="./assets/video/video1.mp4" type="video/mp4">
+                                            <source src="./assets/video/video${number}.mp4" type="video/mp4">
                                         </video>
                                         <img src="./assets/img/image_name${number}.png" alt="" class="hover-movie__video-name">
                                     </a>
@@ -84,6 +84,11 @@ $(document).ready(function () {
                                             <i class="fas fa-info-circle"></i>
                                             <span>Chi tiết</span>
                                         </button>
+                                        <div class="hover-movie__info">
+                                            <span class="hm_info">2018</span>
+                                            <span class="hm_info">1g 23p</span>
+                                            <span class="hm_info">HD</span>
+                                        </div>
                                     </div>
                                 </div>`;
                 parent.append(addChild);

@@ -177,7 +177,7 @@ $(document).ready(function () {
                                     <a href="#" class="hover-movie-link">
                                         <img src="./assets/img/image_big${number}.jpg" alt="" class="hover-movie__img">
                                         <video id="hover-movie__video">
-                                            <source src="./assets/video/video9.mp4" type="video/mp4">
+                                            <source src="./assets/video/video${number}.mp4" type="video/mp4">
                                         </video>
                                         <img src="./assets/img/image_name${number}.png" alt="" class="hover-movie__video-name">
                                     </a>
