@@ -5,6 +5,7 @@
 }
 
 .header {
+  position: relative;
 }
 
 .header::before {
@@ -41,7 +42,6 @@
 
 .header__video-img {
   position: relative;
-  /* top: 0; */
   width: 100%;
 }
 
@@ -50,8 +50,6 @@
 }
 
 #myVideo {
-  /* position: fixed; */
-  /* top: -42px; */
   width: 100%;
   display: none;
   position: relative;
@@ -59,21 +57,16 @@
 
 .header__video-content {
   position: absolute;
-  left: calc(3% + 4px);
-  top: 30%;
+  left: 3%;
+  top: 15%;
   z-index: 4;
-  width: 40%;
+  width: 50%;
 }
 
 .header__video-name {
-  /* width: 288px;
-  height: 90px; */
   width: 576px;
   height: 180px;
   transform-origin: bottom left;
-  /* transform: scale(0.6) translate3d(0px, 50px, 0px);
-  transition-duration: 1300ms;
-  transition-delay: 5000ms; */
   animation: ZoomOut linear 1.3s 5s;
 }
 
@@ -208,7 +201,10 @@
 }
 
 .nav__tablet-item > a {
+  width: 100%;
+  height: 100%;
   text-decoration: none;
+  display: flex;
 }
 
 .nav__tablet-item .fas,
@@ -218,10 +214,11 @@
 }
 
 .nav__tablet-icon {
-  display: inline-block;
+  display: flex;
   width: 30px;
   margin: 0 30px;
-  text-align: center;
+  align-items: center;
+  justify-content: center;
 }
 
 .nav__tablet-item-info {
@@ -233,11 +230,7 @@
   background-color: var(--primary-color-fr);
   cursor: pointer;
 }
-.nav__tablet-item > a {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
+
 .nav__tablet-item.nav__tablet-item--active {
   cursor: default;
   background-color: var(--primary-color-fr) !important;
@@ -503,18 +496,16 @@ input[name="searchIp"] {
 }
 
 .content {
-  position: absolute;
+  position: relative;
+  top: -70px;
   z-index: 5;
-  top: 90%;
-  right: 0;
-  left: 0;
   background-color: var(--primary-color-sc);
 }
 
 /* Main */
 .main {
   position: relative;
-  top: -100px;
+  top: -125px;
   z-index: 6;
   border-bottom: 1px solid var(--text-color);
   padding-bottom: 60px;
@@ -570,39 +561,17 @@ input[name="searchIp"] {
 .row__view-all {
   font-size: 1.4rem;
   color: var(--white-color);
-  padding: 0 20px;
+  padding: 0 0 0 20px;
   opacity: 0;
   transform: translateX(-50%);
   transition: all 0.5s;
   display: inline-block;
 }
 
-/* .row__container::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  height: 100%;
-  width: 3%;
-  background-color: var(--primary-color-sv);
-  z-index: 9;
-}
-
-.row__container::before {
-  content: "";
-  position: absolute;
-  right: 0;
-  height: 100%;
-  width: 3%;
-  background-color: var(--primary-color-sv);
-  z-index: 9;
-} */
-
 .row__container {
-  /* display: flex; */
   overflow-x: auto;
   width: 100%;
   position: relative;
-  /* height: 115px; */
 }
 
 .row__container-sc {
@@ -642,7 +611,7 @@ input[name="searchIp"] {
 }
 
 .row__img {
-  border-radius: 4px;
+  /* border-radius: 4px; */
   /* width: 205px; */
   width: 100%;
   /* height: 115px; */
@@ -667,7 +636,7 @@ input[name="searchIp"] {
   transition: transform 0.2s;
   display: none;
 }
-/* Dung 1 class row__item display:none ko tac dung???? */
+
 .btn-icon.row__item-next {
   background-image: linear-gradient(
     90deg,

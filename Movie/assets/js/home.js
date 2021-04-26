@@ -1,7 +1,7 @@
 $(document).ready(function () {
     setTimeout(function () {
         $(".header__video-name").css("transform", "scale(0.6)");
-    }, 5000)
+    }, 6000)
     // Scroll nav
     var isStop = true;//Nếu cuộn dừng sẽ false
     var isPlay = true;//False cuộn sẽ ko chạy video --> hàm Hover_Video
@@ -197,7 +197,7 @@ $(document).ready(function () {
                                     </div>
                                     <div class="hover-movie__info">
                                         <span class="hm_info">2018</span>
-                                        <span class="hm_info">1g23p</span>
+                                        <span class="hm_info">1g 23p</span>
                                         <span class="hm_info">HD</span>
                                     </div>
                                 </div>`;

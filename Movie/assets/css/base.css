@@ -1,11 +1,11 @@
 :root {
   --primary-color: rgb(229, 9, 20);
-  --primary-color-sc: #090c10;
+  /* --primary-color-sc: #090c10;
   --primary-color-th: rgb(13, 17, 23);
   --primary-color-fr: #21262d;
   --primary-color-fn: rgba(13, 17, 23, 0.8);
   --primary-color-sx: rgba(13, 17, 23, 0.6);
-  --primary-color-sv: rgba(13, 17, 23, 0.5);
+  --primary-color-sv: rgba(13, 17, 23, 0.5); */
   --text-color: #808080;
   --text-color-sc: #e5e5e5;
   --white-color: #fff;
@@ -14,12 +14,12 @@
   --black-color-sc: #111;
   --color-start: #15151500;
   --color-end: #151515ff;
-  /* --primary-color-sc: #141414;
+  --primary-color-sc: #141414;
   --primary-color-th: #212121;
   --primary-color-fr: #383838;
   --primary-color-fn: rgba(13, 17, 23, 0.8);
   --primary-color-sx: rgba(13, 17, 23, 0.6);
-  --primary-color-sv: rgba(13, 17, 23, 0.5); */
+  --primary-color-sv: rgba(13, 17, 23, 0.5);
 }
 
 * {
@@ -71,6 +71,7 @@ body {
   padding: 12px 32px;
   min-width: 120px;
   transition: filter 0.2s;
+  border-radius: 0;
 }
 
 .button:hover {
@@ -146,7 +147,7 @@ body {
   position: absolute;
   z-index: 10;
   top: 0;
-  border-radius: 6px;
+  /* border-radius: 6px; */
 }
 
 .hover-movie-link {
@@ -161,7 +162,7 @@ body {
   width: 100%;
   height: 230px;
   object-fit: cover;
-  border-radius: 6px;
+  /* border-radius: 6px; */
 }
 
 #hover-movie__video {
@@ -233,10 +234,11 @@ body {
 
 .hm_info{
   display: inline-block;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   color: var(--white-color);
   padding: 0px 10px;
   margin: 20px 0;
+  font-weight: 500;
 }
 
 .hm_info + .hm_info {
@@ -273,7 +275,7 @@ body {
   margin: 3rem auto;
   width: 70%;
   background-color: var(--primary-color-sc);
-  border-radius: 6px;
+  /* border-radius: 6px; */
   position: relative;
 }
 
@@ -350,15 +352,6 @@ body {
   padding: 9px 32px;
 }
 
-/* .modal-movie__button .btn-icon {
-  margin-left: 10px;
-  border: 2px solid var(--white-color-sc);
-}
-
-.modal-movie__button .btn-icon:hover {
-  border: 2px solid var(--white-color)
-} */
-
 .modal-movie__button > .button > i {
   font-size: 2.2rem;
 }
@@ -377,7 +370,6 @@ body {
   bottom: 5%;
   display: none;
   z-index: 205;
-  border-radius: 50%;
 }
 
 
