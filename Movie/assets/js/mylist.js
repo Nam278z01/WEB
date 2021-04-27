@@ -1,51 +1,4 @@
 $(document).ready(function () {
-    // Cuộn nav
-    function scrollNav() {
-        window.addEventListener('scroll', function (e) {
-            const nav = document.getElementById('my-nav');
-            const pos_body = $('html,body').scrollTop();
-            // -----------
-            if (pos_body > 50) {
-                nav.style.backgroundColor = "var(--primary-color-fn)";
-            }
-            else {
-                nav.style.backgroundColor = "transparent";
-            }
-        })
-    }
-    scrollNav();
-    // Nav mobile
-    function navMobile() {
-        var isDown = false;
-        var startX;
-        var scrollLeft;
-        const navMb = $(".nav-mobile-menu");
-        // ------------
-        navMb.mousedown(function (e) {
-            isDown = true;
-            startX = e.pageX;
-            scrollLeft = navMb.scrollLeft();
-        });
-        // ------------
-        navMb.mouseleave(function (e) {
-            isDown = false;
-        });
-        // ------------
-        navMb.mouseup(function (e) {
-            isDown = false;
-        });
-        // ------------
-        navMb.mousemove(function (e) {
-            if (!isDown) {
-                return
-            }
-            e.preventDefault();
-            const x = e.pageX;
-            const walk = startX - x;
-            navMb.scrollLeft(walk + scrollLeft);
-        })
-    }
-    navMobile();
     //hover general
     function hover_General() {
         var myTimeout;
@@ -84,11 +37,11 @@ $(document).ready(function () {
                                             <i class="fas fa-info-circle"></i>
                                             <span>Chi tiết</span>
                                         </button>
-                                        <div class="hover-movie__info">
-                                            <span class="hm_info">2018</span>
-                                            <span class="hm_info">1g 23p</span>
-                                            <span class="hm_info">HD</span>
-                                        </div>
+                                    </div>
+                                    <div class="hover-movie__info">
+                                        <span class="hm_info">2018</span>
+                                        <span class="hm_info">1g 23p</span>
+                                        <span class="hm_info">HD</span>
                                     </div>
                                 </div>`;
                 parent.append(addChild);
@@ -145,4 +98,27 @@ $(document).ready(function () {
     if ($(window).width() >= 1024) {
         hover_General();
     }
+    // Search
+    function searchMovie() {
+        var getMovies = $(".row__img-link-ge");
+        var input = $("#searchForm > input");
+        var filter;
+        input.keyup(function () {
+            filter = $(this).val().trim();
+            var countMovies = getMovies.length;
+            var i;
+            for (i = 0; i < countMovies; i++) {
+                var name = getMovies[i].getElementsByTagName('span');
+                var txtValue = name[0].innerHTML + " " + name[1].innerHTML;
+                if (txtValue.toUpperCase().includes(filter.toUpperCase())) {
+                    getMovies[i].style.display = "block";
+                } else {
+                    getMovies[i].style.display = "none";
+                }
+                // var movie = $(".row__img-link-ge:nth-child(" + i + ")");
+                // console.log(movie);
+            }
+        });
+    }
+    searchMovie();
 });

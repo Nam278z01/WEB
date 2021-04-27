@@ -91,6 +91,11 @@
   -webkit-line-clamp: 3;
 }
 
+.name-movie-vie,
+.name-movie-eng {
+  display: none;
+}
+
 .header__button {
   display: flex;
   align-items: center;

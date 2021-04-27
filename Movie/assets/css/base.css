@@ -257,7 +257,7 @@ body {
   bottom: 0;
   animation: fadeIn linear 0.2s;
   z-index: 200;
-  /* display: none; */
+  display: none;
 }
 
 .modal__overlay {
@@ -280,7 +280,7 @@ body {
   width: 950px;
   max-width: 100%;
   background-color: var(--primary-color-sc);
-  border-radius: 6px;
+  border-radius: 10px;
   position: relative;
 }
 
@@ -318,8 +318,8 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   position: absolute;
   top: 0;
   bottom: 0;
