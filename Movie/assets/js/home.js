@@ -201,7 +201,7 @@ $(document).ready(function () {
         });
     }
     //Slider
-    function sliderGe(slideRan, jump) {
+    function sliderGe(slideRan) {
         var childBtnNext = slideRan.children(".row__item-next"),
             childBtnBack = slideRan.children(".row__item-back");
 
@@ -279,9 +279,9 @@ $(document).ready(function () {
         // Responsive slider
         $(window).resize(function () {
             widthW = $(window).width();
-            if (widthW > 1023) {
+            if (widthW > 1024) {
                 number = 5;
-            } else if (widthW < 1024 && widthW > 739) {
+            } else if (widthW < 1025 && widthW > 739) {
                 number = 4;
             } else if (widthW < 740 && widthW > 519) {
                 number = 3;

@@ -66,7 +66,7 @@
   }
 
   .content {
-    top: 305px;
+    top: 325px;
   }
 
   .btn-icon.header-btn-i {
@@ -176,6 +176,24 @@
   }
 }
 
+/* @media (max-width: 1024px) {
+  .header__nav-menu-res {
+    display: none;
+  }
+  .header__nav-bar-icon.fas {
+    display: inline-block !important;
+    cursor: pointer;
+  }
+
+  .header__first-nav {
+    width: 20%;
+  }
+
+  .header__second-nav {
+    width: 80%;
+  }
+} */
+
 /* Tablet */
 @media (min-width: 740px) and (max-width: 1024px) {
   /* Home */
@@ -201,7 +219,8 @@
   }
 
   .header__video-content {
-    top: 35px;
+    /* top: 35px; */
+    /* bottom: 30%; */
     width: 60%;
   }
 

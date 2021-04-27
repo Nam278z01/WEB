@@ -51,7 +51,7 @@
 }
 
 .header__video-img,
-#myVideo {
+#myVideo { /*!aspect ratio 16:9*/
   width: 100%;
   height: 100%;
   position: absolute;
@@ -69,7 +69,8 @@
 .header__video-content {
   position: absolute;
   left: 3%;
-  top: 15%;
+  /* top: 15%; */
+  bottom: 35%; /*!Dùng bottom để ko bị đẩy xuống*/
   z-index: 4;
   width: 50%;
 }
@@ -183,8 +184,8 @@
   top: 0;
   left: 0;
   height: 100vh;
-  width: 320px;
-  max-width: 100%;
+  max-width: 320px;
+  width: 100%;
   background-color: var(--primary-color-th);
   transform: translateX(-100%);
   opacity: 0;
