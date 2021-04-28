@@ -1,1 +1,1 @@
-# Clone netflix for fun
+# Netflix clone for fun
