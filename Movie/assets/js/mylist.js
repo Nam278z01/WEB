@@ -6,7 +6,7 @@ $(document).ready(function () {
         var parent;
         $(".row__img-link-ge").mouseenter(function (e) {
             var src = $(this).find(".row__img").attr("src");
-            var number = src.charAt(src.length - 5);
+            var number = src.substr(src.length - 7, 3);
             var hover = $("#hover");
             if (hover) {
                 hover.remove();
@@ -65,7 +65,7 @@ $(document).ready(function () {
                     hoverVideo.show();
                     hoverVideo.get(0).play();
                 }, 2000)
-            }, 700);
+            }, 800);
         }).mouseleave(function () {
             clearTimeout(myTimeout);
             $("#hover").mouseleave(function () {
@@ -99,27 +99,4 @@ $(document).ready(function () {
     if ($(window).width() >= 1024) {
         hover_General();
     }
-    // Search
-    function searchMovie() {
-        var getMovies = $(".row__img-link-ge");
-        var input = $("#searchForm > input");
-        var filter;
-        input.keyup(function () {
-            filter = $(this).val().trim();
-            var countMovies = getMovies.length;
-            var i;
-            for (i = 0; i < countMovies; i++) {
-                var name = getMovies[i].getElementsByTagName('span');
-                var txtValue = name[0].innerHTML + " " + name[1].innerHTML;
-                if (txtValue.toUpperCase().includes(filter.toUpperCase())) {
-                    getMovies[i].style.display = "block";
-                } else {
-                    getMovies[i].style.display = "none";
-                }
-                // var movie = $(".row__img-link-ge:nth-child(" + i + ")");
-                // console.log(movie);
-            }
-        });
-    }
-    searchMovie();
 });

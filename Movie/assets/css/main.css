@@ -745,7 +745,7 @@ input[name="searchIp"] {
 }
 
 .row__header-general {
-  margin-bottom: 60px;
+  margin: 15px 0;
 }
 
 .row__container-general {
@@ -756,14 +756,20 @@ input[name="searchIp"] {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 6px;
+  grid-row-gap: 60px;
 }
 
 .row__img-link-ge {
-  margin: 0 0 60px 0;
   width: 100%;
   position: relative;
 }
 
 .row__img-link-ge:first-child {
   margin-left: 0;
+}
+/* Popular */
+.content-popular {
+  position: relative;
+  top: 230px;
+  background-color: var(--primary-color-sc);
 }

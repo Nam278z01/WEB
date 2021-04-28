@@ -148,7 +148,7 @@ $(document).ready(function () {
                     hoverVideo.show();
                     hoverVideo.get(0).play();
                 }, 2000)
-            }, 700)
+            }, 800)
         }).mouseleave(function () {
             clearTimeout(myTimeout);
             isPlay = true;
@@ -172,10 +172,10 @@ $(document).ready(function () {
     function addStorage() {
         $(".hover-movie__button--addlist").on('click', function (event) {
             var movie = $(this).parent().parent().find(".hover-movie__img").attr("src");
-            var number = movie.charAt(movie.length - 5);
+            var number = movie.substr(movie.length - 7, 3);
             var newMovie = "";
             var currentMyList = window.sessionStorage.getItem("movies");
-            if (sessionStorage.length > 1) {
+            if (currentMyList) {
                 newMovie = currentMyList + ',' + JSON.stringify(number);
             } else {
                 newMovie = JSON.stringify(number);
@@ -183,6 +183,23 @@ $(document).ready(function () {
             window.sessionStorage.setItem("movies", newMovie);
         });
     }
+    function searchMovie() {
+        var getMovies = $(".row__img-link");
+        var total = [];
+        for (const movie of getMovies) {
+            var movieDetail = movie.getElementsByTagName("img")[0];
+            var src = movieDetail.getAttribute("src");
+            var id = src.substr(src.length - 7, 3);
+            var name = movieDetail.getAttribute("alt");
+            var movieInfo = {
+                nameM: name,
+                idM: id
+            }
+            total.push(movieInfo);
+        }
+        sessionStorage.setItem("moviesSe", JSON.stringify(total));
+    }
+    searchMovie();
     //Only PC
     if ($(window).width() >= 1024) {
         hover_Home();

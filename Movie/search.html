@@ -78,8 +78,8 @@
                                     <span class="nav__tablet-item-info">Mới và Phổ biến</span>
                                 </a>
                             </li>
-                            <li class="nav__tablet-item nav__tablet-item--active">
-                                <a href="#">
+                            <li class="nav__tablet-item">
+                                <a href="./mylist.html">
                                     <div class="nav__tablet-icon">
                                         <i class="fas fa-archive"></i>
                                     </div>
@@ -148,8 +148,8 @@
                                 <li class="header__tap">
                                     <a href="./popular.html" class="header__tap-link">Mới và Phổ biến</a>
                                 </li>
-                                <li class="header__tap header__tap--active">
-                                    <a href="#" class="header__tap-link">Danh sách của tôi</a>
+                                <li class="header__tap">
+                                    <a href="./mylist.html" class="header__tap-link">Danh sách của tôi</a>
                                 </li>
                                 <li class="header__tap">
                                     <a href="./vip.html" class="header__tap-link">Vip</a>
@@ -183,10 +183,7 @@
                 </div>
                 <!-- Mobile nav -->
                 <div class="nav-mobile">
-                    <ul class="nav-mobile-menu">
-                        <li class="header__tap header__tap--active">
-                            <a href="#" class="header__tap-link">Danh sách của tôi</a>
-                        </li>
+                    <ul class="nav-mobile-menu">                        
                         <li class="header__tap">
                             <a href="index.html" class="header__tap-link">Trang chủ</a>
                         </li>
@@ -197,12 +194,15 @@
                             <a href="./movies.html" class="header__tap-link">Phim lẻ</a>
                         </li>
                         <li class="header__tap">
-                            <a href="#" class="header__tap-link">Thể loại
+                            <a href="./mylist.html" class="header__tap-link">Thể loại
                                 <i class="genres-icon fas fa-sort-down"></i>
                             </a>
                         </li>
                         <li class="header__tap">
                             <a href="./popular.html" class="header__tap-link">Mới và Phổ biến</a>
+                        </li>
+                        <li class="header__tap">
+                            <a href="#" class="header__tap-link">Danh sách của tôi</a>
                         </li>
                         <li class="header__tap">
                             <a href="./vip.html" class="header__tap-link">Vip</a>
@@ -217,51 +217,12 @@
                 <div class="main__row">
                     <div class="row__header row__header-general">
                         <span class="row__header-link">
-                            <h2 class="row__title">Danh Sách Của Tôi</h2>
+                            <h2 class="row__title">Danh Sách Cần Tìm</h2>
                         </span>
                     </div>
                     <div class="row__container-general">
-                        <div class="row__container-sc row__container-sc-ge" id="myList">
-                            <div class="row__img-link row__img-link-ge">
-                                <div class="row__wrap">
-                                    <img src="./assets/img/image002.jpg" alt="" class="row__img">
-                                </div>
-                            </div>
-                            <div class="row__img-link row__img-link-ge">
-                                <div class="row__wrap">
-                                    <img src="./assets/img/image004.jpg" alt="" class="row__img">
-                                </div>
-                            </div>
-                            <div class="row__img-link row__img-link-ge">
-                                <div class="row__wrap">
-                                    <img src="./assets/img/image005.jpg" alt="" class="row__img">
-                                </div>
-                            </div>
-                            <div class="row__img-link row__img-link-ge">
-                                <div class="row__wrap">
-                                    <img src="./assets/img/image006.jpg" alt="" class="row__img">
-                                </div>
-                            </div>
-                            <div class="row__img-link row__img-link-ge">
-                                <div class="row__wrap">
-                                    <img src="./assets/img/image008.jpg" alt="" class="row__img">
-                                </div>
-                            </div>
-                            <div class="row__img-link row__img-link-ge">
-                                <div class="row__wrap">
-                                    <img src="./assets/img/image009.jpg" alt="" class="row__img">
-                                </div>
-                            </div>
-                            <div class="row__img-link row__img-link-ge">
-                                <div class="row__wrap">
-                                    <img src="./assets/img/image010.jpg" alt="" class="row__img">
-                                </div>
-                            </div>
-                            <div class="row__img-link row__img-link-ge">
-                                <div class="row__wrap">
-                                    <img src="./assets/img/image011.jpg" alt="" class="row__img">
-                                </div>
-                            </div>
+                        <div class="row__container-sc row__container-sc-ge" id="search">
+                            
                         </div>
                     </div>
                 </div>
@@ -296,7 +257,7 @@
     </div>
 
     <script src="./assets/js/base.js"></script>
-    <script src="./assets/js/mylist.js"></script>
+    <script src="./assets/js/search.js"></script>
 </body>
 
 </html>
