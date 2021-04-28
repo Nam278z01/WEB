@@ -8,7 +8,7 @@ $(document).ready(function () {
         var data = JSON.parse(movies);
         var content = "";
         for (const dt of data) {
-            if (dt.nameM.toUpperCase().includes(search.toUpperCase())) {
+            if (dt.nameM.toUpperCase().includes(search.toUpperCase()) && search) {
                 content += `<div class="row__img-link row__img-link-ge">
                                 <div class="row__wrap">
                                     <img src="./assets/img/image${dt.idM}.jpg" alt="" class="row__img">
