@@ -51,7 +51,8 @@
 }
 
 .header__video-img,
-#myVideo { /*!aspect ratio 16:9*/
+#myVideo {
+  /*!aspect ratio 16:9*/
   width: 100%;
   height: 100%;
   position: absolute;
@@ -139,9 +140,9 @@
   height: 5rem;
   position: absolute;
   right: 30px;
-  bottom: 25%;
+  bottom: 27%;
   display: none;
-  z-index: 6;
+  z-index: 2;
 }
 
 .btn-icon.header-btn-i:hover {
@@ -302,7 +303,7 @@
 }
 
 .nav-mobile-menu::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 /*PC nav*/
@@ -611,18 +612,16 @@ input[name="searchIp"] {
   margin-right: 6px;
   width: 18.4%;
   cursor: pointer;
+  position: relative;
 }
 
 .row__img-link:first-child {
   margin-left: 3%;
 }
 
-.row__img-link:last-child {
-  padding-right: 3%;
-}
-
 .row__wrap {
   height: 100%;
+  width: 100%;
 }
 
 .row__wrap > a {
@@ -630,12 +629,29 @@ input[name="searchIp"] {
   display: block;
 }
 
+.row__wrap-rank {
+  text-align: right;
+}
+
+.row__img-rank {
+  position: absolute;
+  bottom: 6px;
+  left: -25px;
+  width: 60%;
+}
+
 .row__img {
   /* border-radius: 4px; */
-  /* width: 205px; */
   width: 100%;
-  /* height: 115px; */
   height: 100%;
+  margin-right: 20px;
+}
+
+.row__img-rank-sc {
+  width: 55%;
+  height: auto;
+  position: relative;
+  z-index: 10;
 }
 
 .btn-icon.row__item-back {
@@ -751,6 +767,3 @@ input[name="searchIp"] {
 .row__img-link-ge:first-child {
   margin-left: 0;
 }
-
-
-

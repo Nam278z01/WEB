@@ -90,7 +90,7 @@ $(document).ready(function () {
         var parent;
         $(".row__img-link").mouseenter(function (e) {
             var src = $(this).find(".row__img").attr("src");
-            var number = src.charAt(src.length - 5);
+            var number = src.substr(src.length - 7, 3);
             var hover = $("#hover");
             if (hover) {
                 hover.remove();
@@ -102,7 +102,7 @@ $(document).ready(function () {
             myTimeout = setTimeout(function () {
                 var addChild = `<div class="hover-movie" id="hover">
                                     <a href="#" class="hover-movie-link">
-                                        <img src="./assets/img/image_big${number}.jpg" alt="" class="hover-movie__img">
+                                        <img src="./assets/img/image${number}.jpg" alt="" class="hover-movie__img">
                                         <video id="hover-movie__video">
                                             <source src="./assets/video/video${number}.mp4" type="video/mp4">
                                         </video>
@@ -143,6 +143,7 @@ $(document).ready(function () {
                 $("#myVideo").get(0).pause();
                 var hoverVideo = $("#hover-movie__video");
                 myTimeout2 = setTimeout(function () {
+                    $(".hover-movie__video-name").show();
                     $(".hover-movie__img").hide();
                     hoverVideo.show();
                     hoverVideo.get(0).play();
@@ -187,8 +188,12 @@ $(document).ready(function () {
         hover_Home();
         //sliderHome();
         sliderGe($("#topRow"));
+        sliderGe($("#firstRow"));
         sliderGe($("#secondRow"));
         sliderGe($("#thirdRow"));
+        sliderGe($("#fourRow"));
+        sliderGe($("#fiveRow"));
+        sliderGe($("#sixRow"));
     }
     // hover hàng phim
     function hoverRowMovie(parent, button) {
@@ -224,8 +229,8 @@ $(document).ready(function () {
         } else {
             number = 2;
         }
-
-        hoverRowMovie(slideRan, childBtnNext);
+        if(number < slideCount)
+            hoverRowMovie(slideRan, childBtnNext);
 
         childBtnNext.click(function () {
             if (currentIdx < (slideCount - number)) {
@@ -287,6 +292,12 @@ $(document).ready(function () {
                 number = 3;
             } else {
                 number = 2;
+            }
+            if (number < slideCount)
+                hoverRowMovie(slideRan, childBtnNext);
+            else {
+                // $(this).hide();
+                // slideRan.unbind();
             }
             newSlideWidth = slide.width();
             move = newSlideWidth + marginSlide;

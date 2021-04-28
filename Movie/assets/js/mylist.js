@@ -18,7 +18,7 @@ $(document).ready(function () {
             myTimeout = setTimeout(function () {
                 var addChild = `<div class="hover-movie" id="hover">
                                     <a href="#" class="hover-movie-link">
-                                        <img src="./assets/img/image_big${number}.jpg" alt="" class="hover-movie__img">
+                                        <img src="./assets/img/image${number}.jpg" alt="" class="hover-movie__img">
                                         <video id="hover-movie__video">
                                             <source src="./assets/video/video${number}.mp4" type="video/mp4">
                                         </video>
@@ -60,6 +60,7 @@ $(document).ready(function () {
                 }
                 var hoverVideo = $("#hover-movie__video");
                 myTimeout2 = setTimeout(function () {
+                    $(".hover-movie__video-name").show();
                     $(".hover-movie__img").hide();
                     hoverVideo.show();
                     hoverVideo.get(0).play();

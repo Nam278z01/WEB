@@ -197,6 +197,7 @@ body {
   top: 130px;
   left: 10px;
   z-index: 21;
+  display: none;
 }
 
 .hover-movie__button {
