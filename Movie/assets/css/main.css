@@ -46,10 +46,6 @@
   width: 100%;
 }
 
-.header__img-mobile {
-  display: none;
-}
-
 .header__video-img,
 #myVideo {
   /*!aspect ratio 16:9*/
@@ -723,6 +719,7 @@ input[name="searchIp"] {
 }
 
 .footer__other {
+
 }
 
 .footer__title {

@@ -129,9 +129,7 @@ $(document).ready(function () {
             for (var i = 0; i < quantity; i++) {
                 var myListItem = `<div class="row__img-link row__img-link-ge">
                                         <div class="row__wrap">
-                                            <a href="#" class="">
-                                                <img src="./assets/img/image${data[i]}.jpg" alt="" class="row__img">
-                                            </a>
+                                            <img src="./assets/img/image${data[i]}.jpg" alt="" class="row__img">
                                         </div>
                                   </div>`;
                 myNewList += myListItem;

@@ -18,10 +18,9 @@ $(document).ready(function () {
         sliderGe($("#fiveRow"));
         sliderGe($("#sixRow"));
     }
-    // thu nhỏ tên movies
     $(".header__video-name").on("webkitAnimationEnd", function () {
-        $(this).css("transform", "scale(0.6)");
-    })
+        $(this).css("transform", "scale(0.65)");
+    });
     // Scroll nav
     var isStop = true;//Nếu cuộn dừng sẽ false
     var isPlay = true;//False cuộn sẽ ko chạy video --> hàm Hover_Video
@@ -30,7 +29,6 @@ $(document).ready(function () {
             const pos_body = $('html,body').scrollTop();
             const mVideo = $("#myVideo");
             const search = $("#search-wrap");
-            // -----------
             if (pos_body > 400) {
                 mVideo.get(0).pause();
                 isStop = false;
@@ -39,7 +37,6 @@ $(document).ready(function () {
                 mVideo.get(0).play();
                 isStop = true;
             }
-            // -----------
             if (search.show()) {
                 search.hide();
             }
@@ -47,69 +44,71 @@ $(document).ready(function () {
     }
     scrollNav();
     // ---------------
-    const headerImg = $(".header__video-img:first-child")
+    const headerImg = $(".header__video-img")
     const headerVideo = $("#myVideo");
     const btnMute = $(".header-btn-i:first-child");
     const btnSound = $(".header-btn-i:nth-child(2)");
     const btnReplay = $(".header-btn-i:last-child");
-    function showVideo() {
+    showVideo(headerImg, headerVideo, btnMute, btnSound, btnReplay, "imgActive");
+    // ---------------
+    //Bat tat video header
+    setInterval(function () {
+        if (headerVideo.get(0).currentTime >= headerVideo.get(0).duration - 13) {
+            btnReplay.show();
+            btnMute.hide();
+            btnSound.hide();
+            isPlay = false;
+            headerImg.removeClass("imgActive");
+            headerImg.removeClass("imgActiveSc");
+            headerImg.show();
+            headerVideo.get(0).pause();
+            headerVideo.hide();
+        }
+    }, 10000);
+    function showVideo(headerVImg, headerVVideo, btnVMute, btnVSound, btnVReplay, addClassA, movieName) {
+        headerVImg.addClass(addClassA);
+        headerVImg.on("webkitAnimationEnd", function () {
+            if (movieName) {
+                movieName.show();
+            }
+            headerVImg.hide();
+            headerVVideo.show();
+            headerVVideo.get(0).play();
+            btnVSound.show();
+        });
         // -----------
-        setTimeout(function () {
-            headerImg.hide();
-            headerVideo.show();
-            headerVideo.get(0).play();
-            btnSound.show();
-        }, 3000);
         // Tat tieng video header
-        btnSound.click(function (e) {
+        btnVSound.click(function (e) {
             $(this).hide();
-            btnMute.show();
-            headerVideo.prop('muted', true);
+            btnVMute.show();
+            headerVVideo.prop('muted', true);
         });
         // Bat tieng video header
-        btnMute.click(function (e) {
+        btnVMute.click(function (e) {
             $(this).hide();
-            btnSound.show();
-            headerVideo.prop('muted', false);
+            btnVSound.show();
+            headerVVideo.prop('muted', false);
         });
         // Xem lai video header
-        btnReplay.click(function (e) {
+        btnVReplay.click(function (e) {
+            headerVImg.addClass("imgActiveSc");
             $(this).hide();
-            if (headerVideo.get(0).muted == true) {
-                btnMute.show();
+            if (headerVVideo.get(0).muted == true) {
+                btnVMute.show();
             } else {
-                btnSound.show();
+                btnVSound.show();
             }
-            headerVideo.get(0).pause();
-            headerVideo.get(0).currentTime = 0;
-            headerVideo.get(0).play();
+            headerVVideo.get(0).currentTime = 0;
             isPlay = true;
-            headerImg.hide();
-            headerVideo.show();
         });
     }
-    showVideo();
-    function replayVideo() {
-        // Bat tat video header
-        setInterval(function () {
-            if ($("#myVideo").get(0).currentTime >= $("#myVideo").get(0).duration - 10) {
-                $(".header-btn-i:last-child").show();
-                $(".header-btn-i:first-child").hide();
-                $(".header-btn-i:nth-child(2)").hide();
-                isPlay = false;
-                headerImg.show();
-                headerVideo.hide();
-            }
-        }, 10000);
-    }
-    replayVideo();
     //hover Home
     function hover_Home() {
         var myTimeout;
-        var myTimeout2;
         var parent;
         var left;
         var width;
+        var mySetInterVal;
         $(".row__img-link").mouseenter(function (e) {
             width = $(this).width();
             var src = $(this).find(".row__img").attr("src");
@@ -138,13 +137,20 @@ $(document).ready(function () {
             parent = $(this).parent().parent();
             myTimeout = setTimeout(function () {
                 var addChild = `<div class="hover-movie" id="hover">
-                                    <a href="#" class="hover-movie-link">
-                                        <img src="./assets/img/image${number}.jpg" alt="" class="hover-movie__img">
-                                        <video id="hover-movie__video">
-                                            <source src="./assets/video/video${number}.mp4" type="video/mp4">
-                                        </video>
+                                    <div class="hover-movie-link">
+                                        <a href="#">
+                                            <img src="./assets/img/image${number}.jpg" alt="" class="hover-movie__img">
+                                            <video id="hover-movie__video">
+                                                <source src="./assets/video/video${number}.mp4" type="video/mp4">
+                                            </video>
+                                        </a>
                                         <img src="./assets/img/image_name${number}.png" alt="" class="hover-movie__video-name">
-                                    </a>
+                                        <div class="hover-movie__btn">
+                                            <button class="btn-icon hover-movie-btn-i fas fa-volume-mute"></button>
+                                            <button class="btn-icon hover-movie-btn-i fas fa-volume-up"></button>
+                                            <button class="btn-icon hover-movie-btn-i fas fa-undo"></button>
+                                        </div>
+                                    </div>
                                     <div class="hover-movie__button">
                                         <button class="button hover-movie__button--play">
                                             <i class="fas fa-play"></i>
@@ -179,22 +185,34 @@ $(document).ready(function () {
                     hoverAf.css("right", margin + "px");
                 }
                 $("#myVideo").get(0).pause();
-                var hoverVideo = $("#hover-movie__video");
-                myTimeout2 = setTimeout(function () {
-                    $(".hover-movie__video-name").show();
-                    $(".hover-movie__img").hide();
-                    hoverVideo.show();
-                    hoverVideo.get(0).play();
-                }, 2000)
+                const hoverImg = $(".hover-movie__img");
+                const hoverName = $(".hover-movie__video-name");
+                const hoverVideo = $("#hover-movie__video");
+                const btnHMute = $(".btn-icon.hover-movie-btn-i:first-child");
+                const btnHSound = $(".btn-icon.hover-movie-btn-i:nth-child(2)");
+                const btnHReplay = $(".btn-icon.hover-movie-btn-i:last-child");
+                showVideo(hoverImg, hoverVideo, btnHMute, btnHSound, btnHReplay, "imgActiveHv", hoverName);
+                mySetInterVal= setInterval(function () {
+                    if (hoverVideo.get(0).currentTime >= hoverVideo.get(0).duration - 13) {
+                        btnHReplay.show();
+                        btnHMute.hide();
+                        btnHSound.hide();
+                        hoverImg.removeClass("imgActiveHv");
+                        hoverImg.removeClass("imgActiveSc");
+                        hoverImg.show();
+                        hoverVideo.get(0).pause();
+                        hoverVideo.hide();
+                    }
+                }, 10000);
             }, 700)
         }).mouseleave(function () {
             clearTimeout(myTimeout);
+            clearInterval(mySetInterVal);
             isPlay = true;
             $("#hover").mouseenter(function () {
                 isPlay = false;
             })
             $("#hover").mouseleave(function () {
-                clearTimeout(myTimeout2);
                 if (left < 50) {
                     $(this).css("animation", "ZoomOut linear 0.15s");
                     $(this).css("transform-origin", "0% 80%");

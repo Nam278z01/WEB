@@ -6,6 +6,7 @@
   --primary-color-fn: rgba(13, 17, 23, 0.8);
   --primary-color-sx: rgba(13, 17, 23, 0.6);
   --primary-color-sv: rgba(13, 17, 23, 0.5);
+  --color-end: #090c10;
   --text-color: #808080;
   --text-color-sc: #e5e5e5;
   --white-color: #fff;
@@ -13,8 +14,8 @@
   --black-color: #000;
   --black-color-sc: #111;
   --color-start: #15151500;
-  --color-end: #151515ff;
-  /* --primary-color-sc: #141414;
+  /* --color-end: #151515ff;
+  --primary-color-sc: #141414;
   --primary-color-th: rgb(33, 33, 33);
   --primary-color-fr: #383838;
   --primary-color-fn: rgba(20, 20, 20, 0.8);
@@ -131,6 +132,15 @@ body {
   }
 }
 
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 @keyframes ZoomOut {
   from {
     transform: scale(1);
@@ -140,11 +150,23 @@ body {
   }
 }
 
+.imgActive {
+  animation: fadeOut linear 0.5s 2.5s;
+}
+
+.imgActiveHv {
+  animation: fadeOut linear 0.5s 1s;
+}
+
+.imgActiveSc {
+  animation: fadeOut linear 0.5s;
+}
+
 /* Hover phim */
 .hover-movie {
   width: 400px;
   background-color: var(--primary-color-sc);
-  animation: growth ease-in 0.2s;
+  animation: growth ease-in 0.15s;
   box-shadow: rgb(0, 0, 0, 0.75) 0px 3px 10px;
   position: absolute;
   z-index: 20;
@@ -202,6 +224,27 @@ body {
   display: none;
 }
 
+.hover-movie__btn {
+  
+}
+
+.btn-icon.hover-movie-btn-i {
+  position: absolute;
+  bottom: 20px;
+  right: 10px;
+  z-index: 21;
+  background-color: var(--primary-color-sv);
+  border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
+  font-size: 1.8rem;
+  display: none;
+}
+
+.btn-icon.hover-movie-btn-i:hover {
+  background-color: var(--primary-color-fn);
+}
+
 .hover-movie__button {
   display: flex;
   justify-content: space-between;
@@ -237,6 +280,7 @@ body {
 }
 
 .hover-movie__info {
+
 }
 
 .hm_info {
@@ -283,7 +327,7 @@ body {
   width: 950px;
   max-width: 100%;
   background-color: var(--primary-color-sc);
-  border-radius: 10px;
+  /* border-radius: 10px; */
   position: relative;
 }
 
@@ -372,6 +416,10 @@ body {
 
 .modal-movie__button > .button > span {
   font-size: 1.6rem;
+}
+
+.header-movie__btn {
+
 }
 
 .btn-icon.header-movie-btn-i {
