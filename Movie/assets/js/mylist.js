@@ -78,13 +78,14 @@ $(document).ready(function () {
                 var hoverAf = $("#hover");
                 if (left < 50) {
                     hoverAf.css("left", margin + "px");
-                    hoverAf.css("transform-origin", "left");
+                    hoverAf.css("transform-origin", "0% 71%");
                     hoverAf.css("top", top + "px");
                 } else if (left < $(window).width() - 300) {
                     hoverAf.css("left", left - (400-width)/2 + "px");
                     hoverAf.css("top", top + "px");
+                    hoverAf.css("transform-origin", "50% 71%");
                 } else {
-                    hoverAf.css("transform-origin", "right");
+                    hoverAf.css("transform-origin", "100% 71%");
                     hoverAf.css("top", top + "px");
                     hoverAf.css("right", margin + "px");
                 }

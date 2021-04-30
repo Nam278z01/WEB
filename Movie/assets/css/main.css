@@ -646,7 +646,7 @@ input[name="searchIp"] {
   height: 100%;
 }
 
-.row__img:last-child  {
+.row__img-link:last-child .row__img  {
   margin-right: 20px;
 }
 

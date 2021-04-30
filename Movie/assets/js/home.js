@@ -170,11 +170,12 @@ $(document).ready(function () {
                 hoverAf.css("top", "-40px");
                 if (left < 50) {
                     hoverAf.css("left", margin + "px");
-                    hoverAf.css("transform-origin", "left");
+                    hoverAf.css("transform-origin", "0% 80%");
                 } else if (left < $(window).width() - 300) {
-                    hoverAf.css("left", left - (400-width)/2 + "px");
+                    hoverAf.css("left", left - (400 - width) / 2 + "px");
+                    hoverAf.css("transform-origin", "50% 80%");
                 } else {
-                    hoverAf.css("transform-origin", "right");
+                    hoverAf.css("transform-origin", "100% 80%");
                     hoverAf.css("right", margin + "px");
                 }
                 $("#myVideo").get(0).pause();
