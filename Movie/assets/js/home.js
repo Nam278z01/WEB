@@ -97,15 +97,15 @@ $(document).ready(function () {
             var hover = $("#hover");
             if (hover) {
                 if (left < 50) {
-                    hover.css("animation", "ZoomOut linear 0.2s");
+                    hover.css("animation", "ZoomOut linear 0.15s");
                     hover.css("transform-origin", "0% 80%");
 
                 } else if (left < $(window).width() - 300) {
-                    hover.css("animation", "ZoomOut linear 0.2s");
+                    hover.css("animation", "ZoomOut linear 0.15s");
                     hover.css("transform-origin", "50% 80%");
 
                 } else {
-                    hover.css("animation", "ZoomOut linear 0.2s");
+                    hover.css("animation", "ZoomOut linear 0.15s");
                     hover.css("transform-origin", "100% 80%");
                 }
                 hover.on("webkitAnimationEnd", function () {
@@ -165,7 +165,7 @@ $(document).ready(function () {
                     hoverVideo.show();
                     hoverVideo.get(0).play();
                 }, 2000)
-            }, 800)
+            }, 700)
         }).mouseleave(function () {
             clearTimeout(myTimeout);
             isPlay = true;
@@ -175,13 +175,13 @@ $(document).ready(function () {
             $("#hover").mouseleave(function () {
                 clearTimeout(myTimeout2);
                 if (left < 50) {
-                    $(this).css("animation", "ZoomOut linear 0.2s");
+                    $(this).css("animation", "ZoomOut linear 0.15s");
                     $(this).css("transform-origin", "0% 80%");
                 } else if (left < $(window).width() - 300) {
-                    $(this).css("animation", "ZoomOut linear 0.2s");
+                    $(this).css("animation", "ZoomOut linear 0.15s");
                     $(this).css("transform-origin", "50% 80%");
                 } else {
-                    $(this).css("animation", "ZoomOut linear 0.2s");
+                    $(this).css("animation", "ZoomOut linear 0.15s");
                     $(this).css("transform-origin", "100% 80%");
                 }
                 $(this).on("webkitAnimationEnd", function () {
