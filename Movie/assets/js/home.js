@@ -88,16 +88,33 @@ $(document).ready(function () {
         var myTimeout;
         var myTimeout2;
         var parent;
+        var left;
+        var width;
         $(".row__img-link").mouseenter(function (e) {
+            width = $(this).width();
             var src = $(this).find(".row__img").attr("src");
             var number = src.substr(src.length - 7, 3);
             var hover = $("#hover");
             if (hover) {
-                hover.remove();
+                if (left < 50) {
+                    hover.css("animation", "ZoomOut linear 0.2s");
+                    hover.css("transform-origin", "0% 80%");
+
+                } else if (left < $(window).width() - 300) {
+                    hover.css("animation", "ZoomOut linear 0.2s");
+                    hover.css("transform-origin", "50% 80%");
+
+                } else {
+                    hover.css("animation", "ZoomOut linear 0.2s");
+                    hover.css("transform-origin", "100% 80%");
+                }
+                hover.on("webkitAnimationEnd", function () {
+                    hover.remove();
+                })
             }
             isPlay = false;
             var margin = $(window).width() * 3 / 100;
-            var left = $(this).offset().left;
+            left = $(this).offset().left;
             parent = $(this).parent().parent();
             myTimeout = setTimeout(function () {
                 var addChild = `<div class="hover-movie" id="hover">
@@ -135,7 +152,7 @@ $(document).ready(function () {
                     hoverAf.css("left", margin + "px");
                     hoverAf.css("transform-origin", "left");
                 } else if (left < $(window).width() - 300) {
-                    hoverAf.css("left", left - 111 + 37 + "px");
+                    hoverAf.css("left", left - (400-width)/2 + "px");
                 } else {
                     hoverAf.css("transform-origin", "right");
                     hoverAf.css("right", margin + "px");
@@ -157,7 +174,19 @@ $(document).ready(function () {
             })
             $("#hover").mouseleave(function () {
                 clearTimeout(myTimeout2);
-                $(this).remove();
+                if (left < 50) {
+                    $(this).css("animation", "ZoomOut linear 0.2s");
+                    $(this).css("transform-origin", "0% 80%");
+                } else if (left < $(window).width() - 300) {
+                    $(this).css("animation", "ZoomOut linear 0.2s");
+                    $(this).css("transform-origin", "50% 80%");
+                } else {
+                    $(this).css("animation", "ZoomOut linear 0.2s");
+                    $(this).css("transform-origin", "100% 80%");
+                }
+                $(this).on("webkitAnimationEnd", function () {
+                    $(this).remove();
+                })
                 isPlay = true;
                 setTimeout(function () {
                     if (isStop) { //Nếu bị cuộn dừng sẽ tự động chạy lại video
@@ -201,7 +230,7 @@ $(document).ready(function () {
     }
     searchMovie();
     //Only PC
-    if ($(window).width() >= 1024) {
+    if ($(window).width() > 1024) {
         hover_Home();
         //sliderHome();
         sliderGe($("#topRow"));

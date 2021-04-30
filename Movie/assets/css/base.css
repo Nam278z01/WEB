@@ -25,6 +25,9 @@
 * {
   box-sizing: inherit;
   font-family: "Roboto", sans-serif;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 html {
@@ -104,7 +107,7 @@ body {
 
 @keyframes growth {
   from {
-    transform: scale(0.7);
+    transform: scale(0.64);
   }
   to {
     transform: scale(1);
@@ -134,7 +137,7 @@ body {
     transform: scale(1);
   }
   to {
-    transform: scale(0.6);
+    transform: scale(0.65);
   }
 }
 

@@ -4,15 +4,33 @@ $(document).ready(function () {
         var myTimeout;
         var myTimeout2;
         var parent;
+        var left;
+        var width;
         $(".row__img-link-ge").mouseenter(function (e) {
+            width = $(this).width();
             var src = $(this).find(".row__img").attr("src");
             var number = src.substr(src.length - 7, 3);
             var hover = $("#hover");
             if (hover) {
-                hover.remove();
+                if (left < 50) {
+                    hover.css("animation", "ZoomOut linear 0.2s");
+                    hover.css("transform-origin", "0% 71%");
+
+
+                } else if (left < $(window).width() - 300) {
+                    hover.css("animation", "ZoomOut linear 0.2s");
+                    hover.css("transform-origin", "50% 83%");
+
+                } else {
+                    hover.css("animation", "ZoomOut linear 0.2s");
+                    hover.css("transform-origin", "100% 71%");
+                }
+                hover.on("webkitAnimationEnd", function () {
+                    hover.remove();
+                })
             }
             var margin = $(window).width() * 3 / 100;
-            var left = $(this).offset().left;
+            left = $(this).offset().left;
             var top = $(this).offset().top - 190;
             parent = $(this).parent().parent();
             myTimeout = setTimeout(function () {
@@ -51,7 +69,7 @@ $(document).ready(function () {
                     hoverAf.css("transform-origin", "left");
                     hoverAf.css("top", top + "px");
                 } else if (left < $(window).width() - 300) {
-                    hoverAf.css("left", left - 111 + 37 + "px");
+                    hoverAf.css("left", left - (400-width)/2 + "px");
                     hoverAf.css("top", top + "px");
                 } else {
                     hoverAf.css("transform-origin", "right");
@@ -70,7 +88,22 @@ $(document).ready(function () {
             clearTimeout(myTimeout);
             $("#hover").mouseleave(function () {
                 clearTimeout(myTimeout2);
-                $(this).remove();
+                if (left < 50) {
+                    $(this).css("animation", "ZoomOut linear 0.2s");
+                    $(this).css("transform-origin", "0% 71%");
+
+
+                } else if (left < $(window).width() - 300) {
+                    $(this).css("animation", "ZoomOut linear 0.2s");
+                    $(this).css("transform-origin", "50% 71%");
+                    // $(this).css("transform", "scale(0.65)");
+                } else {
+                    $(this).css("animation", "ZoomOut linear 0.2s");
+                    $(this).css("transform-origin", "100% 71%");
+                }
+                $(this).on("webkitAnimationEnd", function () {
+                    $(this).remove();
+                })
             });
         });
     }
@@ -96,7 +129,7 @@ $(document).ready(function () {
         $("#myList").append(myNewList);
     }
     addList();
-    if ($(window).width() >= 1024) {
+    if ($(window).width() > 1024) {
         hover_General();
     }
 });
