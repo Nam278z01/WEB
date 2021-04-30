@@ -142,7 +142,7 @@
   right: 30px;
   bottom: 27%;
   display: none;
-  z-index: 2;
+  z-index: 4;
 }
 
 .btn-icon.header-btn-i:hover {
@@ -636,7 +636,7 @@ input[name="searchIp"] {
 .row__img-rank {
   position: absolute;
   bottom: 6px;
-  left: -25px;
+  left: -10px;
   width: 60%;
 }
 

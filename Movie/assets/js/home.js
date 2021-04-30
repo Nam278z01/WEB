@@ -1,4 +1,24 @@
 $(document).ready(function () {
+    if (navigator.userAgent.match(/Android/i)
+        || navigator.userAgent.match(/webOS/i)
+        || navigator.userAgent.match(/iPhone/i)
+        || navigator.userAgent.match(/iPad/i)
+        || navigator.userAgent.match(/iPod/i)
+        || navigator.userAgent.match(/BlackBerry/i)
+        || navigator.userAgent.match(/Windows Phone/i)) {
+
+    }
+    else {
+        hover_Home();
+        sliderGe($("#topRow"));
+        sliderGe($("#firstRow"));
+        sliderGe($("#secondRow"));
+        sliderGe($("#thirdRow"));
+        sliderGe($("#fourRow"));
+        sliderGe($("#fiveRow"));
+        sliderGe($("#sixRow"));
+    }
+    // thu nhỏ tên movies
     $(".header__video-name").on("webkitAnimationEnd", function () {
         $(this).css("transform", "scale(0.6)");
     })
@@ -229,18 +249,6 @@ $(document).ready(function () {
         sessionStorage.setItem("moviesSe", JSON.stringify(total));
     }
     searchMovie();
-    //Only PC
-    if ($(window).width() > 1024) {
-        hover_Home();
-        //sliderHome();
-        sliderGe($("#topRow"));
-        sliderGe($("#firstRow"));
-        sliderGe($("#secondRow"));
-        sliderGe($("#thirdRow"));
-        sliderGe($("#fourRow"));
-        sliderGe($("#fiveRow"));
-        sliderGe($("#sixRow"));
-    }
     // hover hàng phim
     function hoverRowMovie(parent, button) {
         parent.hover(function () {

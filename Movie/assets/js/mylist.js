@@ -1,4 +1,16 @@
 $(document).ready(function () {
+    if (navigator.userAgent.match(/Android/i)
+        || navigator.userAgent.match(/webOS/i)
+        || navigator.userAgent.match(/iPhone/i)
+        || navigator.userAgent.match(/iPad/i)
+        || navigator.userAgent.match(/iPod/i)
+        || navigator.userAgent.match(/BlackBerry/i)
+        || navigator.userAgent.match(/Windows Phone/i)) {
+
+    }
+    else {
+        hover_General();
+    }
     //hover general
     function hover_General() {
         var myTimeout;
@@ -91,12 +103,10 @@ $(document).ready(function () {
                 if (left < 50) {
                     $(this).css("animation", "ZoomOut linear 0.15s");
                     $(this).css("transform-origin", "0% 71%");
-
-
+                    // $(this).css("transform", "scale(0.65)");
                 } else if (left < $(window).width() - 300) {
                     $(this).css("animation", "ZoomOut linear 0.15s");
                     $(this).css("transform-origin", "50% 71%");
-                    // $(this).css("transform", "scale(0.65)");
                 } else {
                     $(this).css("animation", "ZoomOut linear 0.15s");
                     $(this).css("transform-origin", "100% 71%");
@@ -129,7 +139,4 @@ $(document).ready(function () {
         $("#myList").append(myNewList);
     }
     addList();
-    if ($(window).width() > 1024) {
-        hover_General();
-    }
 });
