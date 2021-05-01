@@ -16,8 +16,14 @@
   .row__container-sc-ge {
     grid-template-columns: 1fr 1fr;
   }
+
   .row__img-link-ge {
     width: 97.5%;
+  }
+
+  /* Modal */
+  .modal-recommend__img-link {
+    width: 47.2%;
   }
 }
 @media (min-width: 520px) and (max-width: 739px) {
@@ -32,6 +38,11 @@
   }
   .row__img-link-ge {
     width: 97.5%;
+  }
+
+  /* Modal */
+  .modal-recommend__img-link {
+    width: 31.7%;
   }
 }
 /* Phone */
@@ -247,6 +258,11 @@
   }
   .row__img-link-ge {
     width: 97.5%;
+  }
+
+  /* Modal */
+  .modal-recommend__img-link {
+    /* width: 31.7%; */
   }
 }
 

@@ -10,13 +10,13 @@ $(document).ready(function () {
     }
     else {
         hover_Home();
-        sliderGe($("#topRow"));
-        sliderGe($("#firstRow"));
-        sliderGe($("#secondRow"));
-        sliderGe($("#thirdRow"));
-        sliderGe($("#fourRow"));
-        sliderGe($("#fiveRow"));
-        sliderGe($("#sixRow"));
+        sliderGe($("#firstRow"), ".row__item-next", ".row__item-back", '.row__container-sc', ".row__img-link");
+        sliderGe($("#topRow"), ".row__item-next", ".row__item-back", '.row__container-sc', ".row__img-link");
+        sliderGe($("#secondRow"), ".row__item-next", ".row__item-back", '.row__container-sc', ".row__img-link");
+        sliderGe($("#thirdRow"), ".row__item-next", ".row__item-back", '.row__container-sc', ".row__img-link");
+        sliderGe($("#fourRow"), ".row__item-next", ".row__item-back", '.row__container-sc', ".row__img-link");
+        sliderGe($("#fiveRow"), ".row__item-next", ".row__item-back", '.row__container-sc', ".row__img-link");
+        sliderGe($("#sixRow"), ".row__item-next", ".row__item-back", '.row__container-sc', ".row__img-link");
     }
     $(".header__video-name").on("webkitAnimationEnd", function () {
         $(this).css("transform", "scale(0.65)");
@@ -204,7 +204,7 @@ $(document).ready(function () {
                         hoverVideo.hide();
                     }
                 }, 10000);
-            }, 700)
+            }, 800)
         }).mouseleave(function () {
             clearTimeout(myTimeout);
             clearInterval(mySetInterVal);
@@ -279,23 +279,23 @@ $(document).ready(function () {
         });
     }
     //Slider
-    function sliderGe(slideRan) {
-        var childBtnNext = slideRan.children(".row__item-next"),
-            childBtnBack = slideRan.children(".row__item-back");
+    function sliderGe(slideRan, slBtnNext, slBtnBack, slChSlides, slChSlide) {
+        var childBtnNext = slideRan.children(slBtnNext),
+            childBtnBack = slideRan.children(slBtnBack);
 
-        var slides = slideRan.children('.row__container-sc'),
-            slide = slides.children(".row__img-link"),
+        var slides = slideRan.children(slChSlides),
+            slide = slides.children(slChSlide),
             currentIdx = 0,
             marginSlide = 6,
             slideCount = slide.length,
             slideWidth = slide.width(),
             move = marginSlide + slideWidth;
         var newSlideWidth;
-        var widthW = $(window).width();
+        var widthW = slideRan.parent().width();
         var number;
-        if (widthW > 1023) {
+        if (widthW > 1024) {
             number = 5;
-        } else if (widthW < 1024 && widthW > 739) {
+        } else if (widthW < 1025 && widthW > 739) {
             number = 4;
         } else if (widthW < 740 && widthW > 519) {
             number = 3;
@@ -314,6 +314,8 @@ $(document).ready(function () {
                 else {
                     moveSlide(currentIdx + number);
                 }
+                console.log(slideWidth)
+
             }
             if (currentIdx >= slideCount - number) {
                 setTimeout(() => {
@@ -356,7 +358,7 @@ $(document).ready(function () {
         }
         // Responsive slider
         $(window).resize(function () {
-            widthW = $(window).width();
+            widthW = slideRan.parent().width();
             if (widthW > 1024) {
                 number = 5;
             } else if (widthW < 1025 && widthW > 739) {
@@ -366,11 +368,11 @@ $(document).ready(function () {
             } else {
                 number = 2;
             }
-            if (number < slideCount)
+            if (slideCount - currentIdx - number > 0)
                 hoverRowMovie(slideRan, childBtnNext);
             else {
-                // $(this).hide();
-                // slideRan.unbind();
+                slideRan.unbind();
+                hoverRowMovie(slideRan, childBtnBack);
             }
             newSlideWidth = slide.width();
             move = newSlideWidth + marginSlide;
@@ -378,4 +380,44 @@ $(document).ready(function () {
             slides.css({ transform: 'translateX(calc(-' + move * currentIdx + 'px)' });
         });
     }
+    // Modal
+    var modal = document.getElementById(".modal");
+    $(window).click(function (e) {
+        if (e.target == modal) {
+            alert("clm")
+            $("body").css("overflow", "auto");
+            $(".modal").hide();
+            $("#myVideo").get(0).play();
+        }
+    })
+    $(".modal-turnoff").click(function () {
+        $("body").css("overflow", "auto");
+        $(".modal").hide();
+        // $("#myVideo").get(0).play();
+        $("#modal-movie__video").get(0).pause();
+    })
+    $(".button.button--moreinfo").click(function () {
+        $("body").css("overflow", "hidden");
+        $(".modal").show();
+        sliderGe($("#recommendMovies"), ".row__item-next", ".row__item-back", ".modal-recommend__container-sc", ".modal-recommend__img-link");
+    })
+    $(".row__img-link").click(function () {
+        var src = $(this).find(".row__img").attr("src");
+        var number = src.substr(src.length - 7, 3);
+        $(".modal-movie__img").attr("src", "./assets/img/image_big" + number + ".jpg");
+        $(".modal-movie__video-name").attr("src", "./assets/img/image_name" + number + ".png");
+        $("#modal-movie__video").attr("src", "./assets/video/video" + number + ".mp4");
+        $("body").css("overflow", "hidden");
+        $(".modal").show();
+        sliderGe($("#recommendMovies"), ".row__item-next", ".row__item-back", ".modal-recommend__container-sc", ".modal-recommend__img-link");
+        $("#myVideo").get(0).pause();
+        const headerMImg = $(".modal-movie__img")
+        const headerMVideo = $("#modal-movie__video");
+        console.log(headerMVideo)
+        const btnMMute = $(".header-movie-btn-i:first-child");
+        const btnMSound = $(".header-movie-btn-i:nth-child(2)");
+        const btnMReplay = $(".header-movie-btn-i:last-child");
+        headerMVideo.get(0).play();
+        showVideo(headerMImg, headerMVideo, btnMMute, btnMSound, btnMReplay, "imgActive")
+    })
 });
