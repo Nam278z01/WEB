@@ -4,14 +4,6 @@
     width: 45%;
   }
 
-  .row__title {
-    font-size: 1.4rem;
-  }
-
-  .row__view-all {
-    font-size: 1.2rem;
-  }
-
   /* My list */
   .row__container-sc-ge {
     grid-template-columns: 1fr 1fr;
@@ -159,10 +151,6 @@
 
   #search-wrap > button {
     display: block;
-  }
-
-  .row__title {
-    font-size: 1.8rem;
   }
 
   .footer {

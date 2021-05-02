@@ -18,6 +18,27 @@
         href="https://fonts.googleapis.com/css2?family=Allura&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
     <script src="./assets/js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            function searchMovie() {
+                var getMovies = $(".row__img-link");
+                var total = [];
+                for (const movie of getMovies) {
+                    var movieDetail = movie.getElementsByTagName("img")[0];
+                    var src = movieDetail.getAttribute("src");
+                    var id = src.substr(src.length - 7, 3);
+                    var name = movieDetail.getAttribute("alt");
+                    var movieInfo = {
+                        nameM: name,
+                        idM: id
+                    }
+                    total.push(movieInfo);
+                }
+                sessionStorage.setItem("moviesSe", JSON.stringify(total));
+            }
+            searchMovie()
+        });
+    </script>
 </head>
 
 <body>
@@ -25,14 +46,16 @@
         <header class="header">
             <!-- Video -->
             <div class="header__video">
-                <img src="./assets/img/image_big014.jpg" alt="Liên minh công lý|Zack Snyder Justice League" class="header__video-img">
+                <img src="./assets/img/image_big014.jpg" alt="Liên minh công lý|Zack Snyder Justice League"
+                    class="header__video-img">
                 <video id="myVideo">
                     <source src="./assets/video/video014.mp4" type="video/mp4">
                 </video>
                 <div class="header__video-content">
                     <img src="./assets/img/image_name014.png" alt="" class="header__video-name">
                     <p class="header__video-info">
-                        Trái Đất đã đóng băng. Những người sống sót cuối cùng phải ở trên một con tàu khổng lồ chạy quanh thế giới, chật vật để
+                        Trái Đất đã đóng băng. Những người sống sót cuối cùng phải ở trên một con tàu khổng lồ chạy
+                        quanh thế giới, chật vật để
                         cùng tồn tại trước sự cân bằng mong manh trên tàu.
                     </p>
                     <div class="header__button">
@@ -258,42 +281,49 @@
                         <div class="row__container-sc">
                             <div class="row__img-link">
                                 <div class="row__wrap">
-                                    <img src="./assets/img/image002.jpg" alt="1|Love, death and robot|Tình yêu, cái chết và người máy" class="row__img">
+                                    <img src="./assets/img/image002.jpg"
+                                        alt="1|0|1|Love, death and robot|Tình yêu, cái chết và người máy" class="row__img">
                                 </div>
                             </div>
                             <div class="row__img-link">
                                 <div class="row__wrap">
-                                    <img src="./assets/img/image004.jpg" alt="1|Black mirror|Gương đen" class="row__img">
+                                    <img src="./assets/img/image004.jpg" alt="1|0|1|Black mirror|Gương đen"
+                                        class="row__img">
                                 </div>
                             </div>
                             <div class="row__img-link">
                                 <div class="row__wrap">
-                                    <img src="./assets/img/image005.jpg" alt="1|Academy Umbrella|Học viện cây dù" class="row__img">
+                                    <img src="./assets/img/image005.jpg" alt="1|0|1|Academy Umbrella|Học viện cây dù"
+                                        class="row__img">
                                 </div>
                             </div>
                             <div class="row__img-link">
                                 <div class="row__wrap">
-                                    <img src="./assets/img/image006.jpg" alt="1|Stranger things|Cậu bé mất tích" class="row__img">
+                                    <img src="./assets/img/image006.jpg" alt="1|0|1|Stranger things|Cậu bé mất tích"
+                                        class="row__img">
                                 </div>
                             </div>
                             <div class="row__img-link">
                                 <div class="row__wrap">
-                                    <img src="./assets/img/image008.jpg" alt="1|Sense8|Siêu giác quan" class="row__img">
+                                    <img src="./assets/img/image008.jpg" alt="1|0|1|Sense8|Siêu giác quan" class="row__img">
                                 </div>
                             </div>
                             <div class="row__img-link">
                                 <div class="row__wrap">
-                                    <img src="./assets/img/image009.jpg" alt="0|Liên minh công lý|Zack Snyder Justice League" class="row__img">
+                                    <img src="./assets/img/image009.jpg"
+                                        alt="0|0|1|Liên minh công lý|Zack Snyder Justice League" class="row__img">
                                 </div>
                             </div>
                             <div class="row__img-link">
                                 <div class="row__wrap">
-                                    <img src="./assets/img/image010.jpg" alt="1|Altered carbon|Linh hồn đổi xác" class="row__img">
+                                    <img src="./assets/img/image010.jpg" alt="1|0|1|Altered carbon|Linh hồn đổi xác"
+                                        class="row__img">
                                 </div>
                             </div>
                             <div class="row__img-link">
                                 <div class="row__wrap">
-                                    <img src="./assets/img/image011.jpg" alt="1|Lost in space|Lạc ngoài không gian" class="row__img">
+                                    <img src="./assets/img/image011.jpg" alt="1|0|1|Lost in space|Lạc ngoài không gian"
+                                        class="row__img">
                                 </div>
                             </div>
                         </div>
@@ -314,17 +344,20 @@
                         <div class="row__container-sc">
                             <div class="row__img-link">
                                 <div class="row__wrap">
-                                    <img src="./assets/img/image012.jpg" alt="0|The hobbit|Người hobbit: hành trình vô định" class="row__img">
+                                    <img src="./assets/img/image012.jpg"
+                                        alt="0|0|0|The hobbit|Người hobbit: hành trình vô định" class="row__img">
                                 </div>
                             </div>
                             <div class="row__img-link">
                                 <div class="row__wrap">
-                                    <img src="./assets/img/image013.jpg" alt="1|Friends|Những người bạn" class="row__img">
+                                    <img src="./assets/img/image013.jpg" alt="1|0|0|Friends|Những người bạn"
+                                        class="row__img">
                                 </div>
                             </div>
                             <div class="row__img-link">
                                 <div class="row__wrap">
-                                    <img src="./assets/img/image014.jpg" alt="1|Snow Piercer|Chuyến tàu băng giá" class="row__img">
+                                    <img src="./assets/img/image014.jpg" alt="1|0|0|Snow Piercer|Chuyến tàu băng giá"
+                                        class="row__img">
                                 </div>
                             </div>
                         </div>
@@ -333,7 +366,7 @@
                 <div class="main__row">
                     <div class="row__header">
                         <a href="#" class="row__header-link">
-                            <h2 class="row__title">TOP 10 NMovies</h2>
+                            <h2 class="row__title">Top 10 NMovies</h2>
                         </a>
                     </div>
                     <div class="row__container" id="topRow">
@@ -342,62 +375,82 @@
                         <div class="row__container-sc">
                             <div class="row__img-link">
                                 <div class="row__wrap row__wrap-rank">
-                                    <img src="./assets/img/image_doc040.jpg" alt="1|Vincenzo" class="row__img row__img-rank-sc">
-                                    <img src="https://static.vieon.vn/vieon-web-v4/assets/img/sprites/number_001.svg" alt="" class="row__img-rank">
+                                    <img src="./assets/img/image_doc040.jpg" alt="1|0|0|Vincenzo"
+                                        class="row__img row__img-rank-sc">
+                                    <img src="https://static.vieon.vn/vieon-web-v4/assets/img/sprites/number_001.svg"
+                                        alt="" class="row__img-rank">
                                 </div>
                             </div>
                             <div class="row__img-link">
                                 <div class="row__wrap  row__wrap-rank">
-                                    <img src="./assets/img/image_doc041.jpg" alt="1|Shawdow and bone" class="row__img row__img-rank-sc">
-                                    <img src="https://static.vieon.vn/vieon-web-v4/assets/img/sprites/number_002.svg" alt="" class="row__img-rank">
+                                    <img src="./assets/img/image_doc041.jpg" alt="1|0|0|Shawdow and bone"
+                                        class="row__img row__img-rank-sc">
+                                    <img src="https://static.vieon.vn/vieon-web-v4/assets/img/sprites/number_002.svg"
+                                        alt="" class="row__img-rank">
                                 </div>
                             </div>
                             <div class="row__img-link">
                                 <div class="row__wrap row__wrap-rank">
-                                    <img src="./assets/img/image_doc042.jpg" alt="1|Law school|Trường luật" class="row__img row__img-rank-sc">
-                                    <img src="https://static.vieon.vn/vieon-web-v4/assets/img/sprites/number_003.svg" alt="" class="row__img-rank">
+                                    <img src="./assets/img/image_doc042.jpg" alt="1|0|0|Law school|Trường luật"
+                                        class="row__img row__img-rank-sc">
+                                    <img src="https://static.vieon.vn/vieon-web-v4/assets/img/sprites/number_003.svg"
+                                        alt="" class="row__img-rank">
                                 </div>
                             </div>
                             <div class="row__img-link">
                                 <div class="row__wrap row__wrap-rank">
-                                    <img src="./assets/img/image_doc043.jpg" alt="0|Shazam" class="row__img row__img-rank-sc">
-                                    <img src="https://static.vieon.vn/vieon-web-v4/assets/img/sprites/number_004.svg" alt="" class="row__img-rank">
+                                    <img src="./assets/img/image_doc043.jpg" alt="0|0|0|Shazam"
+                                        class="row__img row__img-rank-sc">
+                                    <img src="https://static.vieon.vn/vieon-web-v4/assets/img/sprites/number_004.svg"
+                                        alt="" class="row__img-rank">
                                 </div>
                             </div>
                             <div class="row__img-link">
                                 <div class="row__wrap row__wrap-rank">
-                                    <img src="./assets/img/image_doc044.jpg" alt="1|Bạn trai tôi là hồ ly" class="row__img row__img-rank-sc">
-                                    <img src="https://static.vieon.vn/vieon-web-v4/assets/img/sprites/number_005.svg" alt="" class="row__img-rank">
+                                    <img src="./assets/img/image_doc044.jpg" alt="1|0|0|Bạn trai tôi là hồ ly"
+                                        class="row__img row__img-rank-sc">
+                                    <img src="https://static.vieon.vn/vieon-web-v4/assets/img/sprites/number_005.svg"
+                                        alt="" class="row__img-rank">
                                 </div>
                             </div>
                             <div class="row__img-link">
                                 <div class="row__wrap row__wrap-rank">
-                                    <img src="./assets/img/image_doc045.jpg" alt="0|Homunculus" class="row__img row__img-rank-sc">
-                                    <img src="https://static.vieon.vn/vieon-web-v4/assets/img/sprites/number_006.svg" alt="" class="row__img-rank">
+                                    <img src="./assets/img/image_doc045.jpg" alt="0|0|0|Homunculus"
+                                        class="row__img row__img-rank-sc">
+                                    <img src="https://static.vieon.vn/vieon-web-v4/assets/img/sprites/number_006.svg"
+                                        alt="" class="row__img-rank">
                                 </div>
                             </div>
                             <div class="row__img-link">
                                 <div class="row__wrap row__wrap-rank">
-                                    <img src="./assets/img/image_doc046.jpg" alt="0|The dead don't die" class="row__img row__img-rank-sc">
-                                    <img src="https://static.vieon.vn/vieon-web-v4/assets/img/sprites/number_007.svg" alt="" class="row__img-rank">
+                                    <img src="./assets/img/image_doc046.jpg" alt="0|0|0|The dead don't die"
+                                        class="row__img row__img-rank-sc">
+                                    <img src="https://static.vieon.vn/vieon-web-v4/assets/img/sprites/number_007.svg"
+                                        alt="" class="row__img-rank">
                                 </div>
                             </div>
                             <div class="row__img-link">
                                 <div class="row__wrap row__wrap-rank">
-                                    <img src="./assets/img/image_doc047.jpg" alt="0|The Twilight|Chạng vạng" class="row__img row__img-rank-sc">
-                                    <img src="https://static.vieon.vn/vieon-web-v4/assets/img/sprites/number_008.svg" alt="" class="row__img-rank">
+                                    <img src="./assets/img/image_doc047.jpg" alt="0|0|0|The Twilight|Chạng vạng"
+                                        class="row__img row__img-rank-sc">
+                                    <img src="https://static.vieon.vn/vieon-web-v4/assets/img/sprites/number_008.svg"
+                                        alt="" class="row__img-rank">
                                 </div>
                             </div>
                             <div class="row__img-link">
                                 <div class="row__wrap row__wrap-rank">
-                                    <img src="./assets/img/image_doc015.jpg" alt="0|Love and monster|Tình yêu và quái vật" class="row__img row__img-rank-sc">
-                                    <img src="https://static.vieon.vn/vieon-web-v4/assets/img/sprites/number_009.svg" alt="" class="row__img-rank">
+                                    <img src="./assets/img/image_doc015.jpg"
+                                        alt="0|0|0|Love and monster|Tình yêu và quái vật" class="row__img row__img-rank-sc">
+                                    <img src="https://static.vieon.vn/vieon-web-v4/assets/img/sprites/number_009.svg"
+                                        alt="" class="row__img-rank">
                                 </div>
                             </div>
                             <div class="row__img-link">
                                 <div class="row__wrap row__wrap-rank">
-                                    <img src="./assets/img/image_doc048.jpg" alt="0|Minions" class="row__img row__img-rank-sc">
-                                    <img src="https://static.vieon.vn/vieon-web-v4/assets/img/sprites/number_010.svg" alt="" class="row__img-rank">
+                                    <img src="./assets/img/image_doc048.jpg" alt="0|0|0|Minions"
+                                        class="row__img row__img-rank-sc">
+                                    <img src="https://static.vieon.vn/vieon-web-v4/assets/img/sprites/number_010.svg"
+                                        alt="" class="row__img-rank">
                                 </div>
                             </div>
                         </div>
@@ -406,7 +459,7 @@
                 <div class="main__row">
                     <div class="row__header">
                         <a href="#" class="row__header-link">
-                            <h2 class="row__title">Thịnh Hành</h2>
+                            <h2 class="row__title">Thịnh hành</h2>
                             <span class="row__view-all">Xem tất cả
                                 <i class="fas fa-chevron-right"></i>
                             </span>
@@ -418,27 +471,31 @@
                         <div class="row__container-sc">
                             <div class="row__img-link">
                                 <div class="row__wrap">
-                                    <img src="./assets/img/image003.jpg" alt="0|John Wick|Sát thủ John Wick" class="row__img">
+                                    <img src="./assets/img/image003.jpg" alt="0|0|0|John Wick|Sát thủ John Wick"
+                                        class="row__img">
                                 </div>
                             </div>
                             <div class="row__img-link">
                                 <div class="row__wrap">
-                                    <img src="./assets/img/image007.jpg" alt="0|Catch me if you can|Bắt tôi nếu có thể" class="row__img">
+                                    <img src="./assets/img/image007.jpg" alt="0|0|0|Catch me if you can|Bắt tôi nếu có thể"
+                                        class="row__img">
                                 </div>
                             </div>
                             <div class="row__img-link">
                                 <div class="row__wrap">
-                                    <img src="./assets/img/image016.jpg" alt="1|Pacific Rim|Vùng tối" class="row__img">
+                                    <img src="./assets/img/image016.jpg" alt="1|0|0|Pacific Rim|Vùng tối" class="row__img">
                                 </div>
                             </div>
                             <div class="row__img-link">
                                 <div class="row__wrap">
-                                    <img src="./assets/img/image017.jpg" alt="1|The witcher|Thợ săn quái vật" class="row__img">
+                                    <img src="./assets/img/image017.jpg" alt="1|0|0|The witcher|Thợ săn quái vật"
+                                        class="row__img">
                                 </div>
                             </div>
                             <div class="row__img-link">
                                 <div class="row__wrap">
-                                    <img src="./assets/img/image018.jpg" alt="0|Aquaman|Aquaman: Đế vương Atlantis" class="row__img">
+                                    <img src="./assets/img/image018.jpg" alt="0|0|0|Aquaman|Aquaman: Đế vương Atlantis"
+                                        class="row__img">
                                 </div>
                             </div>
                         </div>
@@ -459,32 +516,35 @@
                         <div class="row__container-sc">
                             <div class="row__img-link">
                                 <div class="row__wrap">
-                                    <img src="./assets/img/image019.jpg" alt="0|Outside the wire|Vùng chiến sự hiểm nguy" class="row__img">
+                                    <img src="./assets/img/image019.jpg"
+                                        alt="0|0|0|Outside the wire|Vùng chiến sự hiểm nguy" class="row__img">
                                 </div>
                             </div>
                             <div class="row__img-link">
                                 <div class="row__wrap">
-                                    <img src="./assets/img/image020.jpg" alt="1|Bridgerton" class="row__img">
+                                    <img src="./assets/img/image020.jpg" alt="1|0|0|Bridgerton" class="row__img">
                                 </div>
                             </div>
                             <div class="row__img-link">
                                 <div class="row__wrap">
-                                    <img src="./assets/img/image021.jpg" alt="0|Bố già" class="row__img">
+                                    <img src="./assets/img/image021.jpg" alt="0|0|0|Bố già" class="row__img">
                                 </div>
                             </div>
                             <div class="row__img-link">
                                 <div class="row__wrap">
-                                    <img src="./assets/img/image022.jpg" alt="1|Thunder force|Bộ đôi sấm sét" class="row__img">
+                                    <img src="./assets/img/image022.jpg" alt="1|0|0|Thunder force|Bộ đôi sấm sét"
+                                        class="row__img">
                                 </div>
                             </div>
                             <div class="row__img-link">
                                 <div class="row__wrap">
-                                    <img src="./assets/img/image023.jpg" alt="1|The Crown|Hoàng quyền" class="row__img">
+                                    <img src="./assets/img/image023.jpg" alt="1|0|0|The Crown|Hoàng quyền" class="row__img">
                                 </div>
                             </div>
                             <div class="row__img-link">
                                 <div class="row__wrap">
-                                    <img src="./assets/img/image024.jpg" alt="0|Project power|Dự án siêu năng lục" class="row__img">
+                                    <img src="./assets/img/image024.jpg" alt="0|0|0|Project power|Dự án siêu năng lục"
+                                        class="row__img">
                                 </div>
                             </div>
                         </div>
@@ -505,42 +565,48 @@
                         <div class="row__container-sc">
                             <div class="row__img-link">
                                 <div class="row__wrap">
-                                    <img src="./assets/img/image032.jpg" alt="1|Dont f*ck with my cat|Đừng đùa với mèo" class="row__img">
+                                    <img src="./assets/img/image032.jpg" alt="1|0|0|Dont f*ck with my cat|Đừng đùa với mèo"
+                                        class="row__img">
                                 </div>
                             </div>
                             <div class="row__img-link">
                                 <div class="row__wrap">
-                                    <img src="./assets/img/image033.jpg" alt="1|Sherlock" class="row__img">
+                                    <img src="./assets/img/image033.jpg" alt="1|0|0|Sherlock" class="row__img">
                                 </div>
                             </div>
                             <div class="row__img-link">
                                 <div class="row__wrap">
-                                    <img src="./assets/img/image034.jpg" alt="1|Better call Saul|Hãy gọi cho Saul" class="row__img">
+                                    <img src="./assets/img/image034.jpg" alt="1|0|0|Better call Saul|Hãy gọi cho Saul"
+                                        class="row__img">
                                 </div>
                             </div>
                             <div class="row__img-link">
                                 <div class="row__wrap">
-                                    <img src="./assets/img/image035.jpg" alt="1|Breaking bad|Tập làm người xấu" class="row__img">
+                                    <img src="./assets/img/image035.jpg" alt="1|0|0|Breaking bad|Tập làm người xấu"
+                                        class="row__img">
                                 </div>
                             </div>
                             <div class="row__img-link">
                                 <div class="row__wrap">
-                                    <img src="./assets/img/image036.jpg" alt="1|House of cards|Ván bài chính trị" class="row__img">
+                                    <img src="./assets/img/image036.jpg" alt="1|0|0|House of cards|Ván bài chính trị"
+                                        class="row__img">
                                 </div>
                             </div>
                             <div class="row__img-link">
                                 <div class="row__wrap">
-                                    <img src="./assets/img/image037.jpg" alt="1|Family guys" class="row__img">
+                                    <img src="./assets/img/image037.jpg" alt="1|0|0|Family guys" class="row__img">
                                 </div>
                             </div>
                             <div class="row__img-link">
                                 <div class="row__wrap">
-                                    <img src="./assets/img/image038.jpg" alt="1|Shawdowhunter|Thợ săn bóng đêm" class="row__img">
+                                    <img src="./assets/img/image038.jpg" alt="1|0|0|Shawdowhunter|Thợ săn bóng đêm"
+                                        class="row__img">
                                 </div>
                             </div>
                             <div class="row__img-link">
                                 <div class="row__wrap">
-                                    <img src="./assets/img/image039.jpg" alt="1|Outlander|Người ngoại quốc" class="row__img">
+                                    <img src="./assets/img/image039.jpg" alt="1|0|0|Outlander|Người ngoại quốc"
+                                        class="row__img">
                                 </div>
                             </div>
                         </div>
@@ -549,7 +615,7 @@
                 <div class="main__row">
                     <div class="row__header">
                         <a href="#" class="row__header-link">
-                            <h2 class="row__title">hành động & phiêu lưu</h2>
+                            <h2 class="row__title">Vip</h2>
                             <span class="row__view-all">Xem tất cả
                                 <i class="fas fa-chevron-right"></i>
                             </span>
@@ -561,37 +627,45 @@
                         <div class="row__container-sc">
                             <div class="row__img-link">
                                 <div class="row__wrap">
-                                    <img src="./assets/img/image025.jpg" alt="0|Ready player one|Đấu trường ảo" class="row__img">
+                                    <img src="./assets/img/image025.jpg" alt="0|1|0|Ready player one|Đấu trường ảo" class="row__img">
+                                    <img src="./assets/img/iconvip.png" alt="vip" class="movies-vip">
                                 </div>
                             </div>
                             <div class="row__img-link">
                                 <div class="row__wrap">
-                                    <img src="./assets/img/image026.jpg" alt="0|The old guard|Những chiến binh bất tử" class="row__img">
+                                    <img src="./assets/img/image026.jpg" alt="0|1|0|The old guard|Những chiến binh bất tử"
+                                        class="row__img">
+                                    <img src="./assets/img/iconvip.png" alt="vip" class="movies-vip">
                                 </div>
                             </div>
                             <div class="row__img-link">
                                 <div class="row__wrap">
-                                    <img src="./assets/img/image027.jpg" alt="0|Sinh tử luân hồi" class="row__img">
+                                    <img src="./assets/img/image027.jpg" alt="0|1|0|Sinh tử luân hồi" class="row__img">
+                                    <img src="./assets/img/iconvip.png" alt="vip" class="movies-vip">
                                 </div>
                             </div>
                             <div class="row__img-link">
                                 <div class="row__wrap">
-                                    <img src="./assets/img/image028.jpg" alt="0|Tyler Rake nhiệm vụ giải cứu" class="row__img">
+                                    <img src="./assets/img/image028.jpg" alt="0|1|0|Tyler Rake nhiệm vụ giải cứu" class="row__img">
+                                    <img src="./assets/img/iconvip.png" alt="vip" class="movies-vip">
                                 </div>
                             </div>
                             <div class="row__img-link">
                                 <div class="row__wrap">
-                                    <img src="./assets/img/image029.jpg" alt="0|Bloodshot" class="row__img">
+                                    <img src="./assets/img/image029.jpg" alt="0|1|0|Bloodshot" class="row__img">
+                                    <img src="./assets/img/iconvip.png" alt="vip" class="movies-vip">
                                 </div>
                             </div>
                             <div class="row__img-link">
                                 <div class="row__wrap">
-                                    <img src="./assets/img/image030.jpg" alt="0|The martian|Người về từ sao Hỏa" class="row__img">
+                                    <img src="./assets/img/image030.jpg" alt="0|1|0|The martian|Người về từ sao Hỏa" class="row__img">
+                                    <img src="./assets/img/iconvip.png" alt="vip" class="movies-vip">
                                 </div>
                             </div>
                             <div class="row__img-link">
                                 <div class="row__wrap">
-                                    <img src="./assets/img/image031.jpg" alt="1|Prison break|Vượt ngục" class="row__img">
+                                    <img src="./assets/img/image031.jpg" alt="1|1|0|Prison break|Vượt ngục" class="row__img">
+                                    <img src="./assets/img/iconvip.png" alt="vip" class="movies-vip">
                                 </div>
                             </div>
                         </div>
@@ -681,7 +755,8 @@
                                 <span>3g 54ph</span>
                             </div>
                             <p class="info-left__main">
-                                Để cái chết của Siêu Nhân không phí hoài, Người Dơi cùng Nữ thần Chiến binh lên kế hoạch chiêu mộ một nhóm người cường
+                                Để cái chết của Siêu Nhân không phí hoài, Người Dơi cùng Nữ thần Chiến binh lên kế hoạch
+                                chiêu mộ một nhóm người cường
                                 hóa để bảo vệ thế giới khỏi mối đe dọa khủng khiếp sắp tới.
                             </p>
                         </div>
@@ -689,7 +764,7 @@
                             <div class="info-right__first">
                                 <a href="#modal__comment" class="info-right-comment">
                                     <i class="far fa-comment-dots"></i>
-                                    <span>Bình luận</span> 
+                                    <span>Bình luận</span>
                                 </a>
                                 <div class="info-right-share">
                                     <i class="far fa-share-square"></i>
@@ -724,13 +799,16 @@
                             <span>Đề xuất cho bạn</span>
                         </div>
                         <div class="modal-recommend__container" id="recommendMovies">
-                            <button class="btn-icon fas fa-chevron-left row__item-back modal-recommend__item-back"></button>
-                            <button class="btn-icon fas fa-chevron-right row__item-next modal-recommend__item-next"></button>
+                            <button
+                                class="btn-icon fas fa-chevron-left row__item-back modal-recommend__item-back"></button>
+                            <button
+                                class="btn-icon fas fa-chevron-right row__item-next modal-recommend__item-next"></button>
                             <div class="modal-recommend__container-sc">
                                 <div class="modal-recommend__img-link">
                                     <div class="modal-recommend__wrap">
                                         <div class="modal-recommend__wrap-img">
-                                            <img src="./assets/img/image012.jpg" alt="0|The hobbit|Người hobbit: hành trình vô định"
+                                            <img src="./assets/img/image012.jpg"
+                                                alt="0|The hobbit|Người hobbit: hành trình vô định"
                                                 class="modal-recommend__img">
                                             <div class="modal-recommend__link">
                                                 <i class="fas fa-play"></i>
@@ -743,7 +821,8 @@
                                                 <span>3g 54ph</span>
                                             </div>
                                             <span>
-                                                Qua khu rừng của những bí mật, trong các ngọn núi biết đi, nhà thám hiểm tí hon sẽ đối mặt với mầm mống của sự ám ảnh.
+                                                Qua khu rừng của những bí mật, trong các ngọn núi biết đi, nhà thám hiểm
+                                                tí hon sẽ đối mặt với mầm mống của sự ám ảnh.
                                             </span>
                                         </div>
 
@@ -752,7 +831,8 @@
                                 <div class="modal-recommend__img-link">
                                     <div class="modal-recommend__wrap">
                                         <div class="modal-recommend__wrap-img">
-                                            <img src="./assets/img/image011.jpg" alt="0|The hobbit|Người hobbit: hành trình vô định"
+                                            <img src="./assets/img/image011.jpg"
+                                                alt="0|The hobbit|Người hobbit: hành trình vô định"
                                                 class="modal-recommend__img">
                                             <div class="modal-recommend__link">
                                                 <i class="fas fa-play"></i>
@@ -765,7 +845,8 @@
                                                 <span>2 Mùa</span>
                                             </div>
                                             <span>
-                                                Sau vụ hạ cánh khẩn cấp xuống một hành tinh xa lạ, gia đình nhà Robinson chiến đấu với mọi hiểm nguy để sống sót và trốn
+                                                Sau vụ hạ cánh khẩn cấp xuống một hành tinh xa lạ, gia đình nhà Robinson
+                                                chiến đấu với mọi hiểm nguy để sống sót và trốn
                                                 thoát. Nhưng nguy hiểm tiềm ẩn luôn rình rập họ.
                                             </span>
                                         </div>
@@ -774,7 +855,8 @@
                                 <div class="modal-recommend__img-link">
                                     <div class="modal-recommend__wrap">
                                         <div class="modal-recommend__wrap-img">
-                                            <img src="./assets/img/image016.jpg" alt="0|The hobbit|Người hobbit: hành trình vô định"
+                                            <img src="./assets/img/image016.jpg"
+                                                alt="0|The hobbit|Người hobbit: hành trình vô định"
                                                 class="modal-recommend__img">
                                             <div class="modal-recommend__link">
                                                 <i class="fas fa-play"></i>
@@ -787,7 +869,8 @@
                                                 <span>1 Mùa</span>
                                             </div>
                                             <span>
-                                                Sau khi Kaiju tàn phá nước Úc, hai anh em điều khiển một Jaeger để tìm kiếm cha mẹ, đồng thời bắt gặp những sinh vật
+                                                Sau khi Kaiju tàn phá nước Úc, hai anh em điều khiển một Jaeger để tìm
+                                                kiếm cha mẹ, đồng thời bắt gặp những sinh vật
                                                 mới, các nhân vật bất hảo và đồng minh tình cờ.
                                             </span>
                                         </div>
@@ -796,7 +879,8 @@
                                 <div class="modal-recommend__img-link">
                                     <div class="modal-recommend__wrap">
                                         <div class="modal-recommend__wrap-img">
-                                            <img src="./assets/img/image018.jpg" alt="0|The hobbit|Người hobbit: hành trình vô định"
+                                            <img src="./assets/img/image018.jpg"
+                                                alt="0|The hobbit|Người hobbit: hành trình vô định"
                                                 class="modal-recommend__img">
                                             <div class="modal-recommend__link">
                                                 <i class="fas fa-play"></i>
@@ -809,7 +893,8 @@
                                                 <span>3g 54ph</span>
                                             </div>
                                             <span>
-                                                Siêu anh hùng lưỡng cư Arthur Curry khám phá ý nghĩa của việc trở thành Aquaman khi phải ngăn vua Atlantis khơi mào
+                                                Siêu anh hùng lưỡng cư Arthur Curry khám phá ý nghĩa của việc trở thành
+                                                Aquaman khi phải ngăn vua Atlantis khơi mào
                                                 chiến tranh với thế giới trên mặt đất.
                                             </span>
                                         </div>
@@ -818,7 +903,8 @@
                                 <div class="modal-recommend__img-link">
                                     <div class="modal-recommend__wrap">
                                         <div class="modal-recommend__wrap-img">
-                                            <img src="./assets/img/image020.jpg" alt="0|The hobbit|Người hobbit: hành trình vô định"
+                                            <img src="./assets/img/image020.jpg"
+                                                alt="0|The hobbit|Người hobbit: hành trình vô định"
                                                 class="modal-recommend__img">
                                             <div class="modal-recommend__link">
                                                 <i class="fas fa-play"></i>
@@ -831,7 +917,8 @@
                                                 <span>1 Mùa</span>
                                             </div>
                                             <span>
-                                                Tám anh chị em thân thiết của gia đình Bridgerton tìm kiếm tình yêu và hạnh phúc trong xã hội thượng lưu London. Lấy cảm
+                                                Tám anh chị em thân thiết của gia đình Bridgerton tìm kiếm tình yêu và
+                                                hạnh phúc trong xã hội thượng lưu London. Lấy cảm
                                                 hứng từ bộ tiểu thuyết bán chạy của Julia Quinn.
                                             </span>
                                         </div>
@@ -876,7 +963,7 @@
     </div>
 
     <script src="./assets/js/base.js"></script>
-    <script src="./assets/js/home.js"></script>
+    <script src="./assets/js/main.js"></script>
 </body>
 
 </html>

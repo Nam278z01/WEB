@@ -55,15 +55,15 @@ $(document).ready(function () {
                                         <img src="./assets/img/image_name${number}.png" alt="" class="hover-movie__video-name">
                                     </a>
                                     <div class="hover-movie__button">
-                                        <button class="button hover-movie__button--play" title="Xem ngay Army of the dead">
+                                        <button class="button hover-movie__button--play">
                                             <i class="fas fa-play"></i>
                                             <span>Xem ngay</span>
                                         </button>
-                                        <button class="button hover-movie__button--removelist" title="Thêm vào danh sách của tôi">
+                                        <button class="button hover-movie__button--removelist">
                                             <i class="fas fa-check"></i>
                                             <span>Danh sách</span>
                                         </button>
-                                        <button class="button hover-movie__button--moreinfo" href="#" title="Chi tiết Army of the dead">
+                                        <button class="button hover-movie__button--moreinfo" href="#">
                                             <i class="fas fa-info-circle"></i>
                                             <span>Chi tiết</span>
                                         </button>
@@ -125,13 +125,20 @@ $(document).ready(function () {
         var moviesArr = "[" + movies + "]";
         var data = JSON.parse(moviesArr);
         var quantity = data.length;
-        if (quantity > 1) {
+        if (quantity > 0) {
             for (var i = 0; i < quantity; i++) {
-                var myListItem = `<div class="row__img-link row__img-link-ge">
-                                        <div class="row__wrap">
-                                            <img src="./assets/img/image${data[i]}.jpg" alt="" class="row__img">
-                                        </div>
-                                  </div>`;
+                var myListItem = data[i].alt.split('|')[1] == 0 ?
+                                        `<div class="row__img-link row__img-link-ge">
+                                            <div class="row__wrap">
+                                                <img src="./assets/img/image${data[i].src}.jpg" alt="${data[i].alt}" class="row__img">
+                                            </div>
+                                        </div>` :
+                                        `<div class="row__img-link row__img-link-ge">
+                                            <div class="row__wrap">
+                                                <img src="./assets/img/image${data[i].src}.jpg" alt="${data[i].alt}" class="row__img">
+                                                <img src="./assets/img/iconvip.png" alt="vip" class="movies-vip">
+                                            </div>
+                                        </div>`;
                 myNewList += myListItem;
             }
         }        

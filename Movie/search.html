@@ -18,6 +18,36 @@
         href="https://fonts.googleapis.com/css2?family=Allura&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
     <script src="./assets/js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Search
+            var search = window.location.search;
+            const urlParams = new URLSearchParams(search);
+            var search = urlParams.get('searchIp').trim('+');
+            function searchMovie() {
+                var movies = sessionStorage.getItem("moviesSe");
+                var data = JSON.parse(movies);
+                var content = "";
+                for (const dt of data) {
+                    var re = new RegExp(search, "i")
+                    if (dt.nameM.match(re) && search) {
+                        content += `<div class="row__img-link row__img-link-ge">
+                                <div class="row__wrap">
+                                    <img src="./assets/img/image${dt.idM}.jpg" alt="" class="row__img">
+                                </div>
+                            </div>`
+                    }
+                }
+                if (!content) {
+                    content = `<p style="font-size: 1.6rem; color: var(--white-color-sc)">Không có kết quả khớp với yêu cầu \"${search}\" cần tìm của bạn.</p>`;
+                    $("#search").after(content);
+                }
+                else
+                    $("#search").append(content);
+            }
+            searchMovie();
+        });
+    </script>
 </head>
 
 <body>
@@ -183,7 +213,7 @@
                 </div>
                 <!-- Mobile nav -->
                 <div class="nav-mobile">
-                    <ul class="nav-mobile-menu">                        
+                    <ul class="nav-mobile-menu">
                         <li class="header__tap">
                             <a href="index.html" class="header__tap-link">Trang chủ</a>
                         </li>
@@ -222,7 +252,7 @@
                     </div>
                     <div class="row__container-general">
                         <div class="row__container-sc row__container-sc-ge" id="search">
-                            
+
                         </div>
                     </div>
                 </div>
@@ -257,8 +287,6 @@
     </div>
 
     <script src="./assets/js/base.js"></script>
-    <script src="./assets/js/search.js"></script>
-    <script src="./assets/js/mylist.js"></script>
 </body>
 
 </html>

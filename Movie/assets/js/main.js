@@ -9,7 +9,7 @@ $(document).ready(function () {
 
     }
     else {
-        hover_Home();
+        hoverMovies();
         sliderGe($("#firstRow"), ".row__item-next", ".row__item-back", '.row__container-sc', ".row__img-link");
         sliderGe($("#topRow"), ".row__item-next", ".row__item-back", '.row__container-sc', ".row__img-link");
         sliderGe($("#secondRow"), ".row__item-next", ".row__item-back", '.row__container-sc', ".row__img-link");
@@ -102,8 +102,29 @@ $(document).ready(function () {
             isPlay = true;
         });
     }
-    //hover Home
-    function hover_Home() {
+    // Thêm vào mylist
+    function addStorage() {
+        $(".hover-movie__button--addlist").on('click', function (event) {
+            var img = $(this).parent().parent().find(".hover-movie__img");
+            var imgSrc = img.attr("src");
+            var imgAlt = img.attr("alt");
+            var number = imgSrc.substr(imgSrc.length - 7, 3);
+            var movie = {
+                src: number,
+                alt: imgAlt 
+            }
+            var newMovie = "";
+            var currentMyList = window.sessionStorage.getItem("movies");
+            if (currentMyList) {
+                newMovie = currentMyList + ',' + JSON.stringify(movie);
+            } else {
+                newMovie = JSON.stringify(movie);
+            }
+            window.sessionStorage.setItem("movies", newMovie);
+        });
+    }
+    //hover phim
+    function hoverMovies() {
         var myTimeout;
         var parent;
         var left;
@@ -111,9 +132,35 @@ $(document).ready(function () {
         var mySetInterVal;
         $(".row__img-link").mouseenter(function (e) {
             width = $(this).width();
-            var src = $(this).find(".row__img").attr("src");
+            var image = $(this).find(".row__img")
+
+            var src = image.attr("src");
             var number = src.substr(src.length - 7, 3);
+
+            var checkMovie = image.attr("alt");
+            var infoOne = checkMovie.split('|')[0];
+            var infoSec = checkMovie.split('|')[2];
+            var infoOther = infoOne == 0 ? `<div class="hover-movie__info">
+                                                <span class="hm_info">2018</span>
+                                                <span class="hm_info">1g 23p</span>
+                                                <span class="hm_info">HD</span>
+                                            </div>`
+                                        : `<div class="hover-movie__info">
+                                                <span class="hm_info">2018</span>
+                                                <span class="hm_info">1 Mùa</span>
+                                                <span class="hm_info">HD</span>
+                                            </div>`;
+            var btnAddRemove = infoSec == 0 ? `<button class="button hover-movie__button--addlist">
+                                                    <i class="fas fa-plus"></i>
+                                                    <span>Danh sách</span>
+                                                </button>`
+                : `<button class="button hover-movie__button--removelist">
+                                                    <i class="fas fa-check"></i>
+                                                    <span>Danh sách</span>
+                                                </button>`;
+
             var hover = $("#hover");
+
             if (hover) {
                 if (left < 50) {
                     hover.css("animation", "ZoomOut linear 0.15s");
@@ -139,7 +186,7 @@ $(document).ready(function () {
                 var addChild = `<div class="hover-movie" id="hover">
                                     <div class="hover-movie-link">
                                         <a href="#">
-                                            <img src="./assets/img/image${number}.jpg" alt="" class="hover-movie__img">
+                                            <img src="./assets/img/image${number}.jpg" alt="${checkMovie}" class="hover-movie__img">
                                             <video id="hover-movie__video">
                                                 <source src="./assets/video/video${number}.mp4" type="video/mp4">
                                             </video>
@@ -155,22 +202,15 @@ $(document).ready(function () {
                                         <button class="button hover-movie__button--play">
                                             <i class="fas fa-play"></i>
                                             <span>Xem ngay</span>
-                                        </button>
-                                        <button class="button hover-movie__button--addlist">
-                                            <i class="fas fa-plus"></i>
-                                            <span>Danh sách</span>
-                                        </button>
-                                        <button class="button hover-movie__button--moreinfo">
+                                        </button>`
+                                            + btnAddRemove +
+                                        `<button class="button hover-movie__button--moreinfo">
                                             <i class="fas fa-info-circle"></i>
                                             <span>Chi tiết</span>
                                         </button>
-                                    </div>
-                                    <div class="hover-movie__info">
-                                        <span class="hm_info">2018</span>
-                                        <span class="hm_info">1g 23p</span>
-                                        <span class="hm_info">HD</span>
-                                    </div>
-                                </div>`;
+                                    </div>`
+                                    +infoOther+
+                                `</div>`;
                 parent.after(addChild);
                 var hoverAf = $("#hover");
                 hoverAf.css("top", "-40px");
@@ -192,7 +232,7 @@ $(document).ready(function () {
                 const btnHSound = $(".btn-icon.hover-movie-btn-i:nth-child(2)");
                 const btnHReplay = $(".btn-icon.hover-movie-btn-i:last-child");
                 showVideo(hoverImg, hoverVideo, btnHMute, btnHSound, btnHReplay, "imgActiveHv", hoverName);
-                mySetInterVal= setInterval(function () {
+                mySetInterVal = setInterval(function () {
                     if (hoverVideo.get(0).currentTime >= hoverVideo.get(0).duration - 13) {
                         btnHReplay.show();
                         btnHMute.hide();
@@ -236,38 +276,6 @@ $(document).ready(function () {
             addStorage();
         });
     }
-    // -------------------
-    function addStorage() {
-        $(".hover-movie__button--addlist").on('click', function (event) {
-            var movie = $(this).parent().parent().find(".hover-movie__img").attr("src");
-            var number = movie.substr(movie.length - 7, 3);
-            var newMovie = "";
-            var currentMyList = window.sessionStorage.getItem("movies");
-            if (currentMyList) {
-                newMovie = currentMyList + ',' + JSON.stringify(number);
-            } else {
-                newMovie = JSON.stringify(number);
-            }
-            window.sessionStorage.setItem("movies", newMovie);
-        });
-    }
-    function searchMovie() {
-        var getMovies = $(".row__img-link");
-        var total = [];
-        for (const movie of getMovies) {
-            var movieDetail = movie.getElementsByTagName("img")[0];
-            var src = movieDetail.getAttribute("src");
-            var id = src.substr(src.length - 7, 3);
-            var name = movieDetail.getAttribute("alt");
-            var movieInfo = {
-                nameM: name,
-                idM: id
-            }
-            total.push(movieInfo);
-        }
-        sessionStorage.setItem("moviesSe", JSON.stringify(total));
-    }
-    searchMovie();
     // hover hàng phim
     function hoverRowMovie(parent, button) {
         parent.hover(function () {
