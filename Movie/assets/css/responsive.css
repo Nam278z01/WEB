@@ -153,6 +153,10 @@
     display: block;
   }
 
+  .main__row {
+    margin-bottom: 0;
+  }
+
   .footer {
     margin: 3%;
     flex-wrap: wrap;
@@ -175,8 +179,8 @@
   }
 }
 
-/* @media (max-width: 1024px) {
-  .header__nav-menu-res {
+@media (max-width: 1024px) {
+  /* .header__nav-menu-res {
     display: none;
   }
   .header__nav-bar-icon.fas {
@@ -190,8 +194,8 @@
 
   .header__second-nav {
     width: 80%;
-  }
-} */
+  } */
+}
 
 /* Tablet */
 @media (min-width: 740px) and (max-width: 1024px) {
