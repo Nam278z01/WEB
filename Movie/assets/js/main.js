@@ -142,7 +142,7 @@ $(document).ready(function () {
             var infoSec = checkMovie.split('|')[2];
             var infoOther = infoOne == 0 ? `<div class="hover-movie__info">
                                                 <span class="hm_info">2018</span>
-                                                <span class="hm_info">1g 23p</span>
+                                                <span class="hm_info">3g 54p</span>
                                                 <span class="hm_info">HD</span>
                                             </div>`
                                         : `<div class="hover-movie__info">
@@ -407,6 +407,7 @@ $(document).ready(function () {
     $(".button.button--moreinfo").click(function () {
         $("body").css("overflow", "hidden");
         $(".modal").show();
+        $(".modal-movie").show();
         sliderGe($("#recommendMovies"), ".row__item-next", ".row__item-back", ".modal-recommend__container-sc", ".modal-recommend__img-link");
     })
     $(".row__img-link").click(function () {
@@ -417,6 +418,7 @@ $(document).ready(function () {
         $("#modal-movie__video").attr("src", "./assets/video/video" + number + ".mp4");
         $("body").css("overflow", "hidden");
         $(".modal").show();
+        $(".modal-movie").show();
         sliderGe($("#recommendMovies"), ".row__item-next", ".row__item-back", ".modal-recommend__container-sc", ".modal-recommend__img-link");
         $("#myVideo").get(0).pause();
         const headerMImg = $(".modal-movie__img")

@@ -56,8 +56,8 @@ $(document).ready(function () {
             event.preventDefault();
             inputSearch.val("");
             $(this).css("visibility", "hidden");
-        })
-    }
+        });
+    };
     searchNav()
     // Nav mobile
     function navMobile() {
@@ -88,6 +88,50 @@ $(document).ready(function () {
             const x = e.pageX;
             const walk = startX - x;
             navMb.scrollLeft(walk + scrollLeft);
+        });
+    };
+    ResLog();
+    function ResLog() {
+        const modal = $("#myModal");
+        const btnRes = $(".btn-account__register");
+        const btnLog = $(".btn-account__signIn");
+        const formRes = $("#registerForm");
+        const formLog = $("#loginForm");
+        const back = $(".auth-form__controls-back");
+        const btnSwitch = $(".auth-form__switch-btn");
+        var check = true;
+        btnRes.click(function () {
+            modal.css("display", "flex");
+            formRes.show();
+            check = false;
         })
-    }
+        btnLog.click(function () {
+            modal.css("display", "flex");
+            formLog.show();
+        })
+        back.click(function () {
+            modal.css("display", "none");
+            formRes.hide();
+            formLog.hide();
+            check = true;
+        })
+        $(window).click(function (e) {
+            if (e.target == modal.children(".modal__overlay").get(0)) {
+                modal.hide();
+                formRes.hide();
+                formLog.hide();
+            }
+        })
+        btnSwitch.click(function () {
+            check = !check;
+            if (formRes.show() && check == true) {
+                formRes.hide();
+                formLog.show();
+            }
+            if (formLog.show() && check == false) {
+                formLog.hide();
+                formRes.show();
+            }
+        });
+    };
 });

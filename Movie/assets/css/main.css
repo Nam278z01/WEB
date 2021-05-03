@@ -453,6 +453,7 @@
   display: none;
   transform-origin: right;
   animation: growth ease-out 0.2s;
+  z-index: 1;
 }
 
 #search-wrap > button {
@@ -506,6 +507,31 @@ input[name="searchIp"] {
 }
 
 .header__account {
+  position: relative;
+}
+
+.header__account:hover .signIn-register {
+  display: flex;
+  transform: translateX(0px);
+}
+
+.signIn-register {
+  position: absolute;
+  display: flex;
+  right: 0;
+  background-color: var(--primary-color-fn);
+  padding: 10px;
+  /* border-radius: 4px; */
+  width: 289px;
+  transform: translateX(110%);
+  transition: transform 0.2s;
+  z-index: 1;
+}
+
+.btn-account__register,
+.btn-account__signIn {
+  border: 1px solid var(--white-color-sc);
+  font-size: 1.4rem;
 }
 
 #btn-search > i {
@@ -594,7 +620,6 @@ input[name="searchIp"] {
   width: 100%;
   height: 100%;
   transition: all linear 0.5s;
-  box-sizing: content-box;
 }
 
 .row__container::-webkit-scrollbar {

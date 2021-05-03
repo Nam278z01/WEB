@@ -27,6 +27,7 @@
   --primary-color-sv: rgba(20, 20, 20, 0.5);
   --primary-color-ei: rgba(20, 20, 20, 0.2);
   --hover-color: #242424;
+  --auth-color: #333333;
 }
 
 * {
@@ -82,6 +83,22 @@ body {
   min-width: 120px;
   transition: filter 0.2s;
   border-radius: 0px;
+}
+
+.btn--size-s {
+  height: 36px;
+  font-size: 12px;
+  padding: 0 16px;
+}
+
+.button.btn--normal {
+  color: var(--white-color);
+  border: 1px solid var(--white-color);
+}
+
+.button.btn--primary {
+  background-color: var(--primary-color);
+  color: var(--white-color);
 }
 
 .button:hover {
@@ -232,7 +249,6 @@ body {
 }
 
 .hover-movie__btn {
-  
 }
 
 .btn-icon.hover-movie-btn-i {
@@ -294,7 +310,7 @@ body {
   display: inline-block;
   font-size: 1.4rem;
   color: var(--white-color);
-  margin: 10px 10px 20px 0; 
+  margin: 10px 10px 20px 0;
   font-weight: 500;
 }
 
@@ -327,12 +343,152 @@ body {
 .modal__body {
   width: 100%;
   height: 100%;
+  margin: auto;
   position: relative;
   animation: growth linear 0.2s;
   overflow-y: auto;
   scroll-behavior: smooth;
 }
 
+/* Authen modal */
+.auth-form {
+  width: 450px;
+  max-width: 100%;
+  /* border-radius: 4px; */
+  background-color: var(--auth-color);
+  /* overflow: hidden; */
+  border-top: 3px solid var(--primary-color);
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  display: none;
+  /* animation: growth 0.35s; */
+}
+
+.auth-form__container {
+  padding: 0 32px;
+}
+
+.auth-form__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+}
+
+.auth-form__heading {
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: var(--white-color);
+}
+
+.auth-form__switch-btn {
+  font-size: 1.6rem;
+  color: var(--primary-color);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.auth-form__form {
+
+}
+
+.auth-form__input {
+  width: 100%;
+  height: 40px;
+  margin-top: 10px;
+  font-size: 1.4rem;
+  border-radius: 0px;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid transparent;
+  background-color: transparent;
+  transition: 0.35s;
+  color: var(--white-color);
+}
+
+.auth-form__input:focus {
+  border-color: var(--white-color-sc);
+}
+
+.auth-form__aside {
+  margin-top: 20px;
+}
+
+.auth-form__policy-text {
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  text-align: center;
+  padding: 0 12px;
+  color: var(--white-color);
+}
+
+.auth-form__text-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.auth-form__controls {
+  margin-top: 50px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.auth-form__controls-back {
+  margin-right: 8px;
+}
+
+.auth-form__socials {
+  background-color: transparent;
+  margin-top: 24px;
+  padding: 12px 36px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.auth-form__socials-icon {
+  font-size: 1.8rem;
+}
+
+.auth-form__socials--facebook {
+  background-color: #3a5a98;
+  color: var(--white-color);
+}
+
+.auth-form__socials--google {
+  color: var(--text-color);
+  background-color: var(--white-color);
+}
+
+.auth-form__socials-title {
+  margin: 0 12px 0 25px;
+}
+
+.auth-form__help {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.auth-form__help-link {
+  text-decoration: none;
+  font-size: 1.4rem;
+  color: #939393;
+  font-weight: 500;
+}
+
+.auth-form__help-separate {
+  display: block;
+  border-left: 1px solid #eaeaea;
+  margin: 0 16px;
+  height: 22px;
+}
+
+.auth-form__help-forgot {
+  color: var(--primary-color);
+}
+
+/* Modal movies */
 .modal-movie {
   margin: 3rem auto 0;
   width: 1024px;
@@ -341,6 +497,7 @@ body {
   border-radius: 10px;
   position: relative;
   box-shadow: rgb(0, 0, 0, 0.75) 0px 3px 30px;
+  display: none;
 }
 
 .modal-turnoff.fas.fa-times {
@@ -431,7 +588,6 @@ body {
 }
 
 .header-movie__btn {
-
 }
 
 .btn-icon.header-movie-btn-i {
@@ -481,7 +637,6 @@ body {
 }
 
 .info__vote {
-  
 }
 
 .info__vote > i {
@@ -551,7 +706,7 @@ body {
   font-size: 1.4rem;
 }
 
-.info-right-link  {
+.info-right-link {
   color: var(--white-color);
   text-decoration: none;
   line-height: 2rem;
@@ -567,7 +722,6 @@ body {
 }
 
 .info-right__genres {
-
 }
 
 .modal-video__recommend {
@@ -575,10 +729,9 @@ body {
 }
 
 .modal-recommend__header {
-
 }
 
-.modal-recommend__header > span{
+.modal-recommend__header > span {
   display: inline-block;
   color: var(--white-color);
   font-size: 2rem;
@@ -665,7 +818,6 @@ body {
 }
 
 .recommend-movies__info {
-
 }
 
 .recommend-movies__info-first {
@@ -744,7 +896,7 @@ body {
   position: relative;
 }
 
-#commentArea:focus {  
+#commentArea:focus {
   border-bottom: 1px solid var(--white-color-sc);
 }
 
@@ -760,7 +912,6 @@ body {
 }
 
 .comment-avatar {
-
 }
 
 .comment-avatar > i {
