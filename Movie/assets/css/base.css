@@ -10,6 +10,7 @@
   --color-end: #090c10; */
   --text-color: #808080;
   --text-color-sc: #e5e5e5;
+  --text-color-th: #a1a19b;
   --white-color: #fff;
   --white-color-sc: rgba(255, 255, 255, 0.6);
   --black-color: #000;
@@ -25,6 +26,7 @@
   --primary-color-sx: rgba(20, 20, 20, 0.6);
   --primary-color-sv: rgba(20, 20, 20, 0.5);
   --primary-color-ei: rgba(20, 20, 20, 0.2);
+  --hover-color: #242424;
 }
 
 * {
@@ -285,20 +287,23 @@ body {
 }
 
 .hover-movie__info {
-
+  padding: 0px 10px;
 }
 
 .hm_info {
   display: inline-block;
   font-size: 1.4rem;
   color: var(--white-color);
-  padding: 0px 10px;
-  margin: 10px 0 20px 0; 
+  margin: 10px 10px 20px 0; 
   font-weight: 500;
 }
 
-.hm_info + .hm_info {
-  border-left: 1px solid var(--white-color-sc);
+.hm_info + .hm_info::before {
+  content: "\2022";
+  display: inline-block;
+  font-size: 12px;
+  color: var(--white-color);
+  padding-right: 13px;
 }
 /* Modal box*/
 .modal {
@@ -492,10 +497,12 @@ body {
   padding-right: 10px;
 }
 
-.info-left__second > span:nth-child(2) {
-  padding: 0 13px;
-  border-left: 1px solid var(--white-color-sc);
-  border-right: 1px solid var(--white-color-sc);
+.info-left__second > span + span::before {
+  content: "\2022";
+  display: inline-block;
+  font-size: 12px;
+  color: var(--white-color);
+  padding-right: 13px;
 }
 
 .info-left__second > span:last-child {
@@ -608,6 +615,7 @@ body {
   position: relative;
   background-color: var(--primary-color-sc);
   /* border-radius: 4px; */
+  transition: 0.35s;
 }
 
 .modal-recommend__wrap-img {
@@ -617,6 +625,11 @@ body {
 
 .modal-recommend__wrap:hover .modal-recommend__link {
   opacity: 1;
+}
+
+.modal-recommend__wrap:hover {
+  opacity: 1;
+  background-color: var(--hover-color);
 }
 
 .modal-recommend__link {
@@ -631,7 +644,7 @@ body {
   align-items: center;
   justify-content: center;
   opacity: 0;
-  transition: 0.2s;
+  transition: 0.35s;
 }
 
 .modal-recommend__link > i {
@@ -661,14 +674,16 @@ body {
   margin: 5px 0;
 }
 
-.recommend-movies__info-first > span:first-child {
-  padding-right: 5px;
+.recommend-movies__info-first > span + span::before {
+  content: "\2022";
+  display: inline-block;
+  font-size: 12px;
+  color: var(--white-color);
+  padding-right: 8px;
 }
 
-.recommend-movies__info-first > span:nth-child(2) {
-  padding: 0 7px;
-  border-left: 1px solid var(--white-color-sc);
-  border-right: 1px solid var(--white-color-sc);
+.recommend-movies__info-first > span:first-child {
+  padding-right: 5px;
 }
 
 .recommend-movies__info-first > span:last-child {
@@ -683,6 +698,7 @@ body {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   line-height: 1.6rem;
+  color: var(--text-color-th);
 }
 
 #modal__comment {
