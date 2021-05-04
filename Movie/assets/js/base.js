@@ -18,7 +18,7 @@ $(document).ready(function () {
             const pos_body = $('html,body').scrollTop();
             // -----------
             if (pos_body > 50) {
-                nav.style.backgroundColor = "var(--primary-color-fn)";
+                nav.style.backgroundColor = "var(--primary-color-sc)";
             }
             else {
                 nav.style.backgroundColor = "transparent";
@@ -116,7 +116,7 @@ $(document).ready(function () {
             check = true;
         })
         $(window).click(function (e) {
-            if (e.target == modal.children(".modal__overlay").get(0)) {
+            if (e.target == modal.children(".modal__overlay").get(0) || e.target == modal.children(".modal__body").get(0)) {
                 modal.hide();
                 formRes.hide();
                 formLog.hide();

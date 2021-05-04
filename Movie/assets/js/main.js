@@ -380,7 +380,8 @@ $(document).ready(function () {
                 hoverRowMovie(slideRan, childBtnNext);
             else {
                 slideRan.unbind();
-                hoverRowMovie(slideRan, childBtnBack);
+                if(currentIdx != 0)
+                    hoverRowMovie(slideRan, childBtnBack);
             }
             newSlideWidth = slide.width();
             move = newSlideWidth + marginSlide;
@@ -403,11 +404,13 @@ $(document).ready(function () {
         $(".modal").hide();
         // $("#myVideo").get(0).play();
         $("#modal-movie__video").get(0).pause();
+        $(".modal__body").css('height', 'auto')
     })
     $(".button.button--moreinfo").click(function () {
         $("body").css("overflow", "hidden");
         $(".modal").show();
         $(".modal-movie").show();
+        $(".modal__body").css("height", "100%")
         sliderGe($("#recommendMovies"), ".row__item-next", ".row__item-back", ".modal-recommend__container-sc", ".modal-recommend__img-link");
     })
     $(".row__img-link").click(function () {
@@ -419,6 +422,7 @@ $(document).ready(function () {
         $("body").css("overflow", "hidden");
         $(".modal").show();
         $(".modal-movie").show();
+        $(".modal__body").css('height', '100%')
         sliderGe($("#recommendMovies"), ".row__item-next", ".row__item-back", ".modal-recommend__container-sc", ".modal-recommend__img-link");
         $("#myVideo").get(0).pause();
         const headerMImg = $(".modal-movie__img")

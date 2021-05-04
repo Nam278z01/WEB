@@ -110,7 +110,7 @@
 
 .button--play span {
   font-size: 1.6rem;
-  font-weight: bold;
+  font-weight: 500;
 }
 
 .button--moreinfo {
@@ -130,7 +130,6 @@
 }
 
 .btn-icon.header-btn-i {
-  background-color: var(--primary-color-sv);
   border-radius: 50%;
   width: 5rem;
   height: 5rem;
@@ -139,10 +138,13 @@
   bottom: 27%;
   display: none;
   z-index: 4;
+  color: var(--white-color-sc);
+  border: 2px solid var(--white-color-sc)
 }
 
 .btn-icon.header-btn-i:hover {
-  background-color: var(--primary-color-fn);
+  border-color: var(--white-color);
+  color: var(--white-color);
 }
 
 /* Navigation */
@@ -192,7 +194,7 @@
 
 .nav__tablet-first {
   height: 58px;
-  border-bottom: 1px solid var(--white-color-sc);
+  border-bottom: 1px solid var(--text-color);
   display: flex;
   align-items: center;
 }
@@ -227,7 +229,7 @@
 .nav__tablet-item .fas,
 .nav__tablet-item .far {
   font-size: 2rem;
-  color: var(--white-color-sc);
+  color: var(--text-color);
 }
 
 .nav__tablet-icon {
@@ -240,7 +242,7 @@
 
 .nav__tablet-item-info {
   font-size: 1.5rem;
-  color: var(--white-color-sc);
+  color: var(--text-color);
 }
 
 .nav__tablet-item:hover {
@@ -366,7 +368,9 @@
   /* border-radius: 2px; */
   animation: growth-sc linear 0.3s;
   transform-origin: left 10%;
-  border-top: 2px solid var(--white-color);
+  border-top: 3px solid var(--primary-color);
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
 }
 
 .genres-sub-nav::before {
@@ -374,7 +378,7 @@
   display: block;
   border-width: 20px 40px;
   border-style: solid;
-  border-color: transparent transparent var(--white-color) transparent;
+  border-color: transparent transparent var(--primary-color) transparent;
   position: absolute;
   z-index: 53;
   top: -42px;
@@ -466,7 +470,7 @@
 #searchForm {
   display: flex;
   background-color: var(--primary-color-sc);
-  border: 1px solid var(--text-color-sc);
+  border: 1px solid var(--text-color);
 }
 
 #icon-search {
@@ -530,7 +534,7 @@ input[name="searchIp"] {
 
 .btn-account__register,
 .btn-account__signIn {
-  border: 1px solid var(--white-color-sc);
+  border: 1px solid var(--text-color);
   font-size: 1.4rem;
 }
 
@@ -550,7 +554,7 @@ input[name="searchIp"] {
   position: relative;
   top: -125px;
   z-index: 6;
-  border-bottom: 1px solid var(--text-color);
+  /* border-bottom: 1px solid var(--text-color); */
   padding-bottom: 60px;
 }
 
@@ -593,7 +597,7 @@ input[name="searchIp"] {
 
 .row__title {
   font-size: 2rem;
-  color: var(--white-color);
+  color: var(--primary-color);
   display: inline-block;
   margin: 5px 0;
   font-weight: 500;
@@ -766,6 +770,10 @@ input[name="searchIp"] {
   font-size: 1.4rem;
   color: var(--text-color);
   margin: 15px 15px 0;
+}
+
+.footer__other-info:hover {
+  text-decoration: underline;
 }
 /* My List */
 .content-mylist {
