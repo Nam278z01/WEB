@@ -820,9 +820,12 @@ input[name="searchIp"] {
 .row__img-link-ge:first-child {
   margin-left: 0;
 }
+
 /* Popular */
 .content-popular {
   position: relative;
   top: 230px;
   background-color: var(--primary-color-sc);
 }
+
+/* Account */
