@@ -18,6 +18,7 @@
   --color-end: #151515;
   --hover-color: #2f2f2f;
   --hover-color-sc: rgb(47, 47, 47, 0.3);
+  --vip-color: #da9e1c;
 }
 
 * {
@@ -631,7 +632,7 @@ body {
 }
 
 .info__vote > i {
-  color: var(--primary-color);
+  color: var(--vip-color);
   cursor: pointer;
 }
 
