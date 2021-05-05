@@ -1012,6 +1012,26 @@ body {
   display: none;
 }
 
+.movies-menu-seasons::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+.movies-menu-seasons::-webkit-scrollbar-track {
+  background: var(--primary-color-scc);
+}
+
+/* Handle */
+.movies-menu-seasons::-webkit-scrollbar-thumb {
+  background: var(--primary-color-fr);
+  border-radius: 8px;
+}
+
+/* Handle on hover */
+.movies-menu-seasons::-webkit-scrollbar-thumb:hover {
+  background: var(--text-color);
+}
+
 .movies-season {
   color: var(--white-color);
   list-style: none;
@@ -1045,6 +1065,7 @@ body {
 #episodeMovie::-webkit-scrollbar {
   display: none;
 }
+
 
 .modal-recommend__wrap-img.modal-episode__wrap-img {
   padding-bottom: 56.25%;
