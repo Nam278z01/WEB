@@ -184,10 +184,10 @@ $(document).ready(function () {
             parent = $(this).parent().parent();
             myTimeout = setTimeout(function () {
                 var addChild = `<div class="hover-movie" id="hover">
-                                    <div class="hover-movie-link">
+                                    <div class="hover-movie-link ratio16-9__wrap">
                                         <a href="#">
-                                            <img src="./assets/img/image${number}.jpg" alt="${checkMovie}" class="hover-movie__img">
-                                            <video id="hover-movie__video">
+                                            <img src="./assets/img/image${number}.jpg" alt="${checkMovie}" class="hover-movie__img ratio__in">
+                                            <video id="hover-movie__video" class="ratio__in">
                                                 <source src="./assets/video/video${number}.mp4" type="video/mp4">
                                             </video>
                                         </a>
@@ -404,13 +404,15 @@ $(document).ready(function () {
         $(".modal").hide();
         // $("#myVideo").get(0).play();
         $("#modal-movie__video").get(0).pause();
-        $(".modal__body").css('height', 'auto')
+        $(".modal__body").css('height', 'auto');
+        $(".modal-movie").hide();
     })
     $(".button.button--moreinfo").click(function () {
         $("body").css("overflow", "hidden");
         $(".modal").show();
         $(".modal-movie").show();
-        $(".modal__body").css("height", "100%")
+        $(".modal__body").css("height", "100%");
+        sliderGe($("#episodeMovie"), ".row__item-next", ".row__item-back", ".modal-recommend__container-sc", ".modal-recommend__img-link");
         sliderGe($("#recommendMovies"), ".row__item-next", ".row__item-back", ".modal-recommend__container-sc", ".modal-recommend__img-link");
     })
     $(".row__img-link").click(function () {
@@ -422,7 +424,8 @@ $(document).ready(function () {
         $("body").css("overflow", "hidden");
         $(".modal").show();
         $(".modal-movie").show();
-        $(".modal__body").css('height', '100%')
+        $(".modal__body").css('height', '100%');
+        sliderGe($("#episodeMovie"), ".row__item-next", ".row__item-back", ".modal-recommend__container-sc", ".modal-recommend__img-link");
         sliderGe($("#recommendMovies"), ".row__item-next", ".row__item-back", ".modal-recommend__container-sc", ".modal-recommend__img-link");
         $("#myVideo").get(0).pause();
         const headerMImg = $(".modal-movie__img")
@@ -434,4 +437,17 @@ $(document).ready(function () {
         headerMVideo.get(0).play();
         showVideo(headerMImg, headerMVideo, btnMMute, btnMSound, btnMReplay, "imgActive")
     })
+    // Chọn tập
+    selectSeason()
+    function selectSeason() {
+        checkSeason = true;
+        $("#movie-btn-seasons").click(function () {
+            checkSeason = !checkSeason;
+            $(".movies-menu-seasons").slideToggle();
+            if (!checkSeason)
+                $(".season-icon").after().css("transform", "rotate(180deg)")
+            else
+                $(".season-icon").after().css("transform", "rotate(0deg)")
+        })
+    }
 });

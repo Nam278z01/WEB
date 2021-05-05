@@ -157,6 +157,10 @@
     margin-bottom: 0;
   }
 
+  .row__title {
+    margin-bottom: 0;
+  }
+
   .footer {
     margin: 3%;
     flex-wrap: wrap;
@@ -176,6 +180,29 @@
 
   .buy-vip {
     display: none;
+  }
+
+  /* Modal movies */
+  .info-left__first {
+    flex-wrap: wrap;
+  }
+
+  .header-movie__content {
+    bottom: -20%;
+  }
+  
+  .modal-video-content {
+    padding: 20% 0;
+  }
+
+  .modal-movie {
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .modal-movie__img,
+  #modal-movie__video {
+    border-radius: 0;
   }
 }
 
