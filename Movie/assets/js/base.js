@@ -18,7 +18,7 @@ $(document).ready(function () {
             const pos_body = $('html,body').scrollTop();
             // -----------
             if (pos_body > 50) {
-                nav.style.backgroundColor = "var(--primary-color-sc)";
+                nav.style.backgroundColor = "var(--primary-color-fn)";
             }
             else {
                 nav.style.backgroundColor = "transparent";

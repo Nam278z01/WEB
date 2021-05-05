@@ -109,6 +109,12 @@ body {
   padding-bottom: 56.25%;
 }
 
+.ratioImg__wrap {
+  position: relative;
+  width: 100%;
+  padding-bottom: 59.25%;
+}
+
 .ratio__in {
   position: absolute;
   top: 0;
@@ -180,9 +186,9 @@ body {
 /* Hover phim */
 .hover-movie {
   width: 400px;
-  background-color: var(--primary-color-sc);
+  background-color: var(--primary-color-scc);
   animation: growth ease-in 0.2s;
-  box-shadow: rgb(0, 0, 0, 0.75) 0px 3px 20px;
+  box-shadow: rgb(0, 0, 0, 0.75) 0px 3px 10px;
   position: absolute;
   z-index: 20;
   top: 0;
@@ -339,7 +345,7 @@ body {
   width: 450px;
   max-width: 100%;
   /* border-radius: 4px; */
-  background-color: var(--hover-color);
+  background-color: var(--primary-color-scc);
   /* overflow: hidden; */
   border-top: 3px solid var(--primary-color);
   border-top-left-radius: 2px;
@@ -1069,7 +1075,7 @@ body {
 
 
 .modal-recommend__wrap-img.modal-episode__wrap-img {
-  padding-bottom: 56.25%;
+  padding-bottom: 59.25%;
 }
 
 .episode-name {
