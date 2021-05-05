@@ -204,6 +204,14 @@
   #modal-movie__video {
     border-radius: 0;
   }
+
+  .button.modal-movie__button--play {
+    padding: 9px 16px;
+  }
+
+  .button.modal-movie__button--addlist {
+    padding: 6px 16px;
+  }
 }
 
 @media (max-width: 1024px) {
