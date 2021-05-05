@@ -154,15 +154,17 @@
   }
 
   .main__row {
-    margin-bottom: 0;
+    margin-bottom: 20px;
   }
 
   .row__title {
-    margin-bottom: 0;
+    line-height: 2rem;
+    font-size: 2rem;
   }
 
   .footer {
     margin: 3%;
+    bottom: 85px;
     flex-wrap: wrap;
   }
 
