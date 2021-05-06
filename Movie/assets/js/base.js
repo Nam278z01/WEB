@@ -18,7 +18,7 @@ $(document).ready(function () {
             const pos_body = $('html,body').scrollTop();
             // -----------
             if (pos_body > 50) {
-                nav.style.backgroundColor = "var(--primary-color-fn)";
+                nav.style.backgroundColor = "#101010";
             }
             else {
                 nav.style.backgroundColor = "transparent";
@@ -45,7 +45,7 @@ $(document).ready(function () {
         // ------------
         inputSearch.keyup(function () {
             let inputValues = $(this).val();
-            if (inputSearch) {
+            if (inputValues) {
                 deleteVl.css("visibility", "visible");
             } else {
                 deleteVl.css("visibility", "hidden");
@@ -99,27 +99,32 @@ $(document).ready(function () {
         const formLog = $("#loginForm");
         const back = $(".auth-form__controls-back");
         const btnSwitch = $(".auth-form__switch-btn");
+        var body = $("body");
         var check = true;
         btnRes.click(function () {
             modal.css("display", "flex");
             formRes.show();
             check = false;
+            body.css("overflow", "hidden");
         })
         btnLog.click(function () {
             modal.css("display", "flex");
             formLog.show();
+            body.css("overflow", "hidden");
         })
         back.click(function () {
             modal.css("display", "none");
             formRes.hide();
             formLog.hide();
             check = true;
+            body.css("overflow", "auto");
         })
         $(window).click(function (e) {
             if (e.target == modal.children(".modal__overlay").get(0) || e.target == modal.children(".modal__body").get(0)) {
                 modal.hide();
                 formRes.hide();
                 formLog.hide();
+                body.css("overflow", "auto");
             }
         })
         btnSwitch.click(function () {
@@ -132,6 +137,6 @@ $(document).ready(function () {
                 formLog.hide();
                 formRes.show();
             }
-        });
-    };
+        })
+    }
 });

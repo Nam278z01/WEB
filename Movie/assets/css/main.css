@@ -221,6 +221,12 @@
   display: flex;
 }
 
+.nav__tablet-item > div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
 .nav__tablet-item .fas,
 .nav__tablet-item .far {
   font-size: 2rem;
@@ -360,7 +366,8 @@
   width: 510px;
   top: 37px;
   display: none;
-  /* border-radius: 2px; */
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
   animation: growth-sc linear 0.3s;
   transform-origin: left 10%;
   border-top: 3px solid var(--primary-color);
@@ -637,10 +644,22 @@ input[name="searchIp"] {
   transition: all linear 0.5s;
 }
 
+.row__container-sc::before {
+  content: "";
+  display: inline-block;
+  padding-left: 3%;
+}
+
 .row__container-sc::after {
   content: "";
   display: inline-block;
   padding-right: calc(3% - 6px);
+}
+
+#myList.row__container-sc::after,
+#myList.row__container-sc::before {
+  content: none;
+  display: none;
 }
 
 .row__container::-webkit-scrollbar {
@@ -655,9 +674,10 @@ input[name="searchIp"] {
   position: relative;
 }
 
-.row__img-link:first-child {
+/*! Note */
+/* .row__img-link:first-child {
   margin-left: 3%;
-}
+} */
 
 .row__wrap {
   width: 100%;
@@ -666,8 +686,8 @@ input[name="searchIp"] {
 
 .movies-vip {
   position: absolute;
-  left: 2%;
-  top: 5%;
+  left: 0.3%;
+  top: 6.05%;
   width: 15%;
 }
 

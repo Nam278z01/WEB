@@ -19,6 +19,7 @@
   --hover-color: #2f2f2f;
   --hover-color-sc: rgb(47, 47, 47, 0.3);
   --vip-color: #da9e1c;
+  --auth-color: #333333;
 }
 
 * {
@@ -276,8 +277,7 @@ body {
   font-weight: 500;
 }
 
-.hover-movie__button--removelist,
-.button.hover-movie__button--addlist,
+.button.hover-movie__button--add-removeList,
 .button.hover-movie__button--moreinfo {
   border: 1px solid var(--white-color);
 }
@@ -333,7 +333,6 @@ body {
   /* height: 100%; */
   margin: auto;
   position: relative;
-  animation: growth linear 0.2s;
   overflow-y: auto;
   scroll-behavior: smooth;
   /* display: flex; */
@@ -345,7 +344,7 @@ body {
   width: 450px;
   max-width: 100%;
   /* border-radius: 4px; */
-  background-color: var(--primary-color-scc);
+  background-color: var(--auth-color);
   /* overflow: hidden; */
   border-top: 3px solid var(--primary-color);
   border-top-left-radius: 2px;
@@ -378,7 +377,6 @@ body {
 }
 
 .auth-form__form {
-
 }
 
 .auth-form__input {
@@ -488,6 +486,8 @@ body {
   position: relative;
   box-shadow: rgb(0, 0, 0, 0.75) 0px 3px 30px;
   display: none;
+  animation: growth linear 0.2s;
+  transform-origin: top;
 }
 
 .modal-turnoff.fas.fa-times {
@@ -778,6 +778,32 @@ body {
   overflow: hidden;
 }
 
+.modal-video__recommend .modal-recommend__wrap-img::before {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 20%;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 30%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+  z-index: 1;
+}
+
+.modal-video__recommend .modal-recommend__wrap-img::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 20%;
+  background:rgba(0, 0, 0, 0.8);
+  z-index: 1;
+}
+
 .modal-recommend__wrap:hover .modal-recommend__link {
   opacity: 1;
   background-color: var(--hover-color-sc);
@@ -836,7 +862,6 @@ body {
 }
 
 .recommend-movies__info {
-
 }
 
 .recommend-movies__info-first {
@@ -1072,7 +1097,6 @@ body {
 #episodeMovie::-webkit-scrollbar {
   display: none;
 }
-
 
 .modal-recommend__wrap-img.modal-episode__wrap-img {
   padding-bottom: 59.25%;

@@ -29,7 +29,7 @@
                     var src = movieDetail.getAttribute("src");
                     var id = src.substr(src.length - 7, 3);
                     var name = movieDetail.getAttribute("alt").split('|');
-                    var info = name[3] +" " + name[4];
+                    var info = name[3] + " " + name[4];
                     var movieInfo = {
                         nameM: info,
                         idM: id
@@ -48,7 +48,7 @@
         <header class="header">
             <!-- Video -->
             <div class="header__video ratio16-9__wrap">
-                <img src="./assets/img/image_big035.jpg" alt="Liên minh công lý|Zack Snyder Justice League"
+                <img src="./assets/img/image_big035.jpg" alt=""
                     class="header__video-img ratio__in">
                 <video id="myVideo" class="ratio__in">
                     <source src="./assets/video/video035.mp4" type="video/mp4">
@@ -250,9 +250,9 @@
                             <a href="./movies.html" class="header__tap-link">Phim lẻ</a>
                         </li>
                         <li class="header__tap">
-                            <a href="#" class="header__tap-link">Thể loại
+                            <div class="header__tap-link">Thể loại
                                 <i class="genres-icon fas fa-sort-down"></i>
-                            </a>
+                            </div>
                         </li>
                         <li class="header__tap">
                             <a href="./popular.html" class="header__tap-link">Mới và Phổ biến</a>
@@ -270,7 +270,7 @@
         <div class="content">
             <!-- Danh sách phim -->
             <div class="main">
-                <div class="main__row">
+                <div class="main__row" id="myListRow" style="display: none">
                     <div class="row__header">
                         <a href="#" class="row__header-link">
                             <h2 class="row__title">Danh sách của tôi</h2>
@@ -279,64 +279,15 @@
                             </span>
                         </a>
                     </div>
-                    <div class="row__container" id="firstRow">
+                    <div class="row__container" id="myRow">
                         <button class="btn-icon fas fa-chevron-left row__item-back"></button>
                         <button class="btn-icon fas fa-chevron-right row__item-next"></button>
                         <div class="row__container-sc">
-                            <div class="row__img-link">
-                                <div class="row__wrap ratioImg__wrap">
-                                    <img src="./assets/img/image002.jpg"
-                                        alt="1|0|1|Love, death and robot|Tình yêu, cái chết và người máy"
-                                        class="row__img ratio__in">
-                                </div>
-                            </div>
-                            <div class="row__img-link">
-                                <div class="row__wrap ratioImg__wrap">
-                                    <img src="./assets/img/image004.jpg" alt="1|0|1|Black mirror|Gương đen"
-                                        class="row__img ratio__in">
-                                </div>
-                            </div>
-                            <div class="row__img-link">
-                                <div class="row__wrap ratioImg__wrap">
-                                    <img src="./assets/img/image005.jpg" alt="1|0|1|Academy Umbrella|Học viện cây dù"
-                                        class="row__img ratio__in">
-                                </div>
-                            </div>
-                            <div class="row__img-link">
-                                <div class="row__wrap ratioImg__wrap">
-                                    <img src="./assets/img/image006.jpg" alt="1|0|1|Stranger things|Cậu bé mất tích"
-                                        class="row__img ratio__in">
-                                </div>
-                            </div>
-                            <div class="row__img-link">
-                                <div class="row__wrap ratioImg__wrap">
-                                    <img src="./assets/img/image008.jpg" alt="1|0|1|Sense8|Siêu giác quan"
-                                        class="row__img ratio__in">
-                                </div>
-                            </div>
-                            <div class="row__img-link">
-                                <div class="row__wrap ratioImg__wrap">
-                                    <img src="./assets/img/image009.jpg"
-                                        alt="0|0|1|Liên minh công lý|Zack Snyder Justice League"
-                                        class="row__img ratio__in">
-                                </div>
-                            </div>
-                            <div class="row__img-link">
-                                <div class="row__wrap ratioImg__wrap">
-                                    <img src="./assets/img/image010.jpg" alt="1|0|1|Altered carbon|Linh hồn đổi xác"
-                                        class="row__img ratio__in">
-                                </div>
-                            </div>
-                            <div class="row__img-link">
-                                <div class="row__wrap ratioImg__wrap">
-                                    <img src="./assets/img/image011.jpg" alt="1|0|1|Lost in space|Lạc ngoài không gian"
-                                        class="row__img ratio__in">
-                                </div>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
-                <div class="main__row">
+                <!-- <div class="main__row">
                     <div class="row__header">
                         <a href="#" class="row__header-link">
                             <h2 class="row__title">Danh sách tiếp tục xem</h2>
@@ -370,6 +321,125 @@
                             </div>
                         </div>
                     </div>
+                </div> -->
+                <div class="main__row">
+                    <div class="row__header">
+                        <a href="#" class="row__header-link">
+                            <h2 class="row__title">Thịnh hành</h2>
+                            <span class="row__view-all">Xem tất cả
+                                <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                    <div class="row__container" id="popularRow">
+                        <button class="btn-icon fas fa-chevron-left row__item-back"></button>
+                        <button class="btn-icon fas fa-chevron-right row__item-next"></button>
+                        <div class="row__container-sc">
+                            <div class="row__img-link">
+                                <div class="row__wrap ratioImg__wrap">
+                                    <img src="./assets/img/image003.jpg" alt="0|0|0|John Wick|Sát thủ John Wick"
+                                        class="row__img ratio__in">
+                                </div>
+                            </div>
+                            <div class="row__img-link">
+                                <div class="row__wrap ratioImg__wrap">
+                                    <img src="./assets/img/image007.jpg"
+                                        alt="0|0|0|Catch me if you can|Bắt tôi nếu có thể" class="row__img ratio__in">
+                                </div>
+                            </div>
+                            <div class="row__img-link">
+                                <div class="row__wrap ratioImg__wrap">
+                                    <img src="./assets/img/image016.jpg" alt="1|0|0|Pacific Rim|Vùng tối"
+                                        class="row__img ratio__in">
+                                </div>
+                            </div>
+                            <div class="row__img-link">
+                                <div class="row__wrap ratioImg__wrap">
+                                    <img src="./assets/img/image017.jpg" alt="1|0|0|The witcher|Thợ săn quái vật"
+                                        class="row__img ratio__in">
+                                </div>
+                            </div>
+                            <div class="row__img-link">
+                                <div class="row__wrap ratioImg__wrap">
+                                    <img src="./assets/img/image018.jpg" alt="0|0|0|Aquaman|Aquaman: Đế vương Atlantis"
+                                        class="row__img ratio__in">
+                                </div>
+                            </div>
+                            <div class="row__img-link">
+                                <div class="row__wrap ratioImg__wrap">
+                                    <img src="./assets/img/image012.jpg" alt="0|0|0|The hobbit|Người hobbit: hành trình vô định"
+                                        class="row__img ratio__in">
+                                </div>
+                            </div>
+                            <div class="row__img-link">
+                                <div class="row__wrap ratioImg__wrap">
+                                    <img src="./assets/img/image013.jpg" alt="1|0|0|Friends|Những người bạn" class="row__img ratio__in">
+                                </div>
+                            </div>
+                            <div class="row__img-link">
+                                <div class="row__wrap ratioImg__wrap">
+                                    <img src="./assets/img/image014.jpg" alt="1|0|0|Snow Piercer|Chuyến tàu băng giá" class="row__img ratio__in">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="main__row">
+                    <div class="row__header">
+                        <a href="#" class="row__header-link">
+                            <h2 class="row__title">Mới phát hành</h2>
+                            <span class="row__view-all">Xem tất cả
+                                <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                    <div class="row__container" id="newRow">
+                        <button class="btn-icon fas fa-chevron-left row__item-back"></button>
+                        <button class="btn-icon fas fa-chevron-right row__item-next"></button>
+                        <div class="row__container-sc">
+                            <div class="row__img-link">
+                                <div class="row__wrap ratioImg__wrap">
+                                    <img src="./assets/img/image001.jpg" alt="0|0|0|Army of the death|Đội quan người chết"
+                                        class="row__img ratio__in">
+                                </div>
+                            </div>
+                            <div class="row__img-link">
+                                <div class="row__wrap ratioImg__wrap">
+                                    <img src="./assets/img/image019.jpg"
+                                        alt="0|0|0|Outside the wire|Vùng chiến sự hiểm nguy" class="row__img ratio__in">
+                                </div>
+                            </div>
+                            <div class="row__img-link">
+                                <div class="row__wrap ratioImg__wrap">
+                                    <img src="./assets/img/image020.jpg" alt="1|0|0|Bridgerton"
+                                        class="row__img ratio__in">
+                                </div>
+                            </div>
+                            <div class="row__img-link">
+                                <div class="row__wrap ratioImg__wrap">
+                                    <img src="./assets/img/image021.jpg" alt="0|0|0|Bố già" class="row__img ratio__in">
+                                </div>
+                            </div>
+                            <div class="row__img-link">
+                                <div class="row__wrap ratioImg__wrap">
+                                    <img src="./assets/img/image022.jpg" alt="1|0|0|Thunder force|Bộ đôi sấm sét"
+                                        class="row__img ratio__in">
+                                </div>
+                            </div>
+                            <div class="row__img-link">
+                                <div class="row__wrap ratioImg__wrap">
+                                    <img src="./assets/img/image023.jpg" alt="1|0|0|The Crown|Hoàng quyền"
+                                        class="row__img ratio__in">
+                                </div>
+                            </div>
+                            <div class="row__img-link">
+                                <div class="row__wrap ratioImg__wrap">
+                                    <img src="./assets/img/image024.jpg" alt="0|0|0|Project power|Dự án siêu năng lục"
+                                        class="row__img ratio__in">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="main__row">
                     <div class="row__header">
@@ -383,7 +453,7 @@
                         <div class="row__container-sc">
                             <div class="row__img-link">
                                 <div class="row__wrap row__wrap-rank">
-                                    <img src="./assets/img/image_doc040.jpg" alt="1|0|0|Vincenzo"
+                                    <img src="./assets/img/image_doc040.jpg" alt="0|0|0|The GodFather"
                                         class="row__img row__img-rank-sc">
                                     <img src="https://static.vieon.vn/vieon-web-v4/assets/img/sprites/number_001.svg"
                                         alt="" class="row__img-rank">
@@ -391,7 +461,7 @@
                             </div>
                             <div class="row__img-link">
                                 <div class="row__wrap  row__wrap-rank">
-                                    <img src="./assets/img/image_doc041.jpg" alt="1|0|0|Shawdow and bone"
+                                    <img src="./assets/img/image_doc041.jpg" alt="1|0|0|Shadow and bone"
                                         class="row__img row__img-rank-sc">
                                     <img src="https://static.vieon.vn/vieon-web-v4/assets/img/sprites/number_002.svg"
                                         alt="" class="row__img-rank">
@@ -399,7 +469,7 @@
                             </div>
                             <div class="row__img-link">
                                 <div class="row__wrap row__wrap-rank">
-                                    <img src="./assets/img/image_doc042.jpg" alt="1|0|0|Law school|Trường luật"
+                                    <img src="./assets/img/image_doc042.jpg" alt="0|0|0|Transformer"
                                         class="row__img row__img-rank-sc">
                                     <img src="https://static.vieon.vn/vieon-web-v4/assets/img/sprites/number_003.svg"
                                         alt="" class="row__img-rank">
@@ -415,7 +485,7 @@
                             </div>
                             <div class="row__img-link">
                                 <div class="row__wrap row__wrap-rank">
-                                    <img src="./assets/img/image_doc044.jpg" alt="1|0|0|Bạn trai tôi là hồ ly"
+                                    <img src="./assets/img/image_doc044.jpg" alt="0|0|0|Jumanij"
                                         class="row__img row__img-rank-sc">
                                     <img src="https://static.vieon.vn/vieon-web-v4/assets/img/sprites/number_005.svg"
                                         alt="" class="row__img-rank">
@@ -468,110 +538,13 @@
                 <div class="main__row">
                     <div class="row__header">
                         <a href="#" class="row__header-link">
-                            <h2 class="row__title">Thịnh hành</h2>
-                            <span class="row__view-all">Xem tất cả
-                                <i class="fas fa-chevron-right"></i>
-                            </span>
-                        </a>
-                    </div>
-                    <div class="row__container" id="thirdRow">
-                        <button class="btn-icon fas fa-chevron-left row__item-back"></button>
-                        <button class="btn-icon fas fa-chevron-right row__item-next"></button>
-                        <div class="row__container-sc">
-                            <div class="row__img-link">
-                                <div class="row__wrap ratioImg__wrap">
-                                    <img src="./assets/img/image003.jpg" alt="0|0|0|John Wick|Sát thủ John Wick"
-                                        class="row__img ratio__in">
-                                </div>
-                            </div>
-                            <div class="row__img-link">
-                                <div class="row__wrap ratioImg__wrap">
-                                    <img src="./assets/img/image007.jpg"
-                                        alt="0|0|0|Catch me if you can|Bắt tôi nếu có thể" class="row__img ratio__in">
-                                </div>
-                            </div>
-                            <div class="row__img-link">
-                                <div class="row__wrap ratioImg__wrap">
-                                    <img src="./assets/img/image016.jpg" alt="1|0|0|Pacific Rim|Vùng tối"
-                                        class="row__img ratio__in">
-                                </div>
-                            </div>
-                            <div class="row__img-link">
-                                <div class="row__wrap ratioImg__wrap">
-                                    <img src="./assets/img/image017.jpg" alt="1|0|0|The witcher|Thợ săn quái vật"
-                                        class="row__img ratio__in">
-                                </div>
-                            </div>
-                            <div class="row__img-link">
-                                <div class="row__wrap ratioImg__wrap">
-                                    <img src="./assets/img/image018.jpg" alt="0|0|0|Aquaman|Aquaman: Đế vương Atlantis"
-                                        class="row__img ratio__in">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="main__row">
-                    <div class="row__header">
-                        <a href="#" class="row__header-link">
-                            <h2 class="row__title">Mới phát hành</h2>
-                            <span class="row__view-all">Xem tất cả
-                                <i class="fas fa-chevron-right"></i>
-                            </span>
-                        </a>
-                    </div>
-                    <div class="row__container" id="fourRow">
-                        <button class="btn-icon fas fa-chevron-left row__item-back"></button>
-                        <button class="btn-icon fas fa-chevron-right row__item-next"></button>
-                        <div class="row__container-sc">
-                            <div class="row__img-link">
-                                <div class="row__wrap ratioImg__wrap">
-                                    <img src="./assets/img/image019.jpg"
-                                        alt="0|0|0|Outside the wire|Vùng chiến sự hiểm nguy" class="row__img ratio__in">
-                                </div>
-                            </div>
-                            <div class="row__img-link">
-                                <div class="row__wrap ratioImg__wrap">
-                                    <img src="./assets/img/image020.jpg" alt="1|0|0|Bridgerton"
-                                        class="row__img ratio__in">
-                                </div>
-                            </div>
-                            <div class="row__img-link">
-                                <div class="row__wrap ratioImg__wrap">
-                                    <img src="./assets/img/image021.jpg" alt="0|0|0|Bố già" class="row__img ratio__in">
-                                </div>
-                            </div>
-                            <div class="row__img-link">
-                                <div class="row__wrap ratioImg__wrap">
-                                    <img src="./assets/img/image022.jpg" alt="1|0|0|Thunder force|Bộ đôi sấm sét"
-                                        class="row__img ratio__in">
-                                </div>
-                            </div>
-                            <div class="row__img-link">
-                                <div class="row__wrap ratioImg__wrap">
-                                    <img src="./assets/img/image023.jpg" alt="1|0|0|The Crown|Hoàng quyền"
-                                        class="row__img ratio__in">
-                                </div>
-                            </div>
-                            <div class="row__img-link">
-                                <div class="row__wrap ratioImg__wrap">
-                                    <img src="./assets/img/image024.jpg" alt="0|0|0|Project power|Dự án siêu năng lục"
-                                        class="row__img ratio__in">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="main__row">
-                    <div class="row__header">
-                        <a href="#" class="row__header-link">
                             <h2 class="row__title">Giành giải thưởng</h2>
                             <span class="row__view-all">Xem tất cả
                                 <i class="fas fa-chevron-right"></i>
                             </span>
                         </a>
                     </div>
-                    <div class="row__container" id="fiveRow">
+                    <div class="row__container" id="awardRow">
                         <button class="btn-icon fas fa-chevron-left row__item-back"></button>
                         <button class="btn-icon fas fa-chevron-right row__item-next"></button>
                         <div class="row__container-sc">
@@ -629,19 +602,85 @@
                 <div class="main__row">
                     <div class="row__header">
                         <a href="#" class="row__header-link">
+                            <h2 class="row__title">Khoa học viễn tưởng</h2>
+                            <span class="row__view-all">Xem tất cả
+                                <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                    <div class="row__container" id="sci-fiRow">
+                        <button class="btn-icon fas fa-chevron-left row__item-back"></button>
+                        <button class="btn-icon fas fa-chevron-right row__item-next"></button>
+                        <div class="row__container-sc">
+                            <div class="row__img-link">
+                                <div class="row__wrap ratioImg__wrap">
+                                    <img src="./assets/img/image002.jpg"
+                                        alt="1|0|1|Love, death and robot|Tình yêu, cái chết và người máy"
+                                        class="row__img ratio__in">
+                                </div>
+                            </div>
+                            <div class="row__img-link">
+                                <div class="row__wrap ratioImg__wrap">
+                                    <img src="./assets/img/image004.jpg" alt="1|0|1|Black mirror|Gương đen"
+                                        class="row__img ratio__in">
+                                </div>
+                            </div>
+                            <div class="row__img-link">
+                                <div class="row__wrap ratioImg__wrap">
+                                    <img src="./assets/img/image005.jpg" alt="1|0|1|Academy Umbrella|Học viện cây dù"
+                                        class="row__img ratio__in">
+                                </div>
+                            </div>
+                            <div class="row__img-link">
+                                <div class="row__wrap ratioImg__wrap">
+                                    <img src="./assets/img/image006.jpg" alt="1|0|1|Stranger things|Cậu bé mất tích"
+                                        class="row__img ratio__in">
+                                </div>
+                            </div>
+                            <div class="row__img-link">
+                                <div class="row__wrap ratioImg__wrap">
+                                    <img src="./assets/img/image025.jpg" alt="0|1|0|Ready player one|Đấu trường ảo"
+                                        class="row__img ratio__in">
+                                </div>
+                            </div>
+                            <div class="row__img-link">
+                                <div class="row__wrap ratioImg__wrap">
+                                    <img src="./assets/img/image010.jpg" alt="1|0|1|Altered carbon|Linh hồn đổi xác"
+                                        class="row__img ratio__in">
+                                </div>
+                            </div>
+                            <div class="row__img-link">
+                                <div class="row__wrap ratioImg__wrap">
+                                    <img src="./assets/img/image011.jpg" alt="1|0|1|Lost in space|Lạc ngoài không gian"
+                                        class="row__img ratio__in">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="main__row">
+                    <div class="row__header">
+                        <a href="#" class="row__header-link">
                             <h2 class="row__title">Vip</h2>
                             <span class="row__view-all">Xem tất cả
                                 <i class="fas fa-chevron-right"></i>
                             </span>
                         </a>
                     </div>
-                    <div class="row__container" id="sixRow">
+                    <div class="row__container" id="vipRow">
                         <button class="btn-icon fas fa-chevron-left row__item-back"></button>
                         <button class="btn-icon fas fa-chevron-right row__item-next"></button>
                         <div class="row__container-sc">
                             <div class="row__img-link">
                                 <div class="row__wrap ratioImg__wrap">
-                                    <img src="./assets/img/image025.jpg" alt="0|1|0|Ready player one|Đấu trường ảo"
+                                    <img src="./assets/img/image008.jpg" alt="1|0|1|Sense8|Siêu giác quan"
+                                        class="row__img ratio__in">
+                                    <img src="./assets/img/iconvip.png" alt="vip" class="movies-vip">
+                                </div>
+                            </div>
+                            <div class="row__img-link">
+                                <div class="row__wrap ratioImg__wrap">
+                                    <img src="./assets/img/image009.jpg" alt="0|0|1|Liên minh công lý|Zack Snyder Justice League"
                                         class="row__img ratio__in">
                                     <img src="./assets/img/iconvip.png" alt="vip" class="movies-vip">
                                 </div>
@@ -854,7 +893,8 @@
                                 <span>5 Mùa</span>
                             </div>
                             <p class="info-left__main">
-                                Một giáo viên dạy hóa ở trường trung học mắc bệnh ung thư bắt tay với một cựu học sinh để bảo vệ tương lai của gia đình
+                                Một giáo viên dạy hóa ở trường trung học mắc bệnh ung thư bắt tay với một cựu học sinh
+                                để bảo vệ tương lai của gia đình
                                 bằng cách sản xuất và bán kẹo.
                             </p>
                         </div>
@@ -926,13 +966,16 @@
                             </div>
                         </div>
                         <div class="modal__movies-ep-second" id="episodeMovie">
-                            <button class="btn-icon fas fa-chevron-left row__item-back modal-recommend__item-back"></button>
-                            <button class="btn-icon fas fa-chevron-right row__item-next modal-recommend__item-next"></button>
+                            <button
+                                class="btn-icon fas fa-chevron-left row__item-back modal-recommend__item-back"></button>
+                            <button
+                                class="btn-icon fas fa-chevron-right row__item-next modal-recommend__item-next"></button>
                             <div class="modal-recommend__container-sc">
                                 <div class="modal-recommend__img-link">
                                     <div class="modal-recommend__wrap">
                                         <div class="modal-recommend__wrap-img modal-episode__wrap-img">
-                                            <img src="./assets/img/image_season1_ep01_035.jpg" alt="" class="modal-recommend__img">
+                                            <img src="./assets/img/image_season1_ep01_035.jpg" alt=""
+                                                class="modal-recommend__img">
                                             <div class="modal-recommend__link">
                                                 <i class="fas fa-play"></i>
                                             </div>
@@ -945,7 +988,8 @@
                                                 <span>58ph</span>
                                             </div>
                                             <span class="episode__description">
-                                                Bị chẩn đoán mắc ung thư phổi giai đoạn cuối, một giáo viên dạy hóa ở trường trung học phải viện đến cách chế biến và
+                                                Bị chẩn đoán mắc ung thư phổi giai đoạn cuối, một giáo viên dạy hóa ở
+                                                trường trung học phải viện đến cách chế biến và
                                                 bán kẹo để nuôi gia đình.
                                             </span>
                                         </div>
@@ -954,7 +998,8 @@
                                 <div class="modal-recommend__img-link">
                                     <div class="modal-recommend__wrap">
                                         <div class="modal-recommend__wrap-img modal-episode__wrap-img">
-                                            <img src="./assets/img/image_season1_ep02_035.jpg" alt="" class="modal-recommend__img">
+                                            <img src="./assets/img/image_season1_ep02_035.jpg" alt=""
+                                                class="modal-recommend__img">
                                             <div class="modal-recommend__link">
                                                 <i class="fas fa-play"></i>
                                             </div>
@@ -967,7 +1012,8 @@
                                                 <span>48ph</span>
                                             </div>
                                             <span class="episode__description">
-                                                Phi vụ buôn bán kẹo đầu tiên bị hủy bỏ khiến Walt và Jesse phải xử lý hai xác chết. Trong lúc đó, Skyler nghi ngờ
+                                                Phi vụ buôn bán kẹo đầu tiên bị hủy bỏ khiến Walt và Jesse phải xử lý
+                                                hai xác chết. Trong lúc đó, Skyler nghi ngờ
                                                 chồng mình đang âm mưu làm chuyện xấu.
                                             </span>
                                         </div>
@@ -976,7 +1022,8 @@
                                 <div class="modal-recommend__img-link">
                                     <div class="modal-recommend__wrap">
                                         <div class="modal-recommend__wrap-img modal-episode__wrap-img">
-                                            <img src="./assets/img/image_season1_ep03_035.jpg" alt="" class="modal-recommend__img">
+                                            <img src="./assets/img/image_season1_ep03_035.jpg" alt=""
+                                                class="modal-recommend__img">
                                             <div class="modal-recommend__link">
                                                 <i class="fas fa-play"></i>
                                             </div>
@@ -989,7 +1036,8 @@
                                                 <span>50ph</span>
                                             </div>
                                             <span>
-                                                Khi Walt xử lý các rắc rối sót lại từ phi vụ buôn bán kẹo đầu tiên, Skyler suýt biết được sự thật về cuộc sống bí mật
+                                                Khi Walt xử lý các rắc rối sót lại từ phi vụ buôn bán kẹo đầu tiên,
+                                                Skyler suýt biết được sự thật về cuộc sống bí mật
                                                 của ông.
                                             </span>
                                         </div>
@@ -998,7 +1046,8 @@
                                 <div class="modal-recommend__img-link">
                                     <div class="modal-recommend__wrap">
                                         <div class="modal-recommend__wrap-img modal-episode__wrap-img">
-                                            <img src="./assets/img/image_season1_ep04_035.jpg" alt="" class="modal-recommend__img">
+                                            <img src="./assets/img/image_season1_ep04_035.jpg" alt=""
+                                                class="modal-recommend__img">
                                             <div class="modal-recommend__link">
                                                 <i class="fas fa-play"></i>
                                             </div>
@@ -1011,8 +1060,9 @@
                                                 <span>54ph</span>
                                             </div>
                                             <span>
-                                            Việc bị buộc tiết lộ bí mật về bệnh tình của mình khiến Walt đối mặt với vấn đề nan giải về cách chi trả một loạt phương
-                                            pháp điều trị ung thư đắt đỏ.
+                                                Việc bị buộc tiết lộ bí mật về bệnh tình của mình khiến Walt đối mặt với
+                                                vấn đề nan giải về cách chi trả một loạt phương
+                                                pháp điều trị ung thư đắt đỏ.
                                             </span>
                                         </div>
                                     </div>
@@ -1020,7 +1070,8 @@
                                 <div class="modal-recommend__img-link">
                                     <div class="modal-recommend__wrap">
                                         <div class="modal-recommend__wrap-img modal-episode__wrap-img">
-                                            <img src="./assets/img/image_season1_ep05_035.jpg" alt="" class="modal-recommend__img">
+                                            <img src="./assets/img/image_season1_ep05_035.jpg" alt=""
+                                                class="modal-recommend__img">
                                             <div class="modal-recommend__link">
                                                 <i class="fas fa-play"></i>
                                             </div>
@@ -1033,7 +1084,8 @@
                                                 <span>49ph</span>
                                             </div>
                                             <span>
-                                                Skyler tổ chức một buổi can thiệp để thuyết phục Walt chấp nhận đề nghị đầy hào phóng từ cộng sự nghiên cứu trước đây
+                                                Skyler tổ chức một buổi can thiệp để thuyết phục Walt chấp nhận đề nghị
+                                                đầy hào phóng từ cộng sự nghiên cứu trước đây
                                                 của ông về việc chi trả chi phí điều trị ung thư.
                                             </span>
                                         </div>
@@ -1042,7 +1094,8 @@
                                 <div class="modal-recommend__img-link">
                                     <div class="modal-recommend__wrap">
                                         <div class="modal-recommend__wrap-img modal-episode__wrap-img">
-                                            <img src="./assets/img/image_season1_ep06_035.jpg" alt="" class="modal-recommend__img">
+                                            <img src="./assets/img/image_season1_ep06_035.jpg" alt=""
+                                                class="modal-recommend__img">
                                             <div class="modal-recommend__link">
                                                 <i class="fas fa-play"></i>
                                             </div>
@@ -1055,8 +1108,9 @@
                                                 <span>51ph</span>
                                             </div>
                                             <span>
-                                            Khi những tác dụng phụ và chi phí điều trị gia tăng, Walt đòi Jesse tìm nhà buôn để mua kẹo của họ... điều này đẩy
-                                            ông tới rắc rối.
+                                                Khi những tác dụng phụ và chi phí điều trị gia tăng, Walt đòi Jesse tìm
+                                                nhà buôn để mua kẹo của họ... điều này đẩy
+                                                ông tới rắc rối.
                                             </span>
                                         </div>
                                     </div>
@@ -1064,7 +1118,8 @@
                                 <div class="modal-recommend__img-link">
                                     <div class="modal-recommend__wrap">
                                         <div class="modal-recommend__wrap-img modal-episode__wrap-img">
-                                            <img src="./assets/img/image_season1_ep07_035.jpg" alt="" class="modal-recommend__img">
+                                            <img src="./assets/img/image_season1_ep07_035.jpg" alt=""
+                                                class="modal-recommend__img">
                                             <div class="modal-recommend__link">
                                                 <i class="fas fa-play"></i>
                                             </div>
@@ -1077,7 +1132,8 @@
                                                 <span>55ph</span>
                                             </div>
                                             <span>
-                                                Sau khi Jesse suýt mất mạng, Walt đồng ý sản xuất nhiều ma túy hơn nữa cho tay Tuco tàn nhẫn. Trong lúc đó, Skyler nghi
+                                                Sau khi Jesse suýt mất mạng, Walt đồng ý sản xuất nhiều ma túy hơn nữa
+                                                cho tay Tuco tàn nhẫn. Trong lúc đó, Skyler nghi
                                                 ngờ em gái mình thó đồ.
                                             </span>
                                         </div>
@@ -1118,7 +1174,6 @@
                                                 kẻ nhúng tay vào âm mưu bất thành này.
                                             </span>
                                         </div>
-
                                     </div>
                                 </div>
                                 <div class="modal-recommend__img-link">
@@ -1368,6 +1423,7 @@
 
     <script src="./assets/js/base.js"></script>
     <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/slider.js"></script>
 </body>
 
 </html>

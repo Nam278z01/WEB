@@ -9,10 +9,11 @@
     <link rel="stylesheet" href="./assets/css/base.css" />
     <!-- Custom css file -->
     <link rel="stylesheet" href="./assets/css/main.css" />
-    <!-- Font awesome icons -->
+    <!-- Awesome icons -->
     <link rel="stylesheet" href="./assets/css/all.min.css" />
     <!-- Responsive css file -->
     <link rel="stylesheet" href="./assets/css/responsive.css" />
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
         href="https://fonts.googleapis.com/css2?family=Allura&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
@@ -24,16 +25,18 @@
     <div class="app">
         <header class="header">
             <!-- Video -->
-            <div class="header__video">
-                <img src="./assets/img/image_big001.jpg" alt="Sense8" class="header__video-img">
-                <video id="myVideo">
+            <div class="header__video ratio16-9__wrap">
+                <img src="./assets/img/image_big001.jpg" alt=""
+                    class="header__video-img ratio__in">
+                <video id="myVideo" class="ratio__in">
                     <source src="./assets/video/video001.mp4" type="video/mp4">
                 </video>
                 <div class="header__video-content">
                     <img src="./assets/img/image_name001.png" alt="" class="header__video-name">
                     <p class="header__video-info">
-                        After a zombie outbreak in Las Vegas, a group of mercenaries takes the ultimate gamble by venturing into the quarantine
-                        zone for the greatest heist ever.
+                        Một giáo viên dạy hóa ở trường trung học mắc bệnh ung thư bắt tay với một cựu học sinh để bảo vệ
+                        tương lai của gia đình
+                        bằng cách sản xuất và bán kẹo.
                     </p>
                     <div class="header__button">
                         <button class="button button--play">
@@ -54,7 +57,7 @@
             </div>
             <!-- thanh điều hướng -->
             <div class="header__nav" id="my-nav">
-                <!-- Tablet Mobile nav -->
+                <!-- Tablet nav -->
                 <div class="nav-table">
                     <label for="nav-tablet-input" class="header__nav-bar-icon fas fa-bars"></label>
                     <input type="checkbox" name="" id="nav-tablet-input">
@@ -92,12 +95,12 @@
                                 </a>
                             </li>
                             <li class="nav__tablet-item">
-                                <a href="#">
+                                <div>
                                     <div class="nav__tablet-icon">
                                         <i class="fas fa-compact-disc"></i>
                                     </div>
                                     <span class="nav__tablet-item-info">Thể loại</span>
-                                </a>
+                                </div>
                             </li>
                             <li class="nav__tablet-item">
                                 <a href="./popular.html">
@@ -142,9 +145,7 @@
                                     <a href="#" class="header__tap-link">Phim lẻ</a>
                                 </li>
                                 <li class="header__tap" id="genres">
-                                    <span class="header__tap-link">Thể loại
-                                        <i class="genres-icon fas fa-sort-down"></i>
-                                    </span>
+                                    <span class="header__tap-link">Thể loại</span>
                                     <div class="genres-sub-nav">
                                         <ul class="genres-items">
                                             <li class="genre-item">
@@ -194,7 +195,7 @@
                             <button class="btn-icon fas fa-search" id="icon-search"></button>
                             <div id="search-wrap">
                                 <button id="search-tnof" class="btn-icon fas fa-chevron-right"></button>
-                                <form action="" name="searchFrom" id="searchForm">
+                                <form action="./search.html" name="searchFrom" id="searchForm">
                                     <button id="btn-search" class="fas fa-search"></button>
                                     <input type="text" name="searchIp" maxlength="80"
                                         placeholder="Phim, diễn viên, đạo diễn...">
@@ -202,11 +203,15 @@
                                 </form>
                             </div>
                         </div>
-                        <div class="header__notify" title="Thông Báo">
+                        <div class="header__notify">
                             <i class="btn-icon fas fa-bell"></i>
                         </div>
-                        <div class="header__account" title="Tài khoản">
+                        <div class="header__account">
                             <i class="btn-icon fas fa-user-circle"></i>
+                            <div class="signIn-register">
+                                <button class="button btn-account__register">Đăng ký</button>
+                                <button class="button btn-account__signIn">Đăng nhập</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -223,9 +228,9 @@
                             <a href="./tvshow.html" class="header__tap-link">Phim bộ</a>
                         </li>
                         <li class="header__tap">
-                            <a href="#" class="header__tap-link">Thể loại
+                            <divclass="header__tap-link">Thể loại
                                 <i class="genres-icon fas fa-sort-down"></i>
-                            </a>
+                            </divclass=>
                         </li>
                         <li class="header__tap">
                             <a href="./popular.html" class="header__tap-link">Mới và Phổ biến</a>
@@ -246,163 +251,33 @@
                 <div class="main__row">
                     <div class="row__header">
                         <a href="#" class="row__header-link">
-                            <h2 class="row__title">Danh sách tiếp tục xem</h2>
+                            <h2 class="row__title">Thịnh hành</h2>
                             <span class="row__view-all">Xem tất cả
                                 <i class="fas fa-chevron-right"></i>
                             </span>
                         </a>
                     </div>
-                    <div class="row__container" id="secondRow">
+                    <div class="row__container" id="popularRow">
                         <button class="btn-icon fas fa-chevron-left row__item-back"></button>
                         <button class="btn-icon fas fa-chevron-right row__item-next"></button>
                         <div class="row__container-sc">
                             <div class="row__img-link">
-                                <div class="row__wrap">
-                                    <img src="./assets/img/image012.jpg" alt="The hobbit|Người hobbit: hành trình vô định"
-                                        class="row__img">
+                                <div class="row__wrap ratioImg__wrap">
+                                    <img src="./assets/img/image007.jpg"
+                                        alt="0|0|0|Catch me if you can|Bắt tôi nếu có thể" class="row__img ratio__in">
                                 </div>
                             </div>
                             <div class="row__img-link">
-                                <div class="row__wrap">
-                                    <img src="./assets/img/image013.jpg" alt="Friends|Những người bạn" class="row__img">
+                                <div class="row__wrap ratioImg__wrap">
+                                    <img src="./assets/img/image018.jpg" alt="0|0|0|Aquaman|Aquaman: Đế vương Atlantis"
+                                        class="row__img ratio__in">
                                 </div>
                             </div>
                             <div class="row__img-link">
-                                <div class="row__wrap">
-                                    <img src="./assets/img/image014.jpg" alt="Snow Piercer|Chuyến tàu băng giá" class="row__img">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="main__row">
-                    <div class="row__header">
-                        <a href="#" class="row__header-link">
-                            <h2 class="row__title">TOP 10 NMovies</h2>
-                        </a>
-                    </div>
-                    <div class="row__container" id="topRow">
-                        <button class="btn-icon fas fa-chevron-left row__item-back"></button>
-                        <button class="btn-icon fas fa-chevron-right row__item-next"></button>
-                        <div class="row__container-sc">
-                            <div class="row__img-link">
-                                <div class="row__wrap row__wrap-rank">
-                                    <img src="https://static.vieon.vn/vieon-web-v4/assets/img/sprites/number_001.svg" alt=""
-                                        class="row__img-rank">
-                                    <img src="./assets/img/image_doc040.jpg" alt="Vincenzo" class="row__img row__img-rank-sc">
-                                </div>
-                            </div>
-                            <div class="row__img-link">
-                                <div class="row__wrap  row__wrap-rank">
-                                    <img src="https://static.vieon.vn/vieon-web-v4/assets/img/sprites/number_002.svg" alt=""
-                                        class="row__img-rank">
-                                    <img src="./assets/img/image_doc041.jpg" alt="Shawdow and bone" class="row__img row__img-rank-sc">
-                                </div>
-                            </div>
-                            <div class="row__img-link">
-                                <div class="row__wrap row__wrap-rank">
-                                    <img src="https://static.vieon.vn/vieon-web-v4/assets/img/sprites/number_003.svg" alt=""
-                                        class="row__img-rank">
-                                    <img src="./assets/img/image_doc042.jpg" alt="Law school|Trường luật"
-                                        class="row__img row__img-rank-sc">
-                                </div>
-                            </div>
-                            <div class="row__img-link">
-                                <div class="row__wrap row__wrap-rank">
-                                    <img src="https://static.vieon.vn/vieon-web-v4/assets/img/sprites/number_004.svg" alt=""
-                                        class="row__img-rank">
-                                    <img src="./assets/img/image_doc043.jpg" alt="Shazam" class="row__img row__img-rank-sc">
-                                </div>
-                            </div>
-                            <div class="row__img-link">
-                                <div class="row__wrap row__wrap-rank">
-                                    <img src="https://static.vieon.vn/vieon-web-v4/assets/img/sprites/number_005.svg" alt=""
-                                        class="row__img-rank">
-                                    <img src="./assets/img/image_doc044.jpg" alt="Bạn trai tôi là hồ ly"
-                                        class="row__img row__img-rank-sc">
-                                </div>
-                            </div>
-                            <div class="row__img-link">
-                                <div class="row__wrap row__wrap-rank">
-                                    <img src="https://static.vieon.vn/vieon-web-v4/assets/img/sprites/number_006.svg" alt=""
-                                        class="row__img-rank">
-                                    <img src="./assets/img/image_doc045.jpg" alt="Homunculus" class="row__img row__img-rank-sc">
-                                </div>
-                            </div>
-                            <div class="row__img-link">
-                                <div class="row__wrap row__wrap-rank">
-                                    <img src="https://static.vieon.vn/vieon-web-v4/assets/img/sprites/number_007.svg" alt=""
-                                        class="row__img-rank">
-                                    <img src="./assets/img/image_doc046.jpg" alt="The dead don't die" class="row__img row__img-rank-sc">
-                                </div>
-                            </div>
-                            <div class="row__img-link">
-                                <div class="row__wrap row__wrap-rank">
-                                    <img src="https://static.vieon.vn/vieon-web-v4/assets/img/sprites/number_008.svg" alt=""
-                                        class="row__img-rank">
-                                    <img src="./assets/img/image_doc047.jpg" alt="The Twilight|Chạng vạng"
-                                        class="row__img row__img-rank-sc">
-                                </div>
-                            </div>
-                            <div class="row__img-link">
-                                <div class="row__wrap row__wrap-rank">
-                                    <img src="https://static.vieon.vn/vieon-web-v4/assets/img/sprites/number_009.svg" alt=""
-                                        class="row__img-rank">
-                                    <img src="./assets/img/image_doc015.jpg" alt="Love and monster|Tình yêu và quái vật"
-                                        class="row__img row__img-rank-sc">
-                                </div>
-                            </div>
-                            <div class="row__img-link">
-                                <div class="row__wrap row__wrap-rank">
-                                    <img src="https://static.vieon.vn/vieon-web-v4/assets/img/sprites/number_010.svg" alt=""
-                                        class="row__img-rank">
-                                    <img src="./assets/img/image_doc048.jpg" alt="Minions" class="row__img row__img-rank-sc">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="main__row">
-                    <div class="row__header">
-                        <a href="#" class="row__header-link">
-                            <h2 class="row__title">Thịnh Hành</h2>
-                            <span class="row__view-all">Xem tất cả
-                                <i class="fas fa-chevron-right"></i>
-                            </span>
-                        </a>
-                    </div>
-                    <div class="row__container" id="thirdRow">
-                        <button class="btn-icon fas fa-chevron-left row__item-back"></button>
-                        <button class="btn-icon fas fa-chevron-right row__item-next"></button>
-                        <div class="row__container-sc">
-                            <div class="row__img-link">
-                                <div class="row__wrap">
-                                    <img src="./assets/img/image003.jpg" alt="John Wick|Sát thủ John Wick" class="row__img">
-                                </div>
-                            </div>
-                            <div class="row__img-link">
-                                <div class="row__wrap">
-                                    <img src="./assets/img/image007.jpg" alt="Catch me if you can|Bắt tôi nếu có thể" class="row__img">
-                                </div>
-                            </div>
-                            <div class="row__img-link">
-                                <div class="row__wrap">
-                                    <img src="./assets/img/image015.jpg" alt="Love and monster|Tình yêu và quái vật" class="row__img">
-                                </div>
-                            </div>
-                            <div class="row__img-link">
-                                <div class="row__wrap">
-                                    <img src="./assets/img/image016.jpg" alt="Pacific Rim|Vùng tối" class="row__img">
-                                </div>
-                            </div>
-                            <div class="row__img-link">
-                                <div class="row__wrap">
-                                    <img src="./assets/img/image017.jpg" alt="The witcher|Thợ săn quái vật" class="row__img">
-                                </div>
-                            </div>
-                            <div class="row__img-link">
-                                <div class="row__wrap">
-                                    <img src="./assets/img/image018.jpg" alt="Aquaman|Aquaman: Đế vương Atlantis" class="row__img">
+                                <div class="row__wrap ratioImg__wrap">
+                                    <img src="./assets/img/image012.jpg"
+                                        alt="0|0|0|The hobbit|Người hobbit: hành trình vô định"
+                                        class="row__img ratio__in">
                                 </div>
                             </div>
                         </div>
@@ -417,39 +292,31 @@
                             </span>
                         </a>
                     </div>
-                    <div class="row__container" id="fourRow">
+                    <div class="row__container" id="newRow">
                         <button class="btn-icon fas fa-chevron-left row__item-back"></button>
                         <button class="btn-icon fas fa-chevron-right row__item-next"></button>
                         <div class="row__container-sc">
                             <div class="row__img-link">
-                                <div class="row__wrap">
-                                    <img src="./assets/img/image019.jpg" alt="Outside the wire|Vùng chiến sự hiểm nguy"
-                                        class="row__img">
+                                <div class="row__wrap ratioImg__wrap">
+                                    <img src="./assets/img/image001.jpg" alt="0|0|0|Army of the death|Đội quan người chết"
+                                        class="row__img ratio__in">
                                 </div>
                             </div>
                             <div class="row__img-link">
-                                <div class="row__wrap">
-                                    <img src="./assets/img/image020.jpg" alt="Bridgerton" class="row__img">
+                                <div class="row__wrap ratioImg__wrap">
+                                    <img src="./assets/img/image019.jpg"
+                                        alt="0|0|0|Outside the wire|Vùng chiến sự hiểm nguy" class="row__img ratio__in">
                                 </div>
                             </div>
                             <div class="row__img-link">
-                                <div class="row__wrap">
-                                    <img src="./assets/img/image021.jpg" alt="Bố già" class="row__img">
+                                <div class="row__wrap ratioImg__wrap">
+                                    <img src="./assets/img/image021.jpg" alt="0|0|0|Bố già" class="row__img ratio__in">
                                 </div>
                             </div>
                             <div class="row__img-link">
-                                <div class="row__wrap">
-                                    <img src="./assets/img/image022.jpg" alt="Thunder force|Bộ đôi sấm sét" class="row__img">
-                                </div>
-                            </div>
-                            <div class="row__img-link">
-                                <div class="row__wrap">
-                                    <img src="./assets/img/image023.jpg" alt="The Crown|Hoàng quyền" class="row__img">
-                                </div>
-                            </div>
-                            <div class="row__img-link">
-                                <div class="row__wrap">
-                                    <img src="./assets/img/image024.jpg" alt="Project power|Dự án siêu năng lục" class="row__img">
+                                <div class="row__wrap ratioImg__wrap">
+                                    <img src="./assets/img/image024.jpg" alt="0|0|0|Project power|Dự án siêu năng lục"
+                                        class="row__img ratio__in">
                                 </div>
                             </div>
                         </div>
@@ -458,54 +325,92 @@
                 <div class="main__row">
                     <div class="row__header">
                         <a href="#" class="row__header-link">
-                            <h2 class="row__title">Giành giải thưởng</h2>
-                            <span class="row__view-all">Xem tất cả
-                                <i class="fas fa-chevron-right"></i>
-                            </span>
+                            <h2 class="row__title">Top 10 phim lẻ được xem nhiều hôm nay</h2>
                         </a>
                     </div>
-                    <div class="row__container" id="fiveRow">
+                    <div class="row__container" id="topRow">
                         <button class="btn-icon fas fa-chevron-left row__item-back"></button>
                         <button class="btn-icon fas fa-chevron-right row__item-next"></button>
                         <div class="row__container-sc">
                             <div class="row__img-link">
-                                <div class="row__wrap">
-                                    <img src="./assets/img/image032.jpg" alt="Dont f*ck with my cat|Đừng đùa với mèo" class="row__img">
+                                <div class="row__wrap row__wrap-rank">
+                                    <img src="./assets/img/image_doc040.jpg" alt="0|0|0|The GodFather"
+                                        class="row__img row__img-rank-sc">
+                                    <img src="https://static.vieon.vn/vieon-web-v4/assets/img/sprites/number_001.svg"
+                                        alt="" class="row__img-rank">
                                 </div>
                             </div>
                             <div class="row__img-link">
-                                <div class="row__wrap">
-                                    <img src="./assets/img/image033.jpg" alt="Sherlock" class="row__img">
+                                <div class="row__wrap  row__wrap-rank">
+                                    <img src="./assets/img/image_doc003.jpg" alt="0|0|0|John Wick|Sát thủ John Wick"
+                                        class="row__img row__img-rank-sc">
+                                    <img src="https://static.vieon.vn/vieon-web-v4/assets/img/sprites/number_002.svg"
+                                        alt="" class="row__img-rank">
                                 </div>
                             </div>
                             <div class="row__img-link">
-                                <div class="row__wrap">
-                                    <img src="./assets/img/image034.jpg" alt="Better call Saul|Hãy gọi cho Saul" class="row__img">
+                                <div class="row__wrap row__wrap-rank">
+                                    <img src="./assets/img/image_doc042.jpg" alt="0|0|0|Transformer"
+                                        class="row__img row__img-rank-sc">
+                                    <img src="https://static.vieon.vn/vieon-web-v4/assets/img/sprites/number_003.svg"
+                                        alt="" class="row__img-rank">
                                 </div>
                             </div>
                             <div class="row__img-link">
-                                <div class="row__wrap">
-                                    <img src="./assets/img/image035.jpg" alt="Breaking bad|Tập làm người xấu" class="row__img">
+                                <div class="row__wrap row__wrap-rank">
+                                    <img src="./assets/img/image_doc043.jpg" alt="0|0|0|Shazam"
+                                        class="row__img row__img-rank-sc">
+                                    <img src="https://static.vieon.vn/vieon-web-v4/assets/img/sprites/number_004.svg"
+                                        alt="" class="row__img-rank">
                                 </div>
                             </div>
                             <div class="row__img-link">
-                                <div class="row__wrap">
-                                    <img src="./assets/img/image036.jpg" alt="House of cards|Ván bài chính trị" class="row__img">
+                                <div class="row__wrap row__wrap-rank">
+                                    <img src="./assets/img/image_doc044.jpg" alt="0|0|0|Jumanij"
+                                        class="row__img row__img-rank-sc">
+                                    <img src="https://static.vieon.vn/vieon-web-v4/assets/img/sprites/number_005.svg"
+                                        alt="" class="row__img-rank">
                                 </div>
                             </div>
                             <div class="row__img-link">
-                                <div class="row__wrap">
-                                    <img src="./assets/img/image037.jpg" alt="Family guys" class="row__img">
+                                <div class="row__wrap row__wrap-rank">
+                                    <img src="./assets/img/image_doc045.jpg" alt="0|0|0|Homunculus"
+                                        class="row__img row__img-rank-sc">
+                                    <img src="https://static.vieon.vn/vieon-web-v4/assets/img/sprites/number_006.svg"
+                                        alt="" class="row__img-rank">
                                 </div>
                             </div>
                             <div class="row__img-link">
-                                <div class="row__wrap">
-                                    <img src="./assets/img/image038.jpg" alt="Shawdowhunter|Thợ săn bóng đêm" class="row__img">
+                                <div class="row__wrap row__wrap-rank">
+                                    <img src="./assets/img/image_doc046.jpg" alt="0|0|0|The dead don't die"
+                                        class="row__img row__img-rank-sc">
+                                    <img src="https://static.vieon.vn/vieon-web-v4/assets/img/sprites/number_007.svg"
+                                        alt="" class="row__img-rank">
                                 </div>
                             </div>
                             <div class="row__img-link">
-                                <div class="row__wrap">
-                                    <img src="./assets/img/image039.jpg" alt="Outlander|Người ngoại quốc" class="row__img">
+                                <div class="row__wrap row__wrap-rank">
+                                    <img src="./assets/img/image_doc047.jpg" alt="0|0|0|The Twilight|Chạng vạng"
+                                        class="row__img row__img-rank-sc">
+                                    <img src="https://static.vieon.vn/vieon-web-v4/assets/img/sprites/number_008.svg"
+                                        alt="" class="row__img-rank">
+                                </div>
+                            </div>
+                            <div class="row__img-link">
+                                <div class="row__wrap row__wrap-rank">
+                                    <img src="./assets/img/image_doc015.jpg"
+                                        alt="0|0|0|Love and monster|Tình yêu và quái vật"
+                                        class="row__img row__img-rank-sc">
+                                    <img src="https://static.vieon.vn/vieon-web-v4/assets/img/sprites/number_009.svg"
+                                        alt="" class="row__img-rank">
+                                </div>
+                            </div>
+                            <div class="row__img-link">
+                                <div class="row__wrap row__wrap-rank">
+                                    <img src="./assets/img/image_doc048.jpg" alt="0|0|0|Minions"
+                                        class="row__img row__img-rank-sc">
+                                    <img src="https://static.vieon.vn/vieon-web-v4/assets/img/sprites/number_010.svg"
+                                        alt="" class="row__img-rank">
                                 </div>
                             </div>
                         </div>
@@ -514,49 +419,77 @@
                 <div class="main__row">
                     <div class="row__header">
                         <a href="#" class="row__header-link">
-                            <h2 class="row__title">hành động & phiêu lưu</h2>
+                            <h2 class="row__title">Khoa học viễn tưởng</h2>
                             <span class="row__view-all">Xem tất cả
                                 <i class="fas fa-chevron-right"></i>
                             </span>
                         </a>
                     </div>
-                    <div class="row__container" id="sixRow">
+                    <div class="row__container" id="sci-fiRow">
                         <button class="btn-icon fas fa-chevron-left row__item-back"></button>
                         <button class="btn-icon fas fa-chevron-right row__item-next"></button>
                         <div class="row__container-sc">
                             <div class="row__img-link">
-                                <div class="row__wrap">
-                                    <img src="./assets/img/image025.jpg" alt="Ready player one|Đấu trường ảo" class="row__img">
+                                <div class="row__wrap ratioImg__wrap">
+                                    <img src="./assets/img/image025.jpg" alt="0|1|0|Ready player one|Đấu trường ảo" class="row__img ratio__in">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="main__row">
+                    <div class="row__header">
+                        <a href="#" class="row__header-link">
+                            <h2 class="row__title">Vip</h2>
+                            <span class="row__view-all">Xem tất cả
+                                <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                    <div class="row__container" id="vipRow">
+                        <button class="btn-icon fas fa-chevron-left row__item-back"></button>
+                        <button class="btn-icon fas fa-chevron-right row__item-next"></button>
+                        <div class="row__container-sc">
+                            <div class="row__img-link">
+                                <div class="row__wrap ratioImg__wrap">
+                                    <img src="./assets/img/image026.jpg"
+                                        alt="0|1|0|The old guard|Những chiến binh bất tử" class="row__img ratio__in">
+                                    <img src="./assets/img/iconvip.png" alt="vip" class="movies-vip">
                                 </div>
                             </div>
                             <div class="row__img-link">
-                                <div class="row__wrap">
-                                    <img src="./assets/img/image026.jpg" alt="The old guard|Những chiến binh bất tử" class="row__img">
+                                <div class="row__wrap ratioImg__wrap">
+                                    <img src="./assets/img/image009.jpg" alt="0|0|1|Liên minh công lý|Zack Snyder Justice League"
+                                        class="row__img ratio__in">
+                                    <img src="./assets/img/iconvip.png" alt="vip" class="movies-vip">
                                 </div>
                             </div>
                             <div class="row__img-link">
-                                <div class="row__wrap">
-                                    <img src="./assets/img/image027.jpg" alt="Sinh tử luân hồi" class="row__img">
+                                <div class="row__wrap ratioImg__wrap">
+                                    <img src="./assets/img/image027.jpg" alt="0|1|0|Sinh tử luân hồi"
+                                        class="row__img ratio__in">
+                                    <img src="./assets/img/iconvip.png" alt="vip" class="movies-vip">
                                 </div>
                             </div>
                             <div class="row__img-link">
-                                <div class="row__wrap">
-                                    <img src="./assets/img/image028.jpg" alt="Tyler Rake nhiệm vụ giải cứu" class="row__img">
+                                <div class="row__wrap ratioImg__wrap">
+                                    <img src="./assets/img/image028.jpg" alt="0|1|0|Tyler Rake nhiệm vụ giải cứu"
+                                        class="row__img ratio__in">
+                                    <img src="./assets/img/iconvip.png" alt="vip" class="movies-vip">
                                 </div>
                             </div>
                             <div class="row__img-link">
-                                <div class="row__wrap">
-                                    <img src="./assets/img/image029.jpg" alt="Bloodshot" class="row__img">
+                                <div class="row__wrap ratioImg__wrap">
+                                    <img src="./assets/img/image029.jpg" alt="0|1|0|Bloodshot"
+                                        class="row__img ratio__in">
+                                    <img src="./assets/img/iconvip.png" alt="vip" class="movies-vip">
                                 </div>
                             </div>
                             <div class="row__img-link">
-                                <div class="row__wrap">
-                                    <img src="./assets/img/image030.jpg" alt="The martian|Người về từ sao Hỏa" class="row__img">
-                                </div>
-                            </div>
-                            <div class="row__img-link">
-                                <div class="row__wrap">
-                                    <img src="./assets/img/image031.jpg" alt="Prison break|Vượt ngục" class="row__img">
+                                <div class="row__wrap ratioImg__wrap">
+                                    <img src="./assets/img/image030.jpg" alt="0|1|0|The martian|Người về từ sao Hỏa"
+                                        class="row__img ratio__in">
+                                    <img src="./assets/img/iconvip.png" alt="vip" class="movies-vip">
                                 </div>
                             </div>
                         </div>
@@ -592,27 +525,106 @@
         </div>
     </div>
     <!-- Modal box -->
-    <div class="modal">
+    <div class="modal" id="myModal">
         <div class="modal__overlay"></div>
-
         <div class="modal__body">
+            <!-- Register form -->
+            <div class="auth-form" id="registerForm">
+                <div class="auth-form__container">
+                    <div class="auth-form__header">
+                        <h3 class="auth-form__heading">Đăng ký</h3>
+                        <span class="auth-form__switch-btn">Đăng nhập</span>
+                    </div>
+                    <div class="auth-form__form">
+                        <div class="auth-form__group">
+                            <input type="text" class="auth-form__input" placeholder="Email của bạn">
+                        </div>
+                        <div class="auth-form__group">
+                            <input type="password" class="auth-form__input" placeholder="Mật khẩu của bạn">
+                        </div>
+                        <div class="auth-form__group">
+                            <input type="password" class="auth-form__input" placeholder="Nhập lại mật khẩu">
+                        </div>
+                    </div>
+                    <div class="auth-form__aside">
+                        <p class="auth-form__policy-text">
+                            Bằng việc đăng kí, bạn đồng ý với NMovies về
+                            <a href="#" class="auth-form__text-link">Điều khoản dịch vụ</a> &
+                            <a href="#" class="auth-form__text-link">Chính sách bảo mật</a>
+                        </p>
+                    </div>
+                    <div class="auth-form__controls">
+                        <button class="button btn--normal auth-form__controls-back">TRỞ LẠI</button>
+                        <button class="button btn--primary">ĐĂNG KÝ</button>
+                    </div>
+                </div>
+                <div class="auth-form__socials">
+                    <a href="#" class="auth-form__socials--facebook button btn--size-s">
+                        <i class="auth-form__socials-icon fab fa-facebook-square"></i>
+                        <span class="auth-form__socials-title">Kết nối với Facebook</span>
+                    </a>
+                    <a href="#" class="auth-form__socials--google button btn--size-s">
+                        <i class="auth-form__socials-icon fab fa-google"></i>
+                        <span class="auth-form__socials-title">Kết nối với Google</span>
+                    </a>
+                </div>
+            </div>
+            <!-- Login form -->
+            <div class="auth-form" id="loginForm">
+                <div class="auth-form__container">
+                    <div class="auth-form__header">
+                        <h3 class="auth-form__heading">Đăng nhập</h3>
+                        <span class="auth-form__switch-btn">Đăng ký</span>
+                    </div>
+                    <div class="auth-form__form">
+                        <div class="auth-form__group">
+                            <input type="text" class="auth-form__input" placeholder="Email của bạn">
+                        </div>
+                        <div class="auth-form__group">
+                            <input type="password" class="auth-form__input" placeholder="Mật khẩu của bạn">
+                        </div>
+                    </div>
+                    <div class="auth-form__aside">
+                        <div class="auth-form__help">
+                            <a href="#" class="auth-form__help-link auth-form__help-forgot">Quên mật khẩu</a>
+                            <span class="auth-form__help-separate"></span>
+                            <a href="#" class="auth-form__help-link">Cần trợ giúp?</a>
+                        </div>
+                    </div>
+                    <div class="auth-form__controls">
+                        <button class="button btn--normal auth-form__controls-back">TRỞ LẠI</button>
+                        <button class="button btn--primary">ĐĂNG NHẬP</button>
+                    </div>
+                </div>
+                <div class="auth-form__socials">
+                    <a href="#" class="auth-form__socials--facebook button btn--size-s">
+                        <i class="auth-form__socials-icon fab fa-facebook-square"></i>
+                        <span class="auth-form__socials-title">Kết nối với Facebook</span>
+                    </a>
+                    <a href="#" class="auth-form__socials--google button btn--size-s">
+                        <i class="auth-form__socials-icon fab fa-google"></i>
+                        <span class="auth-form__socials-title">Kết nối với Google</span>
+                    </a>
+                </div>
+            </div>
+            <!-- Modal movies -->
             <div class="modal-movie">
                 <div class="modal-turnoff fas fa-times"></div>
                 <div class="modal-movie__header">
-                    <div class="hover-movie-link modal-movie-link">
-                        <img src="./assets/img/image_big9.jpg" alt="" class="modal-movie__img">
-                        <video id="modal-movie__video">
-                            <source src="./assets/video/video9.mp4" type="video/mp4">
+                    <div class="hover-movie-link modal-movie-link ratio16-9__wrap">
+                        <img src="./assets/img/image_big035.jpg" alt="" class="modal-movie__img ratio__in">
+                        <video id="modal-movie__video" class="ratio__in">
+                            <source src="./assets/video/video035.mp4" type="video/mp4">
                         </video>
                     </div>
                     <div class="header-movie__content">
-                        <img src="./assets/img/image_name9.png" alt="" class="modal-movie__video-name">
+                        <img src="./assets/img/image_name035.png" alt="" class="modal-movie__video-name">
                         <div class="modal-movie__button">
-                            <button class="button modal-movie__button--play" title="Xem ngay Army of the dead">
+                            <button class="button modal-movie__button--play">
                                 <i class="fas fa-play"></i>
                                 <span>Xem ngay</span>
                             </button>
-                            <button class="button modal-movie__button--addlist" title="Thêm vào danh sách của tôi">
+                            <button class="button modal-movie__button--addlist">
                                 <i class="fas fa-plus"></i>
                                 <span>Danh sách</span>
                             </button>
@@ -624,27 +636,560 @@
                         <button class="btn-icon header-movie-btn-i fas fa-undo"></button>
                     </div>
                 </div>
-                <div class="modal-video__info">
-                    <div class="modal-video__info-left">
-                        <span class="md_info">2018</span>
-                        <span class="md_info">1g23p</span>
-                        <span class="md_info">HD</span>
-                        <p class="md_info-main">
-
-                        </p>
+                <div class="modal-video-content">
+                    <div class="modal-video__info">
+                        <div class="modal-video__info-left">
+                            <div class="info-left__first">
+                                <span class="info__views">532.632 lượt xem</span>
+                                <div class="info__point-vote">
+                                    <span class="info__point">4.5</span>
+                                    <div class="info__vote">
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="info-left__second">
+                                <span>2008</span>
+                                <span>Mỹ</span>
+                                <span>5 Mùa</span>
+                            </div>
+                            <p class="info-left__main">
+                                Một giáo viên dạy hóa ở trường trung học mắc bệnh ung thư bắt tay với một cựu học sinh
+                                để bảo vệ tương lai của gia đình
+                                bằng cách sản xuất và bán kẹo.
+                            </p>
+                        </div>
+                        <div class="modal-video__info-right">
+                            <div class="info-right__first">
+                                <a href="#modal__comment" class="info-right-comment">
+                                    <i class="far fa-comment-dots"></i>
+                                    <span>Bình luận</span>
+                                </a>
+                                <div class="info-right-share">
+                                    <i class="far fa-share-square"></i>
+                                    <span>Chia sẻ</span>
+                                </div>
+                            </div>
+                            <div class="info-right__actors">
+                                <label for="" class="info-right-group">Diễn viên:</label>
+                                <a href="#" class="info-right-link info-right__actor">Jason Momoa</a>,
+                                <a href="#" class="info-right-link info-right__actor">Henry Cavill</a>,
+                                <a href="#" class="info-right-link info-right__actor">Ray Fisher</a>,
+                                <a href="#" class="info-right-link info-right__actor">Ezra Miller</a>,
+                                <a href="#" class="info-right-link info-right__actor">Amy Adams</a>,
+                                <a href="#" class="info-right-link info-right__actor">Ben Affleck</a>,
+                                <a href="#" class="info-right-link info-right__actor">Jared Leto</a>,
+                                <a href="#" class="info-right-link info-right__actor">Gal Gadot</a>
+                            </div>
+                            <div class="info-right__directors">
+                                <label for="" class="info-right-group">Đạo diễn:</label>
+                                <a href="#" class="info-right-link info-right__director">Zack Snyder</a>
+                            </div>
+                            <div class="info-right__genres">
+                                <label for="" class="info-right-group">Thể loại:</label>
+                                <a href="#" class="info-right-link info-right__genre">Khoa học viễn tưởng</a>,
+                                <a href="#" class="info-right-link info-right__genre">Hành động</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="modal-video__info-right">
+                    <div class="modal__movies-episodes">
+                        <div class="modal__movies-ep-first">
+                            <div class="movies-ep-title">
+                                Danh sách tập
+                            </div>
+                            <div class="movies-ep-season">
+                                <button class="button" id="movie-btn-seasons">
+                                    <span class="seasonCurrent">Mùa 1</span>
+                                    <span class="season-icon"></span>
+                                </button>
+                                <ul class="movies-menu-seasons">
+                                    <li class="movies-season">
+                                        <span class="movies-season__name">Mùa 1</span>
+                                        <span class="movies-season__ep">(7 tập)</span>
+                                    </li>
+                                    <li class="movies-season">
+                                        <span class="movies-season__name">Mùa 2</span>
+                                        <span class="movies-season__ep">(13 tập)</span>
+                                    </li>
+                                    <li class="movies-season">
+                                        <span class="movies-season__name">Mùa 3</span>
+                                        <span class="movies-season__ep">(13 tập)</span>
+                                    </li>
+                                    <li class="movies-season">
+                                        <span class="movies-season__name">Mùa 4</span>
+                                        <span class="movies-season__ep">(13 tập)</span>
+                                    </li>
+                                    <li class="movies-season">
+                                        <span class="movies-season__name">Mùa 5</span>
+                                        <span class="movies-season__ep">(16 tập)</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="modal__movies-ep-second" id="episodeMovie">
+                            <button
+                                class="btn-icon fas fa-chevron-left row__item-back modal-recommend__item-back"></button>
+                            <button
+                                class="btn-icon fas fa-chevron-right row__item-next modal-recommend__item-next"></button>
+                            <div class="modal-recommend__container-sc">
+                                <div class="modal-recommend__img-link">
+                                    <div class="modal-recommend__wrap">
+                                        <div class="modal-recommend__wrap-img modal-episode__wrap-img">
+                                            <img src="./assets/img/image_season1_ep01_035.jpg" alt=""
+                                                class="modal-recommend__img">
+                                            <div class="modal-recommend__link">
+                                                <i class="fas fa-play"></i>
+                                            </div>
+                                        </div>
+                                        <div class="recommend-movies__info episode__info">
+                                            <p class="episode-name">[Mùa 1] Tập 1. Tập thử nghiệm</p>
+                                            <div class="recommend-movies__info-first">
+                                                <span>2008</span>
+                                                <span>Mỹ</span>
+                                                <span>58ph</span>
+                                            </div>
+                                            <span class="episode__description">
+                                                Bị chẩn đoán mắc ung thư phổi giai đoạn cuối, một giáo viên dạy hóa ở
+                                                trường trung học phải viện đến cách chế biến và
+                                                bán kẹo để nuôi gia đình.
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-recommend__img-link">
+                                    <div class="modal-recommend__wrap">
+                                        <div class="modal-recommend__wrap-img modal-episode__wrap-img">
+                                            <img src="./assets/img/image_season1_ep02_035.jpg" alt=""
+                                                class="modal-recommend__img">
+                                            <div class="modal-recommend__link">
+                                                <i class="fas fa-play"></i>
+                                            </div>
+                                        </div>
+                                        <div class="recommend-movies__info episode__info">
+                                            <p class="episode-name">[Mùa 1] Tập 2. Bí mật được giấu kín</p>
+                                            <div class="recommend-movies__info-first">
+                                                <span>2008</span>
+                                                <span>Mỹ</span>
+                                                <span>48ph</span>
+                                            </div>
+                                            <span class="episode__description">
+                                                Phi vụ buôn bán kẹo đầu tiên bị hủy bỏ khiến Walt và Jesse phải xử lý
+                                                hai xác chết. Trong lúc đó, Skyler nghi ngờ
+                                                chồng mình đang âm mưu làm chuyện xấu.
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-recommend__img-link">
+                                    <div class="modal-recommend__wrap">
+                                        <div class="modal-recommend__wrap-img modal-episode__wrap-img">
+                                            <img src="./assets/img/image_season1_ep03_035.jpg" alt=""
+                                                class="modal-recommend__img">
+                                            <div class="modal-recommend__link">
+                                                <i class="fas fa-play"></i>
+                                            </div>
+                                        </div>
+                                        <div class="recommend-movies__info">
+                                            <p class="episode-name">[Mùa 1] Tập 3. Lo liệu trót lọt</p>
+                                            <div class="recommend-movies__info-first">
+                                                <span>2008</span>
+                                                <span>Mỹ</span>
+                                                <span>50ph</span>
+                                            </div>
+                                            <span>
+                                                Khi Walt xử lý các rắc rối sót lại từ phi vụ buôn bán kẹo đầu tiên,
+                                                Skyler suýt biết được sự thật về cuộc sống bí mật
+                                                của ông.
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-recommend__img-link">
+                                    <div class="modal-recommend__wrap">
+                                        <div class="modal-recommend__wrap-img modal-episode__wrap-img">
+                                            <img src="./assets/img/image_season1_ep04_035.jpg" alt=""
+                                                class="modal-recommend__img">
+                                            <div class="modal-recommend__link">
+                                                <i class="fas fa-play"></i>
+                                            </div>
+                                        </div>
+                                        <div class="recommend-movies__info">
+                                            <p class="episode-name">[Mùa 1] Tập 4. Người đàn ông bị ung thư</p>
+                                            <div class="recommend-movies__info-first">
+                                                <span>2008</span>
+                                                <span>Mỹ</span>
+                                                <span>54ph</span>
+                                            </div>
+                                            <span>
+                                                Việc bị buộc tiết lộ bí mật về bệnh tình của mình khiến Walt đối mặt với
+                                                vấn đề nan giải về cách chi trả một loạt phương
+                                                pháp điều trị ung thư đắt đỏ.
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-recommend__img-link">
+                                    <div class="modal-recommend__wrap">
+                                        <div class="modal-recommend__wrap-img modal-episode__wrap-img">
+                                            <img src="./assets/img/image_season1_ep05_035.jpg" alt=""
+                                                class="modal-recommend__img">
+                                            <div class="modal-recommend__link">
+                                                <i class="fas fa-play"></i>
+                                            </div>
+                                        </div>
+                                        <div class="recommend-movies__info">
+                                            <p class="episode-name">[Mùa 1] Tập 5. Chất xám</p>
+                                            <div class="recommend-movies__info-first">
+                                                <span>2008</span>
+                                                <span>Mỹ</span>
+                                                <span>49ph</span>
+                                            </div>
+                                            <span>
+                                                Skyler tổ chức một buổi can thiệp để thuyết phục Walt chấp nhận đề nghị
+                                                đầy hào phóng từ cộng sự nghiên cứu trước đây
+                                                của ông về việc chi trả chi phí điều trị ung thư.
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-recommend__img-link">
+                                    <div class="modal-recommend__wrap">
+                                        <div class="modal-recommend__wrap-img modal-episode__wrap-img">
+                                            <img src="./assets/img/image_season1_ep06_035.jpg" alt=""
+                                                class="modal-recommend__img">
+                                            <div class="modal-recommend__link">
+                                                <i class="fas fa-play"></i>
+                                            </div>
+                                        </div>
+                                        <div class="recommend-movies__info">
+                                            <p class="episode-name">[Mùa 1] Tập 6. Một bộ chẳng có gì ư?</p>
+                                            <div class="recommend-movies__info-first">
+                                                <span>2008</span>
+                                                <span>Mỹ</span>
+                                                <span>51ph</span>
+                                            </div>
+                                            <span>
+                                                Khi những tác dụng phụ và chi phí điều trị gia tăng, Walt đòi Jesse tìm
+                                                nhà buôn để mua kẹo của họ... điều này đẩy
+                                                ông tới rắc rối.
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-recommend__img-link">
+                                    <div class="modal-recommend__wrap">
+                                        <div class="modal-recommend__wrap-img modal-episode__wrap-img">
+                                            <img src="./assets/img/image_season1_ep07_035.jpg" alt=""
+                                                class="modal-recommend__img">
+                                            <div class="modal-recommend__link">
+                                                <i class="fas fa-play"></i>
+                                            </div>
+                                        </div>
+                                        <div class="recommend-movies__info">
+                                            <p class="episode-name">[Mùa 1] Tập 7. Phi vụ phi bạo lực</p>
+                                            <div class="recommend-movies__info-first">
+                                                <span>2008</span>
+                                                <span>Mỹ</span>
+                                                <span>55ph</span>
+                                            </div>
+                                            <span>
+                                                Sau khi Jesse suýt mất mạng, Walt đồng ý sản xuất nhiều ma túy hơn nữa
+                                                cho tay Tuco tàn nhẫn. Trong lúc đó, Skyler nghi
+                                                ngờ em gái mình thó đồ.
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="modal-video__recommend">
+                        <div class="modal-recommend__header">
+                            <span>Đề xuất cho bạn</span>
+                        </div>
+                        <div class="modal-recommend__container" id="recommendMovies">
+                            <button
+                                class="btn-icon fas fa-chevron-left row__item-back modal-recommend__item-back"></button>
+                            <button
+                                class="btn-icon fas fa-chevron-right row__item-next modal-recommend__item-next"></button>
+                            <div class="modal-recommend__container-sc">
+                                <div class="modal-recommend__img-link">
+                                    <div class="modal-recommend__wrap">
+                                        <div class="modal-recommend__wrap-img">
+                                            <img src="./assets/img/image_doc040.jpg" alt=""
+                                                class="modal-recommend__img">
+                                            <div class="modal-recommend__link">
+                                                <i class="fas fa-play"></i>
+                                            </div>
+                                        </div>
+                                        <div class="recommend-movies__info">
+                                            <div class="recommend-movies__info-first">
+                                                <span>2020</span>
+                                                <span>Mỹ</span>
+                                                <span>3g 54ph</span>
+                                            </div>
+                                            <span>
+                                                Khi bố già đứng đầu gia đình tội phạm có tổ chức suýt chết trong vụ ám
+                                                sát, con trai út của ông đã đứng ra xử lý những
+                                                kẻ nhúng tay vào âm mưu bất thành này.
+                                            </span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="modal-recommend__img-link">
+                                    <div class="modal-recommend__wrap">
+                                        <div class="modal-recommend__wrap-img">
+                                            <img src="./assets/img/image_doc041.jpg" alt=""
+                                                class="modal-recommend__img">
+                                            <div class="modal-recommend__link">
+                                                <i class="fas fa-play"></i>
+                                            </div>
+                                        </div>
+                                        <div class="recommend-movies__info">
+                                            <div class="recommend-movies__info-first">
+                                                <span>2020</span>
+                                                <span>Mỹ</span>
+                                                <span>2 Mùa</span>
+                                            </div>
+                                            <span>
+                                                Các thế lực hắc ám mưu hại lính vẽ bản đồ mồ côi Alina Starkov khi cô
+                                                cho thấy sức mạnh phi thường có thể thay đổi số
+                                                phận của thế giới bị chiến tranh tàn phá.
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-recommend__img-link">
+                                    <div class="modal-recommend__wrap">
+                                        <div class="modal-recommend__wrap-img">
+                                            <img src="./assets/img/image_doc042.jpg" alt=""
+                                                class="modal-recommend__img">
+                                            <div class="modal-recommend__link">
+                                                <i class="fas fa-play"></i>
+                                            </div>
+                                        </div>
+                                        <div class="recommend-movies__info">
+                                            <div class="recommend-movies__info-first">
+                                                <span>2020</span>
+                                                <span>Mỹ</span>
+                                                <span>2h 10p</span>
+                                            </div>
+                                            <span>
+                                                Năm năm sau khi Chicago bị hủy diệt, con người quay lưng lại với tất cả
+                                                robot. Nhưng một người cha đơn thân kiêm nhà
+                                                phát minh đã phục hồi chú robot có thể cứu thế giới.
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-recommend__img-link">
+                                    <div class="modal-recommend__wrap">
+                                        <div class="modal-recommend__wrap-img">
+                                            <img src="./assets/img/image_doc043.jpg" alt=""
+                                                class="modal-recommend__img">
+                                            <div class="modal-recommend__link">
+                                                <i class="fas fa-play"></i>
+                                            </div>
+                                        </div>
+                                        <div class="recommend-movies__info">
+                                            <div class="recommend-movies__info-first">
+                                                <span>2020</span>
+                                                <span>Mỹ</span>
+                                                <span>3g 54ph</span>
+                                            </div>
+                                            <span>
+                                                Khi thiếu niên mồ côi bộc lộ trái tim chân thành, cậu có được khả năng
+                                                biến thành một siêu anh hùng người lớn với nghĩa
+                                                vụ bảo vệ thành phố trước những ác nhân tội lỗi.
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-recommend__img-link">
+                                    <div class="modal-recommend__wrap">
+                                        <div class="modal-recommend__wrap-img">
+                                            <img src="./assets/img/image_doc047.jpg" alt=""
+                                                class="modal-recommend__img">
+                                            <div class="modal-recommend__link">
+                                                <i class="fas fa-play"></i>
+                                            </div>
+                                        </div>
+                                        <div class="recommend-movies__info">
+                                            <div class="recommend-movies__info-first">
+                                                <span>2020</span>
+                                                <span>Mỹ</span>
+                                                <span>1h 30p</span>
+                                            </div>
+                                            <span>
+                                                Trong chương cuối của loạt phim cuốn hút này, Bella và Edward buộc phải
+                                                bước vào cuộc đối đầu có khả năng thay đổi đại
+                                                cục trước nhà Volturi vì cô con gái mới ra đời.
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-recommend__img-link">
+                                    <div class="modal-recommend__wrap">
+                                        <div class="modal-recommend__wrap-img">
+                                            <img src="./assets/img/image_doc015.jpg" alt=""
+                                                class="modal-recommend__img">
+                                            <div class="modal-recommend__link">
+                                                <i class="fas fa-play"></i>
+                                            </div>
+                                        </div>
+                                        <div class="recommend-movies__info">
+                                            <div class="recommend-movies__info-first">
+                                                <span>2020</span>
+                                                <span>Mỹ</span>
+                                                <span>3h 12p</span>
+                                            </div>
+                                            <span>
+                                                Bảy năm kể từ ngày sống sót qua tận thế quái vật, Joel xui xẻo dễ mến
+                                                rời khỏi hầm trú ẩn ấm cúng dưới lòng đất để tìm
+                                                cách đoàn tụ với người yêu cũ.
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-recommend__img-link">
+                                    <div class="modal-recommend__wrap">
+                                        <div class="modal-recommend__wrap-img">
+                                            <img src="./assets/img/image_doc045.jpg" alt=""
+                                                class="modal-recommend__img">
+                                            <div class="modal-recommend__link">
+                                                <i class="fas fa-play"></i>
+                                            </div>
+                                        </div>
+                                        <div class="recommend-movies__info">
+                                            <div class="recommend-movies__info-first">
+                                                <span>2020</span>
+                                                <span>Mỹ</span>
+                                                <span>3h 12p</span>
+                                            </div>
+                                            <span>
+                                                Thật giả lẫn lộn khi người vô gia cư mất trí nhớ nọ tỉnh dậy sau một thủ
+                                                thuật y tế thử nghiệm và có thể nhìn thấy những
+                                                tổn thương sâu thẳm nhất trong mọi người.
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-recommend__img-link">
+                                    <div class="modal-recommend__wrap">
+                                        <div class="modal-recommend__wrap-img">
+                                            <img src="./assets/img/image_doc046.jpg" alt=""
+                                                class="modal-recommend__img">
+                                            <div class="modal-recommend__link">
+                                                <i class="fas fa-play"></i>
+                                            </div>
+                                        </div>
+                                        <div class="recommend-movies__info">
+                                            <div class="recommend-movies__info-first">
+                                                <span>2020</span>
+                                                <span>Mỹ</span>
+                                                <span>3h 12p</span>
+                                            </div>
+                                            <span>
+                                                Một sự kiện trong vũ trụ khiến người chết trỗi dậy ở thành phố
+                                                Centerville vốn dĩ phẳng lặng. Cảnh sát trưởng và cấp
+                                                dưới khó khăn kiểm soát tình hình.
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-recommend__img-link">
+                                    <div class="modal-recommend__wrap">
+                                        <div class="modal-recommend__wrap-img">
+                                            <img src="./assets/img/image_doc048.jpg" alt=""
+                                                class="modal-recommend__img">
+                                            <div class="modal-recommend__link">
+                                                <i class="fas fa-play"></i>
+                                            </div>
+                                        </div>
+                                        <div class="recommend-movies__info">
+                                            <div class="recommend-movies__info-first">
+                                                <span>2020</span>
+                                                <span>Mỹ</span>
+                                                <span>3h 12p</span>
+                                            </div>
+                                            <span>
+                                                Phần tiền truyện này xoay quanh câu chuyện về lịch sử phụng sự ác nhân
+                                                của các tay sai màu vàng chuối có ngôn ngữ nhí
+                                                nhéo từ "Kẻ trộm mặt trăng".
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-recommend__img-link">
+                                    <div class="modal-recommend__wrap">
+                                        <div class="modal-recommend__wrap-img">
+                                            <img src="./assets/img/image_doc044.jpg" alt=""
+                                                class="modal-recommend__img">
+                                            <div class="modal-recommend__link">
+                                                <i class="fas fa-play"></i>
+                                            </div>
+                                        </div>
+                                        <div class="recommend-movies__info">
+                                            <div class="recommend-movies__info-first">
+                                                <span>2020</span>
+                                                <span>Mỹ</span>
+                                                <span>3h 12p</span>
+                                            </div>
+                                            <span>
+                                                Bốn học sinh trung học bị kéo vào bối cảnh rừng rậm của 1 trò chơi điện
+                                                tử và dấn thân vào cuộc phiêu lưu, sau khi bị
+                                                biến thành những nhân vật trò chơi mà họ từng chọn.
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-video__comment" id="modal__comment">
+                        <div>
+                            <span class="comment-title">Bình luận</span>
+                        </div>
+                        <div class="formComment">
+                            <form class="myformComment">
+                                <div class="myAvatar">
+                                    <i class="fas fa-user-tie"></i>
+                                </div>
+                                <div class="field">
+                                    <textarea id="commentArea" placeholder="Thêm bình luận..."></textarea>
+                                </div>
+                            </form>
+                            <div class="comment-list">
+                                <div class="comment-other">
+                                    <div class="comment-avatar">
+                                        <i class="fas fa-user-tie"></i>
+                                    </div>
+                                    <div class="comment-content">
+                                        <h4>Nam</h4>
+                                        <p>Phim hay quá!</p>
+                                    </div>
+                                    <div class="comment-time">
+                                        <span>50 phút trước</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
     </div>
 
     <script src="./assets/js/base.js"></script>
-    <script src="./assets/js/home.js"></script>
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/slider.js"></script>
 </body>
 
 </html>

@@ -1,4 +1,6 @@
 $(document).ready(function () {
+    DeleteMoviesIsML();
+    addList();
     if (navigator.userAgent.match(/Android/i)
         || navigator.userAgent.match(/webOS/i)
         || navigator.userAgent.match(/iPhone/i)
@@ -10,17 +12,12 @@ $(document).ready(function () {
     }
     else {
         hoverMovies();
-        sliderGe($("#firstRow"), ".row__item-next", ".row__item-back", '.row__container-sc', ".row__img-link");
-        sliderGe($("#topRow"), ".row__item-next", ".row__item-back", '.row__container-sc', ".row__img-link");
-        sliderGe($("#secondRow"), ".row__item-next", ".row__item-back", '.row__container-sc', ".row__img-link");
-        sliderGe($("#thirdRow"), ".row__item-next", ".row__item-back", '.row__container-sc', ".row__img-link");
-        sliderGe($("#fourRow"), ".row__item-next", ".row__item-back", '.row__container-sc', ".row__img-link");
-        sliderGe($("#fiveRow"), ".row__item-next", ".row__item-back", '.row__container-sc', ".row__img-link");
-        sliderGe($("#sixRow"), ".row__item-next", ".row__item-back", '.row__container-sc', ".row__img-link");
     }
+
     $(".header__video-name").on("webkitAnimationEnd", function () {
         $(this).css("transform", "scale(0.65)");
     });
+
     // Scroll nav
     var isStop = true;//Nếu cuộn dừng sẽ false
     var isPlay = true;//False cuộn sẽ ko chạy video --> hàm Hover_Video
@@ -102,27 +99,7 @@ $(document).ready(function () {
             isPlay = true;
         });
     }
-    // Thêm vào mylist
-    function addStorage() {
-        $(".hover-movie__button--addlist").on('click', function (event) {
-            var img = $(this).parent().parent().find(".hover-movie__img");
-            var imgSrc = img.attr("src");
-            var imgAlt = img.attr("alt");
-            var number = imgSrc.substr(imgSrc.length - 7, 3);
-            var movie = {
-                src: number,
-                alt: imgAlt 
-            }
-            var newMovie = "";
-            var currentMyList = window.sessionStorage.getItem("movies");
-            if (currentMyList) {
-                newMovie = currentMyList + ',' + JSON.stringify(movie);
-            } else {
-                newMovie = JSON.stringify(movie);
-            }
-            window.sessionStorage.setItem("movies", newMovie);
-        });
-    }
+
     //hover phim
     function hoverMovies() {
         var myTimeout;
@@ -130,9 +107,10 @@ $(document).ready(function () {
         var left;
         var width;
         var mySetInterVal;
+        var image;
         $(".row__img-link").mouseenter(function (e) {
             width = $(this).width();
-            var image = $(this).find(".row__img")
+            image = $(this).find(".row__img")
 
             var src = image.attr("src");
             var number = src.substr(src.length - 7, 3);
@@ -145,16 +123,16 @@ $(document).ready(function () {
                                                 <span class="hm_info">3g 54p</span>
                                                 <span class="hm_info">HD</span>
                                             </div>`
-                                        : `<div class="hover-movie__info">
+                : `<div class="hover-movie__info">
                                                 <span class="hm_info">2018</span>
                                                 <span class="hm_info">1 Mùa</span>
                                                 <span class="hm_info">HD</span>
                                             </div>`;
-            var btnAddRemove = infoSec == 0 ? `<button class="button hover-movie__button--addlist">
+            var btnAddRemove = infoSec == 0 ? `<button class="button hover-movie__button--add-removeList">
                                                     <i class="fas fa-plus"></i>
                                                     <span>Danh sách</span>
                                                 </button>`
-                : `<button class="button hover-movie__button--removelist">
+                : `<button class="button hover-movie__button--add-removeList">
                                                     <i class="fas fa-check"></i>
                                                     <span>Danh sách</span>
                                                 </button>`;
@@ -203,14 +181,14 @@ $(document).ready(function () {
                                             <i class="fas fa-play"></i>
                                             <span>Xem ngay</span>
                                         </button>`
-                                            + btnAddRemove +
-                                        `<button class="button hover-movie__button--moreinfo">
+                    + btnAddRemove +
+                    `<button class="button hover-movie__button--moreinfo">
                                             <i class="fas fa-info-circle"></i>
                                             <span>Chi tiết</span>
                                         </button>
                                     </div>`
-                                    +infoOther+
-                                `</div>`;
+                    + infoOther +
+                    `</div>`;
                 parent.after(addChild);
                 var hoverAf = $("#hover");
                 hoverAf.css("top", "-40px");
@@ -272,182 +250,159 @@ $(document).ready(function () {
                         $("#myVideo").get(0).play();
                     }
                 }, 500);
+                ClearArr();
             });
-            addStorage();
+            addStorage(image, $(this));
         });
     }
-    // hover hàng phim
-    function hoverRowMovie(parent, button) {
-        parent.hover(function () {
-            button.css("transform", "translate(0)");
-            button.css("display", "block");
-        }, function () {
-            button.css("transform", "translate(-100%)");
-            button.css("display", "none");
-        });
-    }
-    //Slider
-    function sliderGe(slideRan, slBtnNext, slBtnBack, slChSlides, slChSlide) {
-        var childBtnNext = slideRan.children(slBtnNext),
-            childBtnBack = slideRan.children(slBtnBack);
-
-        var slides = slideRan.children(slChSlides),
-            slide = slides.children(slChSlide),
-            currentIdx = 0,
-            marginSlide = 6,
-            slideCount = slide.length,
-            slideWidth = slide.width(),
-            move = marginSlide + slideWidth;
-        var newSlideWidth;
-        var widthW = slideRan.parent().width();
-        var number;
-        if (widthW > 1024) {
-            number = 5;
-        } else if (widthW < 1025 && widthW > 739) {
-            number = 4;
-        } else if (widthW < 740 && widthW > 519) {
-            number = 3;
-        } else {
-            number = 2;
-        }
-        if(number < slideCount)
-            hoverRowMovie(slideRan, childBtnNext);
-
-        childBtnNext.click(function () {
-            if (currentIdx < (slideCount - number)) {
-                // Nếu số phim còn lại nhỏ hơn lượt lướt chuẩn
-                if (slideCount - currentIdx - number < number) {
-                    moveSlide(slideCount - number);
+    // Thêm vào myList
+    function addStorage(ImgMovie, RowLink) {
+        $(".hover-movie__button--add-removeList").on('click', function () {
+            var src = ImgMovie.attr("src");
+            var number = src.substr(src.length - 7, 3);
+            var checkMovie = ImgMovie.attr("alt");
+            var infoOne = checkMovie.split('|')[0];
+            var infoSec = checkMovie.split('|')[1];
+            var infoThird = checkMovie.split('|')[2];
+            var infoFour = checkMovie.split('|')[3];
+            var icon = $(this).children(".fas");
+            if (infoThird == "0") {
+                icon.removeClass("fa-plus").addClass("fa-check");
+                ImgMovie.attr("alt", infoOne + "|" + infoSec + "|" + 1 + "|" + infoFour);
+                var newImgAlt = infoOne + "|" + infoSec + "|" + "1" + "|" + infoFour;
+                var movie = {
+                    src: number,
+                    alt: newImgAlt
                 }
-                else {
-                    moveSlide(currentIdx + number);
-                }
-                console.log(slideWidth)
+                var newMovie = [];
+                var currentMyList = window.sessionStorage.getItem("movies");
 
-            }
-            if (currentIdx >= slideCount - number) {
-                setTimeout(() => {
-                    $(this).hide();
-                    slideRan.unbind();
-                    hoverRowMovie(slideRan, childBtnBack);
-                }, 400);
-            }
-            childBtnBack.css("transform", "translate(0)");
-            childBtnBack.css("display", "block");
-            hoverRowMovie(slideRan, childBtnBack);
-
-        });
-
-        childBtnBack.click(function () {
-            if (currentIdx > 0) {
-                if (currentIdx < number) {
-                    moveSlide(0);
+                if (currentMyList) {
+                    // var data = JSON.parse(currentMyList);
+                    // data.push(movie);
+                    // newMovie = data;
+                    let check = true;
+                    var data = JSON.parse(currentMyList);
+                    let count = data.length;
+                    for (var i = 0; i < count; i++) {
+                        // Nếu có xóa như bên mylist
+                        if (!data[i]) {
+                            data[i] = movie;
+                            check = false
+                        }
+                    }
+                    // Nếu ko xóa thì cộng như bth
+                    if (check) {
+                        var data = JSON.parse(currentMyList);
+                        data.push(movie);
+                    }
+                    newMovie = data;
                 } else {
-                    moveSlide(currentIdx - number);
+                    newMovie.push(movie);
+                }
+                window.sessionStorage.setItem("movies", JSON.stringify(newMovie));
+                
+                if (RowLink.parent().parent()[0] == $("#myRow")[0]) {
+                    $("#myListRow").show();
+                    RowLink.show();
                 }
             }
-            if (currentIdx <= 0) {
-                setTimeout(() => {
-                    $(this).hide();
-                    slideRan.unbind();
-                    hoverRowMovie(slideRan, childBtnNext);
-                }, 400);
-            }
-            childBtnNext.css("transform", "translate(0)");
-            childBtnNext.css("display", "block");
-            hoverRowMovie(slideRan, childBtnNext);
-        });
-
-        function moveSlide(index) {
-            slides.css({ transition: 'all linear' })
-            slides.css({ transition: '0.5s' })
-            slides.css({ transform: 'translateX(calc(-' + move * index + 'px)' });
-            currentIdx = index;
-        }
-        // Responsive slider
-        $(window).resize(function () {
-            widthW = slideRan.parent().width();
-            if (widthW > 1024) {
-                number = 5;
-            } else if (widthW < 1025 && widthW > 739) {
-                number = 4;
-            } else if (widthW < 740 && widthW > 519) {
-                number = 3;
-            } else {
-                number = 2;
-            }
-            if (slideCount - currentIdx - number > 0)
-                hoverRowMovie(slideRan, childBtnNext);
             else {
-                slideRan.unbind();
-                if(currentIdx != 0)
-                    hoverRowMovie(slideRan, childBtnBack);
+                icon.removeClass("fa-check").addClass("fa-plus");
+                ImgMovie.attr("alt", infoOne + "|" + infoSec + "|" + 0 + "|" + infoFour);
+                var moviesRemove = sessionStorage.getItem("movies");
+                var moviesArr = JSON.parse(moviesRemove);
+                // var newMovies = moviesArr.filter(function (value) {
+                //     return value.src != number;
+                // })
+                let count = moviesArr.length;
+                for (var i = 0; i < count; i++) {
+                    if (moviesArr[i].src == number) {
+                        delete moviesArr[i];
+                        break;
+                    }
+                }
+                // window.sessionStorage.setItem("movies", JSON.stringify(newMovies));
+                window.sessionStorage.setItem("movies", JSON.stringify(moviesArr));
+                if (RowLink.parent().parent()[0] == $("#myRow")[0]) {
+                    RowLink.hide();                   
+                }
             }
-            newSlideWidth = slide.width();
-            move = newSlideWidth + marginSlide;
-            slides.css({ transition: '0s' })
-            slides.css({ transform: 'translateX(calc(-' + move * currentIdx + 'px)' });
         });
     }
-    // Modal
-    var modal = document.getElementById(".modal");
-    $(window).click(function (e) {
-        if (e.target == modal) {
-            alert("clm")
-            $("body").css("overflow", "auto");
-            $(".modal").hide();
-            $("#myVideo").get(0).play();
+    function DeleteMoviesIsML() {
+        var AllMovies = $(".row__img-link");
+        for (const movie of AllMovies) {
+            let movieCT = movie.getElementsByClassName("row__img")[0];
+            let src = movieCT.src;
+            var number = src.substr(src.length - 7, 3);
+            var myMovies = sessionStorage.getItem("movies");
+            var myMoviesArr = JSON.parse(myMovies);
+            if (myMoviesArr) {
+                for (const myMovie of myMoviesArr) {
+                    if (number == myMovie.src) {
+                        movie.remove();
+                        break;
+                    }
+                }
+            }
         }
-    })
-    $(".modal-turnoff").click(function () {
-        $("body").css("overflow", "auto");
-        $(".modal").hide();
-        // $("#myVideo").get(0).play();
-        $("#modal-movie__video").get(0).pause();
-        $(".modal__body").css('height', 'auto');
-        $(".modal-movie").hide();
-    })
-    $(".button.button--moreinfo").click(function () {
-        $("body").css("overflow", "hidden");
-        $(".modal").show();
-        $(".modal-movie").show();
-        $(".modal__body").css("height", "100%");
-        sliderGe($("#episodeMovie"), ".row__item-next", ".row__item-back", ".modal-recommend__container-sc", ".modal-recommend__img-link");
-        sliderGe($("#recommendMovies"), ".row__item-next", ".row__item-back", ".modal-recommend__container-sc", ".modal-recommend__img-link");
-    })
-    $(".row__img-link").click(function () {
-        var src = $(this).find(".row__img").attr("src");
-        var number = src.substr(src.length - 7, 3);
-        $(".modal-movie__img").attr("src", "./assets/img/image_big" + number + ".jpg");
-        $(".modal-movie__video-name").attr("src", "./assets/img/image_name" + number + ".png");
-        $("#modal-movie__video").attr("src", "./assets/video/video" + number + ".mp4");
-        $("body").css("overflow", "hidden");
-        $(".modal").show();
-        $(".modal-movie").show();
-        $(".modal__body").css('height', '100%');
-        sliderGe($("#episodeMovie"), ".row__item-next", ".row__item-back", ".modal-recommend__container-sc", ".modal-recommend__img-link");
-        sliderGe($("#recommendMovies"), ".row__item-next", ".row__item-back", ".modal-recommend__container-sc", ".modal-recommend__img-link");
-        $("#myVideo").get(0).pause();
-        const headerMImg = $(".modal-movie__img")
-        const headerMVideo = $("#modal-movie__video");
-        console.log(headerMVideo)
-        const btnMMute = $(".header-movie-btn-i:first-child");
-        const btnMSound = $(".header-movie-btn-i:nth-child(2)");
-        const btnMReplay = $(".header-movie-btn-i:last-child");
-        headerMVideo.get(0).play();
-        showVideo(headerMImg, headerMVideo, btnMMute, btnMSound, btnMReplay, "imgActive")
-    })
-    // Chọn tập
-    selectSeason()
-    function selectSeason() {
-        checkSeason = true;
-        $("#movie-btn-seasons").click(function () {
-            checkSeason = !checkSeason;
-            $(".movies-menu-seasons").slideToggle();
-            if (!checkSeason)
-                $(".season-icon").after().css("transform", "rotate(180deg)")
-            else
-                $(".season-icon").after().css("transform", "rotate(0deg)")
-        })
+    }
+    function addList() {
+        ClearArr();
+        var myNewList = "";
+        var movies = sessionStorage.getItem("movies");
+        if (movies) {
+            var data = JSON.parse(movies);
+            var quantity = data.length;
+            if (quantity > 0) {
+                // let myList = `<div class="main__row">
+                //         <div class="row__header">
+                //             <a href="#" class="row__header-link">
+                //                 <h2 class="row__title">Danh sách của tôi</h2>
+                //                 <span class="row__view-all">Xem tất cả
+                //                     <i class="fas fa-chevron-right"></i>
+                //                 </span>
+                //             </a>
+                //         </div>
+                //         <div class="row__container" id="myRow">
+                //             <button class="btn-icon fas fa-chevron-left row__item-back"></button>
+                //             <button class="btn-icon fas fa-chevron-right row__item-next"></button>
+                //             <div class="row__container-sc">
+
+                //             </div>
+                //         </div>
+                //     </div>`;
+
+                // $(".content > .main").prepend(myList);
+                $("#myListRow").show()
+                for (var i = 0; i < quantity; i++) {
+                    var myListItem = data[i].alt.split('|')[1] == 0 ?
+                        `<div class="row__img-link">
+                                                <div class="row__wrap ratioImg__wrap">
+                                                    <img src="./assets/img/image${data[i].src}.jpg" alt="${data[i].alt}" class="row__img ratio__in">
+                                                </div>
+                                            </div>` :
+                        `<div class="row__img-link">
+                                                <div class="row__wrap ratioImg__wrap">
+                                                    <img src="./assets/img/image${data[i].src}.jpg" alt="${data[i].alt}" class="row__img ratio__in">
+                                                    <img src="./assets/img/iconvip.png" alt="vip" class="movies-vip">
+                                                </div>
+                                            </div>`;
+                    myNewList += myListItem;
+                }
+            }
+            $("#myRow > .row__container-sc").html(myNewList);
+        }
+    }
+    function ClearArr() {
+        let movies = sessionStorage.getItem("movies");
+        if (movies) {
+            let data = JSON.parse(movies);
+            let newMovies = data.filter(function (value) {
+                return value != null;
+            })
+            window.sessionStorage.setItem("movies", JSON.stringify(newMovies));
+        }
     }
 });
