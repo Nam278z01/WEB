@@ -25,7 +25,7 @@ $(document).ready(function () {
     function hoverRowMovie(parent, button) {
         parent.hover(function () {
             button.css("transform", "translate(0)");
-            button.css("display", "block");
+            button.css("display", "flex");
         }, function () {
             button.css("transform", "translate(-100%)");
             button.css("display", "none");
@@ -67,8 +67,6 @@ $(document).ready(function () {
                 else {
                     moveSlide(currentIdx + number);
                 }
-                console.log(slideWidth)
-
             }
             if (currentIdx >= slideCount - number) {
                 setTimeout(() => {
@@ -78,7 +76,7 @@ $(document).ready(function () {
                 }, 400);
             }
             childBtnBack.css("transform", "translate(0)");
-            childBtnBack.css("display", "block");
+            childBtnBack.css("display", "flex");
             hoverRowMovie(slideRan, childBtnBack);
 
         });
@@ -99,7 +97,7 @@ $(document).ready(function () {
                 }, 400);
             }
             childBtnNext.css("transform", "translate(0)");
-            childBtnNext.css("display", "block");
+            childBtnNext.css("display", "flex");
             hoverRowMovie(slideRan, childBtnNext);
         });
 
@@ -138,7 +136,6 @@ $(document).ready(function () {
     var modal = document.getElementById(".modal");
     $(window).click(function (e) {
         if (e.target == modal) {
-            alert("clm")
             $("body").css("overflow", "auto");
             $(".modal").hide();
             $("#myVideo").get(0).play();

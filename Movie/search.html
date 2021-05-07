@@ -29,11 +29,12 @@
                 var data = JSON.parse(movies);
                 var content = "";
                 for (const dt of data) {
-                    var re = new RegExp(search, "i")
+                    var re = new RegExp(search, "i");
+                    var name = dt.nameM.split('|')[3] + " " + dt.nameM.split('|')[4];
                     if (dt.nameM.match(re) && search) {
                         content += `<div class="row__img-link row__img-link-ge">
-                                <div class="row__wrap">
-                                    <img src="./assets/img/image${dt.idM}.jpg" alt="" class="row__img">
+                                <div class="row__wrap ratioImg__wrap">
+                                    <img src="./assets/img/image${dt.idM}.jpg" alt="${dt.nameM}" class="row__img ratio__in">
                                 </div>
                             </div>`
                     }
@@ -285,6 +286,7 @@
     </div>
 
     <script src="./assets/js/base.js"></script>
+    <script src="./assets/js/mylist.js"></script>
 </body>
 
 </html>

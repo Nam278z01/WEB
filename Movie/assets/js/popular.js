@@ -14,54 +14,6 @@ $(document).ready(function () {
         hoverMovies();
     }
 
-    $(".header__video-name").on("webkitAnimationEnd", function () {
-        $(this).css("transform", "scale(0.65)");
-    });
-
-    // Scroll nav
-    var isStop = true;//Nếu cuộn dừng sẽ false
-    var isPlay = true;//False cuộn sẽ ko chạy video --> hàm Hover_Video
-    function scrollNav() {
-        window.addEventListener('scroll', function (e) {
-            const pos_body = $('html,body').scrollTop();
-            const mVideo = $("#myVideo");
-            const search = $("#search-wrap");
-            if (pos_body > 400) {
-                mVideo.get(0).pause();
-                isStop = false;
-            }
-            if (pos_body < 200 && isPlay === true) {
-                mVideo.get(0).play();
-                isStop = true;
-            }
-            if (search.show()) {
-                search.hide();
-            }
-        })
-    }
-    scrollNav();
-    // ---------------
-    const headerImg = $(".header__video-img")
-    const headerVideo = $("#myVideo");
-    const btnMute = $(".header-btn-i:first-child");
-    const btnSound = $(".header-btn-i:nth-child(2)");
-    const btnReplay = $(".header-btn-i:last-child");
-    showVideo(headerImg, headerVideo, btnMute, btnSound, btnReplay, "imgActive");
-    // ---------------
-    //Bat tat video header
-    setInterval(function () {
-        if (headerVideo.get(0).currentTime >= headerVideo.get(0).duration - 13) {
-            btnReplay.show();
-            btnMute.hide();
-            btnSound.hide();
-            isPlay = false;
-            headerImg.removeClass("imgActive");
-            headerImg.removeClass("imgActiveSc");
-            headerImg.show();
-            headerVideo.get(0).pause();
-            headerVideo.hide();
-        }
-    }, 10000);
     function showVideo(headerVImg, headerVVideo, btnVMute, btnVSound, btnVReplay, addClassA, movieName) {
         headerVImg.addClass(addClassA);
         headerVImg.on("webkitAnimationEnd", function () {
@@ -156,7 +108,6 @@ $(document).ready(function () {
                     hover.remove();
                 })
             }
-            isPlay = false;
             var margin = $(window).width() * 3 / 100;
             left = $(this).offset().left;
             parent = $(this).parent().parent();
@@ -202,7 +153,6 @@ $(document).ready(function () {
                     hoverAf.css("transform-origin", "100% 80%");
                     hoverAf.css("right", margin + "px");
                 }
-                $("#myVideo").get(0).pause();
                 const hoverImg = $(".hover-movie__img");
                 const hoverName = $(".hover-movie__video-name");
                 const hoverVideo = $("#hover-movie__video");
@@ -226,10 +176,6 @@ $(document).ready(function () {
         }).mouseleave(function () {
             clearTimeout(myTimeout);
             clearInterval(mySetInterVal);
-            isPlay = true;
-            $("#hover").mouseenter(function () {
-                isPlay = false;
-            })
             $("#hover").mouseleave(function () {
                 if (left < 50) {
                     $(this).css("animation", "ZoomOut linear 0.15s");
@@ -244,12 +190,6 @@ $(document).ready(function () {
                 $(this).on("webkitAnimationEnd", function () {
                     $(this).remove();
                 })
-                isPlay = true;
-                setTimeout(function () {
-                    if (isStop) { //Nếu bị cuộn dừng sẽ tự động chạy lại video
-                        $("#myVideo").get(0).play();
-                    }
-                }, 500);
                 ClearArr();
             });
             addStorage(image, $(this));
@@ -301,7 +241,7 @@ $(document).ready(function () {
                     newMovie.push(movie);
                 }
                 window.sessionStorage.setItem("movies", JSON.stringify(newMovie));
-                
+
                 if (RowLink.parent().parent()[0] == $("#myRow")[0]) {
                     $("#myListRow").show();
                     RowLink.show();
@@ -325,7 +265,7 @@ $(document).ready(function () {
                 // window.sessionStorage.setItem("movies", JSON.stringify(newMovies));
                 window.sessionStorage.setItem("movies", JSON.stringify(moviesArr));
                 if (RowLink.parent().parent()[0] == $("#myRow")[0]) {
-                    RowLink.hide();                   
+                    RowLink.hide();
                 }
             }
         });

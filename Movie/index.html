@@ -28,10 +28,9 @@
                     var movieDetail = movie.getElementsByTagName("img")[0];
                     var src = movieDetail.getAttribute("src");
                     var id = src.substr(src.length - 7, 3);
-                    var name = movieDetail.getAttribute("alt").split('|');
-                    var info = name[3] + " " + name[4];
+                    var name = movieDetail.getAttribute("alt");
                     var movieInfo = {
-                        nameM: info,
+                        nameM: name,
                         idM: id
                     }
                     total.push(movieInfo);
@@ -48,17 +47,16 @@
         <header class="header">
             <!-- Video -->
             <div class="header__video ratio16-9__wrap">
-                <img src="./assets/img/image_big035.jpg" alt=""
+                <img src="./assets/img/image_big012.jpg" alt=""
                     class="header__video-img ratio__in">
                 <video id="myVideo" class="ratio__in">
-                    <source src="./assets/video/video035.mp4" type="video/mp4">
+                    <source src="./assets/video/video012.mp4" type="video/mp4">
                 </video>
                 <div class="header__video-content">
-                    <img src="./assets/img/image_name035.png" alt="" class="header__video-name">
+                    <img src="./assets/img/image_name012.png" alt="" class="header__video-name">
                     <p class="header__video-info">
-                        Một giáo viên dạy hóa ở trường trung học mắc bệnh ung thư bắt tay với một cựu học sinh để bảo vệ
-                        tương lai của gia đình
-                        bằng cách sản xuất và bán kẹo.
+                        Người Hobbit được yêu mến Bilbo Baggins trở lại trong phần tiếp theo mãn nhãn lấy cảm hứng từ "Chúa tể những chiếc nhẫn"
+                        và phim tương tự của đạo diễn Peter Jackson.
                     </p>
                     <div class="header__button">
                         <button class="button button--play">
@@ -287,7 +285,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class="main__row">
+                <div class="main__row" id="myContinueRow" style="display: none">
                     <div class="row__header">
                         <a href="#" class="row__header-link">
                             <h2 class="row__title">Danh sách tiếp tục xem</h2>
@@ -296,32 +294,14 @@
                             </span>
                         </a>
                     </div>
-                    <div class="row__container" id="secondRow">
+                    <div class="row__container" id="continueRow">
                         <button class="btn-icon fas fa-chevron-left row__item-back"></button>
                         <button class="btn-icon fas fa-chevron-right row__item-next"></button>
                         <div class="row__container-sc">
-                            <div class="row__img-link">
-                                <div class="row__wrap ratioImg__wrap">
-                                    <img src="./assets/img/image012.jpg"
-                                        alt="0|0|0|The hobbit|Người hobbit: hành trình vô định"
-                                        class="row__img ratio__in">
-                                </div>
-                            </div>
-                            <div class="row__img-link">
-                                <div class="row__wrap ratioImg__wrap">
-                                    <img src="./assets/img/image013.jpg" alt="1|0|0|Friends|Những người bạn"
-                                        class="row__img ratio__in">
-                                </div>
-                            </div>
-                            <div class="row__img-link">
-                                <div class="row__wrap ratioImg__wrap">
-                                    <img src="./assets/img/image014.jpg" alt="1|0|0|Snow Piercer|Chuyến tàu băng giá"
-                                        class="row__img ratio__in">
-                                </div>
-                            </div>
+                            
                         </div>
                     </div>
-                </div> -->
+                </div>
                 <div class="main__row">
                     <div class="row__header">
                         <a href="#" class="row__header-link">
