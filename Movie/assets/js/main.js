@@ -48,8 +48,8 @@ $(document).ready(function () {
     const btnReplay = $(".header-btn-i:last-child");
     showVideo(headerImg, headerVideo, btnMute, btnSound, btnReplay, "imgActive");
     // ---------------
-    //Bat tat video header
-    setInterval(function () {
+    // Bat tat video header
+    var setIn = setInterval(function () {
         if (headerVideo.get(0).currentTime >= headerVideo.get(0).duration - 13) {
             btnReplay.show();
             btnMute.hide();
@@ -64,6 +64,8 @@ $(document).ready(function () {
     }, 10000);
     function showVideo(headerVImg, headerVVideo, btnVMute, btnVSound, btnVReplay, addClassA, movieName) {
         headerVImg.addClass(addClassA);
+        headerVVideo.hide();
+        headerVVideo.get(0).pause();
         headerVImg.on("webkitAnimationEnd", function () {
             if (movieName) {
                 movieName.show();
@@ -333,16 +335,18 @@ $(document).ready(function () {
     function DeleteMoviesIsML() {
         var AllMovies = $(".row__img-link");
         for (const movie of AllMovies) {
-            let movieCT = movie.getElementsByClassName("row__img")[0];
-            let src = movieCT.src;
-            var number = src.substr(src.length - 7, 3);
-            var myMovies = sessionStorage.getItem("movies");
-            var myMoviesArr = JSON.parse(myMovies);
-            if (myMoviesArr) {
-                for (const myMovie of myMoviesArr) {
-                    if (number == myMovie.src) {
-                        movie.remove();
-                        break;
+            if ($(movie).parent().parent()[0] != $("#topRow")[0]) {
+                let movieCT = movie.getElementsByClassName("row__img")[0];
+                let src = movieCT.src;
+                var number = src.substr(src.length - 7, 3);
+                var myMovies = sessionStorage.getItem("movies");
+                var myMoviesArr = JSON.parse(myMovies);
+                if (myMoviesArr) {
+                    for (const myMovie of myMoviesArr) {
+                        if (number == myMovie.src) {
+                            movie.remove();
+                            break;
+                        }
                     }
                 }
             }
