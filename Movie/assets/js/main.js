@@ -25,14 +25,19 @@ $(document).ready(function () {
         window.addEventListener('scroll', function (e) {
             const pos_body = $('html,body').scrollTop();
             const mVideo = $("#myVideo");
+            const vdLength = mVideo.length;
             const search = $("#search-wrap");
             if (pos_body > 400) {
-                mVideo.get(0).pause();
-                isStop = false;
+                if (vdLength > 0) {
+                    mVideo.get(0).pause();
+                    isStop = false;
+                }
             }
             if (pos_body < 200 && isPlay === true) {
-                mVideo.get(0).play();
-                isStop = true;
+                if (vdLength > 0) {
+                    mVideo.get(0).play();
+                    isStop = true;
+                }
             }
             if (search.show()) {
                 search.hide();
@@ -41,27 +46,6 @@ $(document).ready(function () {
     }
     scrollNav();
     // ---------------
-    const headerImg = $(".header__video-img")
-    const headerVideo = $("#myVideo");
-    const btnMute = $(".header-btn-i:first-child");
-    const btnSound = $(".header-btn-i:nth-child(2)");
-    const btnReplay = $(".header-btn-i:last-child");
-    showVideo(headerImg, headerVideo, btnMute, btnSound, btnReplay, "imgActive");
-    // ---------------
-    // Bat tat video header
-    var setIn = setInterval(function () {
-        if (headerVideo.get(0).currentTime >= headerVideo.get(0).duration - 13) {
-            btnReplay.show();
-            btnMute.hide();
-            btnSound.hide();
-            isPlay = false;
-            headerImg.removeClass("imgActive");
-            headerImg.removeClass("imgActiveSc");
-            headerImg.show();
-            headerVideo.get(0).pause();
-            headerVideo.hide();
-        }
-    }, 10000);
     function showVideo(headerVImg, headerVVideo, btnVMute, btnVSound, btnVReplay, addClassA, movieName) {
         headerVImg.addClass(addClassA);
         headerVVideo.hide();
@@ -204,7 +188,9 @@ $(document).ready(function () {
                     hoverAf.css("transform-origin", "100% 80%");
                     hoverAf.css("right", margin + "px");
                 }
-                $("#myVideo").get(0).pause();
+                var myVideo = $("#myVideo");
+                if(myVideo.length > 0)
+                    myVideo.get(0).pause();
                 const hoverImg = $(".hover-movie__img");
                 const hoverName = $(".hover-movie__video-name");
                 const hoverVideo = $("#hover-movie__video");
@@ -249,7 +235,9 @@ $(document).ready(function () {
                 isPlay = true;
                 setTimeout(function () {
                     if (isStop) { //Nếu bị cuộn dừng sẽ tự động chạy lại video
-                        $("#myVideo").get(0).play();
+                        var myVideo = $("#myVideo");
+                        if (myVideo.length > 0)
+                            myVideo.get(0).play();
                     }
                 }, 500);
                 ClearArr();
@@ -379,6 +367,32 @@ $(document).ready(function () {
             }
             $("#myRow > .row__container-sc").html(myNewList);
         }
+    }
+    addList2()
+    function addList2() {
+        ClearArr();
+        var myNewList = "";
+        var movies = sessionStorage.getItem("movies");
+        if (movies) {
+            var data = JSON.parse(movies);
+            var quantity = data.length;
+            for (var i = 0; i < quantity; i++) {
+                var myListItem = data[i].alt.split('|')[1] == 0 ?
+                    `<div class="row__img-link row__img-link-ge">
+                                            <div class="row__wrap ratioImg__wrap">
+                                                <img src="./assets/img/image${data[i].src}.jpg" alt="${data[i].alt}" class="row__img ratio__in">
+                                            </div>
+                                        </div>` :
+                    `<div class="row__img-link row__img-link-ge">
+                                            <div class="row__wrap ratioImg__wrap">
+                                                <img src="./assets/img/image${data[i].src}.jpg" alt="${data[i].alt}" class="row__img ratio__in">
+                                                <img src="./assets/img/iconvip.png" alt="vip" class="movies-vip">
+                                            </div>
+                                        </div>`;
+                myNewList += myListItem;
+            }
+        }
+        $("#myList").append(myNewList);
     }
     function ClearArr() {
         let movies = sessionStorage.getItem("movies");

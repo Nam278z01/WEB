@@ -20,6 +20,34 @@ $(document).ready(function () {
         sliderGe($("#comingRow"), ".row__item-next", ".row__item-back", '.row__container-sc', ".row__img-link");
         sliderGe($("#myRow"), ".row__item-next", ".row__item-back", '.row__container-sc', ".row__img-link");
     }
+    // -----------------
+    const headerImg = $(".header__video-img")
+    const headerVideo = $("#myVideo");
+    const btnMute = $(".header-btn-i:first-child");
+    const btnSound = $(".header-btn-i:nth-child(2)");
+    const btnReplay = $(".header-btn-i:last-child");
+    var isStop = false;
+    var isRun = false;
+    function AutoVideo() {
+        if (headerVideo.length > 0 && isStop == false && isRun == false) {
+            showVideo(headerImg, headerVideo, btnMute, btnSound, btnReplay, "imgActive");
+            // ---------------
+            // Bat tat video header
+            setInterval(function () {
+                if (headerVideo.get(0).currentTime >= headerVideo.get(0).duration - 13) {
+                    btnReplay.show();
+                    btnMute.hide();
+                    btnSound.hide();
+                    isPlay = false;
+                    headerImg.removeClass("imgActive");
+                    headerImg.removeClass("imgActiveSc");
+                    headerImg.show();
+                    headerVideo.get(0).pause();
+                    headerVideo.hide();
+                }
+            }, 10000);
+        }
+    }
 
     // hover hàng phim
     function hoverRowMovie(parent, button) {
@@ -181,8 +209,10 @@ $(document).ready(function () {
         var getID = window.location.search;
         const urlParams = new URLSearchParams(getID);
         var getID = urlParams.get('movie');
+
         if (getID) {
             showModalMovies(getID);
+            isStop = true;
         }
     }
     // ---------------
@@ -190,11 +220,14 @@ $(document).ready(function () {
     var onlyOne = true;
     ShowWhenIDK();
     selectSeason();
+    AutoVideo();
     function showModalMoviesWhenClick() {
         $(".row__img-link").click(function () {
+            isStop = true;
             // Tạo parameter
             var url = new URL(window.location.href);
             let src = $(this).find(".row__img").attr("src");
+            // let alt = $(this).find(".row__img").attr("alt");
             let number = src.substr(src.length - 7, 3);
             url.searchParams.append("movie", number);
             window.history.pushState(null, null, url);
@@ -848,14 +881,15 @@ $(document).ready(function () {
             modalBody.css('height', '100%');
             sliderGe($("#episodeMovie"), ".row__item-next", ".row__item-back", ".modal-recommend__container-sc", ".modal-recommend__img-link");
             sliderGe($("#recommendMovies"), ".row__item-next", ".row__item-back", ".modal-recommend__container-sc", ".modal-recommend__img-link");
-            myVideo.get(0).pause();
+            if (myVideo.length > 0)
+                myVideo.get(0).pause();
 
             const headerMImg = $(".modal-movie__img")
             const headerMVideo = $("#modal-movie__video");
             const btnMMute = $(".header-movie-btn-i:first-child");
             const btnMSound = $(".header-movie-btn-i:nth-child(2)");
             const btnMReplay = $(".header-movie-btn-i:last-child");
-            showVideo(headerMImg, headerMVideo, btnMMute, btnMSound, btnMReplay, "imgActiveHv");
+            showVideo2(headerMImg, headerMVideo, btnMMute, btnMSound, btnMReplay, "imgActiveHv");
 
             // Modal
             const modal = $("#myModal");
@@ -865,7 +899,6 @@ $(document).ready(function () {
                     onlyOne = true;
                     body.css("overflow", "auto");
                     modalsc.hide();
-                    myVideo.get(0).play();
                     modalBody.css('height', 'auto');
                     modal_movies.remove();
                     var url = window.location.href;
@@ -873,6 +906,8 @@ $(document).ready(function () {
                         var updatedUri = url.substring(0, url.indexOf("?"));
                         window.history.replaceState({}, document.title, updatedUri);
                     }
+                    isStop = false;
+                    AutoVideo();
                 }
             })
 
@@ -880,7 +915,6 @@ $(document).ready(function () {
                 onlyOne = true;
                 body.css("overflow", "auto");
                 modalsc.hide();
-                myVideo.get(0).play();
                 modalBody.css('height', 'auto');
                 modal_movies.remove();
                 var url = window.location.href;
@@ -888,11 +922,13 @@ $(document).ready(function () {
                     var updatedUri = url.substring(0, url.indexOf("?"));
                     window.history.replaceState({}, document.title, updatedUri);
                 }
+                isStop = false;
+                AutoVideo();
             })
         }
     }
     //Bat tat video header
-    function showVideo(headerVImg, headerVVideo, btnVMute, btnVSound, btnVReplay, addClassA, movieName) {
+    function showVideo2(headerVImg, headerVVideo, btnVMute, btnVSound, btnVReplay, addClassA, movieName) {
         headerVImg.addClass(addClassA);
         headerVVideo.hide();
         headerVVideo.get(0).pause();
@@ -904,6 +940,52 @@ $(document).ready(function () {
             headerVVideo.show();
             headerVVideo.get(0).play();
             btnVSound.show();
+        });
+        // -----------
+        // Tat tieng video header
+        btnVSound.click(function (e) {
+            $(this).hide();
+            btnVMute.show();
+            headerVVideo.prop('muted', true);
+        });
+        // Bat tieng video header
+        btnVMute.click(function (e) {
+            $(this).hide();
+            btnVSound.show();
+            headerVVideo.prop('muted', false);
+        });
+        // Xem lai video header
+        btnVReplay.click(function (e) {
+            headerVImg.addClass("imgActiveSc");
+            $(this).hide();
+            if (headerVVideo.get(0).muted == true) {
+                btnVMute.show();
+            } else {
+                btnVSound.show();
+            }
+            headerVVideo.get(0).currentTime = 0;
+            isPlay = true;
+        });
+    }
+    function showVideo(headerVImg, headerVVideo, btnVMute, btnVSound, btnVReplay, addClassA, movieName) {
+        headerVImg.addClass(addClassA);
+        headerVVideo.hide();
+        headerVVideo.get(0).pause();
+        headerVImg.on("webkitAnimationEnd", function () {
+            if (!isStop) {
+                if (movieName) {
+                    movieName.show();
+                }
+                headerVImg.hide();
+                headerVVideo.show();
+                headerVVideo.get(0).play();
+                btnVSound.show();
+                isRun = true;
+            }
+            else {
+
+                headerVImg.removeClass(addClassA);
+            }
         });
         // -----------
         // Tat tieng video header
