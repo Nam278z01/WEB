@@ -34,12 +34,15 @@ html {
   font-size: 62.5%;
   line-height: 1.6rem;
   box-sizing: border-box;
+  scroll-behavior: smooth;
+
 }
 
 body {
   margin: 0;
   background-color: var(--primary-color-sc);
   /* overflow: hidden; */
+  scroll-behavior: smooth;
 }
 
 .button {
@@ -52,7 +55,7 @@ body {
   color: var(--white-color);
   background-color: transparent;
   cursor: pointer;
-  padding: 12px 32px;
+  padding: 9px 32px;
   min-width: 120px;
   transition: filter 0.2s;
   border-radius: 0px;
@@ -272,6 +275,7 @@ body {
   margin: 0;
 }
 
+.button.hover-movie__button--remind,
 .button.hover-movie__button--play {
   background-color: var(--white-color);
   color: var(--black-color);
@@ -283,12 +287,20 @@ body {
   border: 1px solid var(--white-color);
 }
 
+button.hover-movie__button--remind {
+  width: 185px;
+}
+
+.button.hover-movie__button--moreinfo.remind {
+  width: 185px;
+}
+
 .hover-movie__button > .button > i {
-  font-size: 1.6rem;
+  font-size: 2.2rem;
 }
 
 .hover-movie__button > .button > span {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
 }
 
 .hover-movie__info {
@@ -563,15 +575,14 @@ body {
   font-weight: bold;
 }
 
-.button.modal-movie__button--removelist,
-.button.modal-movie__button--addlist {
+.button.modal-movie__button--add-remove {
   border: 1px solid var(--white-color);
   background-color: var(--primary-color-sv);
-  padding: 9px 32px;
+  padding: 7px 24px;
 }
 
 .modal-movie__button > .button > i {
-  font-size: 2.2rem;
+  font-size: 2.8rem;
 }
 
 .modal-movie__button > .button > span {
@@ -689,6 +700,7 @@ body {
   align-items: center;
   color: var(--white-color);
   text-decoration: none;
+  text-align: center;
 }
 
 .info-right__first i {
@@ -750,7 +762,12 @@ body {
 
 .modal-recommend__container-sc {
   display: flex;
-  margin-left: 3%;
+}
+
+.modal-recommend__container-sc::before {
+  content: "";
+  display: inline;
+  padding-left: 3%;
 }
 
 .modal-recommend__container-sc::after {
@@ -762,7 +779,7 @@ body {
 .modal-recommend__img-link {
   margin-right: 6px;
   flex-shrink: 0;
-  width: 23.6%;
+  width: 23%;
   background-color: var(--hover-color-th);
 }
 
@@ -1036,7 +1053,7 @@ body {
   right: 0;
   padding: 10px 0;
   width: 200px;
-  z-index: 1;
+  z-index: 3;
   max-height: 183px;
   overflow-y: auto;
   display: none;
@@ -1113,3 +1130,24 @@ body {
 }
 
 /* Account */
+
+/* Watch */
+.header-watch.header::before {
+  display: none;
+}
+
+#my-nav-watch {
+  display: none;
+  background-color: #101010;
+}
+
+footer.footer__watch {
+  position: static;
+  bottom: auto;
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+.modal-recommend__img-link.watch-link {
+  width: 18.4%;
+}

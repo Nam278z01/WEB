@@ -31,6 +31,7 @@ $(document).ready(function () {
             button.css("display", "none");
         });
     }
+    
     //Slider
     function sliderGe(slideRan, slBtnNext, slBtnBack, slChSlides, slChSlide) {
         var childBtnNext = slideRan.children(slBtnNext),
@@ -160,6 +161,13 @@ $(document).ready(function () {
     $(".row__img-link").click(function () {
         var src = $(this).find(".row__img").attr("src");
         var number = src.substr(src.length - 7, 3);
+        var url = new URL(window.location.href);
+        url.pathname = './watch.html'
+        url.searchParams.append("movie", number);
+        window.location.href = url.href;
+        var src = $(this).find(".row__img").attr("src");
+        var number = src.substr(src.length - 7, 3);
+        url.searchParams.append("movie", number);
         $(".modal-movie__img").attr("src", "./assets/img/image_big" + number + ".jpg");
         $(".modal-movie__video-name").attr("src", "./assets/img/image_name" + number + ".png");
         $("#modal-movie__video").attr("src", "./assets/video/video" + number + ".mp4");
@@ -192,4 +200,116 @@ $(document).ready(function () {
                 $(".season-icon").after().css("transform", "rotate(0deg)")
         })
     }
+    $(".modal-turnoff").click(function () {
+        $("body").css("overflow", "auto");
+        $(".modal").hide();
+        // $("#myVideo").get(0).play();
+        $("#modal-movie__video").get(0).pause();
+        $(".modal__body").css('height', 'auto');
+        $(".modal-movie").hide();
+        var url = window.location.href;
+        if (url.indexOf("?") > 0) {
+            var updatedUri = url.substring(0, url.indexOf("?"));
+            window.history.replaceState({}, document.title, updatedUri);
+        }
+    })
+
+    // Search
+    function Movie() {
+
+        $(".row__img-link").click(function () {
+            var url = new URL(window.location.href);
+            var src = $(this).find(".row__img").attr("src");
+            var number = src.substr(src.length - 7, 3);
+            url.searchParams.append("movie", number);
+            window.history.pushState(null, null, url);
+            var search = window.location.search;
+            const urlParams = new URLSearchParams(search);
+            var search = urlParams.get('movie');
+            $(".modal-movie__img").attr("src", "./assets/img/image_big" + search + ".jpg");
+            $(".modal-movie__video-name").attr("src", "./assets/img/image_name" + search + ".png");
+            $("#modal-movie__video").attr("src", "./assets/video/video" + search + ".mp4");
+            $("body").css("overflow", "hidden");
+            $(".modal").show();
+            $(".modal-movie").show();
+            $(".modal__body").css('height', '100%');
+            sliderGe($("#episodeMovie"), ".row__item-next", ".row__item-back", ".modal-recommend__container-sc", ".modal-recommend__img-link");
+            sliderGe($("#recommendMovies"), ".row__item-next", ".row__item-back", ".modal-recommend__container-sc", ".modal-recommend__img-link");
+            $("#myVideo").get(0).pause();
+            const headerMImg = $(".modal-movie__img")
+            const headerMVideo = $("#modal-movie__video");
+            console.log(headerMVideo)
+            const btnMMute = $(".header-movie-btn-i:first-child");
+            const btnMSound = $(".header-movie-btn-i:nth-child(2)");
+            const btnMReplay = $(".header-movie-btn-i:last-child");
+            headerMVideo.get(0).play();
+            showVideo(headerMImg, headerMVideo, btnMMute, btnMSound, btnMReplay, "imgActive")
+        })
+
+    }
+    Movie();
+    var search = window.location.search;
+    const urlParams = new URLSearchParams(search);
+    var search = urlParams.get('movie');
+    if (search) {
+        $(".modal-movie__img").attr("src", "./assets/img/image_big" + search + ".jpg");
+        $(".modal-movie__video-name").attr("src", "./assets/img/image_name" + search + ".png");
+        $("#modal-movie__video").attr("src", "./assets/video/video" + search + ".mp4");
+        $("body").css("overflow", "hidden");
+        $(".modal").show();
+        $(".modal-movie").show();
+        $(".modal__body").css('height', '100%');
+        sliderGe($("#episodeMovie"), ".row__item-next", ".row__item-back", ".modal-recommend__container-sc", ".modal-recommend__img-link");
+        sliderGe($("#recommendMovies"), ".row__item-next", ".row__item-back", ".modal-recommend__container-sc", ".modal-recommend__img-link");
+        $("#myVideo").get(0).pause();
+        const headerMImg = $(".modal-movie__img")
+        const headerMVideo = $("#modal-movie__video");
+        console.log(headerMVideo)
+        const btnMMute = $(".header-movie-btn-i:first-child");
+        const btnMSound = $(".header-movie-btn-i:nth-child(2)");
+        const btnMReplay = $(".header-movie-btn-i:last-child");
+        headerMVideo.get(0).play();
+        showVideo(headerMImg, headerMVideo, btnMMute, btnMSound, btnMReplay, "imgActive")
+    }
+    showVideo(headerImg, headerVideo, btnMute, btnSound, btnReplay, "imgActive");
+    // ---------------
+    //Bat tat video header
+    function showVideo(headerVImg, headerVVideo, btnVMute, btnVSound, btnVReplay, addClassA, movieName) {
+        headerVImg.addClass(addClassA);
+        headerVImg.on("webkitAnimationEnd", function () {
+            if (movieName) {
+                movieName.show();
+            }
+            headerVImg.hide();
+            headerVVideo.show();
+            headerVVideo.get(0).play();
+            btnVSound.show();
+        });
+        // -----------
+        // Tat tieng video header
+        btnVSound.click(function (e) {
+            $(this).hide();
+            btnVMute.show();
+            headerVVideo.prop('muted', true);
+        });
+        // Bat tieng video header
+        btnVMute.click(function (e) {
+            $(this).hide();
+            btnVSound.show();
+            headerVVideo.prop('muted', false);
+        });
+        // Xem lai video header
+        btnVReplay.click(function (e) {
+            headerVImg.addClass("imgActiveSc");
+            $(this).hide();
+            if (headerVVideo.get(0).muted == true) {
+                btnVMute.show();
+            } else {
+                btnVSound.show();
+            }
+            headerVVideo.get(0).currentTime = 0;
+            isPlay = true;
+        });
+    }
+
 });

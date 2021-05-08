@@ -81,14 +81,29 @@ $(document).ready(function () {
                                                 <span class="hm_info">HD</span>
                                             </div>`;
             var btnAddRemove = infoSec == 0 ? `<button class="button hover-movie__button--add-removeList">
-                                                    <i class="fas fa-plus"></i>
+                                                    <i class="bx bx-plus"></i>
                                                     <span>Danh sách</span>
                                                 </button>`
                 : `<button class="button hover-movie__button--add-removeList">
-                                                    <i class="fas fa-check"></i>
+                                                    <i class="bx bx-check"></i>
                                                     <span>Danh sách</span>
                                                 </button>`;
-
+            var btn = `<button class="button hover-movie__button--play">
+                                            <i class="bx bxs-right-arrow"></i>
+                                            <span>Xem ngay</span>
+                                        </button>` + btnAddRemove + `<button class="button hover-movie__button--moreinfo">
+                                                                        <i class="bx bx-info-circle"></i>
+                                                                        <span>Chi tiết</span>
+                                                                     </button>`;
+            if ($(this).parent().parent()[0] == $("#comingRow")[0]) {
+                btn = `<button class="button hover-movie__button--remind">
+                                            <i class="far fa-bell"></i>
+                                            <span>Đặt lời nhắc</span>
+                                        </button>` + `<button class="button hover-movie__button--moreinfo remind">
+                                                                        <i class="bx bx-info-circle"></i>
+                                                                        <span>Chi tiết</span>
+                                                                     </button>`;
+            }
             var hover = $("#hover");
 
             if (hover) {
@@ -127,17 +142,11 @@ $(document).ready(function () {
                                             <button class="btn-icon hover-movie-btn-i fas fa-undo"></button>
                                         </div>
                                     </div>
-                                    <div class="hover-movie__button">
-                                        <button class="button hover-movie__button--play">
-                                            <i class="fas fa-play"></i>
-                                            <span>Xem ngay</span>
-                                        </button>`
-                    + btnAddRemove +
-                    `<button class="button hover-movie__button--moreinfo">
-                                            <i class="fas fa-info-circle"></i>
-                                            <span>Chi tiết</span>
-                                        </button>
-                                    </div>`
+                                    <div class="hover-movie__button">`
+                                        
+                    + btn +
+                    
+                                    `</div>`
                     + infoOther +
                     `</div>`;
                 parent.after(addChild);
@@ -205,9 +214,9 @@ $(document).ready(function () {
             var infoSec = checkMovie.split('|')[1];
             var infoThird = checkMovie.split('|')[2];
             var infoFour = checkMovie.split('|')[3];
-            var icon = $(this).children(".fas");
+            var icon = $(this).children(".bx");
             if (infoThird == "0") {
-                icon.removeClass("fa-plus").addClass("fa-check");
+                icon.removeClass("bx-plus").addClass("bx-check");
                 ImgMovie.attr("alt", infoOne + "|" + infoSec + "|" + 1 + "|" + infoFour);
                 var newImgAlt = infoOne + "|" + infoSec + "|" + "1" + "|" + infoFour;
                 var movie = {
@@ -248,7 +257,7 @@ $(document).ready(function () {
                 }
             }
             else {
-                icon.removeClass("fa-check").addClass("fa-plus");
+                icon.removeClass("bx-check").addClass("bx-plus");
                 ImgMovie.attr("alt", infoOne + "|" + infoSec + "|" + 0 + "|" + infoFour);
                 var moviesRemove = sessionStorage.getItem("movies");
                 var moviesArr = JSON.parse(moviesRemove);

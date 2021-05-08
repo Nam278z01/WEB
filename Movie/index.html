@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="./assets/css/main.css" />
     <!-- Awesome icons -->
     <link rel="stylesheet" href="./assets/css/all.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <!-- Responsive css file -->
     <link rel="stylesheet" href="./assets/css/responsive.css" />
     <!-- Fonts -->
@@ -37,7 +38,7 @@
                 }
                 sessionStorage.setItem("moviesSe", JSON.stringify(total));
             }
-            searchMovie()
+            searchMovie()                  
         });
     </script>
 </head>
@@ -47,7 +48,7 @@
         <header class="header">
             <!-- Video -->
             <div class="header__video ratio16-9__wrap">
-                <img src="./assets/img/image_big012.jpg" alt=""
+                <img src="./assets/img/image_big012.jpg" alt="0|0|0"
                     class="header__video-img ratio__in">
                 <video id="myVideo" class="ratio__in">
                     <source src="./assets/video/video012.mp4" type="video/mp4">
@@ -60,11 +61,11 @@
                     </p>
                     <div class="header__button">
                         <button class="button button--play">
-                            <i class="fas fa-play"></i>
+                            <i class="bx bxs-right-arrow"></i>
                             <span>Xem ngay</span>
                         </button>
                         <button class="button button--moreinfo">
-                            <i class="fas fa-info-circle"></i>
+                            <i class="bx bx-info-circle"></i>
                             <span>Chi tiết</span>
                         </button>
                     </div>
@@ -715,7 +716,8 @@
             <footer class="footer">
                 <div class="footer__social">
                     <h2 class="footer__title">LIÊN HỆ</h2>
-                    <p class="footer__email-phone">Email: nam278z01@gmail.com | Phone: 0321123321</p>
+                    <p class="footer__email-phone">Email: nam278z01@gmail.com</p>
+                    <p class="footer__email-phone">Phone: 0321123321</p>
                     <a href="#" class="footer__social-link" title="Facebook">
                         <i class="footer__social-icon fab fa-facebook-square"></i>
                     </a>
@@ -836,11 +838,11 @@
                         <img src="./assets/img/image_name035.png" alt="" class="modal-movie__video-name">
                         <div class="modal-movie__button">
                             <button class="button modal-movie__button--play">
-                                <i class="fas fa-play"></i>
+                                <i class="bx bxs-right-arrow"></i>
                                 <span>Xem ngay</span>
                             </button>
-                            <button class="button modal-movie__button--addlist">
-                                <i class="fas fa-plus"></i>
+                            <button class="button modal-movie__button--add-remove">
+                                <i class="bx bx-plus"></i>
                                 <span>Danh sách</span>
                             </button>
                         </div>
