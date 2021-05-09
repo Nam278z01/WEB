@@ -122,7 +122,22 @@ $(document).ready(function () {
                                                     <i class="bx bx-check"></i>
                                                     <span>Danh sách</span>
                                                 </button>`;
-
+            var btn = `<button class="button hover-movie__button--play">
+                                            <i class="bx bxs-right-arrow"></i>
+                                            <span>Xem ngay</span>
+                                        </button>` + btnAddRemove + `<button class="button hover-movie__button--moreinfo">
+                                                                        <i class="bx bx-info-circle"></i>
+                                                                        <span>Chi tiết</span>
+                                                                     </button>`;
+            if ($(this).parent().parent().is("#comingRow")) {
+                btn = `<button class="button hover-movie__button--remind">
+                                            <i class="far fa-bell"></i>
+                                            <span>Đặt lời nhắc</span>
+                                        </button>` + `<button class="button hover-movie__button--moreinfo remind">
+                                                                        <i class="bx bx-info-circle"></i>
+                                                                        <span>Chi tiết</span>
+                                                                     </button>`;
+            }
             var hover = $("#hover");
 
             if (hover) {
@@ -162,17 +177,9 @@ $(document).ready(function () {
                                             <button class="btn-icon hover-movie-btn-i fas fa-undo"></button>
                                         </div>
                                     </div>
-                                    <div class="hover-movie__button">
-                                        <button class="button hover-movie__button--play">
-                                            <i class="bx bxs-right-arrow"></i>
-                                            <span>Xem ngay</span>
-                                        </button>`
-                    + btnAddRemove +
-                    `<button class="button hover-movie__button--moreinfo">
-                                            <i class="bx bx-info-circle"></i>
-                                            <span>Chi tiết</span>
-                                        </button>
-                                    </div>`
+                                    <div class="hover-movie__button">`
+                                       +btn+ 
+                                    `</div>`
                     + infoOther +
                     `</div>`;
                 parent.after(addChild);
@@ -199,12 +206,16 @@ $(document).ready(function () {
                 const btnHReplay = $(".btn-icon.hover-movie-btn-i:last-child");
                 showVideo(hoverImg, hoverVideo, btnHMute, btnHSound, btnHReplay, "imgActiveHv", hoverName);
                 mySetInterVal = setInterval(function () {
-                    if (hoverVideo.get(0).currentTime >= hoverVideo.get(0).duration - 13) {
+                    if (hoverVideo.get(0).currentTime >= hoverVideo.get(0).duration - 10) {
                         btnHReplay.show();
                         btnHMute.hide();
                         btnHSound.hide();
-                        hoverImg.removeClass("imgActiveHv");
-                        hoverImg.removeClass("imgActiveSc");
+                        if (hoverImg.hasClass("imgActive"))
+                            hoverImg.removeClass("imgActive");
+                        if (hoverImg.hasClass("imgActiveSc"))
+                            hoverImg.removeClass("imgActiveSc");
+                        if (hoverImg.hasClass("imgActiveHv"))
+                            hoverImg.removeClass("imgActiveHv");
                         hoverImg.show();
                         hoverVideo.get(0).pause();
                         hoverVideo.hide();
@@ -292,7 +303,7 @@ $(document).ready(function () {
                 }
                 window.sessionStorage.setItem("movies", JSON.stringify(newMovie));
                 
-                if (RowLink.parent().parent()[0] == $("#myRow")[0]) {
+                if (RowLink.parent().parent().is("#myRow")) {
                     $("#myListRow").show();
                     RowLink.show();
                 }
@@ -314,7 +325,7 @@ $(document).ready(function () {
                 }
                 // window.sessionStorage.setItem("movies", JSON.stringify(newMovies));
                 window.sessionStorage.setItem("movies", JSON.stringify(moviesArr));
-                if (RowLink.parent().parent()[0] == $("#myRow")[0]) {
+                if (RowLink.parent().parent().is("#myRow")) {
                     RowLink.hide();                   
                 }
             }
@@ -323,7 +334,7 @@ $(document).ready(function () {
     function DeleteMoviesIsML() {
         var AllMovies = $(".row__img-link");
         for (const movie of AllMovies) {
-            if ($(movie).parent().parent()[0] != $("#topRow")[0]) {
+            if (!$(movie).parent().parent().is("#topRow")) {
                 let movieCT = movie.getElementsByClassName("row__img")[0];
                 let src = movieCT.src;
                 var number = src.substr(src.length - 7, 3);

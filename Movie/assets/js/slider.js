@@ -34,13 +34,16 @@ $(document).ready(function () {
             // ---------------
             // Bat tat video header
             setInterval(function () {
-                if (headerVideo.get(0).currentTime >= headerVideo.get(0).duration - 13) {
+                if (headerVideo.get(0).currentTime >= headerVideo.get(0).duration - 10) {
                     btnReplay.show();
                     btnMute.hide();
                     btnSound.hide();
-                    isPlay = false;
-                    headerImg.removeClass("imgActive");
-                    headerImg.removeClass("imgActiveSc");
+                    if (headerImg.hasClass("imgActive"))
+                        headerImg.removeClass("imgActive");
+                    if (headerImg.hasClass("imgActiveSc"))
+                        headerImg.removeClass("imgActiveSc");
+                    if (headerImg.hasClass("imgActiveHv"))
+                        headerImg.removeClass("imgActiveHv");
                     headerImg.show();
                     headerVideo.get(0).pause();
                     headerVideo.hide();
@@ -235,11 +238,11 @@ $(document).ready(function () {
             var id = window.location.search;
             const urlParams = new URLSearchParams(id);
             var id = urlParams.get('movie');
-            showModalMovies(id);
+            showModalMovies(id, $(this));
         })
     }
 
-    function showModalMovies(IdMovies) {
+    function showModalMovies(IdMovies, RowLink) {
         // Lấy alt của phim
         var data = sessionStorage.getItem("moviesSearch");
         var dataArr = JSON.parse(data);
@@ -261,6 +264,18 @@ $(document).ready(function () {
                             <span>Danh sách</span>
                         </button>`;
 
+        var btn = `<button class="button modal-movie__button--play">
+                            <i class="bx bxs-right-arrow"></i>
+                            <span>Xem ngay</span>
+                        </button>`+ btnAddOrRemove;
+        
+        if (RowLink && RowLink.parent().parent().is("#comingRow")) {
+            btn = `<button class="button modal-movie__button--remind">
+                                            <i class="far fa-bell"></i>
+                                            <span>Đặt lời nhắc</span>
+                                        </button>`;
+        }
+        
         var episode = altArr[0] == 0 ? "" : `<div class="modal__movies-episodes">
                     <div class="modal__movies-ep-first">
                         <div class="movies-ep-title">
@@ -519,12 +534,8 @@ $(document).ready(function () {
                 </div>
                 <div class="header-movie__content">
                     <img src="./assets/img/image_name${id}.png" alt="" class="modal-movie__video-name">
-                    <div class="modal-movie__button">
-                        <button class="button modal-movie__button--play">
-                            <i class="bx bxs-right-arrow"></i>
-                            <span>Xem ngay</span>
-                        </button>`
-            + btnAddOrRemove +
+                    <div class="modal-movie__button">`                      
+            + btn +
             `</div>
                 </div>
                 <div class="header-movie__btn">
@@ -891,6 +902,24 @@ $(document).ready(function () {
             const btnMReplay = $(".header-movie-btn-i:last-child");
             showVideo2(headerMImg, headerMVideo, btnMMute, btnMSound, btnMReplay, "imgActiveHv");
 
+            var myInterval = setInterval(function () {
+                if (headerMVideo.get(0).currentTime >= headerMVideo.get(0).duration - 10) {
+                    btnMReplay.show();
+                    btnMMute.hide();
+                    btnMSound.hide();                 
+                    headerMImg.show();
+                    headerMVideo.get(0).pause();
+                    headerMVideo.hide();
+                    if (headerMImg.hasClass("imgActive"))
+                        headerMImg.removeClass("imgActive");
+                    if (headerMImg.hasClass("imgActiveSc"))
+                        headerMImg.removeClass("imgActiveSc");
+                    if (headerMImg.hasClass("imgActiveHv"))
+                        headerMImg.removeClass("imgActiveHv");
+                }
+            }, 10000);
+
+
             // Modal
             const modal = $("#myModal");
             $(window).click(function (e) {
@@ -908,6 +937,7 @@ $(document).ready(function () {
                     }
                     isStop = false;
                     AutoVideo();
+                    clearInterval(myInterval);
                 }
             })
 
@@ -924,6 +954,7 @@ $(document).ready(function () {
                 }
                 isStop = false;
                 AutoVideo();
+                clearInterval(myInterval);
             })
         }
     }
@@ -968,7 +999,8 @@ $(document).ready(function () {
         });
     }
     function showVideo(headerVImg, headerVVideo, btnVMute, btnVSound, btnVReplay, addClassA, movieName) {
-        headerVImg.addClass(addClassA);
+        if(headerVVideo.length > 0)
+            headerVImg.addClass(addClassA);
         headerVVideo.hide();
         headerVVideo.get(0).pause();
         headerVImg.on("webkitAnimationEnd", function () {

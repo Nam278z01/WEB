@@ -177,11 +177,11 @@ body {
 }
 
 .imgActive {
-  animation: fadeOut linear 0.5s 2.5s;
+  animation: fadeOut linear 0.5s 1s;
 }
 
 .imgActiveHv {
-  animation: fadeOut linear 0.5s 1s;
+  animation: fadeOut linear 0.5s 0.5s;
 }
 
 .imgActiveSc {
@@ -569,6 +569,7 @@ button.hover-movie__button--remind {
   align-items: center;
 }
 
+.button.modal-movie__button--remind,
 .button.modal-movie__button--play {
   background-color: var(--white-color);
   color: var(--black-color);
