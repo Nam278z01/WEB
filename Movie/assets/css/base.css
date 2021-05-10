@@ -177,11 +177,11 @@ body {
 }
 
 .imgActive {
-  animation: fadeOut linear 0.5s 1s;
+  animation: fadeOut linear 0.5s 2s;
 }
 
 .imgActiveHv {
-  animation: fadeOut linear 0.5s 0.5s;
+  animation: fadeOut linear 0.5s 1s;
 }
 
 .imgActiveSc {
