@@ -142,6 +142,7 @@ $(document).ready(function () {
         // Responsive slider
         $(window).resize(function () {
             widthW = slideRan.parent().width();
+            console.log(slideRan.parent(),widthW)
             if (widthW > 1024) {
                 number = 5;
             } else if (widthW < 1025 && widthW > 739) {

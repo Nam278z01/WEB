@@ -15,13 +15,15 @@ $(document).ready(function () {
     function scrollNav() {
         window.addEventListener('scroll', function (e) {
             const nav = document.getElementById('my-nav');
-            const pos_body = $('html,body').scrollTop();
-            // -----------
-            if (pos_body > 50) {
-                nav.style.backgroundColor = "#101010";
-            }
-            else {
-                nav.style.backgroundColor = "transparent";
+            if (nav) {
+                const pos_body = $('html,body').scrollTop();
+                // -----------
+                if (pos_body > 50) {
+                    nav.style.backgroundColor = "#101010";
+                }
+                else {
+                    nav.style.backgroundColor = "transparent";
+                }
             }
         })
     }

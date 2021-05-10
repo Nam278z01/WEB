@@ -67,6 +67,10 @@
     position: absolute;
   }
 
+  .header-watch.header::after {
+    display: none;
+  }
+
   .header::after {
     bottom: -56px;
     display: block;
@@ -236,23 +240,12 @@
   margin-right: 3%;
   }
 }
-
+/* Mobile - Tablet */
 @media (max-width: 1024px) {
-  /* .header__nav-menu-res {
-    display: none;
+  .watch-movie__header {
+    height: auto;
+    padding-bottom: 56%;
   }
-  .header__nav-bar-icon.fas {
-    display: inline-block !important;
-    cursor: pointer;
-  }
-
-  .header__first-nav {
-    width: 20%;
-  }
-
-  .header__second-nav {
-    width: 80%;
-  } */
 }
 
 /* Tablet */

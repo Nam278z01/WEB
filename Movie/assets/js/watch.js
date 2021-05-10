@@ -16,15 +16,22 @@ $(document).ready(function () {
     // Scroll
     scrollNav();
     function scrollNav() {
-        var lastScrollTop = 0;
+        var windowWidth = window.innerWidth;
+        $(window).resize(function () {
+            windowWidth = window.innerWidth;
+        })
         $(window).scroll(function () {
+            var movieH = $(".watch-movie__header");
             var currentScrollTop = $(this).scrollTop();
-            if (currentScrollTop < lastScrollTop) {
+            console.log(movieH.outerHeight())
+            if (currentScrollTop < movieH.outerHeight()) {
                 $("#my-nav-watch").hide();
             } else {
-                $("#my-nav-watch").show();
+                if(windowWidth < 740)
+                    $("#my-nav-watch").css("display", "block");
+                else
+                    $("#my-nav-watch").css("display", "flex");
             }
-            lastScrollTop = currentScrollTop;
         });
         
     }
