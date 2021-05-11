@@ -1,5 +1,4 @@
 $(document).ready(function () {
-    DeleteMoviesIsML();
     addList();
     if (navigator.userAgent.match(/Android/i)
         || navigator.userAgent.match(/webOS/i)
@@ -13,39 +12,6 @@ $(document).ready(function () {
     else {
         hoverMovies();
     }
-
-    $(".header__video-name").on("webkitAnimationEnd", function () {
-        $(this).css("transform", "scale(0.65)");
-    });
-
-    // Scroll nav
-    var isStop = true;//Nếu cuộn dừng sẽ false
-    var isPlay = true;//False cuộn sẽ ko chạy video --> hàm Hover_Video
-    function scrollNav() {
-        window.addEventListener('scroll', function (e) {
-            const pos_body = $('html,body').scrollTop();
-            const mVideo = $("#myVideo");
-            const vdLength = mVideo.length;
-            const search = $("#search-wrap");
-            if (pos_body > 400) {
-                if (vdLength > 0) {
-                    mVideo.get(0).pause();
-                    isStop = false;
-                }
-            }
-            if (pos_body < 200 && isPlay === true) {
-                if (vdLength > 0) {
-                    mVideo.get(0).play();
-                    isStop = true;
-                }
-            }
-            if (search.show()) {
-                search.hide();
-            }
-        })
-    }
-    scrollNav();
-    // ---------------
     function showVideo(headerVImg, headerVVideo, btnVMute, btnVSound, btnVReplay, addClassA, movieName) {
         headerVImg.addClass(addClassA);
         headerVVideo.hide();
@@ -82,10 +48,8 @@ $(document).ready(function () {
                 btnVSound.show();
             }
             headerVVideo.get(0).currentTime = 0;
-            isPlay = true;
         });
     }
-
     //hover phim
     function hoverMovies() {
         var myTimeout;
@@ -94,7 +58,7 @@ $(document).ready(function () {
         var width;
         var mySetInterVal;
         var image;
-        $(".row__img-link").mouseenter(function (e) {
+        $(".row__img-link-ge").mouseenter(function (e) {
             width = $(this).width();
             image = $(this).find(".row__img")
 
@@ -122,46 +86,31 @@ $(document).ready(function () {
                                                     <i class="bx bx-check"></i>
                                                     <span>Danh sách</span>
                                                 </button>`;
-            var btn = `<button class="button hover-movie__button--play">
-                                            <i class="bx bxs-right-arrow"></i>
-                                            <span>Xem ngay</span>
-                                        </button>` + btnAddRemove + `<button class="button hover-movie__button--moreinfo">
-                                                                        <i class="bx bx-info-circle"></i>
-                                                                        <span>Chi tiết</span>
-                                                                     </button>`;
-            if ($(this).parent().parent().is("#comingRow")) {
-                btn = `<button class="button hover-movie__button--remind">
-                                            <i class="far fa-bell"></i>
-                                            <span>Đặt lời nhắc</span>
-                                        </button>` + `<button class="button hover-movie__button--moreinfo remind">
-                                                                        <i class="bx bx-info-circle"></i>
-                                                                        <span>Chi tiết</span>
-                                                                     </button>`;
-            }
+
             var hover = $("#hover");
 
             if (hover) {
                 if (left < 50) {
                     hover.css("--scale", width / 400)
                     hover.css("animation", "ZoomOut linear 0.15s");
-                    hover.css("transform-origin", "0%" + (image.height() / 225 * 100 + 8) + " %");
+                    hover.css("transform-origin", "0%" + (image.height() / 225 * 100) + " %");
                 } else if (left < $(window).width() - 300) {
                     hover.css("--scale", width / 400)
                     hover.css("animation", "ZoomOut linear 0.15s");
-                    hover.css("transform-origin", "50% " + (image.height() / 225 * 100 + 8) + "%");
+                    hover.css("transform-origin", "50% " + (image.height() / 225 * 100) + "%");
                 } else {
                     hover.css("--scale", width / 400)
                     hover.css("animation", "ZoomOut linear 0.15s");
-                    hover.css("transform-origin", "100%" + (image.height() / 225 * 100 + 8) + "%");
+                    hover.css("transform-origin", "100%" + (image.height() / 225 * 100) + "%");
                 }
                 hover.on("webkitAnimationEnd", function () {
                     hover.remove();
                     // hover.css("transform", "scale(" + width / 400 + ")")
                 })
             }
-            isPlay = false;
             var margin = $(window).width() * 3 / 100;
             left = $(this).offset().left;
+            var top = $(this).offset().top - 190;
             parent = $(this).parent().parent();
             myTimeout = setTimeout(function () {
                 var addChild = `<div class="hover-movie" id="hover">
@@ -179,27 +128,37 @@ $(document).ready(function () {
                                             <button class="btn-icon hover-movie-btn-i fas fa-undo"></button>
                                         </div>
                                     </div>
-                                    <div class="hover-movie__button">`
-                                       +btn+ 
-                                    `</div>`
+                                    <div class="hover-movie__button">
+                                        <button class="button hover-movie__button--play">
+                                            <i class="bx bxs-right-arrow"></i>
+                                            <span>Xem ngay</span>
+                                        </button>`
+                    + btnAddRemove +
+                    `<button class="button hover-movie__button--moreinfo">
+                                            <i class="bx bx-info-circle"></i>
+                                            <span>Chi tiết</span>
+                                        </button>
+                                    </div>`
                     + infoOther +
                     `</div>`;
-                parent.after(addChild);
+                parent.append(addChild);
                 var hoverAf = $("#hover");
-                hoverAf.css("top", "-40px");
                 if (left < 50) {
+                    hover.css("--scale", width / 400)
                     hoverAf.css("left", margin + "px");
-                    hoverAf.css("transform-origin", "0% 80%");
+                    hoverAf.css("transform-origin", "0% 71%");
+                    hoverAf.css("top", top + "px");
                 } else if (left < $(window).width() - 300) {
+                    hover.css("--scale", width / 400)
                     hoverAf.css("left", left - (400 - width) / 2 + "px");
-                    hoverAf.css("transform-origin", "50% 80%");
+                    hoverAf.css("top", top + "px");
+                    hoverAf.css("transform-origin", "50% 71%");
                 } else {
-                    hoverAf.css("transform-origin", "100% 80%");
+                    hover.css("--scale", width / 400)
+                    hoverAf.css("transform-origin", "100% 71%");
+                    hoverAf.css("top", top + "px");
                     hoverAf.css("right", margin + "px");
                 }
-                var myVideo = $("#myVideo");
-                if(myVideo.length > 0)
-                    myVideo.get(0).pause();
                 const hoverImg = $(".hover-movie__img");
                 const hoverName = $(".hover-movie__video-name");
                 const hoverVideo = $("#hover-movie__video");
@@ -208,7 +167,7 @@ $(document).ready(function () {
                 const btnHReplay = $(".btn-icon.hover-movie-btn-i:last-child");
                 showVideo(hoverImg, hoverVideo, btnHMute, btnHSound, btnHReplay, "imgActiveHv", hoverName);
                 mySetInterVal = setInterval(function () {
-                    if (hoverVideo.get(0).currentTime >= hoverVideo.get(0).duration - 10) {
+                    if (hoverVideo.get(0).currentTime >= hoverVideo.get(0).duration - 13) {
                         btnHReplay.show();
                         btnHMute.hide();
                         btnHSound.hide();
@@ -227,43 +186,31 @@ $(document).ready(function () {
         }).mouseleave(function () {
             clearTimeout(myTimeout);
             clearInterval(mySetInterVal);
-            isPlay = true;
-            $("#hover").mouseenter(function () {
-                isPlay = false;
-            })
             $("#hover").mouseleave(function () {
                 if (left < 50) {
                     $(this).css("--scale", width / 400)
                     $(this).css("animation", "ZoomOut linear 0.15s");
-                    $(this).css("transform-origin", "0%"+ (image.height() / 225 * 100 + 8) +" %");
+                    $(this).css("transform-origin", "0%" + (image.height() / 225 * 100) + " %");
                 } else if (left < $(window).width() - 300) {
                     $(this).css("--scale", width / 400)
                     $(this).css("animation", "ZoomOut linear 0.15s");
-                    $(this).css("transform-origin", "50% " + (image.height() / 225 * 100 + 8) +"%");
+                    $(this).css("transform-origin", "50% " + (image.height() / 225 * 100) + "%");
                 } else {
                     $(this).css("--scale", width / 400)
                     $(this).css("animation", "ZoomOut linear 0.15s");
-                    $(this).css("transform-origin", "100%" + (image.height() / 225 * 100 + 8) + "%");
+                    $(this).css("transform-origin", "100%" + (image.height() / 225 * 100) + "%");
                 }
                 $(this).on("webkitAnimationEnd", function () {
                     $(this).remove();
                     // $(this).css("transform", "scale(" + width/400 + ")" )
                 })
-                isPlay = true;
-                setTimeout(function () {
-                    if (isStop) { //Nếu bị cuộn dừng sẽ tự động chạy lại video
-                        var myVideo = $("#myVideo");
-                        if (myVideo.length > 0)
-                            myVideo.get(0).play();
-                    }
-                }, 500);
                 ClearArr();
             });
-            addStorage(image, $(this));
+            addStorage(image);
         });
     }
-    // Thêm vào myList
-    function addStorage(ImgMovie, RowLink) {
+    // Thêm vào mylist
+    function addStorage(ImgMovie) {
         $(".hover-movie__button--add-removeList").on('click', function () {
             var src = ImgMovie.attr("src");
             var number = src.substr(src.length - 7, 3);
@@ -288,31 +235,20 @@ $(document).ready(function () {
                     // var data = JSON.parse(currentMyList);
                     // data.push(movie);
                     // newMovie = data;
-                    let check = true;
                     var data = JSON.parse(currentMyList);
                     let count = data.length;
                     for (var i = 0; i < count; i++) {
-                        // Nếu có xóa như bên mylist
                         if (!data[i]) {
                             data[i] = movie;
-                            check = false
+                            break;
                         }
-                    }
-                    // Nếu ko xóa thì cộng như bth
-                    if (check) {
-                        var data = JSON.parse(currentMyList);
-                        data.push(movie);
                     }
                     newMovie = data;
                 } else {
                     newMovie.push(movie);
                 }
                 window.sessionStorage.setItem("movies", JSON.stringify(newMovie));
-                
-                if (RowLink.parent().parent().is("#myRow")) {
-                    $("#myListRow").show();
-                    RowLink.show();
-                }
+                ImgMovie.parent().parent().show();
             }
             else {
                 icon.removeClass("bx-check").addClass("bx-plus");
@@ -329,33 +265,10 @@ $(document).ready(function () {
                         break;
                     }
                 }
-                // window.sessionStorage.setItem("movies", JSON.stringify(newMovies));
                 window.sessionStorage.setItem("movies", JSON.stringify(moviesArr));
-                if (RowLink.parent().parent().is("#myRow")) {
-                    RowLink.hide();                   
-                }
+                ImgMovie.parent().parent().hide();
             }
         });
-    }
-    function DeleteMoviesIsML() {
-        var AllMovies = $(".row__img-link");
-        for (const movie of AllMovies) {
-            if (!$(movie).parent().parent().is("#topRow")) {
-                let movieCT = movie.getElementsByClassName("row__img")[0];
-                let src = movieCT.src;
-                var number = src.substr(src.length - 7, 3);
-                var myMovies = sessionStorage.getItem("movies");
-                var myMoviesArr = JSON.parse(myMovies);
-                if (myMoviesArr) {
-                    for (const myMovie of myMoviesArr) {
-                        if (number == myMovie.src) {
-                            movie.remove();
-                            break;
-                        }
-                    }
-                }
-            }
-        }
     }
     function addList() {
         ClearArr();
@@ -364,26 +277,23 @@ $(document).ready(function () {
         if (movies) {
             var data = JSON.parse(movies);
             var quantity = data.length;
-            if (quantity > 0) {
-                $("#myListRow").show()
-                for (var i = 0; i < quantity; i++) {
-                    var myListItem = data[i].alt.split('|')[1] == 0 ?
-                        `<div class="row__img-link">
-                                                <div class="row__wrap ratioImg__wrap">
-                                                    <img src="./assets/img/image${data[i].src}.jpg" alt="${data[i].alt}" class="row__img ratio__in">
-                                                </div>
-                                            </div>` :
-                        `<div class="row__img-link">
-                                                <div class="row__wrap ratioImg__wrap">
-                                                    <img src="./assets/img/image${data[i].src}.jpg" alt="${data[i].alt}" class="row__img ratio__in">
-                                                    <img src="./assets/img/iconvip.png" alt="vip" class="movies-vip">
-                                                </div>
-                                            </div>`;
-                    myNewList += myListItem;
-                }
+            for (var i = 0; i < quantity; i++) {
+                var myListItem = data[i].alt.split('|')[1] == 0 ?
+                    `<div class="row__img-link row__img-link-ge">
+                                            <div class="row__wrap ratioImg__wrap">
+                                                <img src="./assets/img/image${data[i].src}.jpg" alt="${data[i].alt}" class="row__img ratio__in">
+                                            </div>
+                                        </div>` :
+                    `<div class="row__img-link row__img-link-ge">
+                                            <div class="row__wrap ratioImg__wrap">
+                                                <img src="./assets/img/image${data[i].src}.jpg" alt="${data[i].alt}" class="row__img ratio__in">
+                                                <img src="./assets/img/iconvip.png" alt="vip" class="movies-vip">
+                                            </div>
+                                        </div>`;
+                myNewList += myListItem;
             }
-            $("#myRow > .row__container-sc").html(myNewList);
         }
+        $("#myList").append(myNewList);
     }
     
     function ClearArr() {
