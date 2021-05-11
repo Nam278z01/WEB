@@ -188,13 +188,19 @@ $(document).ready(function () {
                 var hoverAf = $("#hover");
                 hoverAf.css("top", "-40px");
                 if (left < 50) {
+                    hoverAf.css("--growF", width / 400)
+                    hoverAf.css("animation", "growth ease-in 0.2s")
                     hoverAf.css("left", margin + "px");
-                    hoverAf.css("transform-origin", "0% 80%");
+                    hoverAf.css("transform-origin", "0%" + (image.height() / 225 * 100 + 8) + "%");
                 } else if (left < $(window).width() - 300) {
+                    hoverAf.css("--growF", width / 400)
+                    hoverAf.css("animation", "growth ease-in 0.2s")
                     hoverAf.css("left", left - (400 - width) / 2 + "px");
-                    hoverAf.css("transform-origin", "50% 80%");
+                    hoverAf.css("transform-origin", "50%" + (image.height() / 225 * 100 + 8) + "%");
                 } else {
-                    hoverAf.css("transform-origin", "100% 80%");
+                    hoverAf.css("--growF", width / 400)
+                    hoverAf.css("animation", "growth ease-in 0.2s")
+                    hoverAf.css("transform-origin", "100%" + (image.height() / 225 * 100 + 8) + "%");
                     hoverAf.css("right", margin + "px");
                 }
                 var myVideo = $("#myVideo");

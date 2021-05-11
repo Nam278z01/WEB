@@ -140,6 +140,15 @@ body {
   }
 }
 
+@keyframes growth-th {
+  from {
+    transform: scale(var(--growF));
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
 @keyframes growth-sc {
   from {
     transform: scale(0.2);
@@ -192,7 +201,6 @@ body {
 .hover-movie {
   width: 400px;
   background-color: var(--hover-color-th);
-  animation: growth ease-in 0.2s;
   box-shadow: rgba(0, 0, 0, 0.75) 0px 3px 10px;
   position: absolute;
   z-index: 20;

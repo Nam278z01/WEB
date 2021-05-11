@@ -144,18 +144,21 @@ $(document).ready(function () {
                 parent.append(addChild);
                 var hoverAf = $("#hover");
                 if (left < 50) {
-                    hover.css("--scale", width / 400)
+                    hoverAf.css("--growF", width / 400)
+                    hoverAf.css("animation", "growth ease-in 0.2s")
                     hoverAf.css("left", margin + "px");
-                    hoverAf.css("transform-origin", "0% 71%");
+                    hoverAf.css("transform-origin", "0% " + (image.height() / 225 * 100) + "%");
                     hoverAf.css("top", top + "px");
                 } else if (left < $(window).width() - 300) {
-                    hover.css("--scale", width / 400)
+                    hoverAf.css("--growF", width / 400)
+                    hoverAf.css("animation", "growth ease-in 0.2s")
                     hoverAf.css("left", left - (400 - width) / 2 + "px");
                     hoverAf.css("top", top + "px");
-                    hoverAf.css("transform-origin", "50% 71%");
+                    hoverAf.css("transform-origin", "50% " + (image.height() / 225 * 100) + "%");
                 } else {
-                    hover.css("--scale", width / 400)
-                    hoverAf.css("transform-origin", "100% 71%");
+                    hoverAf.css("--growF", width / 400)
+                    hoverAf.css("animation", "growth ease-in 0.2s")
+                    hoverAf.css("transform-origin", "100% " + (image.height() / 225 * 100) + "%");
                     hoverAf.css("top", top + "px");
                     hoverAf.css("right", margin + "px");
                 }
