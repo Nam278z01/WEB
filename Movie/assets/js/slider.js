@@ -934,7 +934,8 @@ $(document).ready(function () {
                     var url = window.location.href;
                     if (url.indexOf("?") > 0) {
                         var updatedUri = url.substring(0, url.indexOf("?"));
-                        window.history.replaceState({}, document.title, updatedUri);
+                        // window.history.replaceState({}, document.title, updatedUri);
+                        window.history.pushState({}, document.title, updatedUri);
                     }
                     isStop = false;
                     AutoVideo();
@@ -951,7 +952,8 @@ $(document).ready(function () {
                 var url = window.location.href;
                 if (url.indexOf("?") > 0) {
                     var updatedUri = url.substring(0, url.indexOf("?"));
-                    window.history.replaceState({}, document.title, updatedUri);
+                    // window.history.replaceState({}, document.title, updatedUri);
+                    window.history.pushState({}, document.title, updatedUri);
                 }
                 isStop = false;
                 AutoVideo();

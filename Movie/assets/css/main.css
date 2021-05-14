@@ -41,12 +41,10 @@
 }
 
 .header__video {
-  
 }
 
 .header__video-img,
 #myVideo {
- 
 }
 
 #myVideo {
@@ -87,7 +85,6 @@
 .header__button {
   display: flex;
   align-items: center;
-  
 }
 
 .button--play {
@@ -134,7 +131,7 @@
   display: none;
   z-index: 4;
   color: var(--white-color-sc);
-  border: 2px solid var(--white-color-sc)
+  border: 2px solid var(--white-color-sc);
 }
 
 .btn-icon.header-btn-i:hover {
@@ -325,7 +322,7 @@
   text-decoration: none;
   font-size: 3rem;
   color: var(--primary-color);
-  font-weight: 1000;
+  font-weight: bold;
   font-family: "Allura", cursive;
   padding: 10px 0 10px 10px;
   margin-left: 10px;
@@ -428,7 +425,7 @@
 }
 
 #genres:hover::after {
-  transform: rotate(180deg);  
+  transform: rotate(180deg);
 }
 
 .header__tap:hover {
@@ -716,6 +713,52 @@ input[name="searchIp"] {
   width: 100%;
 }
 
+.row__name {
+  /* position: absolute;
+  bottom: 1%;
+  left: 0;
+  right: 0%; */
+  filter: brightness(60%);
+}
+
+.row__name > span {
+  font-weight: 500;
+  font-size: 1.6rem;
+  color: white;
+  display: block;
+  text-shadow: 2px 2px 4px rgb(0 0 0 / 45%);
+  padding: 0px 10px;
+  line-height: 2.7rem;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+
+.row__name-vip {
+  background: linear-gradient(
+    to right,
+    var(--yellow-color),
+    rgba(70, 225, 255, 0)
+  );
+}
+
+.row__name-movies {
+  background: linear-gradient(
+    to right,
+    var(--green-color),
+    rgba(70, 225, 255, 0)
+  );
+}
+
+.row__name-tvshow {
+  background: linear-gradient(
+    to right,
+    var(--red-color),
+    rgba(70, 225, 255, 0)
+  );
+}
+
 .row__img-rank-sc {
   width: 60%;
   height: 100%;
@@ -785,7 +828,6 @@ input[name="searchIp"] {
 }
 
 .footer__other {
-
 }
 
 .footer__title {
@@ -849,11 +891,9 @@ input[name="searchIp"] {
 
 /* Watch */
 .content-watch {
-
 }
 
 .watch-movie {
-
 }
 
 .watch-movie__header {

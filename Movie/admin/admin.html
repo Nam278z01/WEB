@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./assets/css/admin.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Allura&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <script src="../assets/js/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/27.1.0/decoupled-document/ckeditor.js"></script>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-logo">
+            <span>NMovies</span>
+            <div class="sidebar-close">
+                <i class='bx bx-left-arrow-alt'></i>
+            </div>
+        </div>
+        <div class="sidebar-user">
+            <div class="sidebar-user-info">
+                <img src="../assets/img/image009.jpg" alt="User picture" class="profile-image">
+                <div class="sidebar-user-name">
+                    Nam Nguyễn
+                </div>
+            </div>
+            <button class="btn btn-outline">
+                <i class='bx bx-log-out bx-flip-horizontal'></i>
+            </button>
+        </div>
+        <ul class="sidebar-menu">
+            <li>
+                <a href="#">
+                    <i class='bx bx-home'></i>
+                    <span>Bảng điều khiển</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="active">
+                    <i class='bx bx-camera-movie'></i>
+                    <span>Phim Lẻ</span>
+                </a>
+            </li>
+            <li class="sidebar-submenu">
+                <a href="#" class="sidebar-menu-dropdown">
+                    <i class='bx bx-movie'></i>
+                    <span>Phim bộ</span>
+                    <div class="dropdown-icon"></div>
+                </a>
+                <ul class="sidebar-menu sidebar-menu-dropdown-content">
+                    <li>
+                        <a href="#">
+                            Phần phim
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Tập phim
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="sidebar-submenu">
+                <a href="#" class="sidebar-menu-dropdown">
+                    <i class='bx bx-category'></i>
+                    <span>Danh mục</span>
+                    <div class="dropdown-icon"></div>
+                </a>
+                <ul class="sidebar-menu sidebar-menu-dropdown-content">
+                    <li>
+                        <a href="#">
+                            Thể loại
+                        </a>
+                        <a href="#">
+                            Diễn viên - Đạo diễn
+                        </a>
+                        <a href="#">
+                            Nhà sản xuẩt
+                        </a>
+                        <a href="#">
+                            Hợp đồng
+                        </a>
+                        <a href="#">
+                            Khách hàng
+                        </a>
+                        <a href="#">
+                            Dich vụ vip
+                        </a>
+                        <a href="#">
+                            Quảng cáo
+                        </a>
+                        <a href="#">
+                            Thông báo
+                        </a>
+                        <a href="#">
+                            Lịch sử giao dịch
+                        </a>
+                        <a href="#">
+                            Thống kê
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-user-circle'></i>
+                    <span>tài khoản</span>
+                </a>
+            </li>
+            <li class="sidebar-submenu">
+                <a href="#" class="sidebar-menu-dropdown">
+                    <i class='bx bx-cog'></i>
+                    <span>Cài đặt</span>
+                    <div class="dropdown-icon"></div>
+                </a>
+                <ul class="sidebar-menu sidebar-menu-dropdown-content">
+                    <li>
+                        <a href="#" id="darkmode-toggle">
+                            Nền tối
+                            <span class="darkmode-switch"></span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="main">
+        <div class="main-header">
+            <div class="mobile-toggle" id="mobile-toggle">
+                <i class='bx bx-menu-alt-right'></i>
+            </div>
+            <div class="main-title">
+                <span>Danh Sách Phim Lẻ</span>
+                <button class="btn btn-outline">THÊM PHIM LẺ</button>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="box">
+                <div class="box-movie">
+                    <div class="box-wrap ratioImg__wrap">
+                        <img src="../assets/img/image_doc040.jpg" alt="0|0|0|Love and monster|Tình yêu và quái vật" class="box-img ratio__in">
+                        <div class=box-btn>
+                            <button class="btn bx bxs-edit"></button>
+                            <button class="btn bx bxs-x-square"></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-movie">
+                    <div class="box-wrap ratioImg__wrap">
+                        <img src="../assets/img/image_doc015.jpg" alt="0|0|0|Love and monster|Tình yêu và quái vật" class="box-img ratio__in">
+                        <div class=box-btn>
+                            <button class="btn bx bxs-edit"></button>
+                            <button class="btn bx bxs-x-square"></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-movie">
+                    <div class="box-wrap ratioImg__wrap">
+                        <img src="../assets/img/image_doc003.jpg" alt="0|0|0|Love and monster|Tình yêu và quái vật" class="box-img ratio__in">
+                        <div class=box-btn>
+                            <button class="btn bx bxs-edit"></button>
+                            <button class="btn bx bxs-x-square"></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-movie">
+                    <div class="box-wrap ratioImg__wrap">
+                        <img src="../assets/img/image_doc042.jpg" alt="0|0|0|Love and monster|Tình yêu và quái vật" class="box-img ratio__in">
+                        <div class=box-btn>
+                            <button class="btn bx bxs-edit"></button>
+                            <button class="btn bx bxs-x-square"></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-movie">
+                    <div class="box-wrap ratioImg__wrap">
+                        <img src="../assets/img/image_doc044.jpg" alt="0|0|0|Love and monster|Tình yêu và quái vật" class="box-img ratio__in">
+                        <div class=box-btn>
+                            <button class="btn bx bxs-edit"></button>
+                            <button class="btn bx bxs-x-square"></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-movie">
+                    <div class="box-wrap ratioImg__wrap">
+                        <img src="../assets/img/image_doc045.jpg" alt="0|0|0|Love and monster|Tình yêu và quái vật"
+                            class="box-img ratio__in">
+                        <div class=box-btn>
+                            <button class="btn bx bxs-edit"></button>
+                            <button class="btn bx bxs-x-square"></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-movie">
+                    <div class="box-wrap ratioImg__wrap">
+                        <img src="../assets/img/image_doc046.jpg" alt="0|0|0|Love and monster|Tình yêu và quái vật"
+                            class="box-img ratio__in">
+                        <div class=box-btn>
+                            <button class="btn bx bxs-edit"></button>
+                            <button class="btn bx bxs-x-square"></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-movie">
+                    <div class="box-wrap ratioImg__wrap">
+                        <img src="../assets/img/image_doc047.jpg" alt="0|0|0|Love and monster|Tình yêu và quái vật"
+                            class="box-img ratio__in">
+                        <div class=box-btn>
+                            <button class="btn bx bxs-edit"></button>
+                            <button class="btn bx bxs-x-square"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal">
+            <div class="modal-overlay"></div>
+
+            <div class="modal-body">
+                <div id="modal-add-movies">
+                    <div class="modal-title">
+                        <span>Thêm phim lẻ</span>
+                    </div>
+                    <div class="modal-movies-content">
+                        <div class="modal-movies-info">
+                            <span>Mã phim</span>
+                            <input type="text">
+                        </div>
+                        <div class="modal-movies-info">
+                            <span>Tên phim tiếng Anh</span>
+                            <input type="text">
+                        </div>
+                        <div class="modal-movies-info">
+                            <span>Tên phim tiếng Việt</span>
+                            <input type="text">
+                        </div>
+                        <div class="modal-movies-info">
+                            <span>Mô tả</span>
+                            <input type="text">
+                        </div>
+                        <div class="modal-movies-info">
+                            <span>Diễn viên</span>
+                            <input type="text">
+                        </div>
+                        <div class="modal-movies-info">
+                            <span>Đạo diễn</span>
+                            <input type="text">
+                        </div>
+                        <div class="modal-movies-info">
+                            <span>Nhà sản xuất</span>
+                            <input type="text">
+                        </div>
+                        <div class="modal-movies-info">
+                            <span>Năm sản xuất</span>
+                            <input type="text">
+                        </div>
+                        <div class="modal-movies-info">
+                            <span>Quốc gia</span>
+                            <input type="text">
+                        </div>
+                        <div class="modal-movies-info">
+                            <span>Trailer</span>
+                            <input type="text">
+                        </div>
+                        <div class="modal-movies-info">
+                            <span>Đường dẫn phim</span>
+                            <input type="text">
+                        </div>
+                        <div class="modal-movies-info">
+                            <span>Ảnh dọc</span>
+                            <input type="file">
+                        </div>
+                        <div class="modal-movies-info">
+                            <span>Ảnh ngang</span>
+                            <input type="file">
+                        </div>
+                        <div class="modal-movies-info">
+                            <span>Ảnh to</span>
+                            <input type="file">
+                        </div>
+                        <div class="modal-movies-info">
+                            <span>Ảnh tên phim</span>
+                            <input type="file">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/admin.js"></script>
+    <!-- <script>
+        DecoupledEditor
+            .create(document.querySelector('#modal-add-movies'))
+            .then(editor => {
+                const toolbarContainer = document.querySelector('#toolbar-container');
+
+                toolbarContainer.appendChild(editor.ui.view.toolbar.element);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    </script> -->
+</body>
+</html>

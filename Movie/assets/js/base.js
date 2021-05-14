@@ -19,7 +19,7 @@ $(document).ready(function () {
                 const pos_body = $('html,body').scrollTop();
                 // -----------
                 if (pos_body > 50) {
-                    nav.style.backgroundColor = "#101010";
+                    nav.style.backgroundColor = "var(--nav-color)";
                 }
                 else {
                     nav.style.backgroundColor = "transparent";

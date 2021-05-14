@@ -1,8 +1,10 @@
 :root {
   /* --primary-color: rgb(229, 9, 20); */
-  /* --primary-color: #1ab394; */
+  --red-color:#e71d36;
+  --green-color: #2ec4b6;
+  --yellow-color:#ffff00;
   --primary-color: #46e1ff;
-  --primary-color-sc: #141414;
+  --primary-color-sc: #111111;
   --primary-color-scc: #181818;
   --primary-color-th: #212121;
   --primary-color-fr: #383838;
@@ -18,9 +20,10 @@
   --color-end: #151515;
   --hover-color: #2f2f2f;
   --hover-color-sc: rgb(47, 47, 47, 0.3);
-  --hover-color-th: #1a1a1a;
+  --hover-color-th: #141414;
   --vip-color: #da9e1c;
   --auth-color: #333333;
+  --nav-color: #101010;
 }
 
 * {
@@ -35,7 +38,6 @@ html {
   line-height: 1.6rem;
   box-sizing: border-box;
   scroll-behavior: smooth;
-
 }
 
 body {
