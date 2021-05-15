@@ -141,4 +141,25 @@ $(document).ready(function () {
             }
         })
     }
+
+    displayName()
+    function displayName() {
+        let btn = document.querySelector('.btn-toggle-display');
+        btn.onclick = () => {
+            btn.classList.toggle('active');
+            let row_name = document.querySelectorAll('.row__name');
+            row_name.forEach(row => {
+                row.classList.toggle('active');
+            })
+        }
+    }
+
+    lightMode()
+    function lightMode() {
+        let btn = document.querySelector('.btn-toggle-lightmode');
+        btn.onclick = () => {
+            btn.classList.toggle('active');
+            document.querySelector('body').classList.toggle('light')
+        }
+    }
 });

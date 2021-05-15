@@ -1,7 +1,7 @@
 :root {
   /* --primary-color: rgb(229, 9, 20); */
   --red-color:#e71d36;
-  --green-color: #2ec4b6;
+  --green-color: #03cea4;
   --yellow-color:#ffff00;
   --primary-color: #46e1ff;
   --primary-color-sc: #111111;
@@ -24,6 +24,10 @@
   --vip-color: #da9e1c;
   --auth-color: #333333;
   --nav-color: #101010;
+}
+
+.light {
+  
 }
 
 * {

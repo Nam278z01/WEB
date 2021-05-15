@@ -524,13 +524,13 @@ input[name="searchIp"] {
 .header__notify {
 }
 
+.header__toggle,
 .header__account {
   position: relative;
 }
 
 .header__account:hover .signIn-register {
   display: flex;
-  transform: translateX(0px);
 }
 
 .signIn-register {
@@ -540,12 +540,13 @@ input[name="searchIp"] {
   background-color: var(--primary-color-sc);
   padding: 10px;
   width: 289px;
-  transform: translateX(110%);
-  transition: transform 0.2s;
+  transform-origin: right 10%;
+  animation: growth-sc linear 0.2s;
   z-index: 1;
   border-top: 3px solid var(--primary-color);
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
+  display: none;
 }
 
 .btn-account__register,
@@ -556,6 +557,68 @@ input[name="searchIp"] {
 
 #btn-search > i {
   margin: 0;
+}
+
+.header-setting:hover .toggle-setting {
+  display: block;
+}
+
+.toggle-setting {
+  position: absolute;
+  right: 3%;
+  transform-origin: right 10%;
+  animation: growth-sc linear 0.2s;
+  z-index: 1;
+  background-color: var(--primary-color-sc);
+  border-top: 3px solid var(--primary-color);
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  padding: 5px 0;
+  width: 170px;
+  display: none;
+}
+
+#toggle-lightmode,
+#toggle-display {
+  font-size: 1.4rem;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toggle-setting > div + div {
+  margin-top: 10px;
+}
+
+.btn-toggle-lightmode,
+.btn-toggle-display {
+  display: block;
+  height: 20px;
+  width: 40px;
+  background-color: var(--white-color-sc);
+  border-radius: 50px;
+  position: relative;
+  cursor: pointer;
+}
+
+.btn-toggle-lightmode::after,
+.btn-toggle-display::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  transition: left linear 0.2s;
+}
+
+.btn-toggle-lightmode.active::after,
+.btn-toggle-display.active::before {
+  left: 50%;
 }
 
 .content {
@@ -713,12 +776,22 @@ input[name="searchIp"] {
   width: 100%;
 }
 
+.light .row__name {
+  filter: brightness(100%);
+}
+
 .row__name {
   /* position: absolute;
-  bottom: 1%;
+  bottom: 0%;
   left: 0;
-  right: 0%; */
-  filter: brightness(60%);
+  right: 0%;
+  z-index: 13; */
+  filter: brightness(80%);
+  display: none;
+}
+
+.row__name.active {
+  display: block;
 }
 
 .row__name > span {
@@ -741,6 +814,7 @@ input[name="searchIp"] {
     var(--yellow-color),
     rgba(70, 225, 255, 0)
   );
+  /* background-color: var(--yellow-color); */
 }
 
 .row__name-movies {
@@ -749,6 +823,7 @@ input[name="searchIp"] {
     var(--green-color),
     rgba(70, 225, 255, 0)
   );
+  /* background-color: var(--green-color); */
 }
 
 .row__name-tvshow {
@@ -757,6 +832,7 @@ input[name="searchIp"] {
     var(--red-color),
     rgba(70, 225, 255, 0)
   );
+  /* background-color: var(--red-color); */
 }
 
 .row__img-rank-sc {

@@ -31,13 +31,32 @@
                 var content = "";
                 for (const dt of data) {
                     var re = new RegExp(search, "i");
-                    var name = dt.nameM.split('|')[3] + " " + dt.nameM.split('|')[4];
+                    var namArr = dt.nameM.split('|');
+                    var name = namArr[3] + " " + namArr[4];
+                    var row_name = "";
+                    var displayName = namArr[4] ? namArr[4] : namArr[3];
+                    if(dt.nameM.split('|')[0] == 0){
+                        row_name = ` <div class="row__name row__name-movies">
+                                    <span>${displayName}</span>
+                                </div>`
+                    }
+                    else {
+                        row_name = ` <div class="row__name row__name-tvshow">
+                                    <span>${displayName}</span>
+                                </div>`
+                    }
+                    if(dt.nameM.split('|')[0] == 1) {
+                        row_name = ` <div class="row__name row__name-vip">
+                                    <span>${displayName}</span>
+                                </div>`
+                    }
                     if (dt.nameM.match(re) && search) {
                         content += `<div class="row__img-link row__img-link-ge">
                                 <div class="row__wrap ratioImg__wrap">
                                     <img src="./assets/img/image${dt.idM}.jpg" alt="${dt.nameM}" class="row__img ratio__in">
-                                </div>
-                            </div>`
+                                </div>`
+                                +row_name+
+                            `</div>`
                     }
                 }
                 if (!content) {
@@ -211,6 +230,19 @@
                             <div class="signIn-register">
                                 <button class="button btn-account__register">Đăng ký</button>
                                 <button class="button btn-account__signIn">Đăng nhập</button>
+                            </div>
+                        </div>
+                        <div class="header-setting">
+                            <i class="btn-icon fas fa-sliders-h"></i>
+                            <div class="toggle-setting">
+                                <div id="toggle-display">
+                                    <span>Hiện tên phim</span>
+                                    <span class="btn-toggle-display"></span>
+                                </div>
+                                <div id="toggle-lightmode">
+                                    <span>Nền sáng</span>
+                                    <span class="btn-toggle-lightmode"></span>
+                                </div>
                             </div>
                         </div>
                     </div>
