@@ -63,7 +63,7 @@
 .header__video-name {
   width: 576px;
   transform-origin: bottom left;
-  animation: ZoomOut linear 1.3s 3s;
+  animation: ZoomOut-sc linear 1.3s 3s;
 }
 
 .header__video-info {
@@ -530,16 +530,16 @@ input[name="searchIp"] {
 }
 
 .header__account:hover .signIn-register {
-  display: flex;
+  display: block;
 }
 
 .signIn-register {
   position: absolute;
-  display: flex;
+  display: block;
   right: 0;
   background-color: var(--primary-color-sc);
   padding: 10px;
-  width: 289px;
+  width: 156px;
   transform-origin: right 10%;
   animation: growth-sc linear 0.2s;
   z-index: 1;
@@ -549,10 +549,16 @@ input[name="searchIp"] {
   display: none;
 }
 
-.btn-account__register,
-.btn-account__signIn {
+.button.btn-account__register,
+.button.btn-account__signIn {
   border: 1px solid var(--text-color);
   font-size: 1.4rem;
+  margin: 0;
+  min-width: 135px;
+}
+
+.button.btn-account__signIn {
+  margin-top: 10px;
 }
 
 #btn-search > i {
