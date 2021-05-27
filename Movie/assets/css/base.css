@@ -17,13 +17,16 @@
   --white-color-sc: rgb(255, 255, 255, 0.4);
   --black-color: #000;
   --color-start: #15151500;
-  --color-end: #151515;
+  /* --color-end: #151515; */
+  --color-end: #111111;
   --hover-color: #2f2f2f;
   --hover-color-sc: rgb(47, 47, 47, 0.3);
   --hover-color-th: #141414;
   --vip-color: #da9e1c;
   --auth-color: #333333;
   --nav-color: #101010;
+  --genres-color: #959595;
+  --border-color: #bbb;
 }
 
 .light {
@@ -64,7 +67,7 @@ body {
   padding: 9px 32px;
   min-width: 120px;
   transition: filter 0.2s;
-  border-radius: 0px;
+  border-radius: 4px;
 }
 
 .btn--size-s {
@@ -220,7 +223,7 @@ body {
   position: absolute;
   z-index: 20;
   top: 0;
-  /* border-radius: 6px; */
+  border-radius: 6px;
 }
 
 .hover-movie-link {
@@ -229,8 +232,8 @@ body {
 
 .hover-movie__img,
 #hover-movie__video {
-  /* border-top-left-radius: 6px; */
-  /* border-top-right-radius: 6px; */
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
 }
 
 #hover-movie__video {
@@ -811,13 +814,13 @@ button.hover-movie__button--remind {
 
 .modal-recommend__wrap {
   position: relative;
-  /* border-radius: 4px; */
+  border-radius: 4px;
   transition: 0.35s;
 }
 
 .modal-recommend__wrap-img {
   position: relative;
-  /* border-radius: 4px; */
+  border-radius: 4px;
   padding-bottom: 141.25%;
   overflow: hidden;
 }

@@ -75,6 +75,7 @@
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
+  font-weight: 300;
 }
 
 .name-movie-vie,
@@ -778,7 +779,7 @@ input[name="searchIp"] {
 }
 
 .row__img {
-  /* border-radius: 4px; */
+  border-radius: 4px;
   width: 100%;
 }
 
@@ -792,7 +793,7 @@ input[name="searchIp"] {
   left: 0;
   right: 0%;
   z-index: 13; */
-  filter: brightness(80%);
+  /* filter: brightness(80%); */
   display: none;
 }
 
@@ -801,12 +802,12 @@ input[name="searchIp"] {
 }
 
 .row__name > span {
-  font-weight: 500;
+  font-weight: 300;
   font-size: 1.6rem;
-  color: white;
+  margin: 2px 0;
+  color: var(--white-color);
   display: block;
   text-shadow: 2px 2px 4px rgb(0 0 0 / 45%);
-  padding: 0px 10px;
   line-height: 2.7rem;
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -814,13 +815,42 @@ input[name="searchIp"] {
   overflow: hidden;
 }
 
-.row__name-vip {
-  background: linear-gradient(
+.row__detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.row__detail-left > span {
+  font-size: 1.4rem;
+  color: var(--genres-color);
+}
+
+.row__detail-left > span + span::before {
+  content: "\2022";
+  display: inline-block;
+  font-size: 12px;
+  color: var(--genres-color);
+  padding-right: 7px;
+  padding-left: 3px;
+}
+
+span.btn-genres {
+  display: inline-block;
+  font-size: 1.2rem;
+  line-height: 2.1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 0 3px;
+  color: var(--genres-color);
+  margin-right: 10px;
+}
+
+/* .row__name-vip {
     to right,
     var(--yellow-color),
     rgba(70, 225, 255, 0)
   );
-  /* background-color: var(--yellow-color); */
 }
 
 .row__name-movies {
@@ -829,7 +859,6 @@ input[name="searchIp"] {
     var(--green-color),
     rgba(70, 225, 255, 0)
   );
-  /* background-color: var(--green-color); */
 }
 
 .row__name-tvshow {
@@ -838,8 +867,7 @@ input[name="searchIp"] {
     var(--red-color),
     rgba(70, 225, 255, 0)
   );
-  /* background-color: var(--red-color); */
-}
+} */
 
 .row__img-rank-sc {
   width: 60%;
@@ -864,6 +892,16 @@ input[name="searchIp"] {
   z-index: 10;
   transition: transform 0.2s;
   display: none;
+}
+
+.row__item-back::before,
+.row__item-next::before {
+  transition: scale linear 1s;
+}
+
+.row__item-back:hover::before,
+.row__item-next:hover::before {
+  transform: scale(1.2);
 }
 
 .btn-icon.row__item-next {
