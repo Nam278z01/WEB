@@ -142,7 +142,6 @@ $(document).ready(function () {
         // Responsive slider
         $(window).resize(function () {
             widthW = slideRan.parent().width();
-            console.log(slideRan.parent(),widthW)
             if (widthW > 1024) {
                 number = 5;
             } else if (widthW < 1025 && widthW > 739) {
@@ -213,9 +212,15 @@ $(document).ready(function () {
         var getID = window.location.search;
         const urlParams = new URLSearchParams(getID);
         var getID = urlParams.get('movie');
-
         if (getID) {
-            showModalMovies(getID);
+            $(".row__img-link").each(function () {
+                let src = $(this).find(".row__img").attr("src");
+                let number = src.substr(src.length - 7, 3);
+                if (number == getID) {
+                    showModalMovies(getID, $(this))
+                    return false
+                }
+            })
             isStop = true;
         }
     }
@@ -246,6 +251,10 @@ $(document).ready(function () {
     function showModalMovies(IdMovies, RowLink) {
         // Lấy alt của phim
         var data = sessionStorage.getItem("moviesSearch");
+        let image;
+        if (RowLink) {
+            image = RowLink.find(".row__img")
+        }
         var dataArr = JSON.parse(data);
         var alt = "";
         let id = IdMovies;
@@ -977,7 +986,7 @@ $(document).ready(function () {
                 }
             }, 10000);
 
-
+            addStorage(image, RowLink)
             // Modal
             const modal = $("#myModal");
             $(window).click(function (e) {
@@ -1017,6 +1026,82 @@ $(document).ready(function () {
                 clearInterval(myInterval);
             })
         }
+    }
+    // Thêm vào mylist
+    function addStorage(ImgMovie, RowLink) {
+        $(".modal-movie__button--add-remove").on('click', function () {
+            var src = ImgMovie.attr("src");
+            var number = src.substr(src.length - 7, 3);
+            var checkMovie = ImgMovie.attr("alt");
+            var infoOne = checkMovie.split('|')[0];
+            var infoSec = checkMovie.split('|')[1];
+            var infoThird = checkMovie.split('|')[2];
+            var infoFour = checkMovie.split('|')[3];
+            var infoFive = checkMovie.split('|')[4] ? checkMovie.split('|')[4] : ""
+            var icon = $(this).children(".bx");
+            if (infoThird == "0") {
+                icon.removeClass("bx-plus").addClass("bx-check");
+                ImgMovie.attr("alt", infoOne + "|" + infoSec + "|" + 1 + "|" + infoFour + "|" + infoFive);
+                var newImgAlt = infoOne + "|" + infoSec + "|" + "1" + "|" + infoFour + "|" + infoFive;
+                var movie = {
+                    src: number,
+                    alt: newImgAlt
+                }
+                var newMovie = [];
+                var currentMyList = window.sessionStorage.getItem("movies");
+
+                if (currentMyList) {
+                    // var data = JSON.parse(currentMyList);
+                    // data.push(movie);
+                    // newMovie = data;
+                    let check = true;
+                    var data = JSON.parse(currentMyList);
+                    let count = data.length;
+                    for (var i = 0; i < count; i++) {
+                        // Nếu có xóa như bên mylist
+                        if (!data[i]) {
+                            data[i] = movie;
+                            check = false
+                        }
+                    }
+                    // Nếu ko xóa thì cộng như bth
+                    if (check) {
+                        var data = JSON.parse(currentMyList);
+                        data.push(movie);
+                    }
+                    newMovie = data;
+                } else {
+                    newMovie.push(movie);
+                }
+                window.sessionStorage.setItem("movies", JSON.stringify(newMovie));
+
+                if (RowLink.parent().parent().is("#myRow")) {
+                    $("#myListRow").show();
+                    RowLink.show();
+                }
+            }
+            else {
+                icon.removeClass("bx-check").addClass("bx-plus");
+                ImgMovie.attr("alt", infoOne + "|" + infoSec + "|" + 0 + "|" + infoFour + "|" + infoFive);
+                var moviesRemove = sessionStorage.getItem("movies");
+                var moviesArr = JSON.parse(moviesRemove);
+                // var newMovies = moviesArr.filter(function (value) {
+                //     return value.src != number;
+                // })
+                let count = moviesArr.length;
+                for (var i = 0; i < count; i++) {
+                    if (moviesArr[i].src == number) {
+                        delete moviesArr[i];
+                        break;
+                    }
+                }
+                // window.sessionStorage.setItem("movies", JSON.stringify(newMovies));
+                window.sessionStorage.setItem("movies", JSON.stringify(moviesArr));
+                if (RowLink.parent().parent().is("#myRow") || RowLink.parent().parent().is("#myList")) {
+                    RowLink.hide();
+                }
+            }
+        });
     }
     //Bat tat video header
     function showVideo2(headerVImg, headerVVideo, btnVMute, btnVSound, btnVReplay, addClassA, movieName) {
