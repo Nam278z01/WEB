@@ -838,7 +838,7 @@ input[name="searchIp"] {
 span.btn-genres {
   display: inline-block;
   font-size: 1.2rem;
-  line-height: 2.1rem;
+  line-height: 2.0rem;
   border: 1px solid var(--border-color);
   border-radius: 4px;
   padding: 0 3px;

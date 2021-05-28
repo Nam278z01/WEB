@@ -105,14 +105,12 @@ $(document).ready(function () {
             var infoOne = checkMovie.split('|')[0];
             var infoSec = checkMovie.split('|')[2];
             var infoOther = infoOne == 0 ? `<div class="hover-movie__info">
-                                                <span class="hm_info">2018</span>
-                                                <span class="hm_info">3g 54p</span>
-                                                <span class="hm_info">HD</span>
+                                                <span class="hm_info">2021</span>
+                                                <span class="hm_info">90ph</span>
                                             </div>`
                 : `<div class="hover-movie__info">
-                                                <span class="hm_info">2018</span>
+                                                <span class="hm_info">2021</span>
                                                 <span class="hm_info">1 Mùa</span>
-                                                <span class="hm_info">HD</span>
                                             </div>`;
             var btnAddRemove = infoSec == 0 ? `<button class="button hover-movie__button--add-removeList">
                                                     <i class="bx bx-plus"></i>
@@ -278,11 +276,12 @@ $(document).ready(function () {
             var infoSec = checkMovie.split('|')[1];
             var infoThird = checkMovie.split('|')[2];
             var infoFour = checkMovie.split('|')[3];
+            var infoFive = checkMovie.split('|')[4];
             var icon = $(this).children(".bx");
             if (infoThird == "0") {
                 icon.removeClass("bx-plus").addClass("bx-check");
-                ImgMovie.attr("alt", infoOne + "|" + infoSec + "|" + 1 + "|" + infoFour);
-                var newImgAlt = infoOne + "|" + infoSec + "|" + "1" + "|" + infoFour;
+                ImgMovie.attr("alt", infoOne + "|" + infoSec + "|" + 1 + "|" + infoFour + "|" + infoFive);
+                var newImgAlt = infoOne + "|" + infoSec + "|" + "1" + "|" + infoFour + "|" + infoFive;
                 var movie = {
                     src: number,
                     alt: newImgAlt
@@ -322,7 +321,7 @@ $(document).ready(function () {
             }
             else {
                 icon.removeClass("bx-check").addClass("bx-plus");
-                ImgMovie.attr("alt", infoOne + "|" + infoSec + "|" + 0 + "|" + infoFour);
+                ImgMovie.attr("alt", infoOne + "|" + infoSec + "|" + 0 + "|" + infoFour + "|" + infoFive);
                 var moviesRemove = sessionStorage.getItem("movies");
                 var moviesArr = JSON.parse(moviesRemove);
                 // var newMovies = moviesArr.filter(function (value) {
@@ -373,18 +372,40 @@ $(document).ready(function () {
             if (quantity > 0) {
                 $("#myListRow").show()
                 for (var i = 0; i < quantity; i++) {
-                    var myListItem = data[i].alt.split('|')[1] == 0 ?
+                    let dateElement = data[i].alt.split('|');
+                    let nameMovie = dateElement[4] ? dateElement[4] : dateElement[3]
+
+                    let detail = dateElement[0] == 1 ? `<div class="row__name row__name-tvshow">
+                                    <span>${nameMovie}</span>
+                                    <div class="row__detail">
+                                        <div class="row__detail-left">
+                                            <span>2021</span>
+                                            <span>1 Mùa</span>
+                                        </div>
+                                        <span class="btn-genres">Phim Bộ</span>
+                                    </div>
+                                </div>` : `<div class="row__name row__name-movies">
+                                    <span>${nameMovie}</span>
+                                    <div class="row__detail">
+                                        <div class="row__detail-left">
+                                            <span>2021</span>
+                                            <span>90ph</span>
+                                        </div>
+                                        <span class="btn-genres">Phim Lẻ</span>
+                                    </div>
+                                </div>`;
+                    var myListItem = dateElement[1] == 0 ?
                         `<div class="row__img-link">
                                                 <div class="row__wrap ratioImg__wrap">
                                                     <img src="./assets/img/image${data[i].src}.jpg" alt="${data[i].alt}" class="row__img ratio__in">
-                                                </div>
-                                            </div>` :
+                                                </div>` + detail+
+                                            `</div>` :
                         `<div class="row__img-link">
                                                 <div class="row__wrap ratioImg__wrap">
                                                     <img src="./assets/img/image${data[i].src}.jpg" alt="${data[i].alt}" class="row__img ratio__in">
                                                     <img src="./assets/img/iconvip.png" alt="vip" class="movies-vip">
-                                                </div>
-                                            </div>`;
+                                                </div>` + detail +
+                                            `</div>`;
                     myNewList += myListItem;
                 }
             }

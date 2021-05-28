@@ -326,12 +326,11 @@ $(document).ready(function () {
                                             <i class="fas fa-play"></i>
                                         </div>
                                     </div>
-                                    <div class="recommend-movies__info episode__info">
+                                    <div class="episode-movies__info episode__info">
                                         <p class="episode-name">[Mùa 1] Tập 1. Tập thử nghiệm</p>
-                                        <div class="recommend-movies__info-first">
-                                            <span>2008</span>
-                                            <span>Mỹ</span>
-                                            <span>58ph</span>
+                                        <div class="row__detail-left">
+                                            <span>2021</span>
+                                            <span>90ph</span>
                                         </div>
                                         <span class="episode__description">
                                             Bị chẩn đoán mắc ung thư phổi giai đoạn cuối, một giáo viên dạy hóa ở
@@ -350,12 +349,11 @@ $(document).ready(function () {
                                             <i class="fas fa-play"></i>
                                         </div>
                                     </div>
-                                    <div class="recommend-movies__info episode__info">
+                                    <div class="episode-movies__info episode__info">
                                         <p class="episode-name">[Mùa 1] Tập 2. Bí mật được giấu kín</p>
-                                        <div class="recommend-movies__info-first">
-                                            <span>2008</span>
-                                            <span>Mỹ</span>
-                                            <span>48ph</span>
+                                       <div class="row__detail-left">
+                                            <span>2021</span>
+                                            <span>90ph</span>
                                         </div>
                                         <span class="episode__description">
                                             Phi vụ buôn bán kẹo đầu tiên bị hủy bỏ khiến Walt và Jesse phải xử lý
@@ -374,14 +372,13 @@ $(document).ready(function () {
                                             <i class="fas fa-play"></i>
                                         </div>
                                     </div>
-                                    <div class="recommend-movies__info">
+                                    <div class="episode-movies__info">
                                         <p class="episode-name">[Mùa 1] Tập 3. Lo liệu trót lọt</p>
-                                        <div class="recommend-movies__info-first">
-                                            <span>2008</span>
-                                            <span>Mỹ</span>
-                                            <span>50ph</span>
+                                        <div class="row__detail-left">
+                                            <span>2021</span>
+                                            <span>90ph</span>
                                         </div>
-                                        <span>
+                                        <span class="episode__description">
                                             Khi Walt xử lý các rắc rối sót lại từ phi vụ buôn bán kẹo đầu tiên,
                                             Skyler suýt biết được sự thật về cuộc sống bí mật
                                             của ông.
@@ -398,14 +395,13 @@ $(document).ready(function () {
                                             <i class="fas fa-play"></i>
                                         </div>
                                     </div>
-                                    <div class="recommend-movies__info">
+                                    <div class="episode-movies__info">
                                         <p class="episode-name">[Mùa 1] Tập 4. Người đàn ông bị ung thư</p>
-                                        <div class="recommend-movies__info-first">
-                                            <span>2008</span>
-                                            <span>Mỹ</span>
-                                            <span>54ph</span>
+                                        <div class="row__detail-left">
+                                            <span>2021</span>
+                                            <span>90ph</span>
                                         </div>
-                                        <span>
+                                        <span class="episode__description">
                                             Việc bị buộc tiết lộ bí mật về bệnh tình của mình khiến Walt đối mặt với
                                             vấn đề nan giải về cách chi trả một loạt phương
                                             pháp điều trị ung thư đắt đỏ.
@@ -422,14 +418,13 @@ $(document).ready(function () {
                                             <i class="fas fa-play"></i>
                                         </div>
                                     </div>
-                                    <div class="recommend-movies__info">
+                                    <div class="episode-movies__info">
                                         <p class="episode-name">[Mùa 1] Tập 5. Chất xám</p>
-                                        <div class="recommend-movies__info-first">
-                                            <span>2008</span>
-                                            <span>Mỹ</span>
-                                            <span>49ph</span>
+                                        <div class="row__detail-left">
+                                            <span>2021</span>
+                                            <span>90ph</span>
                                         </div>
-                                        <span>
+                                        <span class="episode__description">
                                             Skyler tổ chức một buổi can thiệp để thuyết phục Walt chấp nhận đề nghị
                                             đầy hào phóng từ cộng sự nghiên cứu trước đây
                                             của ông về việc chi trả chi phí điều trị ung thư.
@@ -446,14 +441,13 @@ $(document).ready(function () {
                                             <i class="fas fa-play"></i>
                                         </div>
                                     </div>
-                                    <div class="recommend-movies__info">
+                                    <div class="episode-movies__info">
                                         <p class="episode-name">[Mùa 1] Tập 6. Một bộ chẳng có gì ư?</p>
-                                        <div class="recommend-movies__info-first">
-                                            <span>2008</span>
-                                            <span>Mỹ</span>
-                                            <span>51ph</span>
+                                        <div class="row__detail-left">
+                                            <span>2021</span>
+                                            <span>90ph</span>
                                         </div>
-                                        <span>
+                                        <span class="episode__description">
                                             Khi những tác dụng phụ và chi phí điều trị gia tăng, Walt đòi Jesse tìm
                                             nhà buôn để mua kẹo của họ... điều này đẩy
                                             ông tới rắc rối.
@@ -470,14 +464,13 @@ $(document).ready(function () {
                                             <i class="fas fa-play"></i>
                                         </div>
                                     </div>
-                                    <div class="recommend-movies__info">
+                                    <div class="episode-movies__info">
                                         <p class="episode-name">[Mùa 1] Tập 7. Phi vụ phi bạo lực</p>
-                                        <div class="recommend-movies__info-first">
-                                            <span>2008</span>
-                                            <span>Mỹ</span>
-                                            <span>55ph</span>
+                                        <div class="row__detail-left">
+                                            <span>2021</span>
+                                            <span>90ph</span>
                                         </div>
-                                        <span>
+                                        <span class="episode__description">
                                             Sau khi Jesse suýt mất mạng, Walt đồng ý sản xuất nhiều ma túy hơn nữa
                                             cho tay Tuco tàn nhẫn. Trong lúc đó, Skyler nghi
                                             ngờ em gái mình thó đồ.
@@ -493,15 +486,13 @@ $(document).ready(function () {
             if (altArr[1] == "1") {
                 var infoLeftSecond = `<div class="info-left__second">
                                         <img src="./assets/img/iconvip.png" alt="vip" class="modal-movies-vip">
-                                    <span>2008</span>
-                                    <span>Mỹ</span>
+                                    <span>2021</span>
                                     <span>5 Mùa</span>
                                 </div>`;
             }
             else {
                 var infoLeftSecond = `<div class="info-left__second">
-                                        <span>2008</span>
-                                        <span>Mỹ</span>
+                                        <span>2021</span>
                                         <span>5 Mùa</span>
                                     </div>`;
             }
@@ -510,16 +501,14 @@ $(document).ready(function () {
             if (altArr[1] == "1") {
                 var infoLeftSecond = `<div class="info-left__second">
                                         <img src="./assets/img/iconvip.png" alt="vip" class="modal-movies-vip">
-                                    <span>2008</span>
-                                    <span>Mỹ</span>
-                                    <span>3h 54p</span>
+                                    <span>2021</span>
+                                    <span>180ph</span>
                                 </div>`;
             }
             else {
                 var infoLeftSecond = `<div class="info-left__second">
-                                        <span>2008</span>
-                                        <span>Mỹ</span>
-                                        <span>3h 54p</span>
+                                        <span>2021</span>
+                                        <span>180ph</span>
                                     </div>`;
             }
         }
@@ -623,9 +612,16 @@ $(document).ready(function () {
                                     </div>
                                     <div class="recommend-movies__info">
                                         <div class="recommend-movies__info-first">
-                                            <span>2020</span>
-                                            <span>Mỹ</span>
-                                            <span>3g 54ph</span>
+                                            <div class="recommend-movies__info-first">
+                                            <span>Bố già</span>
+                                            <div class="row__detail">
+                                                <div class="row__detail-left">
+                                                    <span>2021</span>
+                                                    <span>90ph</span>
+                                                </div>
+                                                <span class="btn-genres">Phim Lẻ</span>
+                                            </div>
+                                        </div>
                                         </div>
                                         <span>
                                             Khi bố già đứng đầu gia đình tội phạm có tổ chức suýt chết trong vụ ám
@@ -646,9 +642,16 @@ $(document).ready(function () {
                                     </div>
                                     <div class="recommend-movies__info">
                                         <div class="recommend-movies__info-first">
-                                            <span>2020</span>
-                                            <span>Mỹ</span>
-                                            <span>2 Mùa</span>
+                                            <div class="recommend-movies__info-first">
+                                            <span>Shadow and Bone</span>
+                                            <div class="row__detail">
+                                                <div class="row__detail-left">
+                                                    <span>2021</span>
+                                                    <span>90ph</span>
+                                                </div>
+                                                <span class="btn-genres">Phim Bộ</span>
+                                            </div>
+                                        </div>
                                         </div>
                                         <span>
                                             Các thế lực hắc ám mưu hại lính vẽ bản đồ mồ côi Alina Starkov khi cô
@@ -669,9 +672,16 @@ $(document).ready(function () {
                                     </div>
                                     <div class="recommend-movies__info">
                                         <div class="recommend-movies__info-first">
-                                            <span>2020</span>
-                                            <span>Mỹ</span>
-                                            <span>2h 10p</span>
+                                            <div class="recommend-movies__info-first">
+                                            <span>Transformer</span>
+                                            <div class="row__detail">
+                                                <div class="row__detail-left">
+                                                    <span>2021</span>
+                                                    <span>90ph</span>
+                                                </div>
+                                                <span class="btn-genres">Phim Lẻ</span>
+                                            </div>
+                                        </div>
                                         </div>
                                         <span>
                                             Năm năm sau khi Chicago bị hủy diệt, con người quay lưng lại với tất cả
@@ -692,9 +702,16 @@ $(document).ready(function () {
                                     </div>
                                     <div class="recommend-movies__info">
                                         <div class="recommend-movies__info-first">
-                                            <span>2020</span>
-                                            <span>Mỹ</span>
-                                            <span>3g 54ph</span>
+                                            <div class="recommend-movies__info-first">
+                                            <span>Shazam</span>
+                                            <div class="row__detail">
+                                                <div class="row__detail-left">
+                                                    <span>2021</span>
+                                                    <span>90ph</span>
+                                                </div>
+                                                <span class="btn-genres">Phim Lẻ</span>
+                                            </div>
+                                        </div>
                                         </div>
                                         <span>
                                             Khi thiếu niên mồ côi bộc lộ trái tim chân thành, cậu có được khả năng
@@ -715,9 +732,16 @@ $(document).ready(function () {
                                     </div>
                                     <div class="recommend-movies__info">
                                         <div class="recommend-movies__info-first">
-                                            <span>2020</span>
-                                            <span>Mỹ</span>
-                                            <span>1h 30p</span>
+                                            <div class="recommend-movies__info-first">
+                                            <span>Chạng vạng</span>
+                                            <div class="row__detail">
+                                                <div class="row__detail-left">
+                                                    <span>2021</span>
+                                                    <span>90ph</span>
+                                                </div>
+                                                <span class="btn-genres">Phim Lẻ</span>
+                                            </div>
+                                        </div>
                                         </div>
                                         <span>
                                             Trong chương cuối của loạt phim cuốn hút này, Bella và Edward buộc phải
@@ -738,9 +762,16 @@ $(document).ready(function () {
                                     </div>
                                     <div class="recommend-movies__info">
                                         <div class="recommend-movies__info-first">
-                                            <span>2020</span>
-                                            <span>Mỹ</span>
-                                            <span>3h 12p</span>
+                                           <div class="recommend-movies__info-first">
+                                            <span>Tình yêu và quái vật</span>
+                                            <div class="row__detail">
+                                                <div class="row__detail-left">
+                                                    <span>2021</span>
+                                                    <span>90ph</span>
+                                                </div>
+                                                <span class="btn-genres">Phim Lẻ</span>
+                                            </div>
+                                        </div>
                                         </div>
                                         <span>
                                             Bảy năm kể từ ngày sống sót qua tận thế quái vật, Joel xui xẻo dễ mến
@@ -761,9 +792,16 @@ $(document).ready(function () {
                                     </div>
                                     <div class="recommend-movies__info">
                                         <div class="recommend-movies__info-first">
-                                            <span>2020</span>
-                                            <span>Mỹ</span>
-                                            <span>3h 12p</span>
+                                            <div class="recommend-movies__info-first">
+                                            <span>Homuncolus</span>
+                                            <div class="row__detail">
+                                                <div class="row__detail-left">
+                                                    <span>2021</span>
+                                                    <span>90ph</span>
+                                                </div>
+                                                <span class="btn-genres">Phim Lẻ</span>
+                                            </div>
+                                        </div>
                                         </div>
                                         <span>
                                             Thật giả lẫn lộn khi người vô gia cư mất trí nhớ nọ tỉnh dậy sau một thủ
@@ -784,9 +822,16 @@ $(document).ready(function () {
                                     </div>
                                     <div class="recommend-movies__info">
                                         <div class="recommend-movies__info-first">
-                                            <span>2020</span>
-                                            <span>Mỹ</span>
-                                            <span>3h 12p</span>
+                                            <div class="recommend-movies__info-first">
+                                            <span>The dead don't die</span>
+                                            <div class="row__detail">
+                                                <div class="row__detail-left">
+                                                    <span>2021</span>
+                                                    <span>90ph</span>
+                                                </div>
+                                                <span class="btn-genres">Phim Lẻ</span>
+                                            </div>
+                                        </div>
                                         </div>
                                         <span>
                                             Một sự kiện trong vũ trụ khiến người chết trỗi dậy ở thành phố
@@ -807,9 +852,16 @@ $(document).ready(function () {
                                     </div>
                                     <div class="recommend-movies__info">
                                         <div class="recommend-movies__info-first">
-                                            <span>2020</span>
-                                            <span>Mỹ</span>
-                                            <span>3h 12p</span>
+                                            <div class="recommend-movies__info-first">
+                                            <span>Minions</span>
+                                            <div class="row__detail">
+                                                <div class="row__detail-left">
+                                                    <span>2021</span>
+                                                    <span>90ph</span>
+                                                </div>
+                                                <span class="btn-genres">Phim Lẻ</span>
+                                            </div>
+                                        </div>
                                         </div>
                                         <span>
                                             Phần tiền truyện này xoay quanh câu chuyện về lịch sử phụng sự ác nhân
@@ -830,9 +882,14 @@ $(document).ready(function () {
                                     </div>
                                     <div class="recommend-movies__info">
                                         <div class="recommend-movies__info-first">
-                                            <span>2020</span>
-                                            <span>Mỹ</span>
-                                            <span>3h 12p</span>
+                                            <span>Jumanij</span>
+                                            <div class="row__detail">
+                                                <div class="row__detail-left">
+                                                    <span>2021</span>
+                                                    <span>90ph</span>
+                                                </div>
+                                                <span class="btn-genres">Phim Lẻ</span>
+                                            </div>
                                         </div>
                                         <span>
                                             Bốn học sinh trung học bị kéo vào bối cảnh rừng rậm của 1 trò chơi điện
@@ -885,7 +942,7 @@ $(document).ready(function () {
             let myVideo = $("#myVideo");
 
             modalBody.append(modalMovies);
-
+            selectSeason();
             let modal_movies = $(".modal-movie");
             body.css("overflow", "hidden");
             modalsc.show();
