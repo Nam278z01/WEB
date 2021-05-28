@@ -434,6 +434,11 @@ $(document).ready(function () {
     var onlyOne = true;
     function showModalMoviesWhenClickDetail(RowLink) {
         $(".hover-movie__button--moreinfo").click(function () {
+            // Lỗi ko biết tại sao luôn
+            let modal_movies = $(".modal__body .modal-movie");
+            if (modal_movies.length > 0)
+                modal_movies.remove();
+            //End lỗi ko remove đc
             isPlayModal = false;
             let video = $("#myVideo");
             if (video.length > 0)
@@ -1157,7 +1162,7 @@ $(document).ready(function () {
 
             modalBody.append(modalMovies);
             selectSeason();
-            let modal_movies = $(".modal-movie");
+            let modal_movies = $(".modal__body .modal-movie");
             body.css("overflow", "hidden");
             modalsc.show();
             modal_movies.show();

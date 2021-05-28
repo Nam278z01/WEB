@@ -769,6 +769,35 @@ button.hover-movie__button--remind {
 }
 
 .modal-recommend__header {
+
+}
+
+.movie-name-watch {
+}
+
+.movie-current {
+  margin-top: 20px;
+}
+
+.movie-current-season {
+  color: var(--white-color);
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.movie-current-season::after {
+  content: "\2022";
+  display: inline-block;
+  font-size: 3rem;
+  color: var(--genres-color);
+  padding-right: 7px;
+  padding-left: 3px;
+}
+
+.movie-current-episode {
+  color: var(--white-color);
+  font-size: 3rem;
+  font-weight: 700;
 }
 
 .modal-recommend__header > span {
@@ -810,6 +839,7 @@ button.hover-movie__button--remind {
   flex-shrink: 0;
   width: 23%;
   background-color: var(--hover-color-th);
+  border-radius: 4px;
 }
 
 .modal-recommend__wrap {
@@ -1168,4 +1198,8 @@ button.hover-movie__button--remind {
   display: -webkit-box;
   line-height: 1.6rem;
   color: var(--text-color);
+}
+
+.watch-link.active {
+  background-color: var(--auth-color);
 }
