@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    ClearArr()
     DeleteMoviesIsMyList()
     addList()
 
@@ -375,7 +376,7 @@ $(document).ready(function () {
                     if (isStop) { //Nếu bị cuộn dừng sẽ tự động chạy lại video
                         var myVideo = $("#myVideo");
                         if (myVideo.length > 0) {
-                            if (isPlayModal)
+                            //if (isPlayModal)
                                 myVideo.get(0).play();
                         }
                     }
@@ -414,11 +415,11 @@ $(document).ready(function () {
                     }
                     // Nếu ko xóa thì cộng như bth
                     if (check) {
-                        data.push(dataElement);
+                        data.unshift(dataElement);
                     }
                     newMovie = data;
                 } else {
-                    newMovie.push(dataElement);
+                    newMovie.unshift(dataElement);
                 }
                 window.sessionStorage.setItem("myList", JSON.stringify(newMovie));
 
@@ -557,6 +558,7 @@ $(document).ready(function () {
         }
     }
 
+    showModalMoviesWhenClickDetail($(".row__img-link"), "same");
     ShowWhenReset();
     selectSeason();
     AutoVideo();
@@ -576,7 +578,11 @@ $(document).ready(function () {
             // Tạo parameter
             let url = new URL(window.location.href);
             let number;
-            if (RowLink) {
+            if (RowLink=="same") {
+                RowLink = $(this)
+                number = RowLink.attr("data-movie")
+            }
+            else if (RowLink) {
                 number = RowLink.attr("data-movie")
             }
             else {
@@ -1358,7 +1364,6 @@ $(document).ready(function () {
 
         $(".modal-turnoff").click(function () {
             //isPlayModal = true
-            onlyOne = true;
             body.css("overflow", "auto");
             modalsc.hide();
             modalBody.css('height', 'auto');

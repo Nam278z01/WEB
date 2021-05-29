@@ -43,7 +43,7 @@ $(document).ready(function () {
             }
 
             if (name.match(re) && search) {
-                content += `<div class="row__img-link row__img-link-ge" id="${dt.id}">
+                content += `<div class="row__img-link row__img-link-ge" data-movie="${dt.id}">
                                 <div class="row__wrap ratioImg__wrap">
                                     <img src="./assets/img/image${dt.id}.jpg" alt="${dt.name}" class="row__img ratio__in">` + vip_name +
                     `</div>`

@@ -114,14 +114,6 @@ function dataMovies() {
             isVip: false
         },
         {
-            id: "014",
-            name: "Snowpiercer|Chuyến tàu băng giá",
-            isMyList: false,
-            isMovie: false,
-            isComing: false,
-            isVip: false
-        },
-        {
             id: "015",
             name: "Love and monster|Tình yêu và quái vật",
             isMyList: false,
