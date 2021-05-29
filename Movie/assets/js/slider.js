@@ -9,27 +9,19 @@ $(document).ready(function () {
 
     }
     else {
-        sliderGe($("#newRow"), ".row__item-next", ".row__item-back", '.row__container-sc', ".row__img-link");
-        sliderGe($("#topRow"), ".row__item-next", ".row__item-back", '.row__container-sc', ".row__img-link");
-        sliderGe($("#dramaRow"), ".row__item-next", ".row__item-back", '.row__container-sc', ".row__img-link");
-        sliderGe($("#sci-fiRow"), ".row__item-next", ".row__item-back", '.row__container-sc', ".row__img-link");
-        sliderGe($("#awardRow"), ".row__item-next", ".row__item-back", '.row__container-sc', ".row__img-link");
-        sliderGe($("#popularRow"), ".row__item-next", ".row__item-back", '.row__container-sc', ".row__img-link");
-        sliderGe($("#actionRow"), ".row__item-next", ".row__item-back", '.row__container-sc', ".row__img-link");
-        sliderGe($("#vipRow"), ".row__item-next", ".row__item-back", '.row__container-sc', ".row__img-link");
-        sliderGe($("#comingRow"), ".row__item-next", ".row__item-back", '.row__container-sc', ".row__img-link");
-        sliderGe($("#myRow"), ".row__item-next", ".row__item-back", '.row__container-sc', ".row__img-link");
+        
     }
+    
     // -----------------
     const headerImg = $(".header__video-img")
     const headerVideo = $("#myVideo");
     const btnMute = $(".header-btn-i:first-child");
     const btnSound = $(".header-btn-i:nth-child(2)");
     const btnReplay = $(".header-btn-i:last-child");
-    var isStop = false;
+    var isStopByModal = false;
     var isRun = false;
     function AutoVideo() {
-        if (headerVideo.length > 0 && isStop == false && isRun == false) {
+        if (headerVideo.length > 0 && isStopByModal == false && isRun == false) {
             showVideo(headerImg, headerVideo, btnMute, btnSound, btnReplay, "imgActive");
             // ---------------
             // Bat tat video header
@@ -221,7 +213,7 @@ $(document).ready(function () {
                     return false
                 }
             })
-            isStop = true;
+            isStopByModal = true;
         }
     }
     // ---------------
@@ -232,7 +224,7 @@ $(document).ready(function () {
     AutoVideo();
     function showModalMoviesWhenClick() {
         $(".row__img-link").click(function () {
-            isStop = true;
+            isStopByModal = true;
             // Tạo parameter
             var url = new URL(window.location.href);
             let src = $(this).find(".row__img").attr("src");
@@ -273,6 +265,7 @@ $(document).ready(function () {
                             <i class="bx bx-check"></i>
                             <span>Danh sách</span>
                         </button>`;
+        console.log(altArr[2])
 
         var btn = `<button class="button modal-movie__button--play">
                             <i class="bx bxs-right-arrow"></i>
@@ -1003,7 +996,7 @@ $(document).ready(function () {
                         // window.history.replaceState({}, document.title, updatedUri);
                         window.history.pushState({}, document.title, updatedUri);
                     }
-                    isStop = false;
+                    isStopByModal = false;
                     AutoVideo();
                     clearInterval(myInterval);
                 }
@@ -1021,7 +1014,7 @@ $(document).ready(function () {
                     // window.history.replaceState({}, document.title, updatedUri);
                     window.history.pushState({}, document.title, updatedUri);
                 }
-                isStop = false;
+                isStopByModal = false;
                 AutoVideo();
                 clearInterval(myInterval);
             })
@@ -1079,6 +1072,19 @@ $(document).ready(function () {
                     $("#myListRow").show();
                     RowLink.show();
                 }
+
+                let listMovie = sessionStorage.getItem("moviesSearch");
+                let listMovieArr = JSON.parse(listMovie);
+                for (const iterator of listMovieArr) {
+                    let valueArr = iterator.nameM.split('|');
+                    if (number == iterator.idM) {
+                        valueArr[2] = 1
+                        iterator.nameM = valueArr.join("|");
+                        console.log(iterator);
+                        break
+                    }
+                }
+                sessionStorage.setItem("moviesSearch", JSON.stringify(listMovieArr));
             }
             else {
                 icon.removeClass("bx-check").addClass("bx-plus");
@@ -1100,6 +1106,19 @@ $(document).ready(function () {
                 if (RowLink.parent().parent().is("#myRow") || RowLink.parent().parent().is("#myList")) {
                     RowLink.hide();
                 }
+
+                let listMovie = sessionStorage.getItem("moviesSearch");
+                let listMovieArr = JSON.parse(listMovie);
+                for (const iterator of listMovieArr) {
+                    let valueArr = iterator.nameM.split('|');
+                    if (number == iterator.idM) {
+                        valueArr[2] = 0
+                        iterator.nameM = valueArr.join("|");
+                        console.log(iterator);
+                        break
+                    }
+                }
+                sessionStorage.setItem("moviesSearch", JSON.stringify(listMovieArr));
             }
         });
     }
@@ -1149,7 +1168,7 @@ $(document).ready(function () {
         headerVVideo.hide();
         headerVVideo.get(0).pause();
         headerVImg.on("webkitAnimationEnd", function () {
-            if (!isStop) {
+            if (!isStopByModal) {
                 if (movieName) {
                     movieName.show();
                 }
@@ -1189,5 +1208,17 @@ $(document).ready(function () {
             headerVVideo.get(0).currentTime = 0;
             isPlay = true;
         });
+    }
+
+    function selectSeason() {
+        checkSeason = true;
+        $("#movie-btn-seasons").click(function () {
+            checkSeason = !checkSeason;
+            $(".movies-menu-seasons").slideToggle();
+            if (!checkSeason)
+                $(".season-icon").after().css("transform", "rotate(180deg)")
+            else
+                $(".season-icon").after().css("transform", "rotate(0deg)")
+        })
     }
 });

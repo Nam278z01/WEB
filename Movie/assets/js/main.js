@@ -48,6 +48,54 @@ $(document).ready(function () {
     scrollNav();
     // ---------------
     function showVideo(headerVImg, headerVVideo, btnVMute, btnVSound, btnVReplay, addClassA, movieName) {
+        if (headerVVideo.length > 0)
+            headerVImg.addClass(addClassA);
+        headerVVideo.hide();
+        headerVVideo.get(0).pause();
+        headerVImg.on("webkitAnimationEnd", function () {
+            if (!isStopByModal) {
+                if (movieName) {
+                    movieName.show();
+                }
+                headerVImg.hide();
+                headerVVideo.show();
+                headerVVideo.get(0).play();
+                btnVSound.show();
+                isRun = true;
+            }
+            else {
+
+                headerVImg.removeClass(addClassA);
+            }
+        });
+        // -----------
+        // Tat tieng video header
+        btnVSound.click(function (e) {
+            $(this).hide();
+            btnVMute.show();
+            headerVVideo.prop('muted', true);
+        });
+        // Bat tieng video header
+        btnVMute.click(function (e) {
+            $(this).hide();
+            btnVSound.show();
+            headerVVideo.prop('muted', false);
+        });
+        // Xem lai video header
+        btnVReplay.click(function (e) {
+            headerVImg.addClass("imgActiveSc");
+            $(this).hide();
+            if (headerVVideo.get(0).muted == true) {
+                btnVMute.show();
+            } else {
+                btnVSound.show();
+            }
+            headerVVideo.get(0).currentTime = 0;
+            isPlay = true;
+        });
+    }
+
+    function showVideo(headerVImg, headerVVideo, btnVMute, btnVSound, btnVReplay, addClassA, movieName) {
         headerVImg.addClass(addClassA);
         headerVVideo.hide();
         headerVVideo.get(0).pause();
@@ -1213,8 +1261,8 @@ $(document).ready(function () {
                         // window.history.replaceState({}, document.title, updatedUri);
                         window.history.pushState({}, document.title, updatedUri);
                     }
-                    isStop = false;
-                    AutoVideo();
+                    isStopByModal = false;
+                    //AutoVideo();
                     clearInterval(myInterval);
                 }
             })
@@ -1233,7 +1281,7 @@ $(document).ready(function () {
                     window.history.pushState({}, document.title, updatedUri);
                 }
                 isStop = false;
-                AutoVideo();
+                //AutoVideo();
                 clearInterval(myInterval);
             })
         }
@@ -1289,6 +1337,19 @@ $(document).ready(function () {
                     $("#myListRow").show();
                     RowLink.show();
                 }
+
+                let listMovie = sessionStorage.getItem("moviesSearch");
+                let listMovieArr = JSON.parse(listMovie);
+                for (const iterator of listMovieArr) {
+                    let valueArr = iterator.nameM.split('|');
+                    if (number == iterator.idM) {
+                        valueArr[2] = 1
+                        iterator.nameM = valueArr.join("|");
+                        console.log(iterator);
+                        break
+                    }
+                }
+                sessionStorage.setItem("moviesSearch", JSON.stringify(listMovieArr));
             }
             else {
                 icon.removeClass("bx-check").addClass("bx-plus");
@@ -1310,6 +1371,18 @@ $(document).ready(function () {
                 if (RowLink.parent().parent().is("#myRow")) {
                     RowLink.hide();
                 }
+                let listMovie = sessionStorage.getItem("moviesSearch");
+                let listMovieArr = JSON.parse(listMovie);
+                for (const iterator of listMovieArr) {
+                    let valueArr = iterator.nameM.split('|');
+                    if (number == iterator.idM) {
+                        valueArr[2] = 0
+                        iterator.nameM = valueArr.join("|");
+                        console.log(iterator);
+                        break
+                    }
+                }
+                sessionStorage.setItem("moviesSearch", JSON.stringify(listMovieArr));
             }
         });
     }
@@ -1365,6 +1438,18 @@ $(document).ready(function () {
                     $("#myListRow").show();
                     RowLink.show();
                 }
+                let listMovie = sessionStorage.getItem("moviesSearch");
+                let listMovieArr = JSON.parse(listMovie);
+                for (const iterator of listMovieArr) {
+                    let valueArr = iterator.nameM.split('|');
+                    if (number == iterator.idM) {
+                        valueArr[2] = 1
+                        iterator.nameM = valueArr.join("|");
+                        console.log(iterator);
+                        break
+                    }
+                }
+                sessionStorage.setItem("moviesSearch", JSON.stringify(listMovieArr));
             }
             else {
                 icon.removeClass("bx-check").addClass("bx-plus");
@@ -1386,6 +1471,18 @@ $(document).ready(function () {
                 if (RowLink.parent().parent().is("#myRow")) {
                     RowLink.hide();                   
                 }
+                let listMovie = sessionStorage.getItem("moviesSearch");
+                let listMovieArr = JSON.parse(listMovie);
+                for (const iterator of listMovieArr) {
+                    let valueArr = iterator.nameM.split('|');
+                    if (number == iterator.idM) {
+                        valueArr[2] = 0
+                        iterator.nameM = valueArr.join("|");
+                        console.log(iterator);
+                        break
+                    }
+                }
+                sessionStorage.setItem("moviesSearch", JSON.stringify(listMovieArr));
             }
         });
     }

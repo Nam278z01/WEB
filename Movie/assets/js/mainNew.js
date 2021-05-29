@@ -1,5 +1,7 @@
 $(document).ready(function () {
-    addList();
+    DeleteMoviesIsMyList()
+    addList()
+
     if (navigator.userAgent.match(/Android/i)
         || navigator.userAgent.match(/webOS/i)
         || navigator.userAgent.match(/iPhone/i)
@@ -11,316 +13,84 @@ $(document).ready(function () {
     }
     else {
         hoverMovies();
+        sliderGe($("#newRow"), ".row__item-next", ".row__item-back", '.row__container-sc', ".row__img-link");
+        sliderGe($("#topRow"), ".row__item-next", ".row__item-back", '.row__container-sc', ".row__img-link");
+        sliderGe($("#dramaRow"), ".row__item-next", ".row__item-back", '.row__container-sc', ".row__img-link");
+        sliderGe($("#sci-fiRow"), ".row__item-next", ".row__item-back", '.row__container-sc', ".row__img-link");
+        sliderGe($("#awardRow"), ".row__item-next", ".row__item-back", '.row__container-sc', ".row__img-link");
+        sliderGe($("#popularRow"), ".row__item-next", ".row__item-back", '.row__container-sc', ".row__img-link");
+        sliderGe($("#actionRow"), ".row__item-next", ".row__item-back", '.row__container-sc', ".row__img-link");
+        sliderGe($("#vipRow"), ".row__item-next", ".row__item-back", '.row__container-sc', ".row__img-link");
+        sliderGe($("#comingRow"), ".row__item-next", ".row__item-back", '.row__container-sc', ".row__img-link");
+        sliderGe($("#myRow"), ".row__item-next", ".row__item-back", '.row__container-sc', ".row__img-link");
     }
-    function showVideo(headerVImg, headerVVideo, btnVMute, btnVSound, btnVReplay, addClassA, movieName) {
-        headerVImg.addClass(addClassA);
-        headerVVideo.hide();
-        headerVVideo.get(0).pause();
-        headerVImg.on("webkitAnimationEnd", function () {
-            if (movieName) {
-                movieName.show();
+
+    $(".header__video-name").on("webkitAnimationEnd", function () {
+        $(this).css("transform", "scale(0.65)");
+    });
+
+    // Scroll nav
+    var isStop = true;//Nếu cuộn dừng sẽ false
+    var isPlay = true;//False cuộn sẽ ko chạy video --> hàm Hover_Video
+    //var isPlayModal = true;
+    function scrollNav() {
+        window.addEventListener('scroll', function (e) {
+            const pos_body = $('html,body').scrollTop();
+            const mVideo = $("#myVideo");
+            const vdLength = mVideo.length;
+            const search = $("#search-wrap");
+            if (pos_body > 400) {
+                if (vdLength > 0) {
+                    mVideo.get(0).pause();
+                    isStop = false;
+                }
             }
-            headerVImg.hide();
-            headerVVideo.show();
-            headerVVideo.get(0).play();
-            btnVSound.show();
-        });
-        // -----------
-        // Tat tieng video header
-        btnVSound.click(function (e) {
-            $(this).hide();
-            btnVMute.show();
-            headerVVideo.prop('muted', true);
-        });
-        // Bat tieng video header
-        btnVMute.click(function (e) {
-            $(this).hide();
-            btnVSound.show();
-            headerVVideo.prop('muted', false);
-        });
-        // Xem lai video header
-        btnVReplay.click(function (e) {
-            headerVImg.addClass("imgActiveSc");
-            $(this).hide();
-            if (headerVVideo.get(0).muted == true) {
-                btnVMute.show();
-            } else {
-                btnVSound.show();
+            if (pos_body < 200 && isPlay === true) {
+                if (vdLength > 0) {
+                    mVideo.get(0).play();
+                    isStop = true;
+                }
             }
-            headerVVideo.get(0).currentTime = 0;
-        });
+            if (search.show()) {
+                search.hide();
+            }
+        })
     }
-    //hover phim
-    function hoverMovies() {
-        var myTimeout;
-        var parent;
-        var left;
-        var width;
-        var mySetInterVal;
-        var image;
-        $(".row__img-link-ge").mouseenter(function (e) {
-            let main = $(this);
-            width = $(this).width();
-            image = $(this).find(".row__img")
+    scrollNav();
 
-            var src = image.attr("src");
-            var number = src.substr(src.length - 7, 3);
-
-            var checkMovie = image.attr("alt");
-            var infoOne = checkMovie.split('|')[0];
-            var infoSec = checkMovie.split('|')[2];
-            var infoOther = infoOne == 0 ? `<div class="hover-movie__info">
-                                                <span class="hm_info">2021</span>
-                                                <span class="hm_info">90ph</span>
-                                            </div>`
-                : `<div class="hover-movie__info">
-                                                <span class="hm_info">2021</span>
-                                                <span class="hm_info">1 Mùa</span>
-                                            </div>`;
-            var btnAddRemove = infoSec == 0 ? `<button class="button hover-movie__button--add-removeList">
-                                                    <i class="bx bx-plus"></i>
-                                                    <span>Danh sách</span>
-                                                </button>`
-                : `<button class="button hover-movie__button--add-removeList">
-                                                    <i class="bx bx-check"></i>
-                                                    <span>Danh sách</span>
-                                                </button>`;
-
-            var hover = $("#hover");
-
-            if (hover) {
-                if (left < 50) {
-                    hover.css("--scale", width / 400)
-                    hover.css("animation", "ZoomOut linear 0.15s");
-                    hover.css("transform-origin", "0%" + (image.height() / 225 * 100) + " %");
-                } else if (left < $(window).width() - 300) {
-                    hover.css("--scale", width / 400)
-                    hover.css("animation", "ZoomOut linear 0.15s");
-                    hover.css("transform-origin", "50% " + (image.height() / 225 * 100) + "%");
-                } else {
-                    hover.css("--scale", width / 400)
-                    hover.css("animation", "ZoomOut linear 0.15s");
-                    hover.css("transform-origin", "100%" + (image.height() / 225 * 100) + "%");
+    // -----------------
+    const headerImg = $(".header__video-img")
+    const headerVideo = $("#myVideo");
+    const btnMute = $(".header-btn-i:first-child");
+    const btnSound = $(".header-btn-i:nth-child(2)");
+    const btnReplay = $(".header-btn-i:last-child");
+    var isStopByModal = false;
+    var isRun = false;
+    function AutoVideo() {
+        if (headerVideo.length > 0 && isStopByModal == false && isRun == false) {
+            showVideo(headerImg, headerVideo, btnMute, btnSound, btnReplay, "imgActive");
+            // ---------------
+            // Bat tat video header
+            setInterval(function () {
+                if (headerVideo.get(0).currentTime >= headerVideo.get(0).duration - 10) {
+                    btnReplay.show();
+                    btnMute.hide();
+                    btnSound.hide();
+                    if (headerImg.hasClass("imgActive"))
+                        headerImg.removeClass("imgActive");
+                    if (headerImg.hasClass("imgActiveSc"))
+                        headerImg.removeClass("imgActiveSc");
+                    if (headerImg.hasClass("imgActiveHv"))
+                        headerImg.removeClass("imgActiveHv");
+                    headerImg.show();
+                    headerVideo.get(0).pause();
+                    headerVideo.hide();
                 }
-                hover.on("webkitAnimationEnd", function () {
-                    hover.remove();
-                    // hover.css("transform", "scale(" + width / 400 + ")")
-                })
-            }
-            var margin = $(window).width() * 3 / 100;
-            left = $(this).offset().left;
-            var top = $(this).offset().top - 190;
-            parent = $(this).parent().parent();
-            myTimeout = setTimeout(function () {
-                var addChild = `<div class="hover-movie" id="hover">
-                                    <div class="hover-movie-link ratio16-9__wrap">
-                                        <a href="#">
-                                            <img src="./assets/img/image${number}.jpg" alt="${checkMovie}" class="hover-movie__img ratio__in">
-                                            <video id="hover-movie__video" class="ratio__in">
-                                                <source src="./assets/video/video${number}.mp4" type="video/mp4">
-                                            </video>
-                                        </a>
-                                        <img src="./assets/img/image_name${number}.png" alt="" class="hover-movie__video-name">
-                                        <div class="hover-movie__btn">
-                                            <button class="btn-icon hover-movie-btn-i fas fa-volume-mute"></button>
-                                            <button class="btn-icon hover-movie-btn-i fas fa-volume-up"></button>
-                                            <button class="btn-icon hover-movie-btn-i fas fa-undo"></button>
-                                        </div>
-                                    </div>
-                                    <div class="hover-movie__button">
-                                        <button class="button hover-movie__button--play">
-                                            <i class="bx bxs-right-arrow"></i>
-                                            <span>Xem ngay</span>
-                                        </button>`
-                    + btnAddRemove +
-                    `<button class="button hover-movie__button--moreinfo">
-                                            <i class="bx bx-info-circle"></i>
-                                            <span>Chi tiết</span>
-                                        </button>
-                                    </div>`
-                    + infoOther +
-                    `</div>`;
-                parent.append(addChild);
-                showModalMoviesWhenClickDetail(main)
-                var hoverAf = $("#hover");
-                if (left < 50) {
-                    hoverAf.css("--growF", width / 400)
-                    hoverAf.css("animation", "growth ease-in 0.2s")
-                    hoverAf.css("left", margin + "px");
-                    hoverAf.css("transform-origin", "0% " + (image.height() / 225 * 100) + "%");
-                    hoverAf.css("top", top + "px");
-                } else if (left < $(window).width() - 300) {
-                    hoverAf.css("--growF", width / 400)
-                    hoverAf.css("animation", "growth ease-in 0.2s")
-                    hoverAf.css("left", left - (400 - width) / 2 + "px");
-                    hoverAf.css("top", top + "px");
-                    hoverAf.css("transform-origin", "50% " + (image.height() / 225 * 100) + "%");
-                } else {
-                    hoverAf.css("--growF", width / 400)
-                    hoverAf.css("animation", "growth ease-in 0.2s")
-                    hoverAf.css("transform-origin", "100% " + (image.height() / 225 * 100) + "%");
-                    hoverAf.css("top", top + "px");
-                    hoverAf.css("right", margin + "px");
-                }
-                const hoverImg = $(".hover-movie__img");
-                const hoverName = $(".hover-movie__video-name");
-                const hoverVideo = $("#hover-movie__video");
-                const btnHMute = $(".btn-icon.hover-movie-btn-i:first-child");
-                const btnHSound = $(".btn-icon.hover-movie-btn-i:nth-child(2)");
-                const btnHReplay = $(".btn-icon.hover-movie-btn-i:last-child");
-                showVideo(hoverImg, hoverVideo, btnHMute, btnHSound, btnHReplay, "imgActiveHv", hoverName);
-                mySetInterVal = setInterval(function () {
-                    if (hoverVideo.get(0).currentTime >= hoverVideo.get(0).duration - 13) {
-                        btnHReplay.show();
-                        btnHMute.hide();
-                        btnHSound.hide();
-                        if (hoverImg.hasClass("imgActive"))
-                            hoverImg.removeClass("imgActive");
-                        if (hoverImg.hasClass("imgActiveSc"))
-                            hoverImg.removeClass("imgActiveSc");
-                        if (hoverImg.hasClass("imgActiveHv"))
-                            hoverImg.removeClass("imgActiveHv");
-                        hoverImg.show();
-                        hoverVideo.get(0).pause();
-                        hoverVideo.hide();
-                    }
-                }, 10000);
-            }, 800)
-        }).mouseleave(function () {
-            clearTimeout(myTimeout);
-            clearInterval(mySetInterVal);
-            $("#hover").mouseleave(function () {
-                if (left < 50) {
-                    $(this).css("--scale", width / 400)
-                    $(this).css("animation", "ZoomOut linear 0.15s");
-                    $(this).css("transform-origin", "0%" + (image.height() / 225 * 100) + " %");
-                } else if (left < $(window).width() - 300) {
-                    $(this).css("--scale", width / 400)
-                    $(this).css("animation", "ZoomOut linear 0.15s");
-                    $(this).css("transform-origin", "50% " + (image.height() / 225 * 100) + "%");
-                } else {
-                    $(this).css("--scale", width / 400)
-                    $(this).css("animation", "ZoomOut linear 0.15s");
-                    $(this).css("transform-origin", "100%" + (image.height() / 225 * 100) + "%");
-                }
-                $(this).on("webkitAnimationEnd", function () {
-                    $(this).remove();
-                    // $(this).css("transform", "scale(" + width/400 + ")" )
-                })
-                ClearArr();
-            });
-            addStorage(image);
-        });
-    }
-    function sliderGe(slideRan, slBtnNext, slBtnBack, slChSlides, slChSlide) {
-        var childBtnNext = slideRan.children(slBtnNext),
-            childBtnBack = slideRan.children(slBtnBack);
-
-        var slides = slideRan.children(slChSlides),
-            slide = slides.children(slChSlide),
-            currentIdx = 0,
-            marginSlide = 6,
-            slideCount = slide.length,
-            slideWidth = slide.width(),
-            move = marginSlide + slideWidth;
-        var newSlideWidth;
-        var widthW = slideRan.parent().width();
-        var number;
-        if (widthW > 1024) {
-            number = 5;
-        } else if (widthW < 1025 && widthW > 739) {
-            number = 4;
-        } else if (widthW < 740 && widthW > 519) {
-            number = 3;
-        } else {
-            number = 2;
+            }, 10000);
         }
-        if (number < slideCount)
-            hoverRowMovie(slideRan, childBtnNext);
-
-        childBtnNext.click(function () {
-            if (currentIdx < (slideCount - number)) {
-                // Nếu số phim còn lại nhỏ hơn lượt lướt chuẩn
-                if (slideCount - currentIdx - number < number) {
-                    moveSlide(slideCount - number);
-                }
-                else {
-                    moveSlide(currentIdx + number);
-                }
-            }
-            if (currentIdx >= slideCount - number) {
-                setTimeout(() => {
-                    $(this).hide();
-                    slideRan.unbind();
-                    hoverRowMovie(slideRan, childBtnBack);
-                }, 400);
-            }
-            childBtnBack.css("transform", "translate(0)");
-            childBtnBack.css("display", "flex");
-            hoverRowMovie(slideRan, childBtnBack);
-
-        });
-
-        childBtnBack.click(function () {
-            if (currentIdx > 0) {
-                if (currentIdx < number) {
-                    moveSlide(0);
-                } else {
-                    moveSlide(currentIdx - number);
-                }
-            }
-            if (currentIdx <= 0) {
-                setTimeout(() => {
-                    $(this).hide();
-                    slideRan.unbind();
-                    hoverRowMovie(slideRan, childBtnNext);
-                }, 400);
-            }
-            childBtnNext.css("transform", "translate(0)");
-            childBtnNext.css("display", "flex");
-            hoverRowMovie(slideRan, childBtnNext);
-        });
-
-        function moveSlide(index) {
-            slides.css({ transition: 'all linear' })
-            slides.css({ transition: '0.5s' })
-            slides.css({ transform: 'translateX(calc(-' + move * index + 'px)' });
-            currentIdx = index;
-        }
-        // Responsive slider
-        $(window).resize(function () {
-            widthW = slideRan.parent().width();
-            if (widthW > 1024) {
-                number = 5;
-            } else if (widthW < 1025 && widthW > 739) {
-                number = 4;
-            } else if (widthW < 740 && widthW > 519) {
-                number = 3;
-            } else {
-                number = 2;
-            }
-            if (slideCount - currentIdx - number > 0)
-                hoverRowMovie(slideRan, childBtnNext);
-            else {
-                slideRan.unbind();
-                if (currentIdx != 0)
-                    hoverRowMovie(slideRan, childBtnBack);
-            }
-            newSlideWidth = slide.width();
-            move = newSlideWidth + marginSlide;
-            slides.css({ transition: '0s' })
-            slides.css({ transform: 'translateX(calc(-' + move * currentIdx + 'px)' });
-        });
     }
-    function hoverRowMovie(parent, button) {
-        parent.hover(function () {
-            button.css("transform", "translate(0)");
-            button.css("display", "flex");
-        }, function () {
-            button.css("transform", "translate(-100%)");
-            button.css("display", "none");
-        });
-    }
+
+    //Bat tat video header
     function showVideo2(headerVImg, headerVVideo, btnVMute, btnVSound, btnVReplay, addClassA, movieName) {
         headerVImg.addClass(addClassA);
         headerVVideo.hide();
@@ -360,59 +130,488 @@ $(document).ready(function () {
             isPlay = true;
         });
     }
-    function selectSeason() {
-        checkSeason = true;
-        $("#movie-btn-seasons").click(function () {
-            checkSeason = !checkSeason;
-            $(".movies-menu-seasons").slideToggle();
-            if (!checkSeason)
-                $(".season-icon").after().css("transform", "rotate(180deg)")
-            else
-                $(".season-icon").after().css("transform", "rotate(0deg)")
-        })
+    function showVideo(headerVImg, headerVVideo, btnVMute, btnVSound, btnVReplay, addClassA, movieName) {
+        if (headerVVideo.length > 0)
+            headerVImg.addClass(addClassA);
+        headerVVideo.hide();
+        headerVVideo.get(0).pause();
+        headerVImg.on("webkitAnimationEnd", function () {
+            if (!isStopByModal) {
+                if (movieName) {
+                    movieName.show();
+                }
+                headerVImg.hide();
+                headerVVideo.show();
+                headerVVideo.get(0).play();
+                btnVSound.show();
+                isRun = true;
+            }
+            else {
+
+                headerVImg.removeClass(addClassA);
+            }
+        });
+        // -----------
+        // Tat tieng video header
+        btnVSound.click(function (e) {
+            $(this).hide();
+            btnVMute.show();
+            headerVVideo.prop('muted', true);
+        });
+        // Bat tieng video header
+        btnVMute.click(function (e) {
+            $(this).hide();
+            btnVSound.show();
+            headerVVideo.prop('muted', false);
+        });
+        // Xem lai video header
+        btnVReplay.click(function (e) {
+            headerVImg.addClass("imgActiveSc");
+            $(this).hide();
+            if (headerVVideo.get(0).muted == true) {
+                btnVMute.show();
+            } else {
+                btnVSound.show();
+            }
+            headerVVideo.get(0).currentTime = 0;
+            isPlay = true;
+        });
     }
 
-    var onlyOne = true;
-    function showModalMoviesWhenClickDetail(RowLink) {
-        $(".hover-movie__button--moreinfo").click(function () {
-            // Lỗi ko biết tại sao luôn
+    function hoverMovies() {
+        var myTimeout
+        var parent
+        var left
+        var width
+        var mySetInterVal
+        var image
+        $(".row__img-link").mouseenter(function (e) {
+            width = $(this).width();
+            image = $(this).find(".row__img")
+            let main = $(this)
+
+            let data = sessionStorage.getItem("allMovies")
+            let dataArr = JSON.parse(data)
+
+            var id = $(this).attr("data-movie")
+            let isMovie
+            let isMyList
+            let isComing
+            let isVip
+
+            let dataArrLength = dataArr.length
+            let posElement
+            for (let i = 0; i < dataArrLength; i++) {
+                if (dataArr[i].id == id) {
+                    isMovie = dataArr[i].isMovie
+                    isMyList = dataArr[i].isMyList
+                    isComing = dataArr[i].isComing
+                    isVip = dataArr[i].isVip
+                    posElement = i
+                    break
+                }
+            }
+
+            var infoOther = isMovie == true ? `<div class="hover-movie__info">
+                                                <span class="hm_info">2021</span>
+                                                <span class="hm_info">90ph</span>
+                                            </div>`
+                : `<div class="hover-movie__info">
+                                                <span class="hm_info">2021</span>
+                                                <span class="hm_info">1 Mùa</span>
+                                            </div>`;
+
+
+            var btnAddRemove = isMyList == false ? `<button class="button hover-movie__button--add-removeList">
+                                                    <i class="bx bx-plus"></i>
+                                                    <span>Danh sách</span>
+                                                </button>`
+                : `<button class="button hover-movie__button--add-removeList">
+                                                    <i class="bx bx-check"></i>
+                                                    <span>Danh sách</span>
+                                                </button>`;
+
+            var btn = `<button class="button hover-movie__button--play">
+                                            <i class="bx bxs-right-arrow"></i>
+                                            <span>Xem ngay</span>
+                                        </button>` + btnAddRemove + `<button class="button hover-movie__button--moreinfo">
+                                                                        <i class="bx bx-info-circle"></i>
+                                                                        <span>Chi tiết</span>
+                                                                     </button>`;
+            if (isComing) {
+                btn = `<button class="button hover-movie__button--remind">
+                                            <i class="far fa-bell"></i>
+                                            <span>Đặt lời nhắc</span>
+                                        </button>` + `<button class="button hover-movie__button--moreinfo remind">
+                                                                        <i class="bx bx-info-circle"></i>
+                                                                        <span>Chi tiết</span>
+                                                                     </button>`;
+            }
+
+            var hover = $("#hover");
+            if (hover.length > 0) {
+                if (left < 50) {
+                    hover.css("--scale", width / 400)
+                    hover.css("animation", "ZoomOut linear 0.15s");
+                    hover.css("transform-origin", "0%" + (image.height() / 225 * 100 + 8) + " %");
+                } else if (left < $(window).width() - 300) {
+                    hover.css("--scale", width / 400)
+                    hover.css("animation", "ZoomOut linear 0.15s");
+                    hover.css("transform-origin", "50% " + (image.height() / 225 * 100 + 8) + "%");
+                } else {
+                    hover.css("--scale", width / 400)
+                    hover.css("animation", "ZoomOut linear 0.15s");
+                    hover.css("transform-origin", "100%" + (image.height() / 225 * 100 + 8) + "%");
+                }
+                hover.on("webkitAnimationEnd", function () {
+                    hover.remove();
+                })
+            }
+
+            isPlay = false;
+            var margin = $(window).width() * 3 / 100;
+            left = $(this).offset().left;
+            parent = $(this).parent().parent();
+            myTimeout = setTimeout(function () {
+                var addChild = `<div class="hover-movie" id="hover">
+                                    <div class="hover-movie-link ratio16-9__wrap">
+                                        <a href="#">
+                                            <img src="./assets/img/image${id}.jpg" alt="" class="hover-movie__img ratio__in">
+                                            <video id="hover-movie__video" class="ratio__in">
+                                                <source src="./assets/video/video${id}.mp4" type="video/mp4">
+                                            </video>
+                                        </a>
+                                        <img src="./assets/img/image_name${id}.png" alt="" class="hover-movie__video-name">
+                                        <div class="hover-movie__btn">
+                                            <button class="btn-icon hover-movie-btn-i fas fa-volume-mute"></button>
+                                            <button class="btn-icon hover-movie-btn-i fas fa-volume-up"></button>
+                                            <button class="btn-icon hover-movie-btn-i fas fa-undo"></button>
+                                        </div>
+                                    </div>
+                                    <div class="hover-movie__button">`+ btn +
+                    `</div>`
+                    + infoOther +
+                    `</div>`;
+                parent.after(addChild);
+
+                showModalMoviesWhenClickDetail($(".hover-movie__button--moreinfo"), main)
+
+                var hoverAf = $("#hover");
+                hoverAf.css("top", "-40px");
+                if (left < 50) {
+                    hoverAf.css("--growF", width / 400)
+                    hoverAf.css("animation", "growth ease-in 0.2s")
+                    hoverAf.css("left", margin + "px");
+                    hoverAf.css("transform-origin", "0%" + (image.height() / 225 * 100 + 8) + "%");
+                } else if (left < $(window).width() - 300) {
+                    hoverAf.css("--growF", width / 400)
+                    hoverAf.css("animation", "growth ease-in 0.2s")
+                    hoverAf.css("left", left - (400 - width) / 2 + "px");
+                    hoverAf.css("transform-origin", "50%" + (image.height() / 225 * 100 + 8) + "%");
+                } else {
+                    hoverAf.css("--growF", width / 400)
+                    hoverAf.css("animation", "growth ease-in 0.2s")
+                    hoverAf.css("transform-origin", "100%" + (image.height() / 225 * 100 + 8) + "%");
+                    hoverAf.css("right", margin + "px");
+                }
+
+                var myVideo = $("#myVideo");
+                if (myVideo.length > 0)
+                    myVideo.get(0).pause();
+                const hoverImg = $(".hover-movie__img");
+                const hoverName = $(".hover-movie__video-name");
+                const hoverVideo = $("#hover-movie__video");
+                const btnHMute = $(".btn-icon.hover-movie-btn-i:first-child");
+                const btnHSound = $(".btn-icon.hover-movie-btn-i:nth-child(2)");
+                const btnHReplay = $(".btn-icon.hover-movie-btn-i:last-child");
+                showVideo(hoverImg, hoverVideo, btnHMute, btnHSound, btnHReplay, "imgActiveHv", hoverName);
+                mySetInterVal = setInterval(function () {
+                    if (hoverVideo.get(0).currentTime >= hoverVideo.get(0).duration - 10) {
+                        btnHReplay.show();
+                        btnHMute.hide();
+                        btnHSound.hide();
+                        if (hoverImg.hasClass("imgActive"))
+                            hoverImg.removeClass("imgActive");
+                        if (hoverImg.hasClass("imgActiveSc"))
+                            hoverImg.removeClass("imgActiveSc");
+                        if (hoverImg.hasClass("imgActiveHv"))
+                            hoverImg.removeClass("imgActiveHv");
+                        hoverImg.show();
+                        hoverVideo.get(0).pause();
+                        hoverVideo.hide();
+                    }
+                }, 10000);
+
+                addStorage($(".hover-movie__button--add-removeList"), dataArr, posElement, id, main);
+
+            }, 800)
+        }).mouseleave(function () {
+            clearTimeout(myTimeout);
+            clearInterval(mySetInterVal);
+            isPlay = true;
+            $("#hover").mouseenter(function () {
+                isPlay = false;
+            })
+            $("#hover").mouseleave(function () {
+                if (left < 50) {
+                    $(this).css("--scale", width / 400)
+                    $(this).css("animation", "ZoomOut linear 0.15s");
+                    $(this).css("transform-origin", "0%" + (image.height() / 225 * 100 + 8) + " %");
+                } else if (left < $(window).width() - 300) {
+                    $(this).css("--scale", width / 400)
+                    $(this).css("animation", "ZoomOut linear 0.15s");
+                    $(this).css("transform-origin", "50% " + (image.height() / 225 * 100 + 8) + "%");
+                } else {
+                    $(this).css("--scale", width / 400)
+                    $(this).css("animation", "ZoomOut linear 0.15s");
+                    $(this).css("transform-origin", "100%" + (image.height() / 225 * 100 + 8) + "%");
+                }
+                $(this).on("webkitAnimationEnd", function () {
+                    $(this).remove();
+                    // $(this).css("transform", "scale(" + width/400 + ")" )
+                })
+                isPlay = true;
+                setTimeout(function () {
+                    if (isStop) { //Nếu bị cuộn dừng sẽ tự động chạy lại video
+                        var myVideo = $("#myVideo");
+                        if (myVideo.length > 0) {
+                            if (isPlayModal)
+                                myVideo.get(0).play();
+                        }
+                    }
+                }, 500);
+                ClearArr();
+            });
+        });
+    }
+
+    // Thêm vào myList
+    function addStorage(btn, dataNew, pos, idInput, RowLink) {
+        btn.on('click', function () {
+            let dataElement = dataNew[pos]
+
+            let icon = $(this).children(".bx");
+
+            if (!dataElement.isMyList) {
+                icon.removeClass("bx-plus").addClass("bx-check");
+
+                dataNew[pos].isMyList = true
+                window.sessionStorage.setItem("allMovies", JSON.stringify(dataNew));
+
+                var newMovie = [];
+                let currentMyList = window.sessionStorage.getItem("myList");
+
+                if (currentMyList) {
+                    let check = true;
+                    let data = JSON.parse(currentMyList);
+                    let count = data.length;
+                    for (var i = 0; i < count; i++) {
+                        // Nếu có xóa thì chèn vào vùng bị xóa
+                        if (!data[i]) {
+                            data[i] = dataNew[pos];
+                            check = false
+                        }
+                    }
+                    // Nếu ko xóa thì cộng như bth
+                    if (check) {
+                        data.push(dataElement);
+                    }
+                    newMovie = data;
+                } else {
+                    newMovie.push(dataElement);
+                }
+                window.sessionStorage.setItem("myList", JSON.stringify(newMovie));
+
+                if (RowLink) {
+                    if (RowLink.parent().parent().is("#myRow")) {
+                        $("#myListRow").show();
+                        RowLink.show();
+                    }
+                }
+            }
+            else {
+                icon.removeClass("bx-check").addClass("bx-plus");
+
+                dataNew[pos].isMyList = false
+                window.sessionStorage.setItem("allMovies", JSON.stringify(dataNew));
+
+                let currentMyList = window.sessionStorage.getItem("myList");
+                let data = JSON.parse(currentMyList);
+
+                let count = data.length;
+                for (var i = 0; i < count; i++) {
+                    if (data[i].id == idInput) {
+                        delete data[i];
+                        break;
+                    }
+                }
+                window.sessionStorage.setItem("myList", JSON.stringify(data));
+
+                if (RowLink) {
+                    if (RowLink.parent().parent().is("#myRow")) {
+                        RowLink.hide();
+                    }
+                }
+            }
+        });
+    }
+
+    function addList() {
+        ClearArr()
+        let myNewList = "";
+        let movies = sessionStorage.getItem("myList");
+        if (movies) {
+            let data = JSON.parse(movies);
+            let quantity = data.length;
+            if (quantity > 0) {
+                $("#myListRow").show()
+                for (let i = 0; i < quantity; i++) {
+                    let dateElement = data[i].name.split('|');
+
+                    let nameMovie = dateElement[1] ? dateElement[1] : dateElement[0]
+
+                    let detail = data[i].isMovie == false ? `<div class="row__name row__name-tvshow">
+                                    <span>${nameMovie}</span>
+                                    <div class="row__detail">
+                                        <div class="row__detail-left">
+                                            <span>2021</span>
+                                            <span>1 Mùa</span>
+                                        </div>
+                                        <span class="btn-genres">Phim Bộ</span>
+                                    </div>
+                                </div>` : `<div class="row__name row__name-movies">
+                                    <span>${nameMovie}</span>
+                                    <div class="row__detail">
+                                        <div class="row__detail-left">
+                                            <span>2021</span>
+                                            <span>90ph</span>
+                                        </div>
+                                        <span class="btn-genres">Phim Lẻ</span>
+                                    </div>
+                                </div>`;
+                    let myListItem = data[i].isVip == false ?
+                        `<div class="row__img-link" data-movie="${data[i].id}">
+                                                <div class="row__wrap ratioImg__wrap">
+                                                    <img src="./assets/img/image${data[i].id}.jpg" alt="" class="row__img ratio__in">
+                                                </div>` + detail +
+                        `</div>` :
+                        `<div class="row__img-link" data-movie="${data[i].id}">
+                                                <div class="row__wrap ratioImg__wrap">
+                                                    <img src="./assets/img/image${data[i].id}.jpg" alt="" class="row__img ratio__in">
+                                                    <img src="./assets/img/iconvip.png" alt="vip" class="movies-vip">
+                                                </div>` + detail +
+                        `</div>`;
+                    myNewList += myListItem;
+                }
+            }
+            $("#myRow > .row__container-sc").html(myNewList);
+        }
+    }
+
+    // Xóa giá trị trùng với phim trong myList
+    function DeleteMoviesIsMyList() {
+        let AllMovies = $(".row__img-link");
+        for (const movie of AllMovies) {
+            if (!$(movie).parent().parent().is("#topRow")) {
+                let id = $(movie).attr("data-movie")
+
+                let myMovies = sessionStorage.getItem("myList");
+                let myMoviesArr = JSON.parse(myMovies);
+                if (myMoviesArr) {
+                    for (const myMovie of myMoviesArr) {
+                        if (id == myMovie.id) {
+                            movie.remove();
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Xóa giá trị null trong session
+    function ClearArr() {
+        let movies = sessionStorage.getItem("myList");
+        if (movies) {
+            let data = JSON.parse(movies);
+            let newMovies = data.filter(function (value) {
+                return value != null;
+            })
+            window.sessionStorage.setItem("myList", JSON.stringify(newMovies));
+        }
+    }
+
+    function ShowWhenReset() {
+        var getID = window.location.search;
+        const urlParams = new URLSearchParams(getID);
+        var getID = urlParams.get('movie');
+        if (getID) {
+            $(".row__img-link").each(function () {
+                let number = $(this).attr("data-movie")
+                if (number == getID) {
+                    showModalMovies(getID, $(this))
+                    return false
+                }
+            })
+            isStopByModal = true;
+        }
+    }
+
+    ShowWhenReset();
+    selectSeason();
+    AutoVideo();
+
+    function showModalMoviesWhenClickDetail(btn, RowLink) {
+        btn.click(function () {
+            isStopByModal = true;
+            // Xóa nếu đã tồn tại modal
             let modal_movies = $(".modal__body .modal-movie");
-            if (modal_movies.length > 0)
+            if (modal_movies.length > 0) {
                 modal_movies.remove();
-            //End lỗi ko remove đc
+            }
+            //isPlayModal = false;
+            let video = $("#myVideo");
+            if (video.length > 0)
+                video.get(0).pause();
             // Tạo parameter
             let url = new URL(window.location.href);
-            let src = RowLink.find(".row__img").attr("src");
-            // let alt = $(this).find(".row__img").attr("alt");
-            let number = src.substr(src.length - 7, 3);
+            let number;
+            if (RowLink) {
+                number = RowLink.attr("data-movie")
+            }
+            else {
+                number = btn.attr("data-movie")
+            }
             url.searchParams.append("movie", number);
             window.history.pushState(null, null, url);
             // Lấy value của parameter
-            var id = window.location.search;
+            let id = window.location.search;
             const urlParams = new URLSearchParams(id);
-            var id = urlParams.get('movie');
+            id = urlParams.get('movie');
             showModalMovies(id, RowLink);
         })
     }
 
+    if ($("#myVideo").length > 0) {
+        showModalMoviesWhenClickDetail($(".button.button--moreinfo"))
+    }
+
     function showModalMovies(IdMovies, RowLink) {
-        // Lấy alt của phim
-        var data = sessionStorage.getItem("moviesSearch");
-        let image;
-        if (RowLink) {
-            image = RowLink.find(".row__img")
-        }
-        var dataArr = JSON.parse(data);
-        var alt = "";
-        let id = IdMovies;
-        for (const dt of dataArr) {
-            if (dt.idM == id) {
-                alt = dt.nameM;
-                break;
+        let data = sessionStorage.getItem("allMovies")
+        let dataArr = JSON.parse(data)
+        let dataWantToShow
+
+        let dataArrLength = dataArr.length
+        let posElement
+        for (let i = 0; i < dataArrLength; i++) {
+            if (dataArr[i].id == IdMovies) {
+                dataWantToShow = dataArr[i]
+                posElement = i
+                break
             }
         }
-        var altArr = alt.split('|');
-        var btnAddOrRemove = altArr[2] == 0 ? `<button class="button modal-movie__button--add-remove">
+
+        let btnAddOrRemove = dataWantToShow.isMyList == false ? `<button class="button modal-movie__button--add-remove">
                                                     <i class="bx bx-plus"></i>
                                                     <span>Danh sách</span>
                                                 </button>` :
@@ -421,19 +620,19 @@ $(document).ready(function () {
                             <span>Danh sách</span>
                         </button>`;
 
-        var btn = `<button class="button modal-movie__button--play">
+        let btn = `<button class="button modal-movie__button--play">
                             <i class="bx bxs-right-arrow"></i>
                             <span>Xem ngay</span>
                         </button>`+ btnAddOrRemove;
 
-        if (RowLink && RowLink.parent().parent().is("#comingRow")) {
+        if (dataWantToShow.isComing) {
             btn = `<button class="button modal-movie__button--remind">
                                             <i class="far fa-bell"></i>
                                             <span>Đặt lời nhắc</span>
                                         </button>`;
         }
 
-        var episode = altArr[0] == 0 ? "" : `<div class="modal__movies-episodes">
+        let episode = dataWantToShow.isMovie == true ? "" : `<div class="modal__movies-episodes">
                     <div class="modal__movies-ep-first">
                         <div class="movies-ep-title">
                             Danh sách tập
@@ -637,9 +836,11 @@ $(document).ready(function () {
                         </div>
                     </div>
                 </div>`;
+
+
         var infoLeftSecond;
-        if (altArr[0] == "1") {
-            if (altArr[1] == "1") {
+        if (!dataWantToShow.isMovie) {
+            if (dataWantToShow.isVip) {
                 var infoLeftSecond = `<div class="info-left__second">
                                         <img src="./assets/img/iconvip.png" alt="vip" class="modal-movies-vip">
                                     <span>2021</span>
@@ -654,7 +855,7 @@ $(document).ready(function () {
             }
         }
         else {
-            if (altArr[1] == "1") {
+            if (dataWantToShow.isVip) {
                 var infoLeftSecond = `<div class="info-left__second">
                                         <img src="./assets/img/iconvip.png" alt="vip" class="modal-movies-vip">
                                     <span>2021</span>
@@ -673,13 +874,13 @@ $(document).ready(function () {
             <div class="modal-turnoff fas fa-times"></div>
             <div class="modal-movie__header">
                 <div class="hover-movie-link modal-movie-link ratio16-9__wrap">
-                    <img src="./assets/img/image_big${id}.jpg" alt="" class="modal-movie__img ratio__in">
+                    <img src="./assets/img/image_big${dataWantToShow.id}.jpg" alt="" class="modal-movie__img ratio__in">
                     <video id="modal-movie__video" class="ratio__in">
-                        <source src="./assets/video/video${id}.mp4" type="video/mp4">
+                        <source src="./assets/video/video${dataWantToShow.id}.mp4" type="video/mp4">
                     </video>
                 </div>
                 <div class="header-movie__content">
-                    <img src="./assets/img/image_name${id}.png" alt="" class="modal-movie__video-name">
+                    <img src="./assets/img/image_name${dataWantToShow.id}.png" alt="" class="modal-movie__video-name">
                     <div class="modal-movie__button">`
             + btn +
             `</div>
@@ -1090,73 +1291,54 @@ $(document).ready(function () {
                 </div>
             </div>
         </div>`;
-        if (onlyOne) {
-            onlyOne = false;
-            let body = $("body");
-            let modalsc = $(".modal");
-            let modalBody = $(".modal__body");
-            let myVideo = $("#myVideo");
 
-            modalBody.append(modalMovies);
-            selectSeason();
-            let modal_movies = $(".modal-movie");
-            body.css("overflow", "hidden");
-            modalsc.show();
-            modal_movies.show();
-            modalBody.css('height', '100%');
-            sliderGe($("#episodeMovie"), ".row__item-next", ".row__item-back", ".modal-recommend__container-sc", ".modal-recommend__img-link");
-            sliderGe($("#recommendMovies"), ".row__item-next", ".row__item-back", ".modal-recommend__container-sc", ".modal-recommend__img-link");
-            if (myVideo.length > 0)
-                myVideo.get(0).pause();
+        let body = $("body");
+        let modalsc = $(".modal");
+        let modalBody = $(".modal__body");
+        let myVideo = $("#myVideo");
 
-            const headerMImg = $(".modal-movie__img")
-            const headerMVideo = $("#modal-movie__video");
-            const btnMMute = $(".header-movie-btn-i:first-child");
-            const btnMSound = $(".header-movie-btn-i:nth-child(2)");
-            const btnMReplay = $(".header-movie-btn-i:last-child");
-            showVideo2(headerMImg, headerMVideo, btnMMute, btnMSound, btnMReplay, "imgActiveHv");
+        modalBody.append(modalMovies);
+        selectSeason();
+        let modal_movies = $(".modal__body .modal-movie");
+        body.css("overflow", "hidden");
+        modalsc.show();
+        modal_movies.show();
+        modalBody.css('height', '100%');
+        sliderGe($("#episodeMovie"), ".row__item-next", ".row__item-back", ".modal-recommend__container-sc", ".modal-recommend__img-link");
+        sliderGe($("#recommendMovies"), ".row__item-next", ".row__item-back", ".modal-recommend__container-sc", ".modal-recommend__img-link");
+        if (myVideo.length > 0)
+            myVideo.get(0).pause();
 
-            var myInterval = setInterval(function () {
-                if (headerMVideo.get(0).currentTime >= headerMVideo.get(0).duration - 10) {
-                    btnMReplay.show();
-                    btnMMute.hide();
-                    btnMSound.hide();
-                    headerMImg.show();
-                    headerMVideo.get(0).pause();
-                    headerMVideo.hide();
-                    if (headerMImg.hasClass("imgActive"))
-                        headerMImg.removeClass("imgActive");
-                    if (headerMImg.hasClass("imgActiveSc"))
-                        headerMImg.removeClass("imgActiveSc");
-                    if (headerMImg.hasClass("imgActiveHv"))
-                        headerMImg.removeClass("imgActiveHv");
-                }
-            }, 10000);
+        const headerMImg = $(".modal-movie__img")
+        const headerMVideo = $("#modal-movie__video");
+        const btnMMute = $(".header-movie-btn-i:first-child");
+        const btnMSound = $(".header-movie-btn-i:nth-child(2)");
+        const btnMReplay = $(".header-movie-btn-i:last-child");
+        showVideo2(headerMImg, headerMVideo, btnMMute, btnMSound, btnMReplay, "imgActiveHv");
 
-            addStorage2(image, RowLink)
-            // Modal
-            const modal = $("#myModal");
-            $(window).click(function (e) {
-                onlyOne = true;
-                if (e.target == modal.children(".modal__overlay").get(0) || e.target == modal.children(".modal__body").get(0)) {
-                    onlyOne = true;
-                    body.css("overflow", "auto");
-                    modalsc.hide();
-                    modalBody.css('height', 'auto');
-                    modal_movies.remove();
-                    var url = window.location.href;
-                    if (url.indexOf("?") > 0) {
-                        var updatedUri = url.substring(0, url.indexOf("?"));
-                        // window.history.replaceState({}, document.title, updatedUri);
-                        window.history.pushState({}, document.title, updatedUri);
-                    }
-                    isStop = false;
-                    //AutoVideo();
-                    clearInterval(myInterval);
-                }
-            })
+        var myInterval = setInterval(function () {
+            if (headerMVideo.get(0).currentTime >= headerMVideo.get(0).duration - 10) {
+                btnMReplay.show();
+                btnMMute.hide();
+                btnMSound.hide();
+                headerMImg.show();
+                headerMVideo.get(0).pause();
+                headerMVideo.hide();
+                if (headerMImg.hasClass("imgActive"))
+                    headerMImg.removeClass("imgActive");
+                if (headerMImg.hasClass("imgActiveSc"))
+                    headerMImg.removeClass("imgActiveSc");
+                if (headerMImg.hasClass("imgActiveHv"))
+                    headerMImg.removeClass("imgActiveHv");
+            }
+        }, 10000);
 
-            $(".modal-turnoff").click(function () {
+        addStorage($(".modal-movie__button--add-remove"), dataArr, posElement, IdMovies, RowLink)
+        // Modal
+        const modal = $("#myModal");
+        $(window).click(function (e) {
+            if (e.target == modal.children(".modal__overlay").get(0) || e.target == modal.children(".modal__body").get(0)) {
+                //isPlayModal = true
                 onlyOne = true;
                 body.css("overflow", "auto");
                 modalsc.hide();
@@ -1168,242 +1350,151 @@ $(document).ready(function () {
                     // window.history.replaceState({}, document.title, updatedUri);
                     window.history.pushState({}, document.title, updatedUri);
                 }
-                isStop = false;
-                //AutoVideo();
+                isStopByModal = false;
+                AutoVideo();
                 clearInterval(myInterval);
-            })
-        }
+            }
+        })
+
+        $(".modal-turnoff").click(function () {
+            //isPlayModal = true
+            onlyOne = true;
+            body.css("overflow", "auto");
+            modalsc.hide();
+            modalBody.css('height', 'auto');
+            modal_movies.remove();
+            var url = window.location.href;
+            if (url.indexOf("?") > 0) {
+                var updatedUri = url.substring(0, url.indexOf("?"));
+                // window.history.replaceState({}, document.title, updatedUri);
+                window.history.pushState({}, document.title, updatedUri);
+            }
+            isStopByModal = false;
+            AutoVideo();
+            clearInterval(myInterval);
+        })
     }
-    function addStorage2(ImgMovie, RowLink) {
-        $(".modal-movie__button--add-remove").on('click', function () {
-            var src = ImgMovie.attr("src");
-            var number = src.substr(src.length - 7, 3);
-            var checkMovie = ImgMovie.attr("alt");
-            var infoOne = checkMovie.split('|')[0];
-            var infoSec = checkMovie.split('|')[1];
-            var infoThird = checkMovie.split('|')[2];
-            var infoFour = checkMovie.split('|')[3];
-            var infoFive = checkMovie.split('|')[4] ? checkMovie.split('|')[4] : ""
-            var icon = $(this).children(".bx");
-            if (infoThird == "0") {
-                icon.removeClass("bx-plus").addClass("bx-check");
-                ImgMovie.attr("alt", infoOne + "|" + infoSec + "|" + 1 + "|" + infoFour + "|" + infoFive);
-                var newImgAlt = infoOne + "|" + infoSec + "|" + "1" + "|" + infoFour + "|" + infoFive;
-                var movie = {
-                    src: number,
-                    alt: newImgAlt
-                }
-                var newMovie = [];
-                var currentMyList = window.sessionStorage.getItem("movies");
 
-                if (currentMyList) {
-                    // var data = JSON.parse(currentMyList);
-                    // data.push(movie);
-                    // newMovie = data;
-                    var data = JSON.parse(currentMyList);
-                    let count = data.length;
-                    for (var i = 0; i < count; i++) {
-                        if (!data[i]) {
-                            data[i] = movie;
-                            break;
-                        }
-                    }
-                    newMovie = data;
+    function selectSeason() {
+        checkSeason = true;
+        $("#movie-btn-seasons").click(function () {
+            checkSeason = !checkSeason;
+            $(".movies-menu-seasons").slideToggle();
+            if (!checkSeason)
+                $(".season-icon").after().css("transform", "rotate(180deg)")
+            else
+                $(".season-icon").after().css("transform", "rotate(0deg)")
+        })
+    }
+
+    function sliderGe(slideRan, slBtnNext, slBtnBack, slChSlides, slChSlide) {
+        var childBtnNext = slideRan.children(slBtnNext),
+            childBtnBack = slideRan.children(slBtnBack);
+
+        var slides = slideRan.children(slChSlides),
+            slide = slides.children(slChSlide),
+            currentIdx = 0,
+            marginSlide = 6,
+            slideCount = slide.length,
+            slideWidth = slide.width(),
+            move = marginSlide + slideWidth;
+        var newSlideWidth;
+        var widthW = slideRan.parent().width();
+        var number;
+        if (widthW > 1024) {
+            number = 5;
+        } else if (widthW < 1025 && widthW > 739) {
+            number = 4;
+        } else if (widthW < 740 && widthW > 519) {
+            number = 3;
+        } else {
+            number = 2;
+        }
+        if (number < slideCount)
+            hoverRowMovie(slideRan, childBtnNext);
+
+        childBtnNext.click(function () {
+            if (currentIdx < (slideCount - number)) {
+                // Nếu số phim còn lại nhỏ hơn lượt lướt chuẩn
+                if (slideCount - currentIdx - number < number) {
+                    moveSlide(slideCount - number);
+                }
+                else {
+                    moveSlide(currentIdx + number);
+                }
+            }
+            if (currentIdx >= slideCount - number) {
+                setTimeout(() => {
+                    $(this).hide();
+                    slideRan.unbind();
+                    hoverRowMovie(slideRan, childBtnBack);
+                }, 400);
+            }
+            childBtnBack.css("transform", "translate(0)");
+            childBtnBack.css("display", "flex");
+            hoverRowMovie(slideRan, childBtnBack);
+
+        });
+
+        childBtnBack.click(function () {
+            if (currentIdx > 0) {
+                if (currentIdx < number) {
+                    moveSlide(0);
                 } else {
-                    newMovie.push(movie);
+                    moveSlide(currentIdx - number);
                 }
-                window.sessionStorage.setItem("movies", JSON.stringify(newMovie));
-                ImgMovie.parent().parent().show();
+            }
+            if (currentIdx <= 0) {
+                setTimeout(() => {
+                    $(this).hide();
+                    slideRan.unbind();
+                    hoverRowMovie(slideRan, childBtnNext);
+                }, 400);
+            }
+            childBtnNext.css("transform", "translate(0)");
+            childBtnNext.css("display", "flex");
+            hoverRowMovie(slideRan, childBtnNext);
+        });
 
-                let listMovie = sessionStorage.getItem("moviesSearch");
-                let listMovieArr = JSON.parse(listMovie);
-                for (const iterator of listMovieArr) {
-                    let valueArr = iterator.nameM.split('|');
-                    if (number == iterator.idM) {
-                        valueArr[2] = 1
-                        iterator.nameM = valueArr.join("|");
-                        console.log(iterator);
-                        break
-                    }
-                }
-                sessionStorage.setItem("moviesSearch", JSON.stringify(listMovieArr));
+        function moveSlide(index) {
+            slides.css({ transition: 'all linear' })
+            slides.css({ transition: '0.5s' })
+            slides.css({ transform: 'translateX(calc(-' + move * index + 'px)' });
+            currentIdx = index;
+        }
+        // Responsive slider
+        $(window).resize(function () {
+            widthW = slideRan.parent().width();
+            if (widthW > 1024) {
+                number = 5;
+            } else if (widthW < 1025 && widthW > 739) {
+                number = 4;
+            } else if (widthW < 740 && widthW > 519) {
+                number = 3;
+            } else {
+                number = 2;
             }
+            if (slideCount - currentIdx - number > 0)
+                hoverRowMovie(slideRan, childBtnNext);
             else {
-                icon.removeClass("bx-check").addClass("bx-plus");
-                ImgMovie.attr("alt", infoOne + "|" + infoSec + "|" + 0 + "|" + infoFour);
-                var moviesRemove = sessionStorage.getItem("movies");
-                var moviesArr = JSON.parse(moviesRemove);
-                // var newMovies = moviesArr.filter(function (value) {
-                //     return value.src != number;
-                // })
-                let count = moviesArr.length;
-                for (var i = 0; i < count; i++) {
-                    if (moviesArr[i].src == number) {
-                        delete moviesArr[i];
-                        break;
-                    }
-                }
-                window.sessionStorage.setItem("movies", JSON.stringify(moviesArr));
-                RowLink.hide();
-                let listMovie = sessionStorage.getItem("moviesSearch");
-                let listMovieArr = JSON.parse(listMovie);
-                for (const iterator of listMovieArr) {
-                    let valueArr = iterator.nameM.split('|');
-                    if (number == iterator.idM) {
-                        valueArr[2] = 0
-                        iterator.nameM = valueArr.join("|");
-                        console.log(iterator);
-                        break
-                    }
-                }
-                sessionStorage.setItem("moviesSearch", JSON.stringify(listMovieArr));
+                slideRan.unbind();
+                if (currentIdx != 0)
+                    hoverRowMovie(slideRan, childBtnBack);
             }
+            newSlideWidth = slide.width();
+            move = newSlideWidth + marginSlide;
+            slides.css({ transition: '0s' })
+            slides.css({ transform: 'translateX(calc(-' + move * currentIdx + 'px)' });
         });
     }
-    // Thêm vào mylist
-    function addStorage(ImgMovie) {
-        $(".hover-movie__button--add-removeList").on('click', function () {
-            var src = ImgMovie.attr("src");
-            var number = src.substr(src.length - 7, 3);
-            var checkMovie = ImgMovie.attr("alt");
-            var infoOne = checkMovie.split('|')[0];
-            var infoSec = checkMovie.split('|')[1];
-            var infoThird = checkMovie.split('|')[2];
-            var infoFour = checkMovie.split('|')[3];
-            var infoFive = checkMovie.split('|')[4] ? checkMovie.split('|')[4] : ""
-            var icon = $(this).children(".bx");
-            if (infoThird == "0") {
-                icon.removeClass("bx-plus").addClass("bx-check");
-                ImgMovie.attr("alt", infoOne + "|" + infoSec + "|" + 1 + "|" + infoFour + "|" + infoFive);
-                var newImgAlt = infoOne + "|" + infoSec + "|" + "1" + "|" + infoFour + "|" + infoFive;
-                var movie = {
-                    src: number,
-                    alt: newImgAlt
-                }
-                var newMovie = [];
-                var currentMyList = window.sessionStorage.getItem("movies");
 
-                if (currentMyList) {
-                    // var data = JSON.parse(currentMyList);
-                    // data.push(movie);
-                    // newMovie = data;
-                    var data = JSON.parse(currentMyList);
-                    let count = data.length;
-                    for (var i = 0; i < count; i++) {
-                        if (!data[i]) {
-                            data[i] = movie;
-                            break;
-                        }
-                    }
-                    newMovie = data;
-                } else {
-                    newMovie.push(movie);
-                }
-                window.sessionStorage.setItem("movies", JSON.stringify(newMovie));
-                ImgMovie.parent().parent().show();
-
-                let listMovie = sessionStorage.getItem("moviesSearch");
-                let listMovieArr = JSON.parse(listMovie);
-                for (const iterator of listMovieArr) {
-                    let valueArr = iterator.nameM.split('|');
-                    if (number == iterator.idM) {
-                        valueArr[2] = 1
-                        iterator.nameM = valueArr.join("|");
-                        console.log(iterator);
-                        break
-                    }
-                }
-                sessionStorage.setItem("moviesSearch", JSON.stringify(listMovieArr));
-            }
-            else {
-                icon.removeClass("bx-check").addClass("bx-plus");
-                ImgMovie.attr("alt", infoOne + "|" + infoSec + "|" + 0 + "|" + infoFour);
-                var moviesRemove = sessionStorage.getItem("movies");
-                var moviesArr = JSON.parse(moviesRemove);
-                // var newMovies = moviesArr.filter(function (value) {
-                //     return value.src != number;
-                // })
-                let count = moviesArr.length;
-                for (var i = 0; i < count; i++) {
-                    if (moviesArr[i].src == number) {
-                        delete moviesArr[i];
-                        break;
-                    }
-                }
-                window.sessionStorage.setItem("movies", JSON.stringify(moviesArr));
-                ImgMovie.parent().parent().hide();
-                let listMovie = sessionStorage.getItem("moviesSearch");
-                let listMovieArr = JSON.parse(listMovie);
-                for (const iterator of listMovieArr) {
-                    let valueArr = iterator.nameM.split('|');
-                    if (number == iterator.idM) {
-                        valueArr[2] = 0
-                        iterator.nameM = valueArr.join("|");
-                        console.log(iterator);
-                        break
-                    }
-                }
-                sessionStorage.setItem("moviesSearch", JSON.stringify(listMovieArr));
-            }
+    function hoverRowMovie(parent, button) {
+        parent.hover(function () {
+            button.css("transform", "translate(0)");
+            button.css("display", "flex");
+        }, function () {
+            button.css("transform", "translate(-100%)");
+            button.css("display", "none");
         });
-    }
-    function addList() {
-        ClearArr();
-        var myNewList = "";
-        var movies = sessionStorage.getItem("movies");
-        if (movies) {
-            var data = JSON.parse(movies);
-            var quantity = data.length;
-            for (var i = 0; i < quantity; i++) {
-                let dateElement = data[i].alt.split('|');
-                let nameMovie = dateElement[4] ? dateElement[4] : dateElement[3]
-
-                let detail = dateElement[0] == 1 ? `<div class="row__name row__name-tvshow">
-                                    <span>${nameMovie}</span>
-                                    <div class="row__detail">
-                                        <div class="row__detail-left">
-                                            <span>2021</span>
-                                            <span>1 Mùa</span>
-                                        </div>
-                                        <span class="btn-genres">Phim Bộ</span>
-                                    </div>
-                                </div>` : `<div class="row__name row__name-movies">
-                                    <span>${nameMovie}</span>
-                                    <div class="row__detail">
-                                        <div class="row__detail-left">
-                                            <span>2021</span>
-                                            <span>90ph</span>
-                                        </div>
-                                        <span class="btn-genres">Phim Lẻ</span>
-                                    </div>
-                                </div>`;
-                    
-                var myListItem = dateElement[1] == 0 ?
-                    `<div class="row__img-link row__img-link-ge">
-                                            <div class="row__wrap ratioImg__wrap">
-                                                <img src="./assets/img/image${data[i].src}.jpg" alt="${data[i].alt}" class="row__img ratio__in">
-                                            </div>` + detail+
-                                        `</div>`:
-                    `<div class="row__img-link row__img-link-ge">
-                                            <div class="row__wrap ratioImg__wrap">
-                                                <img src="./assets/img/image${data[i].src}.jpg" alt="${data[i].alt}" class="row__img ratio__in">
-                                                <img src="./assets/img/iconvip.png" alt="vip" class="movies-vip">
-                                            </div>`+ detail+
-                                        `</div>`;
-                myNewList += myListItem;
-            }
-        }
-        $("#myList").append(myNewList);
-    }
-    
-    function ClearArr() {
-        let movies = sessionStorage.getItem("movies");
-        if (movies) {
-            let data = JSON.parse(movies);
-            let newMovies = data.filter(function (value) {
-                return value != null;
-            })
-            window.sessionStorage.setItem("movies", JSON.stringify(newMovies));
-        }
     }
 });

@@ -1,34 +1,62 @@
 $(document).ready(function () {
+    var search = window.location.search
+    const urlParams = new URLSearchParams(search)
+    var search = urlParams.get('searchIp')
     searchMovie();
     function searchMovie() {
-        var getMovies = $(".row__img-link");
-        var total = [];
-        for (const movie of getMovies) {
-            var movieDetail = movie.getElementsByTagName("img")[0];
-            var src = movieDetail.getAttribute("src");
-            var id = src.substr(src.length - 7, 3);
-            var name = movieDetail.getAttribute("alt");
-            var movieInfo = {
-                nameM: name,
-                idM: id
+        var movies = sessionStorage.getItem("allMovies")
+        var data = JSON.parse(movies)
+        var content = ""
+        for (const dt of data) {
+            var re = new RegExp(search, "i")
+            var nameArr = dt.name.split('|')
+            var name = nameArr.join(" ")
+            var row_name = ""
+            var displayName = nameArr[1] ? nameArr[1] : nameArr[0];
+            if (dt.isMovie) {
+                row_name = ` <div class="row__name row__name-movies">
+                                    <span>${displayName}</span>
+                                    <div class="row__detail">
+                                        <div class="row__detail-left">
+                                            <span>2021</span>
+                                            <span>90ph</span>
+                                        </div>
+                                        <span class="btn-genres">Phim Lẻ</span>
+                                    </div>
+                                </div>`
             }
-            total.push(movieInfo);
-        }
-        // Xoa phan tu trùng
-        var newTotal = [];
-        newTotal.push(total[0]);
-        var TtLength = total.length;
-        for (var i = 0; i < TtLength; i++) {
-            var newTtLength = newTotal.length;
-            var totalN = total[i];
-            let checkM = true;
-            for (var j = 0; j < newTtLength; j++) {
-                if (newTotal[j].idM === totalN.idM) {
-                    checkM = false;
-                }
+            else {
+                row_name = ` <div class="row__name row__name-tvshow">
+                                    <span>${displayName}</span>
+                                    <div class="row__detail">
+                                        <div class="row__detail-left">
+                                            <span>2021</span>
+                                            <span>1 Mùa</span>
+                                        </div>
+                                        <span class="btn-genres">Phim Bộ</span>
+                                    </div>
+                                </div>`
             }
-            if (checkM) newTotal.push(totalN)
+            let vip_name = "";
+            if (dt.isVip) {
+                vip_name = `<img src="./assets/img/iconvip.png" alt="vip" class="movies-vip">`
+            }
+
+            if (name.match(re) && search) {
+                content += `<div class="row__img-link row__img-link-ge" id="${dt.id}">
+                                <div class="row__wrap ratioImg__wrap">
+                                    <img src="./assets/img/image${dt.id}.jpg" alt="${dt.name}" class="row__img ratio__in">` + vip_name +
+                    `</div>`
+                    + row_name +
+                    `</div>`
+            }
         }
-        sessionStorage.setItem("moviesSearch", JSON.stringify(newTotal));
+
+        if (!content) {
+            content = `<p style="font-size: 1.6rem; color: var(--white-color-sc)">Không có kết quả khớp với yêu cầu \"${search}\" cần tìm của bạn.</p>`;
+            $("#search").after(content)
+        }
+        else
+            $("#search").append(content)
     }
 });
