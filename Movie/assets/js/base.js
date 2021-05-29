@@ -147,13 +147,10 @@ $(document).ready(function () {
         let btn = document.querySelector('.btn-toggle-display');
         btn.classList.add('active');
         let row_name = document.querySelectorAll('.row__name');
-        row_name.forEach(row => {
-            row.classList.add('active');
-        })
         btn.onclick = () => {
             btn.classList.toggle('active');
             row_name.forEach(row => {
-                row.classList.toggle('active');
+                row.classList.toggle('disable');
             })
         }
     }

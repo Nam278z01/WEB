@@ -214,12 +214,24 @@ $(document).ready(function () {
             }
 
             var infoOther = isMovie == true ? `<div class="hover-movie__info">
-                                                <span class="hm_info">2021</span>
-                                                <span class="hm_info">90ph</span>
+                                                <div>
+                                                    <span class="hm_info">2021</span>
+                                                    <span class="hm_info">90ph</span>
+                                                </div>
+                                                <div>
+                                                    <span class="hm_info">Khoa học viễn tưởng</span>
+                                                    <span class="hm_info">Hành động</span>
+                                                </div>
                                             </div>`
                 : `<div class="hover-movie__info">
-                                                <span class="hm_info">2021</span>
-                                                <span class="hm_info">1 Mùa</span>
+                                                <div>
+                    <span class="hm_info">2021</span>
+                    <span class="hm_info">1 Mùa</span>
+                </div>
+                <div>
+                                                    <span class="hm_info">Khoa học viễn tưởng</span>
+                                                    <span class="hm_info">Hành động</span>
+                                                </div>
                                             </div>`;
 
 
@@ -558,10 +570,35 @@ $(document).ready(function () {
         }
     }
 
-    showModalMoviesWhenClickDetail($(".row__img-link"), "same");
+    showModalMoviesWhenClickIMG()
     ShowWhenReset();
     selectSeason();
-    AutoVideo();
+
+    function showModalMoviesWhenClickIMG() {
+        $(".row__img-link").click(function () {
+            isStopByModal = true;
+            // Xóa nếu đã tồn tại modal
+            let modal_movies = $(".modal__body .modal-movie");
+            if (modal_movies.length > 0) {
+                modal_movies.remove();
+            }
+            //isPlayModal = false;
+            let video = $("#myVideo");
+            if (video.length > 0)
+                video.get(0).pause();
+            // Tạo parameter
+            let url = new URL(window.location.href);
+            let number;
+            number = $(this).attr("data-movie")
+            url.searchParams.append("movie", number);
+            window.history.pushState(null, null, url);
+            // Lấy value của parameter
+            let id = window.location.search;
+            const urlParams = new URLSearchParams(id);
+            id = urlParams.get('movie');
+            showModalMovies(id, $(this));
+        })
+    }
 
     function showModalMoviesWhenClickDetail(btn, RowLink) {
         btn.click(function () {
@@ -578,11 +615,7 @@ $(document).ready(function () {
             // Tạo parameter
             let url = new URL(window.location.href);
             let number;
-            if (RowLink=="same") {
-                RowLink = $(this)
-                number = RowLink.attr("data-movie")
-            }
-            else if (RowLink) {
+            if (RowLink) {
                 number = RowLink.attr("data-movie")
             }
             else {

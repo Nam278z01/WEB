@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NMovies</title>
+    <!-- Base css file -->
+    <link rel="stylesheet" href="./assets/css/base.css" />
+    <!-- Custom css file -->
+    <link rel="stylesheet" href="./assets/css/main.css" />
+    <!-- Awesome icons -->
+    <link rel="stylesheet" href="./assets/css/all.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <!-- Responsive css file -->
+    <link rel="stylesheet" href="./assets/css/responsive.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Allura&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <script src="./assets/js/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <div class="app">
+        <header class="header">
+            <!-- thanh điều hướng -->
+            <div class="header__nav" id="my-nav">
+                <!-- Tablet nav -->
+                <div class="nav-table">
+                    <label for="nav-tablet-input" class="header__nav-bar-icon fas fa-bars"></label>
+                    <input type="checkbox" name="" id="nav-tablet-input">
+                    <label for="nav-tablet-input" class="nav__overlay"></label>
+                    <div class="nav__tablet">
+                        <div class="nav__tablet-first">
+                            <label for="nav-tablet-input">
+                                <i class="fas fa-times"></i>
+                            </label>
+                            <a href="./index.html" class="header__brand-name">NMovies</a>
+                        </div>
+                        <ul class="nav__tablet-items">
+                            <li class="nav__tablet-item">
+                                <a href="./index.html">
+                                    <div class="nav__tablet-icon">
+                                        <i class="fas fa-home"></i>
+                                    </div>
+                                    <span class="nav__tablet-item-info">Trang chủ</span>
+                                </a>
+                            </li>
+                            <li class="nav__tablet-item">
+                                <a href="./tvshow.html">
+                                    <div class="nav__tablet-icon">
+                                        <i class="fas fa-tv"></i>
+                                    </div>
+                                    <span class="nav__tablet-item-info">Phim bộ</span>
+                                </a>
+                            </li>
+                            <li class="nav__tablet-item">
+                                <a href="./movies.html">
+                                    <div class="nav__tablet-icon">
+                                        <i class="fas fa-film"></i>
+                                    </div>
+                                    <span class="nav__tablet-item-info">Phim lẻ</span>
+                                </a>
+                            </li>
+                            <li class="nav__tablet-item nav__tablet-item--active">
+                                <a href="#">
+                                    <div class="nav__tablet-icon">
+                                        <i class="fas fa-compact-disc"></i>
+                                    </div>
+                                    <span class="nav__tablet-item-info">Thể loại</span>
+                                </a>
+                            </li>
+                            <li class="nav__tablet-item">
+                                <a href="./popular.html">
+                                    <div class="nav__tablet-icon">
+                                        <i class="fas fa-fire"></i>
+                                    </div>
+                                    <span class="nav__tablet-item-info">Mới và Phổ biến</span>
+                                </a>
+                            </li>
+                            <li class="nav__tablet-item">
+                                <a href="./mylist.html">
+                                    <div class="nav__tablet-icon">
+                                        <i class="fas fa-archive"></i>
+                                    </div>
+                                    <span class="nav__tablet-item-info">Danh sách của tôi</span>
+                                </a>
+                            </li>
+                            <li class="nav__tablet-item">
+                                <a href="./vip.html">
+                                    <div class="nav__tablet-icon">
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                    <span class="nav__tablet-item-info">Vip</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- PC nav -->
+                <div class="nav-pc">
+                    <div class="header__first-nav">
+                        <a href="index.html" class="header__brand-name">NMovies</a>
+                        <div class="header__nav-menu-res">
+                            <ul class="header__nav-menu">
+                                <li class="header__tap">
+                                    <a href="index.html" class="header__tap-link">Trang chủ</a>
+                                </li>
+                                <li class="header__tap">
+                                    <a href="./tvshow.html" class="header__tap-link">Phim bộ</a>
+                                </li>
+                                <li class="header__tap">
+                                    <a href="./movies.html" class="header__tap-link">Phim lẻ</a>
+                                </li>
+                                <li class="header__tap header__tap--active" id="genres">
+                                    <a href="#" class="header__tap-link">Thể loại</a>
+                                    <!-- <div class="genres-sub-nav">
+                                        <ul class="genres-items">
+                                            <li class="genre-item">
+                                                <a href="#" class="genre-item-link">Khoa học viễn tưởng</a>
+                                                <a href="#" class="genre-item-link">Giả tưởng</a>
+                                                <a href="#" class="genre-item-link">Giật gân</a>
+                                                <a href="#" class="genre-item-link">Kinh dị</a>
+                                                <a href="#" class="genre-item-link">Hành động</a>
+                                                <a href="#" class="genre-item-link">Thực tế</a>
+                                            </li>
+                                            <li class="genre-item">
+                                                <a href="#" class="genre-item-link">Hài</a>
+                                                <a href="#" class="genre-item-link">Hài độc thoại</a>
+                                                <a href="#" class="genre-item-link">Lãng mạn</a>
+                                                <a href="#" class="genre-item-link">Phim âm nhạc & nhạc kịch</a>
+                                                <a href="#" class="genre-item-link">Phim chính kịch</a>
+                                                <a href="#" class="genre-item-link">Phim tài liệu</a>
+                                            </li>
+                                            <li class="genre-item">
+                                                <a href="#" class="genre-item-link">Trẻ em và gia đình</a>
+                                                <a href="#" class="genre-item-link">Giành giải thưởng</a>
+                                                <a href="#" class="genre-item-link">Anime</a>
+                                                <a href="#" class="genre-item-link">Hollywood</a>
+                                                <a href="#" class="genre-item-link">Châu Á</a>
+                                                <a href="#" class="genre-item-link">Châu Âu</a>
+                                            </li>
+                                        </ul>
+                                    </div> -->
+                                </li>
+                                <li class="header__tap">
+                                    <a href="./popular.html" class="header__tap-link">Mới và Phổ biến</a>
+                                </li>
+                                <li class="header__tap">
+                                    <a href="./mylist.html" class="header__tap-link">Danh sách của tôi</a>
+                                </li>
+                                <li class="header__tap">
+                                    <a href="./vip.html" class="header__tap-link">Vip</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="header__second-nav">
+                        <div class="buy-vip">
+                            <a href="#" class="buy-vip-link">Mua gói</a>
+                        </div>
+                        <div class="header__search">
+                            <button class="btn-icon fas fa-search" id="icon-search"></button>
+                            <div id="search-wrap">
+                                <button id="search-tnof" class="btn-icon fas fa-chevron-right"></button>
+                                <form action="./search.html" name="searchFrom" id="searchForm">
+                                    <button id="btn-search" class="fas fa-search"></button>
+                                    <input type="text" name="searchIp" maxlength="80"
+                                        placeholder="Phim, diễn viên, đạo diễn...">
+                                    <button id="btn-search-delete" class="fas fa-times"></button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="header__notify" title="Thông Báo">
+                            <i class="btn-icon fas fa-bell"></i>
+                        </div>
+                        <div class="header__account" title="Tài khoản">
+                            <i class="btn-icon fas fa-user-circle"></i>
+                            <div class="signIn-register">
+                                <button class="button btn-account__register">Đăng ký</button>
+                                <button class="button btn-account__signIn">Đăng nhập</button>
+                            </div>
+                        </div>
+                        <div class="header-setting">
+                            <i class="btn-icon fas fa-sliders-h"></i>
+                            <div class="toggle-setting">
+                                <div id="toggle-display">
+                                    <span>Hiện tên phim</span>
+                                    <span class="btn-toggle-display"></span>
+                                </div>
+                                <div id="toggle-lightmode">
+                                    <span>Nền sáng</span>
+                                    <span class="btn-toggle-lightmode"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Mobile nav -->
+                <div class="nav-mobile">
+                    <ul class="nav-mobile-menu">
+                        <li class="header__tap header__tap--active">
+                            <a href="#" class="header__tap-link">Thể loại</a>
+                            <!-- <div class="header__tap-link">Thể loại
+                                                        <i class="genres-icon fas fa-sort-down"></i>
+                                                    </div> -->
+                        </li>
+                        <li class="header__tap">
+                            <a href="index.html" class="header__tap-link">Trang chủ</a>
+                        </li>
+                        <li class="header__tap">
+                            <a href="./tvshow.html" class="header__tap-link">Phim bộ</a>
+                        </li>
+                        <li class="header__tap">
+                            <a href="./movies.html" class="header__tap-link">Phim lẻ</a>
+                        </li>
+                        <li class="header__tap">
+                            <a href="./popular.html" class="header__tap-link">Mới và Phổ biến</a>
+                        </li>
+                        <li class="header__tap">
+                            <a href="#" class="header__tap-link">Danh sách của tôi</a>
+                        </li>
+                        <li class="header__tap">
+                            <a href="./vip.html" class="header__tap-link">Vip</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <div class="content-mylist">
+            <!-- Danh sách phim -->
+            <div class="main">
+                <div class="main__row">
+                    <div class="row__header row__header-general">
+                        <span class="row__header-link">
+                            <h2 class="row__title">Khoa học viễn tưởng</h2>
+                        </span>
+                    </div>
+                    <div class="filters-movies">
+                        <div class="filter dropdown">
+                            <button class="button dropdown-toggle">
+                                <i class='bx bx-folder-open'></i>Thể loại:
+                                <span class="filter-value">Toàn bộ</span>
+                            </button>
+                            <ul class="dropdown-menu size-genres">
+                                <li>
+                                    <input type="checkbox" id="genre-sci-fi">
+                                    <label for="genre-sci-fi">Khoa học viễn tưởng</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="genre-fantasy">
+                                    <label for="genre-fantasy">Giả tưởng</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="genre-sensational">
+                                    <label for="genre-sensational">Giật gân</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="genre-thrilling">
+                                    <label for="genre-thrilling">Kinh dị</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="genre-action">
+                                    <label for="genre-action">Hành động</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="genre-funny">
+                                    <label for="genre-funny">Hài</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="genre-stand-up-comedy">
+                                    <label for="genre-stand-up-comedy">Hài độc thoại</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="genre-love">
+                                    <label for="genre-love">Lãng mạn</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="genre-drama">
+                                    <label for="genre-drama">Phim chính kịch</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="genre-documentary">
+                                    <label for="genre-documentary">Phim tài liệu</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="genre-kid">
+                                    <label for="genre-kid">Trẻ em và gia đình</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="genre-anime">
+                                    <label for="genre-anime">Anime</label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="filter dropdown">
+                            <button class="button dropdown-toggle">
+                                <i class='bx bxs-food-menu'></i>Loại:
+                                <span class="filter-value">Toàn bộ</span>
+                            </button>
+                            <ul class="dropdown-menu size-loai">
+                                <li>
+                                    <input type="checkbox" id="movie-ck">
+                                    <label for="movie-ck">Phim lẻ</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="tv-series-ck">
+                                    <label for="tv-series-ck">Phim bộ</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="vip-ck">
+                                    <label for="vip-ck">Vip</label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="filter dropdown">
+                            <button class="button dropdown-toggle">
+                                <i class='bx bx-expand-alt'></i>Sắp xếp:
+                                <span class="filter-value">Mặc định</span>
+                            </button>
+                            <ul class="dropdown-menu size-sort">
+                                <li>
+                                    <input type="radio" name="sort" id="sort-default">
+                                    <label for="sort-default">Mặc định</label>
+                                </li>
+                                <li>
+                                    <input type="radio" name="sort" id="sort-az">
+                                    <label for="sort-az">Từ a-z</label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row__container-general" id="genresWrap">
+                        <div class="row__container-sc row__container-sc-ge" id="genresRow">
+                            <!-- <div class="row__img-link row__img-link-ge" data-movie="066">
+                                <div class="row__wrap ratioImg__wrap">
+                                    <img src="./assets/img/image066.jpg" alt="" class="row__img ratio__in">
+                                    <img src="./assets/img/iconvip.png" alt="vip" class="movies-vip">
+                                </div>
+                                <div class="row__name row__name-movies">
+                                    <span>Chúng ta</span>
+                                    <div class="row__detail">
+                                        <div class="row__detail-left">
+                                            <span>2021</span>
+                                            <span>90ph</span>
+                                        </div>
+                                        <span class="btn-genres">Phim Lẻ</span>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="footer__social">
+                    <h2 class="footer__title">LIÊN HỆ</h2>
+                    <p class="footer__email-phone">Email: nam278z01@gmail.com</p>
+                    <p class="footer__email-phone">Phone: 0321123321</p>
+                    <a href="#" class="footer__social-link" title="Facebook">
+                        <i class="footer__social-icon fab fa-facebook-square"></i>
+                    </a>
+                    <a href="#" class="footer__social-link" title="Instagram">
+                        <i class="footer__social-icon fab fa-instagram-square"></i>
+                    </a>
+                    <a href="#" class="footer__social-link">
+                        <i class="footer__social-icon fab fa-twitter" title="Twitter"></i>
+                    </a>
+                    <a href="#" class="footer__social-link" title="Youtube">
+                        <i class="footer__social-icon fab fa-youtube"></i>
+                    </a>
+                </div>
+                <div class="footer__other">
+                    <h2 class="footer__title">QUY ĐỊNH</h2>
+                    <a href="#" class="footer__other-info">Điều khoản sử dụng</a>
+                    <a href="#" class="footer__other-info">Chính sách và quy định chung</a>
+                    <a href="#" class="footer__other-info">Chính sách về quyền riêng tư</a>
+                    <a href="#" class="footer__other-info">Chính sách về sở hữu trí tuệ</a>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <!-- Modal box -->
+    <div class="modal" id="myModal">
+        <div class="modal__overlay"></div>
+        <div class="modal__body">
+            <!-- Register form -->
+            <div class="auth-form" id="registerForm">
+                <div class="auth-form__container">
+                    <div class="auth-form__header">
+                        <h3 class="auth-form__heading">Đăng ký</h3>
+                        <span class="auth-form__switch-btn">Đăng nhập</span>
+                    </div>
+                    <div class="auth-form__form">
+                        <div class="auth-form__group">
+                            <input type="text" class="auth-form__input" placeholder="Email của bạn">
+                        </div>
+                        <div class="auth-form__group">
+                            <input type="password" class="auth-form__input" placeholder="Mật khẩu của bạn">
+                        </div>
+                        <div class="auth-form__group">
+                            <input type="password" class="auth-form__input" placeholder="Nhập lại mật khẩu">
+                        </div>
+                    </div>
+                    <div class="auth-form__aside">
+                        <p class="auth-form__policy-text">
+                            Bằng việc đăng kí, bạn đồng ý với NMovies về
+                            <a href="#" class="auth-form__text-link">Điều khoản dịch vụ</a> &
+                            <a href="#" class="auth-form__text-link">Chính sách bảo mật</a>
+                        </p>
+                    </div>
+                    <div class="auth-form__controls">
+                        <button class="button btn--normal auth-form__controls-back">TRỞ LẠI</button>
+                        <button class="button btn--primary">ĐĂNG KÝ</button>
+                    </div>
+                </div>
+                <div class="auth-form__socials">
+                    <a href="#" class="auth-form__socials--facebook button btn--size-s">
+                        <i class="auth-form__socials-icon fab fa-facebook-square"></i>
+                        <span class="auth-form__socials-title">Kết nối với Facebook</span>
+                    </a>
+                    <a href="#" class="auth-form__socials--google button btn--size-s">
+                        <i class="auth-form__socials-icon fab fa-google"></i>
+                        <span class="auth-form__socials-title">Kết nối với Google</span>
+                    </a>
+                </div>
+            </div>
+            <!-- Login form -->
+            <div class="auth-form" id="loginForm">
+                <div class="auth-form__container">
+                    <div class="auth-form__header">
+                        <h3 class="auth-form__heading">Đăng nhập</h3>
+                        <span class="auth-form__switch-btn">Đăng ký</span>
+                    </div>
+                    <div class="auth-form__form">
+                        <div class="auth-form__group">
+                            <input type="text" class="auth-form__input" placeholder="Email của bạn">
+                        </div>
+                        <div class="auth-form__group">
+                            <input type="password" class="auth-form__input" placeholder="Mật khẩu của bạn">
+                        </div>
+                    </div>
+                    <div class="auth-form__aside">
+                        <div class="auth-form__help">
+                            <a href="#" class="auth-form__help-link auth-form__help-forgot">Quên mật khẩu</a>
+                            <span class="auth-form__help-separate"></span>
+                            <a href="#" class="auth-form__help-link">Cần trợ giúp?</a>
+                        </div>
+                    </div>
+                    <div class="auth-form__controls">
+                        <button class="button btn--normal auth-form__controls-back">TRỞ LẠI</button>
+                        <button class="button btn--primary">ĐĂNG NHẬP</button>
+                    </div>
+                </div>
+                <div class="auth-form__socials">
+                    <a href="#" class="auth-form__socials--facebook button btn--size-s">
+                        <i class="auth-form__socials-icon fab fa-facebook-square"></i>
+                        <span class="auth-form__socials-title">Kết nối với Facebook</span>
+                    </a>
+                    <a href="#" class="auth-form__socials--google button btn--size-s">
+                        <i class="auth-form__socials-icon fab fa-google"></i>
+                        <span class="auth-form__socials-title">Kết nối với Google</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./assets/js/data.js"></script>
+    <script src="./assets/js/base.js"></script>
+    <script src="./assets/js/genres.js"></script>
+    <script src="./assets/js/mylistNew.js"></script>
+</body>
+
+</html>

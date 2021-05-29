@@ -27,6 +27,9 @@
   --nav-color: #101010;
   --genres-color: #959595;
   --border-color: #bbb;
+  --btn-check-color: #212529;
+  --label-color: #adb5bd;
+  --btn-check-hover: #16181b;
 }
 
 .light {
@@ -330,13 +333,14 @@ button.hover-movie__button--remind {
 
 .hover-movie__info {
   padding: 0px 10px;
+  margin-bottom: 15px;
 }
 
 .hm_info {
   display: inline-block;
   font-size: 1.4rem;
   color: var(--genres-color);
-  margin: 10px 0px 20px 0;
+  margin: 10px 0px 0px 0;
   font-weight: 400;
 }
 

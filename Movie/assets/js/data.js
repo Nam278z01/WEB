@@ -13,7 +13,7 @@ function dataMovies() {
             id: "002",
             name: "Love, death and robot|Tình yêu, cái chết và người máy",
             isMyList: false,
-            isMovie: true,
+            isMovie: false,
             isComing: false,
             isVip: false
         },

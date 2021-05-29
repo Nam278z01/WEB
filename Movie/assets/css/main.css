@@ -413,7 +413,7 @@
   padding: 10px 0;
 }
 
-#genres::after {
+/* #genres::after {
   content: "";
   position: relative;
   display: inline-block;
@@ -427,7 +427,7 @@
 
 #genres:hover::after {
   transform: rotate(180deg);
-}
+} */
 
 .header__tap:hover {
   opacity: 1;
@@ -724,6 +724,8 @@ input[name="searchIp"] {
   padding-right: calc(3% - 6px);
 }
 
+#genresRow.row__container-sc::after,
+#genresRow.row__container-sc::before,
 #search.row__container-sc::after,
 #search.row__container-sc::before,
 #myList.row__container-sc::after,
@@ -794,11 +796,11 @@ input[name="searchIp"] {
   right: 0%;
   z-index: 13; */
   /* filter: brightness(80%); */
-  display: none;
+  display: block;
 }
 
-.row__name.active {
-  display: block;
+.row__name.disable {
+  display: none;
 }
 
 .row__name > span {
@@ -1071,4 +1073,113 @@ footer.footer__watch {
 .modal-movies-vip {
   width: 30px;
   margin-right: 10px;
+}
+
+/* genres */
+.filters-movies {
+  margin: 0 3% 25px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.filter {
+  position: relative;
+}
+
+.filter + .filter {
+  margin-left: 10px;
+}
+
+button.dropdown-toggle {
+  background-color: var(--btn-check-color);
+  padding: 10px 15px;
+  color: var(--genres-color);
+  font-weight: 300;
+}
+
+.dropdown-toggle > i {
+  color: var(--genres-color);
+}
+
+.filter-value {
+  color: var(--label-color);
+}
+
+.dropdown-menu {
+  position: absolute;
+  z-index: 1;
+  top: 90%;
+  background-color: var(--btn-check-color);
+  display: flex;
+  list-style: none;
+  flex-wrap: wrap;
+  padding: 0;
+  justify-content: space-between;
+  border-radius: 4px;
+  padding: 10px 15px;
+  display: none;
+}
+
+.dropdown-menu.size-genres {
+  width: 300px;
+}
+
+.dropdown-menu.size-sort {
+  width: 100%;
+}
+
+.dropdown-menu.size-loai {
+  width: 100%;
+}
+
+.dropdown-menu.active {
+  display: flex;
+}
+
+.dropdown-menu > li {
+  display: flex;
+  align-items: center;
+  padding: 5px 5px;
+  transition: background-color 0.2s;
+}
+
+.dropdown-menu > li:hover {
+  border-radius: 4px;
+  background-color: var(--btn-check-hover);
+}
+
+.dropdown-menu > li:hover > label {
+  color: var(--white-color);
+}
+
+.dropdown-menu.size-genres > li:nth-of-type(2n + 1) {
+  width: 55%;
+  margin-right: 7%;
+}
+
+.dropdown-menu.size-genres > li:nth-of-type(2n) {
+  width: 38%;
+}
+
+.dropdown-menu.size-loai> li {
+  width: 100%;
+}
+
+.dropdown-menu.size-sort> li {
+  width: 100%;
+}
+
+.dropdown-menu > li > input {
+  color: var(--genres-color);
+  margin-left: 0;
+  margin-right: 8px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.dropdown-menu > li > label {
+  color: var(--label-color);
+  font-size: 1.3rem;
+  font-weight: 300;
+  cursor: pointer;
 }
