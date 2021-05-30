@@ -366,6 +366,18 @@ button.hover-movie__button--remind {
   display: none;
 }
 
+.modalSecond {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  animation: fadeIn linear 0.2s;
+  z-index: 300;
+  display: none;
+}
+
+.modal__overlaySecond,
 .modal__overlay {
   position: absolute;
   width: 100%;
@@ -373,6 +385,7 @@ button.hover-movie__button--remind {
   background-color: var(--primary-color-sx);
 }
 
+.modal__bodySecond,
 .modal__body {
   width: 100%;
   /* height: 100%; */
@@ -518,6 +531,60 @@ button.hover-movie__button--remind {
 
 .auth-form__help-forgot {
   color: var(--primary-color);
+}
+
+/* Modal addForm */
+#buyVipForm,
+#addForm {
+  margin: auto;
+  width: 550px;
+  max-width: 100%;
+  /* border-radius: 4px; */
+  background-color: var(--auth-color);
+  /* overflow: hidden; */
+  border-top: 3px solid var(--primary-color);
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  /* position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
+  display: none;
+  z-index: 1;
+}
+
+.addForm-info {
+  font-size: 2.8rem;
+  color: var(--white-color);
+  text-align: center;
+  font-weight: 700;
+}
+
+.addForm-notify {
+  font-size: 1.6rem;
+  color: var(--border-color);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.addForm__btn {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 30px;
+}
+
+.button.addForm-btn__cancel {
+  font-size: 1.6rem;
+  border: 1px solid var(--white-color);
+  padding: 9px 45px;
+}
+
+.button.addForm-btn__buyVip,
+.button.addForm-btn__Login {
+  font-size: 1.6rem;
+  background-color: var(--white-color);
+  color: var(--black-color);
+  font-weight: 500;
 }
 
 /* Modal movies */
@@ -1159,6 +1226,11 @@ button.hover-movie__button--remind {
   transition: 0.2s;
 }
 
+.movies-season.active {
+  cursor: default !important;
+  background-color: var(--primary-color-fr) !important;
+}
+
 .movies-season:hover {
   background-color: var(--primary-color-fr);
   cursor: pointer;
@@ -1174,12 +1246,16 @@ button.hover-movie__button--remind {
   padding-left: 15px;
 }
 
-#episodeMovie {
+.modal__movies-ep-second {
   overflow-x: auto;
   position: relative;
 }
 
-#episodeMovie::-webkit-scrollbar {
+.modal__movies-ep-second::-webkit-scrollbar {
+  display: none;
+}
+
+.modal__movies-ep-second.disable {
   display: none;
 }
 

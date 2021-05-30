@@ -94,39 +94,52 @@ $(document).ready(function () {
     };
     ResLog();
     function ResLog() {
-        const modal = $("#myModal");
+        const modalSecond = $("#myModalSecond")
         const btnRes = $(".btn-account__register");
         const btnLog = $(".btn-account__signIn");
         const formRes = $("#registerForm");
         const formLog = $("#loginForm");
-        const back = $(".auth-form__controls-back");
+        const back = $(".auth-form__controls-back, .addForm-btn__cancel");
         const btnSwitch = $(".auth-form__switch-btn");
+        const btnLoginAdd = $(".addForm-btn__Login");
         var body = $("body");
         var check = true;
         btnRes.click(function () {
-            modal.css("display", "flex");
+            modalSecond.css("display", "flex");
             formRes.show();
             check = false;
             body.css("overflow", "hidden");
         })
         btnLog.click(function () {
-            modal.css("display", "flex");
+            modalSecond.css("display", "flex");
             formLog.show();
             body.css("overflow", "hidden");
         })
         back.click(function () {
-            modal.css("display", "none");
+            modalSecond.css("display", "none");
             formRes.hide();
             formLog.hide();
             check = true;
-            body.css("overflow", "auto");
+            let modalModal = $(".modal__body .modal-movie");
+            if (modalModal.length > 0) {
+                body.css("overflow", "hidden");
+            }
+            else {
+                body.css("overflow", "auto");
+            }
         })
         $(window).click(function (e) {
-            if (e.target == modal.children(".modal__overlay").get(0) || e.target == modal.children(".modal__body").get(0)) {
-                modal.hide();
+            if (e.target == modalSecond.children(".modal__overlaySecond").get(0) || e.target == modalSecond.children(".modal__bodySecond").get(0)) {
+                modalSecond.hide();
                 formRes.hide();
                 formLog.hide();
-                body.css("overflow", "auto");
+                let modalModal = $(".modal__body .modal-movie");
+                if (modalModal.length > 0) {
+                    body.css("overflow", "hidden");
+                }
+                else {
+                    body.css("overflow", "auto");
+                }
             }
         })
         btnSwitch.click(function () {
@@ -139,6 +152,10 @@ $(document).ready(function () {
                 formLog.hide();
                 formRes.show();
             }
+        })
+        btnLoginAdd.click(function () {
+            $("#addForm").hide()
+            formLog.show()
         })
     }
 

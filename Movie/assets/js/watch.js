@@ -10,8 +10,11 @@ $(document).ready(function () {
     }
     else {
         sliderGe($("#episodeMovie"), ".row__item-next", ".row__item-back", ".modal-recommend__container-sc", ".modal-recommend__img-link");
+        sliderGe($("#episodeMovie2"), ".row__item-next", ".row__item-back", ".modal-recommend__container-sc", ".modal-recommend__img-link");
         sliderGe($("#recommendMovies"), ".row__item-next", ".row__item-back", ".modal-recommend__container-sc", ".modal-recommend__img-link");
     }
+    $("#episodeMovie2").addClass("disable")
+    $("#episodeMovie").removeClass("disable")
 
     // Scroll
     scrollNav();
@@ -23,7 +26,6 @@ $(document).ready(function () {
         $(window).scroll(function () {
             var movieH = $(".watch-movie__header");
             var currentScrollTop = $(this).scrollTop();
-            console.log(movieH.outerHeight())
             if (currentScrollTop < movieH.outerHeight()) {
                 $("#my-nav-watch").hide();
             } else {
@@ -32,8 +34,11 @@ $(document).ready(function () {
                 else
                     $("#my-nav-watch").css("display", "flex");
             }
+            const search = $("#search-wrap");
+            if (search.show()) {
+                search.hide();
+            }
         });
-        
     }
 
     // hover hàng phim
@@ -160,4 +165,22 @@ $(document).ready(function () {
                 $(".season-icon").after().css("transform", "rotate(0deg)")
         })
     }
+
+    $(".movies-season").click(function () {
+        if (!$(this).hasClass("active")) {
+            let season = $(this).children(".movies-season__name").text()
+            $(".movies-season").removeClass("active")
+            $(this).addClass("active")
+            $(".movies-menu-seasons").slideToggle();
+            $("#movie-btn-seasons > .seasonCurrent").text(season)
+            if (season == "Mùa 2") {
+                $("#episodeMovie").addClass("disable")
+                $("#episodeMovie2").removeClass("disable")
+            }
+            else {
+                $("#episodeMovie2").addClass("disable")
+                $("#episodeMovie").removeClass("disable")
+            }
+        }
+    })
 });

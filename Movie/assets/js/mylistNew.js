@@ -15,6 +15,16 @@ $(document).ready(function () {
         hoverMovies();
     }
 
+    function scrollNav() {
+        window.addEventListener('scroll', function (e) {
+            const search = $("#search-wrap");
+            if (search.show()) {
+                search.hide();
+            }
+        })
+    }
+    scrollNav();
+
     function addList() {
         ClearArr();
         var myNewList = "";
@@ -78,69 +88,79 @@ $(document).ready(function () {
 
     function addStorage(btn, dataNew, pos, idInput, RowLink) {
         btn.on('click', function () {
-            let dataElement = dataNew[pos]
 
-            let icon = $(this).children(".bx");
+            let account = sessionStorage.getItem("account")
 
-            if (!dataElement.isMyList) {
-                icon.removeClass("bx-plus").addClass("bx-check");
-
-                dataNew[pos].isMyList = true
-                window.sessionStorage.setItem("allMovies", JSON.stringify(dataNew));
-
-                var newMovie = [];
-                let currentMyList = window.sessionStorage.getItem("myList");
-
-                if (currentMyList) {
-                    let check = true;
-                    let data = JSON.parse(currentMyList);
-                    let count = data.length;
-                    for (var i = 0; i < count; i++) {
-                        // Nếu có xóa thì chèn vào vùng bị xóa
-                        if (!data[i]) {
-                            data[i] = dataNew[pos];
-                            check = false
+            if (account) {
+                let dataElement = dataNew[pos]
+    
+                let icon = $(this).children(".bx");
+    
+                if (!dataElement.isMyList) {
+                    icon.removeClass("bx-plus").addClass("bx-check");
+    
+                    dataNew[pos].isMyList = true
+                    window.sessionStorage.setItem("allMovies", JSON.stringify(dataNew));
+    
+                    var newMovie = [];
+                    let currentMyList = window.sessionStorage.getItem("myList");
+    
+                    if (currentMyList) {
+                        let check = true;
+                        let data = JSON.parse(currentMyList);
+                        let count = data.length;
+                        for (var i = 0; i < count; i++) {
+                            // Nếu có xóa thì chèn vào vùng bị xóa
+                            if (!data[i]) {
+                                data[i] = dataNew[pos];
+                                check = false
+                            }
+                        }
+                        // Nếu ko xóa thì cộng như bth
+                        if (check) {
+                            data.unshift(dataElement);
+                        }
+                        newMovie = data;
+                    } else {
+                        newMovie.unshift(dataElement);
+                    }
+                    window.sessionStorage.setItem("myList", JSON.stringify(newMovie));
+    
+                    if (RowLink) {
+                        if (RowLink.parent().parent().is("#myListWrap")) {
+                            RowLink.show();
                         }
                     }
-                    // Nếu ko xóa thì cộng như bth
-                    if (check) {
-                        data.unshift(dataElement);
-                    }
-                    newMovie = data;
-                } else {
-                    newMovie.unshift(dataElement);
                 }
-                window.sessionStorage.setItem("myList", JSON.stringify(newMovie));
-
-                if (RowLink) {
-                    if (RowLink.parent().parent().is("#myListWrap")) {
-                        RowLink.show();
+                else {
+                    icon.removeClass("bx-check").addClass("bx-plus");
+    
+                    dataNew[pos].isMyList = false
+                    window.sessionStorage.setItem("allMovies", JSON.stringify(dataNew));
+    
+                    let currentMyList = window.sessionStorage.getItem("myList");
+                    let data = JSON.parse(currentMyList);
+    
+                    let count = data.length;
+                    for (var i = 0; i < count; i++) {
+                        if (data[i].id == idInput) {
+                            delete data[i];
+                            break;
+                        }
+                    }
+                    window.sessionStorage.setItem("myList", JSON.stringify(data));
+    
+                    if (RowLink) {
+                        if (RowLink.parent().parent().is("#myListWrap")) {
+                            RowLink.hide();
+                        }
                     }
                 }
             }
             else {
-                icon.removeClass("bx-check").addClass("bx-plus");
-
-                dataNew[pos].isMyList = false
-                window.sessionStorage.setItem("allMovies", JSON.stringify(dataNew));
-
-                let currentMyList = window.sessionStorage.getItem("myList");
-                let data = JSON.parse(currentMyList);
-
-                let count = data.length;
-                for (var i = 0; i < count; i++) {
-                    if (data[i].id == idInput) {
-                        delete data[i];
-                        break;
-                    }
-                }
-                window.sessionStorage.setItem("myList", JSON.stringify(data));
-
-                if (RowLink) {
-                    if (RowLink.parent().parent().is("#myListWrap")) {
-                        RowLink.hide();
-                    }
-                }
+                $("#myModalSecond").css("display", "flex")
+                $("body").css("overflow", "hidden")
+                $("#addForm").show()
             }
         });
     }
@@ -362,7 +382,7 @@ $(document).ready(function () {
                         hoverVideo.hide();
                     }
                 }, 10000);
-
+               
                 addStorage($(".hover-movie__button--add-removeList"), dataArr, posElement, id, main);
 
             }, 800)
@@ -892,12 +912,12 @@ $(document).ready(function () {
                         <div class="info-left__first">
                             <span class="info__views">532.632 lượt xem</span>
                             <div class="info__point-vote">
-                                <span class="info__point">4.5</span>
+                                <span class="info__point">4.0</span>
                                 <div class="info__vote">
-                                    <i class="far fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                    <i class="far fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
                                     <i class="far fa-star"></i>
                                 </div>
                             </div>
