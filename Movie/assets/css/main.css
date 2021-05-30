@@ -1079,6 +1079,7 @@ footer.footer__watch {
 .filters-movies {
   margin: 0 3% 25px;
   display: flex;
+  /* flex-wrap: wrap; */
   justify-content: flex-start;
 }
 
@@ -1182,4 +1183,6 @@ button.dropdown-toggle {
   font-size: 1.3rem;
   font-weight: 300;
   cursor: pointer;
+  width: 100%;
+  line-height: 2.8rem;
 }

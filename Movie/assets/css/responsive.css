@@ -234,11 +234,17 @@
 
   /* Watch */
   .footer.footer__watch {
-  margin-top: 10%;
-  margin-bottom: 10%;
-  margin-left: 3%;
-  margin-right: 3%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    margin-left: 3%;
+    margin-right: 3%;
   }
+
+  /* Genres */
+  /* .filter:last-child {
+    margin-left: 0;
+    margin-top: 20px;
+  } */
 }
 /* Mobile - Tablet */
 @media (max-width: 1024px) {

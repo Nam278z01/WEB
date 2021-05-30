@@ -234,7 +234,7 @@
                 <div class="main__row">
                     <div class="row__header row__header-general">
                         <span class="row__header-link">
-                            <h2 class="row__title">Khoa học viễn tưởng</h2>
+                            <h2 class="row__title">Danh sách phim</h2>
                         </span>
                     </div>
                     <div class="filters-movies">
@@ -301,15 +301,15 @@
                             </button>
                             <ul class="dropdown-menu size-loai">
                                 <li>
-                                    <input type="checkbox" id="movie-ck">
+                                    <input type="checkbox" id="movie-ck" name="loai" value="1">
                                     <label for="movie-ck">Phim lẻ</label>
                                 </li>
                                 <li>
-                                    <input type="checkbox" id="tv-series-ck">
+                                    <input type="checkbox" id="tv-series-ck" name="loai" value="2">
                                     <label for="tv-series-ck">Phim bộ</label>
                                 </li>
                                 <li>
-                                    <input type="checkbox" id="vip-ck">
+                                    <input type="checkbox" id="vip-ck" name="loai" value="3">
                                     <label for="vip-ck">Vip</label>
                                 </li>
                             </ul>
@@ -321,12 +321,12 @@
                             </button>
                             <ul class="dropdown-menu size-sort">
                                 <li>
-                                    <input type="radio" name="sort" id="sort-default">
+                                    <input type="radio" name="sort" id="sort-default" value="default" checked>
                                     <label for="sort-default">Mặc định</label>
                                 </li>
                                 <li>
-                                    <input type="radio" name="sort" id="sort-az">
-                                    <label for="sort-az">Từ a-z</label>
+                                    <input type="radio" name="sort" id="sort-az" value="az">
+                                    <label for="sort-az">Tên phim (a-z)</label>
                                 </li>
                             </ul>
                         </div>

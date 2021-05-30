@@ -573,6 +573,7 @@ $(document).ready(function () {
     showModalMoviesWhenClickIMG()
     ShowWhenReset();
     selectSeason();
+    AutoVideo()
 
     function showModalMoviesWhenClickIMG() {
         $(".row__img-link").click(function () {
