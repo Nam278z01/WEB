@@ -534,6 +534,10 @@ input[name="searchIp"] {
   display: block;
 }
 
+.header__account:hover .whenLogIn {
+  display: block;
+}
+
 .signIn-register {
   position: absolute;
   display: block;
@@ -561,7 +565,66 @@ input[name="searchIp"] {
 .button.btn-account__signIn {
   margin-top: 10px;
 }
+/* Khi đã đăng nhập */
+.whenLogIn {
+  width: 180px;
+  position: absolute;
+  right: 0;
+  background-color: var(--primary-color-sc);
+  border-top: 3px solid var(--primary-color);
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+   transform-origin: right 10%;
+  animation: growth-sc linear 0.2s;
+  display: none;
+}
 
+.accountLogIn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 0;
+  border-bottom: 1px solid var(--white-color-sc);
+  cursor: pointer;
+}
+
+.accountLogIn > img {
+  height: 40px;
+  width: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.accountLogIn > span {
+  font-size: 1.6rem;
+  color: var(--white-color);
+  padding-left: 15px;
+}
+
+.signOut {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+.accountLogIn:hover,
+.signOut:hover {
+  background-color: var(--hover-color-fr);
+}
+
+.signOut > i {
+  font-size: 2.4rem;
+  color: var(--white-color);
+}
+
+.signOut > span {
+  font-size: 1.4rem;
+  color: var(--white-color);
+  padding-left: 20px;
+}
+/* End đăng nhập */
 #btn-search > i {
   margin: 0;
 }

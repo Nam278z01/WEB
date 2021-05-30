@@ -112,7 +112,7 @@ $(document).ready(function () {
             else if (moviesLoai.length == 1) {
                 if (moviesLoai[0] == 1)
                     selectedName.text("Phim lẻ")
-                else if (moviesLoai[0] == 1)
+                else if (moviesLoai[0] == 2)
                     selectedName.text("Phim bộ")
                 else
                     selectedName.text("Vip")

@@ -544,5 +544,57 @@ function addStorage() {
         sessionStorage.setItem("allMovies", JSON.stringify(data))
     }
 }
+// Đăng nhập
+function signIn(email, password) {
+    if (email == "nam278z01@gmail.com" && password == "278")
+    {
+        let account = {
+            email: "nam278z01@gmail.com",
+            password: "278",
+            name: "Nam Nguyễn",
+            isVip: true
+        }
+        sessionStorage.setItem("account", JSON.stringify(account))
+        return true
+    }
+    else {
+        return false
+    }
+}
 
+let accountData = sessionStorage.getItem("account")
+if (accountData) {
+    $(".header__account > .signIn-register").remove()
+    let signIn = `<div class="whenLogIn">
+                                <div class="accountLogIn">
+                                    <img src="./assets/img/image009.jpg" alt="">
+                                    <span>Nguyễn Nam</span>
+                                </div>
+                                <div class="signOut">
+                                    <i class='bx bx-log-out-circle bx-rotate-90'></i>
+                                    <span>Đăng xuất</span>
+                                </div>
+                            </div>`
+    $(".header__account").append(signIn)
+}
+else {
+    $(".header__account > .whenLogIn").remove()
+    let signOut = `<div class="signIn-register">
+                                <button class="button btn-account__register">Đăng ký</button>
+                                <button class="button btn-account__signIn">Đăng nhập</button>
+                            </div>`
+    $(".header__account").append(signOut)
+}
 
+$("#loginForm .btn--primary").click(function () {
+    let email = $("#loginForm input[type=text]").val()
+    let password = $("#loginForm input[type=password]").val()
+    if (signIn(email, password)) {
+        location.reload()
+    }
+})
+
+$(".whenLogIn .signOut").click(function () {
+    sessionStorage.setItem("account", "")
+    location.reload()
+})

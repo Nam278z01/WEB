@@ -22,6 +22,7 @@
   --hover-color: #2f2f2f;
   --hover-color-sc: rgb(47, 47, 47, 0.3);
   --hover-color-th: #141414;
+  --hover-color-fr:#333333FF;
   --vip-color: #da9e1c;
   --auth-color: #333333;
   --nav-color: #101010;
@@ -30,6 +31,7 @@
   --btn-check-color: #212529;
   --label-color: #adb5bd;
   --btn-check-hover: #16181b;
+
 }
 
 .light {
