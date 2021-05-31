@@ -179,6 +179,41 @@ $(document).ready(function () {
         });
     }
 
+    function playMovies(btn, id, href) {
+        btn.click(function () {
+            let movies = sessionStorage.getItem('allMovies')
+            movies = JSON.parse(movies)
+            let movieShow
+            for (const movie of movies) {
+                if (movie.id == id) {
+                    movieShow = movie
+                }
+            }
+            if (movieShow.isVip) {
+                let account = sessionStorage.getItem('account')
+                if (account) {
+                    account = JSON.parse(account)
+                    if (!account.isVip) {
+                        $("#myModalSecond").css("display", "flex")
+                        $("body").css("overflow", "hidden")
+                        $("#buyVipForm").show()
+                    }
+                    else {
+                        window.location = href
+                    }
+                }
+                else {
+                    $("#myModalSecond").css("display", "flex")
+                    $("body").css("overflow", "hidden")
+                    $("#playMovies").show()
+                }
+            }
+            else {
+                window.location = href
+            }
+        })
+    }
+
     function hoverMovies() {
         var myTimeout
         var parent
@@ -213,7 +248,7 @@ $(document).ready(function () {
                 }
             }
 
-            let idWatchMovie = isMovie == true ? `window.location='./watch.html?movie=${id}'` : `window.location='./watch.html?movie=${id}&season=1&ep=01'`
+            let idWatchMovie = isMovie == true ? `./watch.html?movie=${id}` : `./watch.html?movie=${id}&season=1&ep=01`
 
             var infoOther = isMovie == true ? `<div class="hover-movie__info">
                                                 <div>
@@ -246,7 +281,7 @@ $(document).ready(function () {
                                                     <span>Danh sách</span>
                                                 </button>`;
 
-            var btn = `<button class="button hover-movie__button--play" onclick="${idWatchMovie}">
+            var btn = `<button class="button hover-movie__button--play">
                                             <i class="bx bxs-right-arrow"></i>
                                             <span>Xem ngay</span>
                                         </button>` + btnAddRemove + `<button class="button hover-movie__button--moreinfo">
@@ -358,6 +393,7 @@ $(document).ready(function () {
                 }, 10000);
 
                 addStorage($(".hover-movie__button--add-removeList"), dataArr, posElement, id, main);
+                playMovies($(".hover-movie__button--play"), id, idWatchMovie)
 
             }, 800)
         }).mouseleave(function () {
@@ -662,7 +698,7 @@ $(document).ready(function () {
             }
         }
 
-        let idWatchMovie = dataWantToShow.isMovie == true ? `window.location='./watch.html?movie=${dataWantToShow.id}'` : `window.location='./watch.html?movie=${dataWantToShow.id}&season=1&ep=01'`
+        let idWatchMovie = dataWantToShow.isMovie == true ? `./watch.html?movie=${dataWantToShow.id}` : `./watch.html?movie=${dataWantToShow.id}&season=1&ep=01`
 
         let btnAddOrRemove = dataWantToShow.isMyList == false ? `<button class="button modal-movie__button--add-remove">
                                                     <i class="bx bx-plus"></i>
@@ -673,7 +709,7 @@ $(document).ready(function () {
                             <span>Danh sách</span>
                         </button>`;
 
-        let btn = `<button class="button modal-movie__button--play" onclick="${idWatchMovie}">
+        let btn = `<button class="button modal-movie__button--play">
                             <i class="bx bxs-right-arrow"></i>
                             <span>Xem ngay</span>
                         </button>`+ btnAddOrRemove;
@@ -1667,6 +1703,7 @@ $(document).ready(function () {
         }, 10000);
 
         addStorage($(".modal-movie__button--add-remove"), dataArr, posElement, IdMovies, RowLink)
+        playMovies($(".modal-movie__button--play"), dataWantToShow.id, idWatchMovie)
         // Modal
         const modal = $("#myModal");
         $(window).click(function (e) {

@@ -534,6 +534,7 @@ button.hover-movie__button--remind {
 }
 
 /* Modal addForm */
+#playMovies,
 #buyVipForm,
 #addForm {
   margin: auto;

@@ -99,6 +99,9 @@ $(document).ready(function () {
         const btnLog = $(".btn-account__signIn");
         const formRes = $("#registerForm");
         const formLog = $("#loginForm");
+        const addForm = $("#addForm");
+        const playMovies = $("#playMovies");
+        const buyVipForm = $("#buyVipForm");
         const back = $(".auth-form__controls-back, .addForm-btn__cancel");
         const btnSwitch = $(".auth-form__switch-btn");
         const btnLoginAdd = $(".addForm-btn__Login");
@@ -119,6 +122,9 @@ $(document).ready(function () {
             modalSecond.css("display", "none");
             formRes.hide();
             formLog.hide();
+            addForm.hide()
+            playMovies.hide()
+            buyVipForm.hide()
             check = true;
             let modalModal = $(".modal__body .modal-movie");
             if (modalModal.length > 0) {
@@ -154,7 +160,8 @@ $(document).ready(function () {
             }
         })
         btnLoginAdd.click(function () {
-            $("#addForm").hide()
+            addForm.hide()
+            playMovies.hide()
             formLog.show()
         })
     }

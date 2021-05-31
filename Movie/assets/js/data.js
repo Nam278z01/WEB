@@ -546,7 +546,7 @@ function addStorage() {
 }
 // Đăng nhập
 function signIn(email, password) {
-    if (email == "nam278z01@gmail.com" && password == "278")
+    if (email == "nam@gmail.com" && password == "278")
     {
         let account = {
             email: "nam278z01@gmail.com",
@@ -557,9 +557,20 @@ function signIn(email, password) {
         sessionStorage.setItem("account", JSON.stringify(account))
         return true
     }
+    else if (email == "namhai@gmail.com" && password == "278") {
+        let account = {
+            email: "nam278z01@gmail.com",
+            password: "278",
+            name: "Nam Nguyễn",
+            isVip: false
+        }
+        sessionStorage.setItem("account", JSON.stringify(account))
+        return true
+    }
     else {
         return false
     }
+    
 }
 
 let accountData = sessionStorage.getItem("account")

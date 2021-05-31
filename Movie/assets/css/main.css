@@ -577,6 +577,7 @@ input[name="searchIp"] {
    transform-origin: right 10%;
   animation: growth-sc linear 0.2s;
   display: none;
+  z-index: 1;
 }
 
 .accountLogIn {
