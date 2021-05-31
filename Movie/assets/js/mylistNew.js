@@ -1624,6 +1624,7 @@ $(document).ready(function () {
         let modalBody = $(".modal__body");
 
         modalBody.append(modalMovies);
+
         selectSeason();
         selectSeasonShow()
         let modal_movies = $(".modal__body .modal-movie");
@@ -1632,13 +1633,42 @@ $(document).ready(function () {
         modal_movies.show();
         modalBody.css('height', '100%');
 
+        //Chèn link movies
+        let seasonQuatity = $(".modal__movies-ep-second").length
+        for (let i = 0; i < seasonQuatity; i++) {
+            $(`.modal__movies-ep-second:nth-child(${Number(i) + 2}) .modal-recommend__wrap-img`).each(function (index) {
+                let indexNew
+                if (index < 9) {
+                    indexNew = "0" + (index + 1)
+                }
+                else {
+                    indexNew = index + 1
+                }
+                $(this).click(function () {
+                    window.location = `./watch.html?movie=${dataWantToShow.id}&season=${Number(i) + 1}&ep=${indexNew}`
+                })
+            })
+            
+        }
+        
+        if (navigator.userAgent.match(/Android/i)
+            || navigator.userAgent.match(/webOS/i)
+            || navigator.userAgent.match(/iPhone/i)
+            || navigator.userAgent.match(/iPad/i)
+            || navigator.userAgent.match(/iPod/i)
+            || navigator.userAgent.match(/BlackBerry/i)
+            || navigator.userAgent.match(/Windows Phone/i)) {
+
+        }
+        else {
+            sliderGe($("#episodeMovie"), ".row__item-next", ".row__item-back", ".modal-recommend__container-sc", ".modal-recommend__img-link");
+            sliderGe($("#episodeMovie2"), ".row__item-next", ".row__item-back", ".modal-recommend__container-sc", ".modal-recommend__img-link");
+            sliderGe($("#recommendMovies"), ".row__item-next", ".row__item-back", ".modal-recommend__container-sc", ".modal-recommend__img-link");
+        }
+        
         $(".modal__movies-ep-second").addClass("disable")
         $(".modal__movies-ep-second:nth-child(2)").removeClass("disable")
         $(`.movies-season:nth-child(1)`).addClass("active")
-
-        sliderGe($("#episodeMovie"), ".row__item-next", ".row__item-back", ".modal-recommend__container-sc", ".modal-recommend__img-link");
-        sliderGe($("#episodeMovie2"), ".row__item-next", ".row__item-back", ".modal-recommend__container-sc", ".modal-recommend__img-link");
-        sliderGe($("#recommendMovies"), ".row__item-next", ".row__item-back", ".modal-recommend__container-sc", ".modal-recommend__img-link");
 
         const headerMImg = $(".modal-movie__img")
         const headerMVideo = $("#modal-movie__video");
@@ -1699,7 +1729,7 @@ $(document).ready(function () {
                 window.history.pushState({}, document.title, updatedUri);
             }
             clearInterval(myInterval);
-        })
+        })        
     }
 
     function selectSeasonShow() {

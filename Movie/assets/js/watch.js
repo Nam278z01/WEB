@@ -1097,6 +1097,35 @@ $(document).ready(function () {
         
         $("#contentWatch").prepend(content)
 
+        //Chèn link movies
+        let seasonQuatity = $(".modal__movies-ep-second").length
+        for (let i = 0; i < seasonQuatity; i++) {
+            $(`.modal__movies-ep-second:nth-child(${Number(i) + 2}) .modal-recommend__wrap-img`).each(function (index) {
+                let indexNew
+                if (index < 9) {
+                    indexNew = "0" + (index + 1)
+                }
+                else {
+                    indexNew = index + 1
+                }
+                $(this).click(function () {
+                    let url = new URL(window.location.href)
+                    url.searchParams.set('season', (Number(i) + 1).toString())
+                    url.searchParams.set('ep', indexNew.toString())
+                    window.history.pushState(null, null, url)
+                    $(".watch-link").removeClass("active")
+                    let selectM = `.modal__movies-ep-second:nth-child(${Number(i) + 2}) .watch-link:nth-child(${index + 1})`
+                    $(selectM).addClass("active")
+                    $("#my-video-watch").attr('src', './assets/video/video' + idMovie + '.mp4')
+                    $("#my-video-watch").get(0).play()
+                    $('body,html').animate({
+                        scrollTop: 0
+                    })
+                })
+            })
+
+        }
+
         if (navigator.userAgent.match(/Android/i)
             || navigator.userAgent.match(/webOS/i)
             || navigator.userAgent.match(/iPhone/i)
@@ -1121,6 +1150,6 @@ $(document).ready(function () {
         $(".movies-season").removeClass("active")
         $(`.movies-season:nth-child(${idSeason})`).addClass("active")
 
-        selectSeasonShow()
+        selectSeasonShow()        
     }
 });
