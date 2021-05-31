@@ -1082,6 +1082,7 @@ span.btn-genres {
 }
 
 .watch-movie__header {
+  background-color: var(--black-color);
   position: relative;
   height: 100vh;
 }

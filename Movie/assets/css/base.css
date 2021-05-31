@@ -963,6 +963,16 @@ button.hover-movie__button--remind {
   transform: scale(1.2);
 }
 
+.watch-link.active .modal-recommend__wrap:hover .modal-recommend__link {
+  opacity: 0 !important;
+  cursor: default;
+} 
+
+.watch-link.active .modal-recommend__wrap:hover .modal-recommend__img {
+  transform: scale(1) !important;
+  cursor: default;
+}
+
 .modal-recommend__link {
   position: absolute;
   top: 0;

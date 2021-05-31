@@ -239,6 +239,8 @@ $(document).ready(function () {
                 }
             }
 
+            let idWatchMovie = isMovie == true ? `window.location='./watch.html?movie=${id}'` : `window.location='./watch.html?movie=${id}&season=1&ep=01'`
+
             var infoOther = isMovie == true ? `<div class="hover-movie__info">
                                                 <div>
                                                     <span class="hm_info">2021</span>
@@ -270,7 +272,7 @@ $(document).ready(function () {
                                                     <span>Danh sách</span>
                                                 </button>`;
 
-            var btn = `<button class="button hover-movie__button--play">
+            var btn = `<button class="button hover-movie__button--play" onclick="${idWatchMovie}">
                                             <i class="bx bxs-right-arrow"></i>
                                             <span>Xem ngay</span>
                                         </button>` + btnAddRemove + `<button class="button hover-movie__button--moreinfo">
@@ -552,7 +554,6 @@ $(document).ready(function () {
 
     showModalMoviesWhenClickIMG()
     ShowWhenReset();
-    selectSeason();
 
     function showModalMoviesWhenClickIMG() {
         $(".row__img-link").click(function () {
@@ -626,6 +627,8 @@ $(document).ready(function () {
             }
         }
 
+        let idWatchMovie = dataWantToShow.isMovie == true ? `window.location='./watch.html?movie=${dataWantToShow.id}'` : `window.location='./watch.html?movie=${dataWantToShow.id}&season=1&ep=01'`
+
         let btnAddOrRemove = dataWantToShow.isMyList == false ? `<button class="button modal-movie__button--add-remove">
                                                     <i class="bx bx-plus"></i>
                                                     <span>Danh sách</span>
@@ -635,7 +638,7 @@ $(document).ready(function () {
                             <span>Danh sách</span>
                         </button>`;
 
-        let btn = `<button class="button modal-movie__button--play">
+        let btn = `<button class="button modal-movie__button--play" onclick="${idWatchMovie}">
                             <i class="bx bxs-right-arrow"></i>
                             <span>Xem ngay</span>
                         </button>`+ btnAddOrRemove;
@@ -850,6 +853,279 @@ $(document).ready(function () {
                             </div>
                         </div>
                     </div>
+                    <div class="modal__movies-ep-second" id="episodeMovie2">
+                            <button class="btn-icon fas fa-chevron-left row__item-back modal-recommend__item-back"></button>
+                            <button class="btn-icon fas fa-chevron-right row__item-next modal-recommend__item-next"></button>
+                            <div class="modal-recommend__container-sc">
+                                <div class="modal-recommend__img-link">
+                                    <div class="modal-recommend__wrap">
+                                        <div class="modal-recommend__wrap-img modal-episode__wrap-img">
+                                            <img src="./assets/img/image_season2_ep01_035.jpg" alt="" class="modal-recommend__img">
+                                            <div class="modal-recommend__link">
+                                                <i class="fas fa-play"></i>
+                                            </div>
+                                        </div>
+                                        <div class="recommend-movies__info episode__info">
+                                            <p class="episode-name">[Mùa 2] Tập 1. Seven Thirty-Seven</p>
+                                            <div class="row__detail-left">
+                                                <span>2021</span>
+                                                <span>90ph</span>
+                                            </div>
+                                            <span class="episode__description">
+                                                Walt and Jesse realize how dire their situation is. They must come up with a plan to kill Tuco before Tuco kills them
+                                                first.
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-recommend__img-link">
+                                    <div class="modal-recommend__wrap">
+                                        <div class="modal-recommend__wrap-img modal-episode__wrap-img">
+                                            <img src="./assets/img/image_season2_ep02_035.jpg" alt="" class="modal-recommend__img">
+                                            <div class="modal-recommend__link">
+                                                <i class="fas fa-play"></i>
+                                            </div>
+                                        </div>
+                                        <div class="recommend-movies__info episode__info">
+                                            <p class="episode-name">[Mùa 2] Tập 2. Grilled</p>
+                                            <div class="row__detail-left">
+                                                <span>2021</span>
+                                                <span>90ph</span>
+                                            </div>
+                                            <span class="episode__description">
+                                                Walt's disappearance is met with investigation by both his wife and Hank, as Tuco Salamanca intends to leave town with
+                                                his kidnapped cooks.
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-recommend__img-link">
+                                    <div class="modal-recommend__wrap">
+                                        <div class="modal-recommend__wrap-img modal-episode__wrap-img">
+                                            <img src="./assets/img/image_season2_ep03_035.jpg" alt="" class="modal-recommend__img">
+                                            <div class="modal-recommend__link">
+                                                <i class="fas fa-play"></i>
+                                            </div>
+                                        </div>
+                                        <div class="recommend-movies__info">
+                                            <p class="episode-name">[Mùa 2] Tập 3. Bit by a Dead Bee</p>
+                                            <div class="row__detail-left">
+                                                <span>2021</span>
+                                                <span>90ph</span>
+                                            </div>
+                                            <span class="episode__description">
+                                                Walt and Jesse try to come up with alibis for their disappearances.
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-recommend__img-link">
+                                    <div class="modal-recommend__wrap">
+                                        <div class="modal-recommend__wrap-img modal-episode__wrap-img">
+                                            <img src="./assets/img/image_season2_ep04_035.jpg" alt="" class="modal-recommend__img">
+                                            <div class="modal-recommend__link">
+                                                <i class="fas fa-play"></i>
+                                            </div>
+                                        </div>
+                                        <div class="recommend-movies__info">
+                                            <p class="episode-name">[Mùa 2] Tập 4. Down</p>
+                                            <div class="row__detail-left">
+                                                <span>2021</span>
+                                                <span>90ph</span>
+                                            </div>
+                                            <span class="episode__description">
+                                                Skyler keeps mysteriously leaving without talking to Walt. Jesse's parents throw him out of his own house.
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-recommend__img-link">
+                                    <div class="modal-recommend__wrap">
+                                        <div class="modal-recommend__wrap-img modal-episode__wrap-img">
+                                            <img src="./assets/img/image_season2_ep05_035.jpg" alt="" class="modal-recommend__img">
+                                            <div class="modal-recommend__link">
+                                                <i class="fas fa-play"></i>
+                                            </div>
+                                        </div>
+                                        <div class="recommend-movies__info">
+                                            <p class="episode-name">[Mùa 2] Tập 5. Breakage</p>
+                                            <div class="row__detail-left">
+                                                <span>2021</span>
+                                                <span>90ph</span>
+                                            </div>
+                                            <span class="episode__description">
+                                                Walt and Jesse decide to start their own little empire with the help of Jesse's friends: Skinny Pete, Combo, and Badger.
+                                                Meanwhile, Hank tries to pull himself together after his encounter with Tuco.
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-recommend__img-link">
+                                    <div class="modal-recommend__wrap">
+                                        <div class="modal-recommend__wrap-img modal-episode__wrap-img">
+                                            <img src="./assets/img/image_season2_ep06_035.jpg" alt="" class="modal-recommend__img">
+                                            <div class="modal-recommend__link">
+                                                <i class="fas fa-play"></i>
+                                            </div>
+                                        </div>
+                                        <div class="recommend-movies__info">
+                                            <p class="episode-name">[Mùa 2] Tập 6. Peekaboo</p>
+                                            <div class="row__detail-left">
+                                                <span>2021</span>
+                                                <span>90ph</span>
+                                            </div>
+                                            <span class="episode__description">
+                                                After Skinny Pete gets ripped off, Walt makes Jesse go get the money. Meanwhile, Walt's cover story on how Elliott and
+                                                Gretchen are paying for his medical treatment is on the verge of collapsing.
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-recommend__img-link">
+                                    <div class="modal-recommend__wrap">
+                                        <div class="modal-recommend__wrap-img modal-episode__wrap-img">
+                                            <img src="./assets/img/image_season2_ep07_035.jpg" alt="" class="modal-recommend__img">
+                                            <div class="modal-recommend__link">
+                                                <i class="fas fa-play"></i>
+                                            </div>
+                                        </div>
+                                        <div class="recommend-movies__info">
+                                            <p class="episode-name">[Mùa 2] Tập 7. Negro y Azul</p>
+                                            <div class="row__detail-left">
+                                                <span>2021</span>
+                                                <span>90ph</span>
+                                            </div>
+                                            <span class="episode__description">
+                                                Rumor is spreading that Jesse killed the man that ripped Skinny Pete off. Walt uses this to his advantage on expanding
+                                                their territory. Meanwhile, Hank has been promoted to the El Paso office. But it's not all he hoped it would be.
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-recommend__img-link">
+                                    <div class="modal-recommend__wrap">
+                                        <div class="modal-recommend__wrap-img modal-episode__wrap-img">
+                                            <img src="./assets/img/image_season2_ep08_035.jpg" alt="" class="modal-recommend__img">
+                                            <div class="modal-recommend__link">
+                                                <i class="fas fa-play"></i>
+                                            </div>
+                                        </div>
+                                        <div class="recommend-movies__info">
+                                            <p class="episode-name">[Mùa 2] Tập 8. Better Call Saul</p>
+                                            <div class="row__detail-left">
+                                                <span>2021</span>
+                                                <span>90ph</span>
+                                            </div>
+                                            <span class="episode__description">
+                                                Badger is caught by the DEA. Walt and Jesse hire the best criminal lawyer in town, Saul Goodman.
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-recommend__img-link">
+                                    <div class="modal-recommend__wrap">
+                                        <div class="modal-recommend__wrap-img modal-episode__wrap-img">
+                                            <img src="./assets/img/image_season2_ep09_035.jpg" alt="" class="modal-recommend__img">
+                                            <div class="modal-recommend__link">
+                                                <i class="fas fa-play"></i>
+                                            </div>
+                                        </div>
+                                        <div class="recommend-movies__info">
+                                            <p class="episode-name">[Mùa 2] Tập 9. 4 Days Out</p>
+                                            <div class="row__detail-left">
+                                                <span>2021</span>
+                                                <span>90ph</span>
+                                            </div>
+                                            <span class="episode__description">
+                                                Walt and Jesse become stranded out in the middle of the desert after cooking more crystal.
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-recommend__img-link">
+                                    <div class="modal-recommend__wrap">
+                                        <div class="modal-recommend__wrap-img modal-episode__wrap-img">
+                                            <img src="./assets/img/image_season2_ep10_035.jpg" alt="" class="modal-recommend__img">
+                                            <div class="modal-recommend__link">
+                                                <i class="fas fa-play"></i>
+                                            </div>
+                                        </div>
+                                        <div class="recommend-movies__info">
+                                            <p class="episode-name">[Mùa 2] Tập 10. Over</p>
+                                            <div class="row__detail-left">
+                                                <span>2021</span>
+                                                <span>90ph</span>
+                                            </div>
+                                            <span class="episode__description">
+                                            Walt's cancer has greatly improved. Time to celebrate. Meanwhile Jesse tries to meet his new girlfriend's father.
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-recommend__img-link">
+                                    <div class="modal-recommend__wrap">
+                                        <div class="modal-recommend__wrap-img modal-episode__wrap-img">
+                                            <img src="./assets/img/image_season2_ep11_035.jpg" alt="" class="modal-recommend__img">
+                                            <div class="modal-recommend__link">
+                                                <i class="fas fa-play"></i>
+                                            </div>
+                                        </div>
+                                        <div class="recommend-movies__info">
+                                            <p class="episode-name">[Mùa 2] Tập 11. Mandala</p>
+                                            <div class="row__detail-left">
+                                                <span>2021</span>
+                                                <span>90ph</span>
+                                            </div>
+                                            <span class="episode__description">
+                                                Walt and Jesse's little empire begins to crumble. Saul tries to set them up with a mysterious distributor.
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-recommend__img-link">
+                                    <div class="modal-recommend__wrap">
+                                        <div class="modal-recommend__wrap-img modal-episode__wrap-img">
+                                            <img src="./assets/img/image_season2_ep12_035.jpg" alt="" class="modal-recommend__img">
+                                            <div class="modal-recommend__link">
+                                                <i class="fas fa-play"></i>
+                                            </div>
+                                        </div>
+                                        <div class="recommend-movies__info">
+                                            <p class="episode-name">[Mùa 2] Tập 12. Phoenix</p>
+                                            <div class="row__detail-left">
+                                                <span>2021</span>
+                                                <span>90ph</span>
+                                            </div>
+                                            <span class="episode__description">
+                                                Walt and Skyler have a baby girl. Now that Jesse is hooked on heroin, Walt refuses to give him his money until he gets
+                                                clean. Meanwhile, as an excuse for his money, Walt decides to donate the money to himself through his son's new website.
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-recommend__img-link">
+                                    <div class="modal-recommend__wrap">
+                                        <div class="modal-recommend__wrap-img modal-episode__wrap-img">
+                                            <img src="./assets/img/image_season2_ep13_035.jpg" alt="" class="modal-recommend__img">
+                                            <div class="modal-recommend__link">
+                                                <i class="fas fa-play"></i>
+                                            </div>
+                                        </div>
+                                        <div class="recommend-movies__info">
+                                            <p class="episode-name">[Mùa 2] Tập 13. ABQ</p>
+                                            <div class="row__detail-left">
+                                                <span>2021</span>
+                                                <span>90ph</span>
+                                            </div>
+                                            <span class="episode__description">
+                                                Walt's lies have pushed Skyler to her limit. She leaves with the kids. Meanwhile, Jesse blames himself for Jane's death
+                                                and goes into rehab.
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                 </div>`;
 
 
@@ -1313,12 +1589,19 @@ $(document).ready(function () {
 
         modalBody.append(modalMovies);
         selectSeason();
+        selectSeasonShow()
         let modal_movies = $(".modal__body .modal-movie");
         body.css("overflow", "hidden");
         modalsc.show();
         modal_movies.show();
         modalBody.css('height', '100%');
+
+        $(".modal__movies-ep-second").addClass("disable")
+        $(".modal__movies-ep-second:nth-child(2)").removeClass("disable")
+        $(`.movies-season:nth-child(1)`).addClass("active")
+
         sliderGe($("#episodeMovie"), ".row__item-next", ".row__item-back", ".modal-recommend__container-sc", ".modal-recommend__img-link");
+        sliderGe($("#episodeMovie2"), ".row__item-next", ".row__item-back", ".modal-recommend__container-sc", ".modal-recommend__img-link");
         sliderGe($("#recommendMovies"), ".row__item-next", ".row__item-back", ".modal-recommend__container-sc", ".modal-recommend__img-link");
 
         const headerMImg = $(".modal-movie__img")
@@ -1378,6 +1661,24 @@ $(document).ready(function () {
                 window.history.pushState({}, document.title, updatedUri);
             }
             clearInterval(myInterval);
+        })
+    }
+
+    function selectSeasonShow() {
+        $(".movies-season").click(function () {
+            if (!$(this).hasClass("active")) {
+                let season = $(this).children(".movies-season__name").text()
+                $(".movies-season").removeClass("active")
+                $(this).addClass("active")
+                $(".movies-menu-seasons").slideToggle();
+                $("#movie-btn-seasons > .seasonCurrent").text(season)
+
+                let numberSeason = season.substring(season.length - 2, season.length)
+
+                let selectSeason = `.modal__movies-ep-second:nth-child(${Number(numberSeason) + 1})`
+                $(".modal__movies-ep-second").addClass("disable")
+                $(selectSeason).removeClass("disable")
+            }
         })
     }
 });
