@@ -17,8 +17,8 @@ document.querySelectorAll('.sidebar-submenu').forEach(e => {
 
 // DARK MODE TOGGLE
 let darkmode_toggle = document.querySelector('#darkmode-toggle')
-document.querySelector('body').classList.add('dark');
-darkmode_toggle.querySelector('.darkmode-switch').classList.add('active')
+// document.querySelector('body').classList.add('dark');
+// darkmode_toggle.querySelector('.darkmode-switch').classList.add('active')
 darkmode_toggle.onclick = (e) => {
     e.preventDefault()
     document.querySelector('body').classList.toggle('dark')
