@@ -286,14 +286,15 @@ body {
 
 .box {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-gap: 6px;
     grid-row-gap: 20px;
+    grid-template-columns: 1fr;
     width: 100%;
+    /* grid-gap: 6px; */
+    /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; */
 }
 
 .box-movie {
-
+    width: 15%;
 }
 
 .box-wrap {

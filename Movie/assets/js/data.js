@@ -577,7 +577,7 @@ let accountData = sessionStorage.getItem("account")
 if (accountData) {
     $(".header__account > .signIn-register").remove()
     let signIn = `<div class="whenLogIn">
-                                <div class="accountLogIn">
+                                <div class="accountLogIn" onclick="window.location='./account.html'">
                                     <img src="./assets/img/image009.jpg" alt="">
                                     <span>Nguyễn Nam</span>
                                 </div>

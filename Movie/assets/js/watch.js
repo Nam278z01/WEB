@@ -1109,18 +1109,22 @@ $(document).ready(function () {
                     indexNew = index + 1
                 }
                 $(this).click(function () {
-                    let url = new URL(window.location.href)
-                    url.searchParams.set('season', (Number(i) + 1).toString())
-                    url.searchParams.set('ep', indexNew.toString())
-                    window.history.pushState(null, null, url)
-                    $(".watch-link").removeClass("active")
-                    let selectM = `.modal__movies-ep-second:nth-child(${Number(i) + 2}) .watch-link:nth-child(${index + 1})`
-                    $(selectM).addClass("active")
-                    $("#my-video-watch").attr('src', './assets/video/video' + idMovie + '.mp4')
-                    $("#my-video-watch").get(0).play()
-                    $('body,html').animate({
-                        scrollTop: 0
-                    })
+                    if (!$(this).parent().parent(".modal-recommend__img-link.watch-link").hasClass("active")) {
+                        let url = new URL(window.location.href)
+                        url.searchParams.set('season', (Number(i) + 1).toString())
+                        url.searchParams.set('ep', indexNew.toString())
+                        window.history.replaceState(null, null, url)
+                        $(".watch-link").removeClass("active")
+                        let selectM = `.modal__movies-ep-second:nth-child(${Number(i) + 2}) .watch-link:nth-child(${index + 1})`
+                        $(selectM).addClass("active")
+                        $('body,html').animate({
+                            scrollTop: 0
+                        })
+                        $("#my-video-watch").attr('src', './assets/video/video' + idMovie + '.mp4')
+                        $("#my-video-watch").get(0).play()
+                        $(".movie-current-season").text("Mùa " + (Number(i) + 1).toString())
+                        $(".movie-current-episode").text("Tập " + indexNew.toString())
+                    }
                 })
             })
 

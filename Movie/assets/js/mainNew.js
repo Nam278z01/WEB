@@ -1322,7 +1322,7 @@ $(document).ready(function () {
                         <div class="modal-recommend__container-sc">
                             <div class="modal-recommend__img-link">
                                 <div class="modal-recommend__wrap">
-                                    <div class="modal-recommend__wrap-img">
+                                    <div class="modal-recommend__wrap-img" onclick="window.location='./watch.html?movie=040'">
                                         <img src="./assets/img/image_doc040.jpg" alt=""
                                             class="modal-recommend__img">
                                         <div class="modal-recommend__link">
@@ -1352,7 +1352,7 @@ $(document).ready(function () {
                             </div>
                             <div class="modal-recommend__img-link">
                                 <div class="modal-recommend__wrap">
-                                    <div class="modal-recommend__wrap-img">
+                                    <div class="modal-recommend__wrap-img" onclick="window.location='./watch.html?movie=041&season=1&ep=01'">
                                         <img src="./assets/img/image_doc041.jpg" alt=""
                                             class="modal-recommend__img">
                                         <div class="modal-recommend__link">
@@ -1382,7 +1382,7 @@ $(document).ready(function () {
                             </div>
                             <div class="modal-recommend__img-link">
                                 <div class="modal-recommend__wrap">
-                                    <div class="modal-recommend__wrap-img">
+                                    <div class="modal-recommend__wrap-img" onclick="window.location='./watch.html?movie=042'">
                                         <img src="./assets/img/image_doc042.jpg" alt=""
                                             class="modal-recommend__img">
                                         <div class="modal-recommend__link">
@@ -1412,7 +1412,7 @@ $(document).ready(function () {
                             </div>
                             <div class="modal-recommend__img-link">
                                 <div class="modal-recommend__wrap">
-                                    <div class="modal-recommend__wrap-img">
+                                    <div class="modal-recommend__wrap-img" onclick="window.location='./watch.html?movie=043'">
                                         <img src="./assets/img/image_doc043.jpg" alt=""
                                             class="modal-recommend__img">
                                         <div class="modal-recommend__link">
@@ -1442,7 +1442,7 @@ $(document).ready(function () {
                             </div>
                             <div class="modal-recommend__img-link">
                                 <div class="modal-recommend__wrap">
-                                    <div class="modal-recommend__wrap-img">
+                                    <div class="modal-recommend__wrap-img" onclick="window.location='./watch.html?movie=047'">
                                         <img src="./assets/img/image_doc047.jpg" alt=""
                                             class="modal-recommend__img">
                                         <div class="modal-recommend__link">
@@ -1472,7 +1472,7 @@ $(document).ready(function () {
                             </div>
                             <div class="modal-recommend__img-link">
                                 <div class="modal-recommend__wrap">
-                                    <div class="modal-recommend__wrap-img">
+                                    <div class="modal-recommend__wrap-img" onclick="window.location='./watch.html?movie=015'">
                                         <img src="./assets/img/image_doc015.jpg" alt=""
                                             class="modal-recommend__img">
                                         <div class="modal-recommend__link">
@@ -1502,7 +1502,7 @@ $(document).ready(function () {
                             </div>
                             <div class="modal-recommend__img-link">
                                 <div class="modal-recommend__wrap">
-                                    <div class="modal-recommend__wrap-img">
+                                    <div class="modal-recommend__wrap-img" onclick="window.location='./watch.html?movie=045'">
                                         <img src="./assets/img/image_doc045.jpg" alt=""
                                             class="modal-recommend__img">
                                         <div class="modal-recommend__link">
@@ -1532,7 +1532,7 @@ $(document).ready(function () {
                             </div>
                             <div class="modal-recommend__img-link">
                                 <div class="modal-recommend__wrap">
-                                    <div class="modal-recommend__wrap-img">
+                                    <div class="modal-recommend__wrap-img" onclick="window.location='./watch.html?movie=046'">
                                         <img src="./assets/img/image_doc046.jpg" alt=""
                                             class="modal-recommend__img">
                                         <div class="modal-recommend__link">
@@ -1562,7 +1562,7 @@ $(document).ready(function () {
                             </div>
                             <div class="modal-recommend__img-link">
                                 <div class="modal-recommend__wrap">
-                                    <div class="modal-recommend__wrap-img">
+                                    <div class="modal-recommend__wrap-img" onclick="window.location='./watch.html?movie=048'">
                                         <img src="./assets/img/image_doc048.jpg" alt=""
                                             class="modal-recommend__img">
                                         <div class="modal-recommend__link">
@@ -1592,7 +1592,7 @@ $(document).ready(function () {
                             </div>
                             <div class="modal-recommend__img-link">
                                 <div class="modal-recommend__wrap">
-                                    <div class="modal-recommend__wrap-img">
+                                    <div class="modal-recommend__wrap-img" onclick="window.location='./watch.html?movie=044'">
                                         <img src="./assets/img/image_doc044.jpg" alt=""
                                             class="modal-recommend__img">
                                         <div class="modal-recommend__link">
