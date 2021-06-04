@@ -79,8 +79,8 @@ $(document).ready(function () {
             $(this).parent().parent().parent().find(".filter-value").text("Tên phim (a-z)")
         }
     });
-    // Phân loại phim
 
+    // Phân loại phim
     let moviesLoai = []
     $('input[type=checkbox][name=loai]').change(function () {
         let selectName = $(this).siblings("label").text()

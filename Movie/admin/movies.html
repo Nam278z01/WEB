@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,6 +15,7 @@
     <script src="../assets/js/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.ckeditor.com/ckeditor5/27.1.0/decoupled-document/ckeditor.js"></script>
 </head>
+
 <body>
     <div class="sidebar">
         <div class="sidebar-logo">
@@ -29,13 +31,13 @@
                     Nam Nguyễn
                 </div>
             </div>
-            <button class="btn btn-outline">
+            <button class="btn btn-outline" title="Đăng xuất">
                 <i class='bx bx-log-out bx-flip-horizontal'></i>
             </button>
         </div>
         <ul class="sidebar-menu">
             <li>
-                <a href="#">
+                <a href="./dashboard.html">
                     <i class='bx bx-home'></i>
                     <span>Bảng điều khiển</span>
                 </a>
@@ -137,8 +139,12 @@
             </div>
             <div class="main-title">
                 <span>Danh Sách Phim Lẻ</span>
-                <button class="btn btn-outline">THÊM PHIM LẺ</button>
+                <button class="btn btn-outline" id="btn-add-movies">Thêm phim lẻ</button>
             </div>
+        </div>
+
+        <div class="main-search-sort">
+
         </div>
 
         <div class="main-content">
@@ -148,8 +154,8 @@
                         <div class="box-wrap-img ratioImg__wrap">
                             <img src="../assets/img/image_doc040.jpg" class="box-img ratio__in">
                             <div class=box-btn>
-                                <button class="btn bx bxs-edit"></button>
-                                <button class="btn bx bxs-x-square"></button>
+                                <button class="btn bx bxs-edit" title="Sửa"></button>
+                                <button class="btn bx bxs-x-square" title="Xóa"></button>
                             </div>
                         </div>
                     </div>
@@ -170,32 +176,33 @@
                             <tr>
                                 <td>Thể loại</td>
                                 <td>Tâm Lý, Tình Cảm, Hình Sự</td>
-                                <td>Công ty sản xuất</td>
+                                <td>Nhà sản xuất</td>
                                 <td></td>
-                            </tr>
-                            <tr>
-                                <td>Thời lượng</td>
-                                <td>90 phút</td>
-                                <td>Ngày phát hành</td>
-                                <td>01-01-1972</td>
                             </tr>
                             <tr>
                                 <td>Quốc gia</td>
                                 <td>Mỹ</td>
+                                <td>Ngày phát hành</td>
+                                <td>01-01-1972</td>
+                            </tr>
+                            <tr>
+
+                                <td>Ảnh lớn</td>
+                                <td>image_big040.jpg</td>
                                 <td>Đường dẫn video</td>
-                                <td>../asset/video/video040.mp4</td>
+                                <td>video040.mp4</td>
                             </tr>
                             <tr>
                                 <td>Ảnh ngang</td>
-                                <td>../asset/img/image040.jpg</td>
-                                <td>Ảnh lớn</td>
-                                <td>../asset/img/image_big040.jpg</td>
+                                <td>image040.jpg</td>
+                                <td>Trailer</td>
+                                <td>video040.mp4</td>
                             </tr>
                             <tr>
                                 <td>Ảnh tên</td>
-                                <td>../asset/img/image_name040.png</td>
-                                <td>Trailer</td>
-                                <td>../asset/video/video040.mp4</td>
+                                <td>image_name040.png</td>
+                                <td>Ngày tải lên</td>
+                                <td>02-02-2021</td>
                             </tr>
                             <tr>
                                 <td>Lượt xem</td>
@@ -205,8 +212,9 @@
                             </tr>
                             <tr>
                                 <td>Mô tả</td>
-                                <td colspan="3">Khi bố già đứng đầu gia đình tội phạm có tổ chức suýt chết trong vụ ám sát, con trai út của ông đã đứng ra xử lý những
-                                kẻ nhúng tay vào âm mưu bất thành này.</td>
+                                <td colspan="3">Khi bố già đứng đầu gia đình tội phạm có tổ chức suýt chết trong vụ ám
+                                    sát, con trai út của ông đã đứng ra xử lý những
+                                    kẻ nhúng tay vào âm mưu bất thành này.</td>
                             </tr>
                         </table>
                     </div>
@@ -216,8 +224,8 @@
                         <div class="box-wrap-img ratioImg__wrap">
                             <img src="../assets/img/image_doc015.jpg" class="box-img ratio__in">
                             <div class=box-btn>
-                                <button class="btn bx bxs-edit"></button>
-                                <button class="btn bx bxs-x-square"></button>
+                                <button class="btn bx bxs-edit" title="Sửa"></button>
+                                <button class="btn bx bxs-x-square" title="Xóa"></button>
                             </div>
                         </div>
                     </div>
@@ -227,43 +235,44 @@
                                 <td>Mã phim</td>
                                 <td>015</td>
                                 <td>Đạo diễn</td>
-                                <td>Francis Ford Coppola</td>
+                                <td>Michael Matthews</td>
                             </tr>
                             <tr>
                                 <td>Tên phim</td>
-                                <td>Bố già</td>
+                                <td>Tình yêu và quái vật</td>
                                 <td>Diễn viên</td>
-                                <td>Al Pacino, James Caan, Marlon Brando</td>
+                                <td>Michael Matthews</td>
                             </tr>
                             <tr>
                                 <td>Thể loại</td>
-                                <td>Tâm Lý, Tình Cảm, Hình Sự</td>
-                                <td>Công ty sản xuất</td>
+                                <td>Hành động, Viễn Tưởng</td>
+                                <td>Nhà sản xuất</td>
                                 <td></td>
-                            </tr>
-                            <tr>
-                                <td>Thời lượng</td>
-                                <td>90 phút</td>
-                                <td>Ngày phát hành</td>
-                                <td>01-01-1972</td>
                             </tr>
                             <tr>
                                 <td>Quốc gia</td>
                                 <td>Mỹ</td>
+                                <td>Ngày phát hành</td>
+                                <td>16-10-2020</td>
+                            </tr>
+                            <tr>
+
+                                <td>Ảnh lớn</td>
+                                <td>image_big015.jpg</td>
                                 <td>Đường dẫn video</td>
-                                <td>../asset/video/video040.mp4</td>
+                                <td>video015.mp4</td>
                             </tr>
                             <tr>
                                 <td>Ảnh ngang</td>
-                                <td>../asset/img/image040.jpg</td>
-                                <td>Ảnh lớn</td>
-                                <td>../asset/img/image_big040.jpg</td>
+                                <td>image015.jpg</td>
+                                <td>Trailer</td>
+                                <td>video015.mp4</td>
                             </tr>
                             <tr>
                                 <td>Ảnh tên</td>
-                                <td>../asset/img/image_name040.png</td>
-                                <td>Trailer</td>
-                                <td>../asset/video/video040.mp4</td>
+                                <td>image_name015.png</td>
+                                <td>Ngày tải lên</td>
+                                <td>02-02-2021</td>
                             </tr>
                             <tr>
                                 <td>Lượt xem</td>
@@ -274,8 +283,8 @@
                             <tr>
                                 <td>Mô tả</td>
                                 <td colspan="3">Bảy năm kể từ ngày sống sót qua tận thế quái vật, Joel xui xẻo dễ mến
-                                rời khỏi hầm trú ẩn ấm cúng dưới lòng đất để tìm
-                                cách đoàn tụ với người yêu cũ.</td>
+                                    rời khỏi hầm trú ẩn ấm cúng dưới lòng đất để tìm
+                                    cách đoàn tụ với người yêu cũ.</td>
                             </tr>
                         </table>
                     </div>
@@ -285,8 +294,8 @@
                         <div class="box-wrap-img ratioImg__wrap">
                             <img src="../assets/img/image_doc003.jpg" class="box-img ratio__in">
                             <div class=box-btn>
-                                <button class="btn bx bxs-edit"></button>
-                                <button class="btn bx bxs-x-square"></button>
+                                <button class="btn bx bxs-edit" title="Sửa"></button>
+                                <button class="btn bx bxs-x-square" title="Xóa"></button>
                             </div>
                         </div>
                     </div>
@@ -294,45 +303,45 @@
                         <table>
                             <tr>
                                 <td>Mã phim</td>
-                                <td>015</td>
+                                <td>003</td>
                                 <td>Đạo diễn</td>
-                                <td>Francis Ford Coppola</td>
+                                <td>Chad Stahelski, David Leitch</td>
                             </tr>
                             <tr>
                                 <td>Tên phim</td>
-                                <td>Bố già</td>
+                                <td>Sát thủ John Wick</td>
                                 <td>Diễn viên</td>
-                                <td>Al Pacino, James Caan, Marlon Brando</td>
+                                <td>Adrianne Palicki, Alfie Allen, Bridget Moynahan</td>
                             </tr>
                             <tr>
                                 <td>Thể loại</td>
-                                <td>Tâm Lý, Tình Cảm, Hình Sự</td>
-                                <td>Công ty sản xuất</td>
+                                <td>Hành Động, Phiêu Lưu, Tội Phạm</td>
+                                <td>Nhà sản xuất</td>
                                 <td></td>
-                            </tr>
-                            <tr>
-                                <td>Thời lượng</td>
-                                <td>90 phút</td>
-                                <td>Ngày phát hành</td>
-                                <td>01-01-1972</td>
                             </tr>
                             <tr>
                                 <td>Quốc gia</td>
                                 <td>Mỹ</td>
+                                <td>Ngày phát hành</td>
+                                <td>24-10-2014</td>
+                            </tr>
+                            <tr>
+                                <td>Ảnh lớn</td>
+                                <td>image_big003.jpg</td>
                                 <td>Đường dẫn video</td>
-                                <td>../asset/video/video040.mp4</td>
+                                <td>video003.mp4</td>
                             </tr>
                             <tr>
                                 <td>Ảnh ngang</td>
-                                <td>../asset/img/image040.jpg</td>
-                                <td>Ảnh lớn</td>
-                                <td>../asset/img/image_big040.jpg</td>
+                                <td>image003.jpg</td>
+                                <td>Trailer</td>
+                                <td>video003.mp4</td>
                             </tr>
                             <tr>
                                 <td>Ảnh tên</td>
-                                <td>../asset/img/image_name040.png</td>
-                                <td>Trailer</td>
-                                <td>../asset/video/video040.mp4</td>
+                                <td>image_name003.png</td>
+                                <td>Ngày tải lên</td>
+                                <td>02-02-2021</td>
                             </tr>
                             <tr>
                                 <td>Lượt xem</td>
@@ -342,8 +351,10 @@
                             </tr>
                             <tr>
                                 <td>Mô tả</td>
-                                <td colspan="3">Nhân vật chính của loạt phim là John Wick do tài tử Keanu Reeves thủ vai, là một cựu sát thủ đã rửa tay gác kiếm, tuy
-                                nhiên có những kẻ đã giết chó và trộm xe của anh, khiến anh phải quay trở lại con đường cũ.</td>
+                                <td colspan="3">Nhân vật chính của loạt phim là John Wick do tài tử Keanu Reeves thủ
+                                    vai, là một cựu sát thủ đã rửa tay gác kiếm, tuy
+                                    nhiên có những kẻ đã giết chó và trộm xe của anh, khiến anh phải quay trở lại con
+                                    đường cũ.</td>
                             </tr>
                         </table>
                     </div>
@@ -353,8 +364,8 @@
                         <div class="box-wrap-img ratioImg__wrap">
                             <img src="../assets/img/image_doc043.jpg" class="box-img ratio__in">
                             <div class=box-btn>
-                                <button class="btn bx bxs-edit"></button>
-                                <button class="btn bx bxs-x-square"></button>
+                                <button class="btn bx bxs-edit" title="Sửa"></button>
+                                <button class="btn bx bxs-x-square" title="Xóa"></button>
                             </div>
                         </div>
                     </div>
@@ -362,45 +373,46 @@
                         <table>
                             <tr>
                                 <td>Mã phim</td>
-                                <td>015</td>
+                                <td>043</td>
                                 <td>Đạo diễn</td>
-                                <td>Francis Ford Coppola</td>
+                                <td>David F. Sandberg</td>
                             </tr>
                             <tr>
                                 <td>Tên phim</td>
-                                <td>Bố già</td>
+                                <td>Shazam</td>
                                 <td>Diễn viên</td>
-                                <td>Al Pacino, James Caan, Marlon Brando</td>
+                                <td>Michelle Borth, Mark Strong, Zachary Levi</td>
                             </tr>
                             <tr>
                                 <td>Thể loại</td>
-                                <td>Tâm Lý, Tình Cảm, Hình Sự</td>
-                                <td>Công ty sản xuất</td>
+                                <td>Khoa Học - Viễn Tưởng, Hài Hước</td>
+                                <td>Nhà sản xuất</td>
                                 <td></td>
-                            </tr>
-                            <tr>
-                                <td>Thời lượng</td>
-                                <td>90 phút</td>
-                                <td>Ngày phát hành</td>
-                                <td>01-01-1972</td>
                             </tr>
                             <tr>
                                 <td>Quốc gia</td>
                                 <td>Mỹ</td>
+                                <td>Ngày phát hành</td>
+                                <td>05-04-2019</td>
+                            </tr>
+                            <tr>
+
+                                <td>Ảnh lớn</td>
+                                <td>image_big043.jpg</td>
                                 <td>Đường dẫn video</td>
-                                <td>../asset/video/video040.mp4</td>
+                                <td>video043.mp4</td>
                             </tr>
                             <tr>
                                 <td>Ảnh ngang</td>
-                                <td>../asset/img/image040.jpg</td>
-                                <td>Ảnh lớn</td>
-                                <td>../asset/img/image_big040.jpg</td>
+                                <td>image043.jpg</td>
+                                <td>Trailer</td>
+                                <td>video043.mp4</td>
                             </tr>
                             <tr>
                                 <td>Ảnh tên</td>
-                                <td>../asset/img/image_name040.png</td>
-                                <td>Trailer</td>
-                                <td>../asset/video/video040.mp4</td>
+                                <td>image_name043.png</td>
+                                <td>Ngày tải lên</td>
+                                <td>02-02-2021</td>
                             </tr>
                             <tr>
                                 <td>Lượt xem</td>
@@ -411,8 +423,8 @@
                             <tr>
                                 <td>Mô tả</td>
                                 <td colspan="3">Khi thiếu niên mồ côi bộc lộ trái tim chân thành, cậu có được khả năng
-                                biến thành một siêu anh hùng người lớn với nghĩa
-                                vụ bảo vệ thành phố trước những ác nhân tội lỗi.</td>
+                                    biến thành một siêu anh hùng người lớn với nghĩa
+                                    vụ bảo vệ thành phố trước những ác nhân tội lỗi.</td>
                             </tr>
                         </table>
                     </div>
@@ -422,8 +434,8 @@
                         <div class="box-wrap-img ratioImg__wrap">
                             <img src="../assets/img/image_doc048.jpg" class="box-img ratio__in">
                             <div class=box-btn>
-                                <button class="btn bx bxs-edit"></button>
-                                <button class="btn bx bxs-x-square"></button>
+                                <button class="btn bx bxs-edit" title="Sửa"></button>
+                                <button class="btn bx bxs-x-square" title="Xóa"></button>
                             </div>
                         </div>
                     </div>
@@ -431,45 +443,46 @@
                         <table>
                             <tr>
                                 <td>Mã phim</td>
-                                <td>015</td>
+                                <td>048</td>
                                 <td>Đạo diễn</td>
-                                <td>Francis Ford Coppola</td>
+                                <td>Kyle Balda , Pierre Coffin</td>
                             </tr>
                             <tr>
                                 <td>Tên phim</td>
-                                <td>Bố già</td>
+                                <td>Minions</td>
                                 <td>Diễn viên</td>
-                                <td>Al Pacino, James Caan, Marlon Brando</td>
+                                <td>Michael Keaton, Sandra Bullock</td>
                             </tr>
                             <tr>
                                 <td>Thể loại</td>
-                                <td>Tâm Lý, Tình Cảm, Hình Sự</td>
-                                <td>Công ty sản xuất</td>
+                                <td>Trẻ Em & Gia Đình</td>
+                                <td>Nhà sản xuất</td>
                                 <td></td>
-                            </tr>
-                            <tr>
-                                <td>Thời lượng</td>
-                                <td>90 phút</td>
-                                <td>Ngày phát hành</td>
-                                <td>01-01-1972</td>
                             </tr>
                             <tr>
                                 <td>Quốc gia</td>
                                 <td>Mỹ</td>
+                                <td>Ngày phát hành</td>
+                                <td>17-06-2015</td>
+                            </tr>
+                            <tr>
+
+                                <td>Ảnh lớn</td>
+                                <td>image_big048.jpg</td>
                                 <td>Đường dẫn video</td>
-                                <td>../asset/video/video040.mp4</td>
+                                <td>video048.mp4</td>
                             </tr>
                             <tr>
                                 <td>Ảnh ngang</td>
-                                <td>../asset/img/image040.jpg</td>
-                                <td>Ảnh lớn</td>
-                                <td>../asset/img/image_big040.jpg</td>
+                                <td>image048.jpg</td>
+                                <td>Trailer</td>
+                                <td>video048.mp4</td>
                             </tr>
                             <tr>
                                 <td>Ảnh tên</td>
-                                <td>../asset/img/image_name040.png</td>
-                                <td>Trailer</td>
-                                <td>../asset/video/video040.mp4</td>
+                                <td>image_name048.png</td>
+                                <td>Ngày tải lên</td>
+                                <td>02-02-2021</td>
                             </tr>
                             <tr>
                                 <td>Lượt xem</td>
@@ -480,88 +493,18 @@
                             <tr>
                                 <td>Mô tả</td>
                                 <td colspan="3">Phần tiền truyện này xoay quanh câu chuyện về lịch sử phụng sự ác nhân
-                                của các tay sai màu vàng chuối có ngôn ngữ nhí
-                                nhéo từ "Kẻ trộm mặt trăng".</td>
+                                    của các tay sai màu vàng chuối có ngôn ngữ nhí
+                                    nhéo từ "Kẻ trộm mặt trăng".</td>
                             </tr>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- <div class="modal">
-            <div class="modal-overlay"></div>
-
-            <div class="modal-body">
-                <div id="modal-add-movies">
-                    <div class="modal-title">
-                        <span>Thêm phim lẻ</span>
-                    </div>
-                    <div class="modal-movies-content">
-                        <div class="modal-movies-info">
-                            <span>Mã phim</span>
-                            <input type="text">
-                        </div>
-                        <div class="modal-movies-info">
-                            <span>Tên phim tiếng Anh</span>
-                            <input type="text">
-                        </div>
-                        <div class="modal-movies-info">
-                            <span>Tên phim tiếng Việt</span>
-                            <input type="text">
-                        </div>
-                        <div class="modal-movies-info">
-                            <span>Mô tả</span>
-                            <input type="text">
-                        </div>
-                        <div class="modal-movies-info">
-                            <span>Diễn viên</span>
-                            <input type="text">
-                        </div>
-                        <div class="modal-movies-info">
-                            <span>Đạo diễn</span>
-                            <input type="text">
-                        </div>
-                        <div class="modal-movies-info">
-                            <span>Nhà sản xuất</span>
-                            <input type="text">
-                        </div>
-                        <div class="modal-movies-info">
-                            <span>Năm sản xuất</span>
-                            <input type="text">
-                        </div>
-                        <div class="modal-movies-info">
-                            <span>Quốc gia</span>
-                            <input type="text">
-                        </div>
-                        <div class="modal-movies-info">
-                            <span>Trailer</span>
-                            <input type="text">
-                        </div>
-                        <div class="modal-movies-info">
-                            <span>Đường dẫn phim</span>
-                            <input type="text">
-                        </div>
-                        <div class="modal-movies-info">
-                            <span>Ảnh dọc</span>
-                            <input type="file">
-                        </div>
-                        <div class="modal-movies-info">
-                            <span>Ảnh ngang</span>
-                            <input type="file">
-                        </div>
-                        <div class="modal-movies-info">
-                            <span>Ảnh to</span>
-                            <input type="file">
-                        </div>
-                        <div class="modal-movies-info">
-                            <span>Ảnh tên phim</span>
-                            <input type="file">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
+    <div class="modal">
+        
     </div>
 
     <script src="assets/js/admin.js"></script>
@@ -578,4 +521,5 @@
             });
     </script> -->
 </body>
+
 </html>
