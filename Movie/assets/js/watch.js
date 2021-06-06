@@ -20,9 +20,7 @@ $(document).ready(function () {
                     $("#my-nav-watch").css("display", "flex");
             }
             const search = $("#search-wrap");
-            if (search.show()) {
-                search.hide();
-            }
+            search.hide();
         });
     }
 
@@ -1145,15 +1143,17 @@ $(document).ready(function () {
             sliderGe($("#recommendMovies"), ".row__item-next", ".row__item-back", ".modal-recommend__container-sc", ".modal-recommend__img-link");
         }
 
-        let select = `.modal__movies-ep-second:nth-child(${Number(idSeason) + 1}) .watch-link:nth-child(${idEpisode})`
-        let selectSeason = `.modal__movies-ep-second:nth-child(${Number(idSeason) + 1})`
-        $(select).addClass("active")
-        $(".modal__movies-ep-second").addClass("disable")
-        $(selectSeason).removeClass("disable")
-        $("#movie-btn-seasons > .seasonCurrent").text("Mùa " + idSeason)
-        $(".movies-season").removeClass("active")
-        $(`.movies-season:nth-child(${idSeason})`).addClass("active")
-
-        selectSeasonShow()        
+        if (!selectedMovie.isMovie) {
+            let select = `.modal__movies-ep-second:nth-child(${Number(idSeason) + 1}) .watch-link:nth-child(${idEpisode})`
+            let selectSeason = `.modal__movies-ep-second:nth-child(${Number(idSeason) + 1})`
+            $(select).addClass("active")
+            $(".modal__movies-ep-second").addClass("disable")
+            $(selectSeason).removeClass("disable")
+            $("#movie-btn-seasons > .seasonCurrent").text("Mùa " + idSeason)
+            $(".movies-season").removeClass("active")
+            $(`.movies-season:nth-child(${idSeason})`).addClass("active")
+    
+            selectSeasonShow()        
+        }
     }
 });

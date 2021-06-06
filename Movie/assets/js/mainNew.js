@@ -52,9 +52,7 @@ $(document).ready(function () {
                     isStop = true;
                 }
             }
-            if (search.show()) {
-                search.hide();
-            }
+            search.hide();
         })
     }
     scrollNav();

@@ -18,9 +18,7 @@ $(document).ready(function () {
     function scrollNav() {
         window.addEventListener('scroll', function (e) {
             const search = $("#search-wrap");
-            if (search.show()) {
-                search.hide();
-            }
+            search.hide();
         })
     }
     scrollNav();
