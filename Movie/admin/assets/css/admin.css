@@ -10,21 +10,21 @@
     --modal-overlay-color: rgba(20, 20, 20, 0.6);
     --scroll-bar: #a1a19b;
     --bg-scroll-bar: #d2d2d2;
+    --bg-movie-color: #e3eeee;
 }
 
-.dark {
+/* .dark {
     --body-bg: #1a191f;
     --box-bg: #1a191f;
     --border-color: #222028;
     --text-color: #b9b9b9;
-}
+} */
 
 * {
     font-family: "Roboto", sans-serif;
     box-sizing: inherit;
     padding: 0;
     margin: 0;
-    box-sizing: border-box;
 }
 
 html {
@@ -66,9 +66,9 @@ body {
     overflow-y: auto;
 }
 
-.dark .sidebar {
+/* .dark .sidebar {
     border-right: 2px solid var(--border-color);
-}
+} */
 
 .sidebar-logo {
     height: 50px;
@@ -248,9 +248,9 @@ body {
     padding-left: 300px;
 }
 
-.dark .main-header {
+/* .dark .main-header {
     border-bottom: 2px solid var(--border-color);
-}
+} */
 
 .mobile-toggle {
     display: none;
@@ -264,6 +264,9 @@ body {
     background-color: var(--box-bg);
     box-shadow: 0 1px 4px -1px rgb(0 0 0 / 15%);
     width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 
 .main-title {
@@ -282,13 +285,13 @@ body {
 }
 
 .main-content {
-    padding: 20px;
+    padding: 10px 0;
     width: 100%;
 }
 
 .box {
     display: grid;
-    grid-row-gap: 20px;
+    /* grid-row-gap: 20px; */
     grid-template-columns: 1fr;
     width: 100%;
     /* grid-gap: 6px; */
@@ -296,8 +299,14 @@ body {
 }
 
 .box-container {
+    padding: 10px 20px;
     display: flex;
     width: 100%;
+    align-items: center;
+}
+
+.box-container:nth-of-type(2n) {
+    background-color: var(--bg-movie-color);
 }
 
 .box-movie {
@@ -341,9 +350,21 @@ body {
     line-height: 1.9rem;
 }
 
+.box-movie-content > table td:last-child span,
+.box-movie-content > table td:nth-child(2) span{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+}
+
+.box-movie-content > table tr:last-child span{
+    -webkit-line-clamp: 2;
+}
+
 .box-movie-content > table td:nth-child(3),
 .box-movie-content > table td:first-child{
-    width: 10%;
+    width: 85px;
     font-size: 1.4rem;
     line-height: 2rem;
     font-weight: 500;
@@ -351,8 +372,10 @@ body {
     vertical-align: top;
 }
 
+
 .box-movie-content > table td:nth-child(3) {
-    width: 15%;
+    width: 145px;
+    padding-left: 20px;
 }
 
 .box-movie-content > table td:last-child {
@@ -366,8 +389,6 @@ body {
     vertical-align: top;
     text-align: justify;
 }
-
-
 
 
 @keyframes fadeIn {

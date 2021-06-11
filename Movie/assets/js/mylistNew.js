@@ -15,14 +15,6 @@ $(document).ready(function () {
         hoverMovies();
     }
 
-    function scrollNav() {
-        window.addEventListener('scroll', function (e) {
-            const search = $("#search-wrap");
-            search.hide();
-        })
-    }
-    scrollNav();
-
     function addList() {
         ClearArr();
         var myNewList = "";
@@ -158,7 +150,9 @@ $(document).ready(function () {
             else {
                 $("#myModalSecond").css("display", "flex")
                 $("body").css("overflow", "hidden")
-                $("#addForm").show()
+                let notifyFrom = $("#addForm")
+                notifyFrom.show()
+                notifyFrom.find(".addForm-notify").text("Hãy đăng nhập để thêm nội dung này vào danh sách của bạn")
             }
         });
     }
@@ -316,12 +310,12 @@ $(document).ready(function () {
             myTimeout = setTimeout(function () {
                 var addChild = `<div class="hover-movie" id="hover">
                                     <div class="hover-movie-link ratio16-9__wrap">
-                                        <a href="#">
+                                        <span>
                                             <img src="./assets/img/image${id}.jpg" alt="" class="hover-movie__img ratio__in">
                                             <video id="hover-movie__video" class="ratio__in">
                                                 <source src="./assets/video/video${id}.mp4" type="video/mp4">
                                             </video>
-                                        </a>
+                                        </span>
                                         <img src="./assets/img/image_name${id}.png" alt="" class="hover-movie__video-name">
                                         <div class="hover-movie__btn">
                                             <button class="btn-icon hover-movie-btn-i fas fa-volume-mute"></button>
@@ -593,7 +587,7 @@ $(document).ready(function () {
         $(".row__img-link").click(function () {
             isStopByModal = true;
             // Xóa nếu đã tồn tại modal
-            let modal_movies = $(".modal__body .modal-movie");
+            let modal_movies = $(".modal__body");
             if (modal_movies.length > 0) {
                 modal_movies.remove();
             }
@@ -619,7 +613,7 @@ $(document).ready(function () {
         btn.click(function () {
             isStopByModal = true;
             // Xóa nếu đã tồn tại modal
-            let modal_movies = $(".modal__body .modal-movie");
+            let modal_movies = $(".modal__body");
             if (modal_movies.length > 0) {
                 modal_movies.remove();
             }
@@ -653,7 +647,7 @@ $(document).ready(function () {
 
         let dataArrLength = dataArr.length
         let posElement
-        for (let i = 0; i < dataArrLength; i++) {
+        for (let i = 0; i <dataArrLength; i++) {
             if (dataArr[i].id == IdMovies) {
                 dataWantToShow = dataArr[i]
                 posElement = i
@@ -1195,7 +1189,8 @@ $(document).ready(function () {
             }
         }
 
-        var modalMovies = `<div class="modal-movie">
+        var modalMovies = `<div class="modal__body">
+        <div class="modal-movie">
             <div class="modal-turnoff fas fa-times"></div>
             <div class="modal-movie__header">
                 <div class="hover-movie-link modal-movie-link ratio16-9__wrap">
@@ -1615,13 +1610,13 @@ $(document).ready(function () {
                     </div>
                 </div>
             </div>
+        </div>
         </div>`;
 
         let body = $("body");
         let modalsc = $(".modal");
+        modalsc.append(modalMovies);
         let modalBody = $(".modal__body");
-
-        modalBody.append(modalMovies);
 
         selectSeason();
         selectSeasonShow()
@@ -1702,8 +1697,7 @@ $(document).ready(function () {
                 //isPlayModal = true
                 body.css("overflow", "auto");
                 modalsc.hide();
-                modalBody.css('height', 'auto');
-                modal_movies.remove();
+                modalBody.remove();
                 var url = window.location.href;
                 if (url.indexOf("?") > 0) {
                     var updatedUri = url.substring(0, url.indexOf("?"));
@@ -1718,8 +1712,7 @@ $(document).ready(function () {
             //isPlayModal = true
             body.css("overflow", "auto");
             modalsc.hide();
-            modalBody.css('height', 'auto');
-            modal_movies.remove();
+            modalBody.remove();
             var url = window.location.href;
             if (url.indexOf("?") > 0) {
                 var updatedUri = url.substring(0, url.indexOf("?"));

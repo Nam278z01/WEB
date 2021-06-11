@@ -25,6 +25,8 @@ $(document).ready(function () {
                     nav.style.backgroundColor = "transparent";
                 }
             }
+            const search = $("#search-wrap");
+            search.hide();
         })
     }
     scrollNav();
@@ -187,4 +189,23 @@ $(document).ready(function () {
             document.querySelector('body').classList.toggle('light')
         }
     }
+
+    $(".header__tap--active > a, .header__tap--active > a, .nav__tablet-item--active > a").click(function (e) {
+        e.preventDefault();
+    })
+
+    let account = sessionStorage.getItem("account")
+    if (!account) {
+        $(".header__tap > a, .nav__tablet-item > a, .buy-vip > a").click(function (e) {
+            if ($(this).attr("href") == "./mylist.html" || $(this).attr("href") == "mylist.html" || $(this).attr("href") == "./buyvip.html" || $(this).attr("href") == "buyvip.html") {
+                e.preventDefault();
+                $("#myModalSecond").css("display", "flex")
+                $("body").css("overflow", "hidden")
+                let notifyFrom = $("#addForm")
+                notifyFrom.show()
+                notifyFrom.find(".addForm-notify").text("Hãy đăng nhập để thực hiện tính năng này")
+            }
+        })
+    }
+
 });

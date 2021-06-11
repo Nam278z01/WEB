@@ -35,6 +35,7 @@
 }
 
 .light {
+
 }
 
 * {
@@ -48,7 +49,7 @@ html {
   font-size: 62.5%;
   line-height: 1.6rem;
   box-sizing: border-box;
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth; */
 }
 
 body {
@@ -74,6 +75,13 @@ body {
   border-radius: 4px;
 }
 
+.button.disable {
+  cursor: default;
+  filter: brightness(100%) !important;
+  background-color: var(--border-color) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
 .btn--size-s {
   height: 36px;
   font-size: 12px;
@@ -87,7 +95,7 @@ body {
 
 .button.btn--primary {
   background-color: var(--primary-color);
-  color: var(--white-color);
+  color: var(--black-color);
 }
 
 .button:hover {
@@ -435,6 +443,15 @@ button.hover-movie__button--remind {
 }
 
 .auth-form__form {
+
+}
+
+.auth-form__form > p {
+  font-size: 1.4rem;
+  color: red;
+  text-align: center;
+  font-weight: 500;
+  display: none;
 }
 
 .auth-form__input {
@@ -566,6 +583,7 @@ button.hover-movie__button--remind {
   color: var(--border-color);
   text-align: center;
   margin-bottom: 30px;
+  line-height: 2rem;
 }
 
 .addForm__btn {
@@ -1020,6 +1038,7 @@ button.hover-movie__button--remind {
 }
 
 .recommend-movies__info {
+  
 }
 
 .recommend-movies__info-first {

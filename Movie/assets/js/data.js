@@ -603,9 +603,14 @@ $("#loginForm .btn--primary").click(function () {
     if (signIn(email, password)) {
         location.reload()
     }
+    else {
+        $("#loginForm .auth-form__form p").css("display", "block")
+        $("#loginForm .auth-form__form input").css("border-bottom", "1px solid red")
+    }
 })
 
 $(".whenLogIn .signOut").click(function () {
-    sessionStorage.setItem("account", "")
+    sessionStorage.removeItem("account")
+    sessionStorage.removeItem("myList")
     location.reload()
 })

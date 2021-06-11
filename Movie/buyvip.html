@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NMovies</title>
+    <!-- Base css file -->
+    <link rel="stylesheet" href="./assets/css/base.css" />
+    <!-- Custom css file -->
+    <link rel="stylesheet" href="./assets/css/main.css" />
+    <!-- Awesome icons -->
+    <link rel="stylesheet" href="./assets/css/all.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <!-- Responsive css file -->
+    <link rel="stylesheet" href="./assets/css/responsive.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Allura&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <script src="./assets/js/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <div class="app">
+        <header class="header">
+            <!-- thanh điều hướng -->
+            <div class="header__nav" id="my-nav">
+                <!-- Tablet nav -->
+                <div class="nav-table">
+                    <label for="nav-tablet-input" class="header__nav-bar-icon fas fa-bars"></label>
+                    <input type="checkbox" name="" id="nav-tablet-input">
+                    <label for="nav-tablet-input" class="nav__overlay"></label>
+                    <div class="nav__tablet">
+                        <div class="nav__tablet-first">
+                            <label for="nav-tablet-input">
+                                <i class="fas fa-times"></i>
+                            </label>
+                            <a href="./index.html" class="header__brand-name">NMovies</a>
+                        </div>
+                        <ul class="nav__tablet-items">
+                            <li class="nav__tablet-item">
+                                <a href="./index.html">
+                                    <div class="nav__tablet-icon">
+                                        <i class="fas fa-home"></i>
+                                    </div>
+                                    <span class="nav__tablet-item-info">Trang chủ</span>
+                                </a>
+                            </li>
+                            <li class="nav__tablet-item">
+                                <a href="./tvshow.html">
+                                    <div class="nav__tablet-icon">
+                                        <i class="fas fa-tv"></i>
+                                    </div>
+                                    <span class="nav__tablet-item-info">Phim bộ</span>
+                                </a>
+                            </li>
+                            <li class="nav__tablet-item">
+                                <a href="./movies.html">
+                                    <div class="nav__tablet-icon">
+                                        <i class="fas fa-film"></i>
+                                    </div>
+                                    <span class="nav__tablet-item-info">Phim lẻ</span>
+                                </a>
+                            </li>
+                            <li class="nav__tablet-item">
+                                <a href="./genres.html">
+                                    <div class="nav__tablet-icon">
+                                        <i class="fas fa-compact-disc"></i>
+                                    </div>
+                                    <span class="nav__tablet-item-info">Thể loại</span>
+                                </a>
+                            </li>
+                            <li class="nav__tablet-item">
+                                <a href="./popular.html">
+                                    <div class="nav__tablet-icon">
+                                        <i class="fas fa-fire"></i>
+                                    </div>
+                                    <span class="nav__tablet-item-info">Mới và Phổ biến</span>
+                                </a>
+                            </li>
+                            <li class="nav__tablet-item">
+                                <a href="./mylist.html">
+                                    <div class="nav__tablet-icon">
+                                        <i class="fas fa-archive"></i>
+                                    </div>
+                                    <span class="nav__tablet-item-info">Danh sách của tôi</span>
+                                </a>
+                            </li>
+                            <li class="nav__tablet-item">
+                                <a href="./vip.html">
+                                    <div class="nav__tablet-icon">
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                    <span class="nav__tablet-item-info">Vip</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- PC nav -->
+                <div class="nav-pc">
+                    <div class="header__first-nav">
+                        <a href="index.html" class="header__brand-name">NMovies</a>
+                        <div class="header__nav-menu-res">
+                            <ul class="header__nav-menu">
+                                <li class="header__tap">
+                                    <a href="./index.html" class="header__tap-link">Trang chủ</a>
+                                </li>
+                                <li class="header__tap">
+                                    <a href="./tvshow.html" class="header__tap-link">Phim bộ</a>
+                                </li>
+                                <li class="header__tap">
+                                    <a href="./movies.html" class="header__tap-link">Phim lẻ</a>
+                                </li>
+                                <li class="header__tap" id="genres">
+                                    <a href="./genres.html" class="header__tap-link">Thể loại</a>
+                                    <!-- <div class="genres-sub-nav">
+                                        <ul class="genres-items">
+                                            <li class="genre-item">
+                                                <a href="#" class="genre-item-link">Khoa học viễn tưởng</a>
+                                                <a href="#" class="genre-item-link">Giả tưởng</a>
+                                                <a href="#" class="genre-item-link">Giật gân</a>
+                                                <a href="#" class="genre-item-link">Kinh dị</a>
+                                                <a href="#" class="genre-item-link">Hành động</a>
+                                                <a href="#" class="genre-item-link">Thực tế</a>
+                                            </li>
+                                            <li class="genre-item">
+                                                <a href="#" class="genre-item-link">Hài</a>
+                                                <a href="#" class="genre-item-link">Hài độc thoại</a>
+                                                <a href="#" class="genre-item-link">Lãng mạn</a>
+                                                <a href="#" class="genre-item-link">Phim âm nhạc & nhạc kịch</a>
+                                                <a href="#" class="genre-item-link">Phim chính kịch</a>
+                                                <a href="#" class="genre-item-link">Phim tài liệu</a>
+                                            </li>
+                                            <li class="genre-item">
+                                                <a href="#" class="genre-item-link">Trẻ em và gia đình</a>
+                                                <a href="#" class="genre-item-link">Giành giải thưởng</a>
+                                                <a href="#" class="genre-item-link">Anime</a>
+                                                <a href="#" class="genre-item-link">Hollywood</a>
+                                                <a href="#" class="genre-item-link">Châu Á</a>
+                                                <a href="#" class="genre-item-link">Châu Âu</a>
+                                            </li>
+                                        </ul>
+                                    </div> -->
+                                </li>
+                                <li class="header__tap">
+                                    <a href="./popular.html" class="header__tap-link">Mới và Phổ biến</a>
+                                </li>
+                                <li class="header__tap">
+                                    <a href="./mylist.html" class="header__tap-link">Danh sách của tôi</a>
+                                </li>
+                                <li class="header__tap">
+                                    <a href="./vip.html" class="header__tap-link">Vip</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="header__second-nav">
+                        <div class="header__search">
+                            <button class="btn-icon fas fa-search" id="icon-search"></button>
+                            <div id="search-wrap">
+                                <button id="search-tnof" class="btn-icon fas fa-chevron-right"></button>
+                                <form action="./search.html" name="searchFrom" id="searchForm">
+                                    <button id="btn-search" class="fas fa-search"></button>
+                                    <input type="text" name="searchIp" maxlength="80"
+                                        placeholder="Phim, diễn viên, đạo diễn...">
+                                    <button id="btn-search-delete" class="fas fa-times"></button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="header__notify" title="Thông Báo">
+                            <i class="btn-icon fas fa-bell"></i>
+                        </div>
+                        <div class="header__account" title="Tài khoản">
+                            <i class="btn-icon fas fa-user-circle"></i>
+                            <div class="signIn-register">
+                                <button class="button btn-account__register">Đăng ký</button>
+                                <button class="button btn-account__signIn">Đăng nhập</button>
+                            </div>
+                        </div>
+                        <div class="header-setting">
+                            <i class="btn-icon fas fa-sliders-h"></i>
+                            <div class="toggle-setting">
+                                <div id="toggle-display">
+                                    <span>Hiện tên phim</span>
+                                    <span class="btn-toggle-display"></span>
+                                </div>
+                                <div id="toggle-lightmode">
+                                    <span>Nền sáng</span>
+                                    <span class="btn-toggle-lightmode"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Mobile nav -->
+                <div class="nav-mobile">
+                    <ul class="nav-mobile-menu">
+                        <li class="header__tap header__tap--active">
+                            <a href="./buyvip.html" class="header__tap-link">Mua vip</a>
+                        </li>
+                        <li class="header__tap">
+                            <a href="./index.html" class="header__tap-link">Trang chủ</a>
+                        </li>
+                        <li class="header__tap">
+                            <a href="./tvshow.html" class="header__tap-link">Phim bộ</a>
+                        </li>
+                        <li class="header__tap">
+                            <a href="./movies.html" class="header__tap-link">Phim lẻ</a>
+                        </li>
+                        <li class="header__tap">
+                            <a href="./genres.html" class="header__tap-link">Thể loại</a>
+                        </li>
+                        <li class="header__tap">
+                            <a href="./popular.html" class="header__tap-link">Mới và Phổ biến</a>
+                        </li>
+                        <li class="header__tap">
+                            <a href="./mylist.html" class="header__tap-link">Danh sách của tôi</a>
+                        </li>
+                        <li class="header__tap">
+                            <a href="./vip.html" class="header__tap-link">Vip</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <div class="content-vip">
+            <!-- Danh sách phim -->
+           <div class="main-vip">
+               <div class="main-vip-left">
+                   <div class="detail-vip">
+                       <h3 class="title-vip">Nâng cấp tài khoản Vip</h3>
+                       <p>Vip hưởng những quyền lợi gì?</p>
+                       <div class="interests-vip">
+                            <div class="interests-vip-one">
+                                <i class='bx bx-check'></i>
+                                <span>Không hiện quảng cáo</span>
+                                <span>, thoải mái thưởng thức phim một cách trọn vẹn.</span>
+                            </div>
+                            <div class="interests-vip-second">
+                                <i class='bx bx-check'></i>
+                                <span>Thưởng thức phim VIP</span>
+                                <span>, những bộ phim bản quyền đặc sắc.</span>
+                            </div>
+                       </div>
+                    </div>
+                    <div class="select-vip">
+                        <h3 class="title-vip">Chọn thời hạn gói Vip</h3>
+                        <div class="cards-select">
+                            <div class="card selected auto" data-date="30">
+                                <div class="card-top">
+                                    <h4>01 Tháng</h4>
+                                    <span>Tự động gia hạn hàng tháng</span>
+                                </div>
+                                <div class="card-bottom">
+                                    <span>65.000 đ</span>
+                                </div>
+                            </div>
+                            <div class="card" data-date="30">
+                                <div class="card-top">
+                                    <h4>01 Tháng</h4>
+                                    <span>Không tự động gia hạn</span>
+                                </div>
+                                <div class="card-bottom">
+                                    <span>65.000 đ</span>
+                                </div>
+                            </div>
+                            <div class="card" data-date="90">
+                                <div class="card-top">
+                                    <h4>03 Tháng</h4>
+                                    <span>Không tự động gia hạn</span>
+                                </div>
+                                <div class="card-bottom">
+                                    <span>199.000 đ</span>
+                                </div>
+                            </div>
+                            <div class="card" data-date="365">
+                                <div class="card-top">
+                                    <h4>12 Tháng</h4>
+                                    <span>Không tự động gia hạn</span>
+                                </div>
+                                <div class="card-bottom">
+                                    <span>679.000 đ</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="payment-methods">
+                        <h3 class="title-vip">Chọn cách thanh toán</h3>
+                        <div class="cards-payment-methods">
+                            <div class="card-method">
+                                <div class="thumbnail">
+                                    <img src="https://static2.vieon.vn/vieon-web-v4/assets/img/banks/vnpay.svg" alt="">
+                                </div>
+                                <h4>Thẻ ATM <br>Ứng dụng Mobile Banking</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="banking">
+                        <div class="note">
+                            Chọn 1 trong các ngân hàng sau rồi bấm THANH TOÁN. Bạn sẽ chuyển tới màn hình thanh toán của VNPAY để hoàn thành việc
+                            mua gói.
+                        </div>
+                        <div class="banking-wrap">
+                            <div class="cell">
+                                <img src="https://static.vieon.vn/vieplay-image/bank/BANK-7.png" alt="">
+                            </div>
+                            <div class="cell">
+                                <img src="https://static.vieon.vn/vieplay-image/bank/BANK-19.png" alt="">
+                            </div>
+                            <div class="cell">
+                                <img src="https://static.vieon.vn/vieplay-image/bank/BANK-10.png" alt="">
+                            </div>
+                            <div class="cell">
+                                <img src="https://static.vieon.vn/vieplay-image/bank/BANK-1.png" alt="">
+                            </div>
+                            <div class="cell">
+                                <img src="https://static.vieon.vn/vieplay-image/bank/BANK-2.png" alt="">
+                            </div>
+                            <div class="cell">
+                                <img src="https://static.vieon.vn/vieplay-image/bank/BANK-3.png" alt="">
+                            </div>
+                            <div class="cell">
+                                <img src="https://static.vieon.vn/vieplay-image/bank/BANK-4.png" alt="">
+                            </div>
+                            <div class="cell">
+                                <img src="https://static.vieon.vn/vieplay-image/bank/BANK-5.png" alt="">
+                            </div>
+                             <div class="cell">
+                                <img src="https://static.vieon.vn/vieplay-image/bank/BANK-6.png" alt="">
+                            </div>
+                            <div class="cell">
+                                <img src="https://static.vieon.vn/vieplay-image/bank/BANK-7.png" alt="">
+                            </div>
+                            <div class="cell">
+                                <img src="https://static.vieon.vn/vieplay-image/bank/BANK-8.png" alt="">
+                            </div>
+                            <div class="cell">
+                                <img src="https://static.vieon.vn/vieplay-image/bank/BANK-11.png" alt="">
+                            </div>
+                        </div>
+                        <div class="last-note">
+                            Bạn sẽ chuyển tới màn hình thanh toán của VNPAY để hoàn thành việc mua gói VIP
+                        </div>
+                    </div>
+               </div>
+               <div class="main-vip-right">
+                   <div class="info-payment">
+                       <h3 class="title-vip">Thông tin thanh toán</h3>
+                       <table>
+                        
+                       </table>
+                       <div class="discount">
+                           <input type="text" name="" id="" placeholder="Nhập mã giảm giá">
+                           <button class="button disable">Áp dụng</button>
+                       </div>
+                       <div class="bill">
+                           <span>Thành tiền</span>
+                           <span>65.000 đ</span>
+                       </div>
+                    </div>
+                    <button class="button btn-payment disable">
+                        THANH TOÁN
+                    </button>
+                    <div class="auth-form__aside">
+                        <p class="auth-form__policy-text">
+                            Bằng việc thanh toán, bạn đồng ý với NMovies về
+                            <a href="#" class="auth-form__text-link">Điều khoản sử dụng</a>,
+                            <a href="#" class="auth-form__text-link">Chính sách & quy định chung</a>
+                        </p>
+                    </div>
+               </div>
+           </div>
+           <!-- Footer -->
+           <footer class="footer">
+               <div class="footer__social">
+                   <h2 class="footer__title">LIÊN HỆ</h2>
+                   <p class="footer__email-phone">Email: nam278z01@gmail.com</p>
+                   <p class="footer__email-phone">Phone: 0321123321</p>
+                   <a href="#" class="footer__social-link" title="Facebook">
+                       <i class="footer__social-icon fab fa-facebook-square"></i>
+                   </a>
+                   <a href="#" class="footer__social-link" title="Instagram">
+                       <i class="footer__social-icon fab fa-instagram-square"></i>
+                   </a>
+                   <a href="#" class="footer__social-link">
+                       <i class="footer__social-icon fab fa-twitter" title="Twitter"></i>
+                   </a>
+                   <a href="#" class="footer__social-link" title="Youtube">
+                       <i class="footer__social-icon fab fa-youtube"></i>
+                   </a>
+               </div>
+               <div class="footer__other">
+                   <h2 class="footer__title">QUY ĐỊNH</h2>
+                   <a href="#" class="footer__other-info">Điều khoản sử dụng</a>
+                   <a href="#" class="footer__other-info">Chính sách và quy định chung</a>
+                   <a href="#" class="footer__other-info">Chính sách về quyền riêng tư</a>
+                   <a href="#" class="footer__other-info">Chính sách về sở hữu trí tuệ</a>
+               </div>
+           </footer>
+        </div>
+    </div>
+
+    <div class="modalSecond" id="myModalSecond">
+        <div class="modal__overlaySecond"></div>
+        <div class="modal__bodySecond">
+            <!-- Register form -->
+            <div class="auth-form" id="registerForm">
+                <div class="auth-form__container">
+                    <div class="auth-form__header">
+                        <h3 class="auth-form__heading">Đăng ký</h3>
+                        <span class="auth-form__switch-btn">Đăng nhập</span>
+                    </div>
+                    <div class="auth-form__form">
+                        <div class="auth-form__group">
+                            <input type="text" class="auth-form__input" placeholder="Email của bạn">
+                        </div>
+                        <div class="auth-form__group">
+                            <input type="password" class="auth-form__input" placeholder="Mật khẩu của bạn">
+                        </div>
+                        <div class="auth-form__group">
+                            <input type="password" class="auth-form__input" placeholder="Nhập lại mật khẩu">
+                        </div>
+                    </div>
+                    <div class="auth-form__aside">
+                        <p class="auth-form__policy-text">
+                            Bằng việc đăng kí, bạn đồng ý với NMovies về
+                            <a href="#" class="auth-form__text-link">Điều khoản dịch vụ</a> &
+                            <a href="#" class="auth-form__text-link">Chính sách bảo mật</a>
+                        </p>
+                    </div>
+                    <div class="auth-form__controls">
+                        <button class="button btn--normal auth-form__controls-back">TRỞ LẠI</button>
+                        <button class="button btn--primary">ĐĂNG KÝ</button>
+                    </div>
+                </div>
+                <div class="auth-form__socials">
+                    <a href="#" class="auth-form__socials--facebook button btn--size-s">
+                        <i class="auth-form__socials-icon fab fa-facebook-square"></i>
+                        <span class="auth-form__socials-title">Kết nối với Facebook</span>
+                    </a>
+                    <a href="#" class="auth-form__socials--google button btn--size-s">
+                        <i class="auth-form__socials-icon fab fa-google"></i>
+                        <span class="auth-form__socials-title">Kết nối với Google</span>
+                    </a>
+                </div>
+            </div>
+            <!-- Login form -->
+            <div class="auth-form" id="loginForm">
+                <div class="auth-form__container">
+                    <div class="auth-form__header">
+                        <h3 class="auth-form__heading">Đăng nhập</h3>
+                        <span class="auth-form__switch-btn">Đăng ký</span>
+                    </div>
+                    <div class="auth-form__form">
+                        <div class="auth-form__group">
+                            <input type="text" class="auth-form__input" placeholder="Email của bạn">
+                        </div>
+                        <div class="auth-form__group">
+                            <input type="password" class="auth-form__input" placeholder="Mật khẩu của bạn">
+                        </div>
+                        <p>Tài khoản hoặc mật khẩu không đúng!</p>
+                    </div>
+                    <div class="auth-form__aside">
+                        <div class="auth-form__help">
+                            <a href="#" class="auth-form__help-link auth-form__help-forgot">Quên mật khẩu</a>
+                            <span class="auth-form__help-separate"></span>
+                            <a href="#" class="auth-form__help-link">Cần trợ giúp?</a>
+                        </div>
+                    </div>
+                    <div class="auth-form__controls">
+                        <button class="button btn--normal auth-form__controls-back">TRỞ LẠI</button>
+                        <button class="button btn--primary">ĐĂNG NHẬP</button>
+                    </div>
+                </div>
+                <div class="auth-form__socials">
+                    <a href="#" class="auth-form__socials--facebook button btn--size-s">
+                        <i class="auth-form__socials-icon fab fa-facebook-square"></i>
+                        <span class="auth-form__socials-title">Kết nối với Facebook</span>
+                    </a>
+                    <a href="#" class="auth-form__socials--google button btn--size-s">
+                        <i class="auth-form__socials-icon fab fa-google"></i>
+                        <span class="auth-form__socials-title">Kết nối với Google</span>
+                    </a>
+                </div>
+            </div>
+            <div id="addForm">
+                <p class="addForm-info">Bạn chưa có tài khoản NMovies?</p>
+                <p class="addForm-notify">Hãy đăng nhập để thêm nội dung này vào danh sách của bạn</p>
+                <div class="addForm__btn">
+                    <button class="button addForm-btn__cancel">Bỏ qua</button>
+                    <button class="button addForm-btn__Login">Đăng nhập</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./assets/js/data.js"></script>
+    <script src="./assets/js/base.js"></script>
+    <script src="./assets/js/buyvip.js"></script>
+</body>
+
+</html>
