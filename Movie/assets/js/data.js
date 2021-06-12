@@ -254,42 +254,48 @@ function dataMovies() {
             name: "Dont f*ck with my cat|Đừng đùa với mèo",
             isMyList: false,
             isMovie: false,
-            isComing: false
+            isComing: false,
+            isVip: false
         },
         {
             id: "033",
             name: "Sherlock",
             isMyList: false,
             isMovie: false,
-            isComing: false
+            isComing: false,
+            isVip: false
         },
         {
             id: "034",
             name: "The Better call Saul|Hãy gọi cho Saul",
             isMyList: false,
             isMovie: false,
-            isComing: false
+            isComing: false,
+            isVip: false
         },
         {
             id: "035",
             name: "Breaking bad|Tập làm người xấu",
             isMyList: false,
             isMovie: false,
-            isComing: false
+            isComing: false,
+            isVip: false
         },
         {
             id: "036",
             name: "The House of cards|Ván bài chính trị",
             isMyList: false,
             isMovie: false,
-            isComing: false
+            isComing: false,
+            isVip: false
         },
         {
             id: "037",
             name: "Family guys",
             isMyList: false,
             isMovie: false,
-            isComing: false
+            isComing: false,
+            isVip: false
         },
         {
             id: "038",
@@ -490,7 +496,7 @@ function dataMovies() {
             isMovie: true,
             isComing: false,
             isVip: false
-            
+
         },
         {
             id: "063",
@@ -546,8 +552,7 @@ function addStorage() {
 }
 // Đăng nhập
 function signIn(email, password) {
-    if (email == "nam@gmail.com" && password == "278")
-    {
+    if (email == "nam@gmail.com" && password == "278") {
         let account = {
             email: "nam278z01@gmail.com",
             password: "278",
@@ -570,7 +575,7 @@ function signIn(email, password) {
     else {
         return false
     }
-    
+
 }
 
 let accountData = sessionStorage.getItem("account")
@@ -602,6 +607,7 @@ $("#loginForm .btn--primary").click(function () {
     let password = $("#loginForm input[type=password]").val()
     if (signIn(email, password)) {
         $('body, html').scrollTop(0)
+        sessionStorage.setItem("login", "true")
         location.reload()
     }
     else {
@@ -616,3 +622,33 @@ $(".whenLogIn .signOut").click(function () {
     $('body, html').scrollTop(0)
     location.reload()
 })
+
+let loggedIn = sessionStorage.getItem("login")
+if (loggedIn) {
+    setTimeout(function () {
+        Toast("Chào mừng bạn trở lại NMovies")
+    }, 1000)
+    sessionStorage.removeItem("login")
+}
+
+function Toast(notify) {
+    let toast = document.querySelector("#toast")
+    if (toast) {
+        let toastSub = document.createElement("div")
+        toastSub.classList.add('toast')
+
+        toastSub.innerHTML = `<div class="toast-icon">
+                                    <i class='bx bx-bell'></i>
+                                </div>
+                             <div class="toast-body">
+                                 <span>${notify}</span>
+                             </div>`
+        toast.appendChild(toastSub)
+        let mySetTimeOut = setTimeout(function () {
+            toast.removeChild(toastSub)
+        }, 2600)
+        toastSub.onclick = function () {
+            this.setAttribute("style", "transform: translateX(calc(100% + 32px)); transition: transform ease 0.3s; animation: none;")
+        }
+    }
+}
