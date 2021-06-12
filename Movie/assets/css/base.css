@@ -1327,7 +1327,7 @@ button.hover-movie__button--remind {
   background-color: #111111;
   border-left: 3px solid #46e1ff;
   color: white;
-  box-shadow: rgba(0, 0, 0, 0.75) 0px 5px 8px;
+  box-shadow: rgba(0, 0, 0, 0.75) -5px 5px 8px;
   animation: slideRemove linear 0.3s 2s forwards, slideInLeft ease 0.3s;
   transition: all linear 1s;
 }

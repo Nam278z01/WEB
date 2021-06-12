@@ -89,6 +89,8 @@ $(document).ready(function () {
                 if (!dataElement.isMyList) {
                     icon.removeClass("bx-plus").addClass("bx-check");
     
+                    Toast("Đã thêm vào danh sách")
+
                     dataNew[pos].isMyList = true
                     window.sessionStorage.setItem("allMovies", JSON.stringify(dataNew));
     
@@ -125,6 +127,8 @@ $(document).ready(function () {
                 else {
                     icon.removeClass("bx-check").addClass("bx-plus");
     
+                    Toast("Đã xóa khỏi danh sách")
+
                     dataNew[pos].isMyList = false
                     window.sessionStorage.setItem("allMovies", JSON.stringify(dataNew));
     
@@ -1739,5 +1743,27 @@ $(document).ready(function () {
                 $(selectSeason).removeClass("disable")
             }
         })
+    }
+
+    function Toast(notify) {
+        let toast = document.querySelector("#toast")
+        if (toast) {
+            let toastSub = document.createElement("div")
+            toastSub.classList.add('toast')
+
+            toastSub.innerHTML = `<div class="toast-icon">
+                                    <i class='bx bx-bell'></i>
+                                </div>
+                             <div class="toast-body">
+                                 <span>${notify}</span>
+                             </div>`
+            toast.appendChild(toastSub)
+            let mySetTimeOut = setTimeout(function () {
+                toast.removeChild(toastSub)
+            }, 2600)
+            toastSub.onclick = function () {
+                this.setAttribute("style", "transform: translateX(calc(100% + 32px)); transition: transform ease 0.3s; animation: none;")
+            }
+        }
     }
 });
