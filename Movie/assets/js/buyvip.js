@@ -194,9 +194,18 @@ if (accountDataB) {
         }
     })
 } else {
+    $(".btn-payment").click(function () {
+        if (!$(this).hasClass("disable")) {
+            $("#myModalSecond").css("display", "flex")
+            $("body").css("overflow", "hidden")
+            let notifyFrom = $("#addForm")
+            notifyFrom.show()
+            notifyFrom.find(".addForm-notify").text("Hãy đăng nhập thực hiện tính năng này")
+        }
+    })
     $("#myModalSecond").css("display", "flex")
     $("body").css("overflow", "hidden")
     let notifyFrom = $("#addForm")
     notifyFrom.show()
-    notifyFrom.find(".addForm-notify").text("Hãy đăng nhập để thêm nội dung này vào danh sách của bạn")
+    notifyFrom.find(".addForm-notify").text("Hãy đăng nhập thực hiện tính năng này")
 }

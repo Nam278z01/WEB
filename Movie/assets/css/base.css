@@ -22,7 +22,7 @@
   --hover-color: #2f2f2f;
   --hover-color-sc: rgb(47, 47, 47, 0.3);
   --hover-color-th: #141414;
-  --hover-color-fr:#333333FF;
+  --hover-color-fr: #333333ff;
   --vip-color: #da9e1c;
   --auth-color: #333333;
   --nav-color: #101010;
@@ -31,11 +31,9 @@
   --btn-check-color: #212529;
   --label-color: #adb5bd;
   --btn-check-hover: #16181b;
-
 }
 
 .light {
-
 }
 
 * {
@@ -49,7 +47,7 @@ html {
   font-size: 62.5%;
   line-height: 1.6rem;
   box-sizing: border-box;
-  /* scroll-behavior: smooth; */
+  scroll-behavior: smooth;
 }
 
 body {
@@ -443,7 +441,6 @@ button.hover-movie__button--remind {
 }
 
 .auth-form__form {
-
 }
 
 .auth-form__form > p {
@@ -861,7 +858,6 @@ button.hover-movie__button--remind {
 }
 
 .modal-recommend__header {
-
 }
 
 .movie-name-watch {
@@ -985,7 +981,7 @@ button.hover-movie__button--remind {
 .watch-link.active .modal-recommend__wrap:hover .modal-recommend__link {
   opacity: 0 !important;
   cursor: default;
-} 
+}
 
 .watch-link.active .modal-recommend__wrap:hover .modal-recommend__img {
   transform: scale(1) !important;
@@ -1038,7 +1034,6 @@ button.hover-movie__button--remind {
 }
 
 .recommend-movies__info {
-  
 }
 
 .recommend-movies__info-first {
@@ -1314,4 +1309,54 @@ button.hover-movie__button--remind {
 
 .watch-link.active {
   background-color: var(--auth-color);
+}
+
+#toast {
+  position: fixed;
+  top: 32px;
+  right: 32px;
+  z-index: 300;
+}
+
+.toast {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  height: 70px;
+  width: 300px;
+  background-color: #111111;
+  border-left: 3px solid #46e1ff;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.75) 0px 5px 8px;
+  animation: slideRemove linear 0.3s 2s forwards, slideInLeft ease 0.3s;
+  transition: all linear 1s;
+}
+
+.toast-icon {
+  padding: 20px;
+}
+
+.toast-icon > i {
+  font-size: 2.8rem;
+}
+
+.toast-body > span {
+  font-size: 1.6rem;
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(calc(100% + 32px));
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes slideRemove {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(100% + 32px));
+  }
 }

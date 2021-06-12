@@ -557,9 +557,9 @@ function signIn(email, password) {
         sessionStorage.setItem("account", JSON.stringify(account))
         return true
     }
-    else if (email == "namhai@gmail.com" && password == "278") {
+    else if (email == "namN@gmail.com" && password == "278") {
         let account = {
-            email: "nam278z01@gmail.com",
+            email: "namN@gmail.com",
             password: "278",
             name: "Nam Nguyễn",
             isVip: false
@@ -601,6 +601,7 @@ $("#loginForm .btn--primary").click(function () {
     let email = $("#loginForm input[type=text]").val()
     let password = $("#loginForm input[type=password]").val()
     if (signIn(email, password)) {
+        $('body, html').scrollTop(0)
         location.reload()
     }
     else {
@@ -612,5 +613,6 @@ $("#loginForm .btn--primary").click(function () {
 $(".whenLogIn .signOut").click(function () {
     sessionStorage.removeItem("account")
     sessionStorage.removeItem("myList")
+    $('body, html').scrollTop(0)
     location.reload()
 })

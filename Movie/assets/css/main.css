@@ -63,7 +63,7 @@
 .header__video-name {
   width: 576px;
   transform-origin: bottom left;
-  animation: ZoomOut-sc linear 1.3s 3s;
+  animation: ZoomOut-sc linear 1.3s 3s forwards;
 }
 
 .header__video-info {

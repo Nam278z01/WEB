@@ -400,6 +400,16 @@
     <script src="./assets/js/data.js"></script>
     <script src="./assets/js/base.js"></script>
     <script src="./assets/js/mylistNew.js"></script>
+    <script>
+        let accountDataM = sessionStorage.getItem("account")
+        if (!accountDataM) {
+            $("#myModalSecond").css("display", "flex")
+            $("body").css("overflow", "hidden")
+            let notifyFrom = $("#addForm")
+            notifyFrom.show()
+            notifyFrom.find(".addForm-notify").text("Hãy đăng nhập thực hiện tính năng này")
+        }
+    </script>
 </body>
 
 </html>
