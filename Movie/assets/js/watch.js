@@ -1155,5 +1155,53 @@ $(document).ready(function () {
     
             selectSeasonShow()        
         }
+
+        let myVideoWaych = $("#my-video-watch")[0]
+
+        let seletedMovieNew = {
+            "id": selectedMovie.id,
+            "name": selectedMovie.name,
+            "isMyList": selectedMovie.isMyList,
+            "isMovie": selectedMovie.isMovie,
+            "isVip": selectedMovie.isVip,
+            "currentTime": 0,
+            "percent": 0
+        }
+        let moviesWatched = sessionStorage.getItem('watch')
+        let moviesWatchedNew = []
+        if (moviesWatched) {
+            let moviesWatchedArr = JSON.parse(moviesWatched)
+
+            let check = true
+            moviesWatchedArr.forEach(element => {
+                if (element.id == selectedMovie.id) {
+                    myVideoWaych.currentTime = element.currentTime
+                    check = false
+                    return false
+                }
+            })
+            if (check) {
+                moviesWatchedArr.push(seletedMovieNew)
+            }
+            moviesWatchedNew = moviesWatchedArr
+        }
+        else {
+            moviesWatchedNew.push(seletedMovieNew)
+        }
+        sessionStorage.setItem('watch', JSON.stringify(moviesWatchedNew))
+
+        let currentTime
+        setInterval(function () {
+            currentTime = Math.floor(myVideoWaych.currentTime)
+            moviesWatchedNew.forEach(function (element) {
+                if (element.id == selectedMovie.id) {
+                    element.currentTime = currentTime
+                    element.percent = Math.ceil(currentTime / myVideoWaych.duration * 100)
+                }
+            })
+            sessionStorage.setItem('watch', JSON.stringify(moviesWatchedNew))
+        }, 1000)
+
     }
+   
 });

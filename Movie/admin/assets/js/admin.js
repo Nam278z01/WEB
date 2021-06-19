@@ -26,7 +26,7 @@ darkMode_toggle.onclick = (e) => {
 //Thêm phim lẻ
 let btnAddMovies = document.querySelector('#btn-add-movies')
 let body = document.querySelector('body')
-let modal = document.querySelector('.modal')
+let modal = document.querySelector('#myModal')
 
 btnAddMovies.onclick = (e) => {
     body.style.overflow = 'hidden'
@@ -271,6 +271,7 @@ btnAddMovies.onclick = (e) => {
         let pathVideo = modalBody.querySelector('.modal-movies-info:nth-last-child(2) > input[type="file"]').value
         let index = pathVideo.lastIndexOf(`\\`)
         pathVideo = pathVideo.slice(index)
+        Toast("Thêm thành công")
     }
 }
 function addMovie(id, name, genres, actor, director, anhDoc, anhNgang, anhLon, anhTen, country, view, description, admin, nsx, trailer, date, pathVideo) {
@@ -345,4 +346,83 @@ function addMovie(id, name, genres, actor, director, anhDoc, anhNgang, anhLon, a
                     </div>
                 </div>`
     return content
+}
+
+function Toast(notify) {
+    let toast = document.querySelector("#toast")
+    if (toast) {
+        let toastSub = document.createElement("div")
+        toastSub.classList.add('toast')
+
+        toastSub.innerHTML = `<div class="toast-icon">
+                                    <i class='bx bx-bell'></i>
+                                </div>
+                             <div class="toast-body">
+                                 <span>${notify}</span>
+                             </div>`
+        toast.appendChild(toastSub)
+        let mySetTimeOut = setTimeout(function () {
+            toast.removeChild(toastSub)
+        }, 2600)
+        toastSub.onclick = function () {
+            this.setAttribute("style", "transform: translateX(calc(100% + 32px)); transition: transform ease 0.3s; animation: none;")
+        }
+    }
+}
+
+let modalSecond = document.querySelector('#myModalSecond')
+let btnRemoveAndEdit = document.querySelectorAll('.box-btn > button')
+btnRemoveAndEdit.forEach(function (btn, index) {
+    if (index % 2 == 0) {
+
+    } else {
+        btn.onclick = function () {
+            body.style.overflow = 'hidden'
+            modalSecond.style.display = 'block'
+            modalSecond.style.display="flex"
+            modalSecond.innerHTML = `<div class="modal-overlay"></div>
+        <div id="removeForm">
+            <p class="removeForm-info">Bạn thật sự muốn xóa?</p>
+            <p class="removeForm-notify">Xóa sẽ không thể khôi phục lại dữ liệu</p>
+            <div class="removeForm__btn">
+                <button class="btn" id="removeCancel">Hủy</button>
+                <button class="btn btn-outline" id="removeAgree">Đồng Ý</button>
+            </div>
+        </div>`
+            let removeForm = modalSecond.querySelector('#removeForm')
+            let overlay = modalSecond.querySelector('.modal-overlay')
+            let btnCancel = removeForm.querySelector('#removeCancel')
+            let btnAgree = removeForm.querySelector('#removeAgree')
+
+
+            modalSecond.onclick = (e) => {
+                if (e.target == overlay) {
+                    body.style.overflow = 'auto'
+                    modalSecond.style.display = 'none'
+                    modalSecond.innerHTML = ""
+                }
+            }
+            btnCancel.onclick = () => {
+                body.style.overflow = 'auto'
+                modalSecond.style.display = 'none'
+                modalSecond.innerHTML = ""
+            }
+            btnAgree.onclick = () => {
+                removeParent(this, 4)
+                body.style.overflow = 'auto'
+                modalSecond.style.display = 'none'
+                modalSecond.innerHTML = ""
+                Toast("Xóa thành công")
+            }
+        }
+    }
+})
+function removeParent(element, num) {
+    let parent = element;
+    for (let i = 0; i < num; i++) {
+        if (parent.parentNode) {
+            parent = parent.parentNode;
+        }
+    }
+    parent.remove();
 }

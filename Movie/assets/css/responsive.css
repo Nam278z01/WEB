@@ -89,10 +89,6 @@
     top: 80%;
   }
 
-  .header__video-info {
-    -webkit-line-clamp: 2;
-  }
-
   .content {
     top: 325px;
   }
@@ -173,6 +169,10 @@
 
   #search-wrap > button {
     display: block;
+  }
+
+  .main.popular {
+    top: -230px;
   }
 
   .main__row {
@@ -319,12 +319,20 @@
     width: 60%;
   }
 
+  .header__video-info {
+    -webkit-line-clamp: 2;
+  }
+
   .header__video-name {
     width: 400px;
   }
 
   .content {
     top: 0;
+  }
+
+  .main.popular {
+    top: 80px;
   }
 
   .row__img-link {

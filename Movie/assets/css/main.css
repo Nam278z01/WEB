@@ -818,7 +818,7 @@ input[name="searchIp"] {
 .row__wrap {
   width: 100%;
   position: relative;
-  background-color: var(--primary-color-fr);
+  background-color: var(--black-color);
   border-radius: 4px;
 }
 

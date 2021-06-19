@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="shortcut icon" href="../assets/img/image009.jpg" type="image/jpg"> -->
     <title>Admin</title>
+    <!-- Icon -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Css -->
     <link rel="stylesheet" href="./assets/css/admin.css">
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
         href="https://fonts.googleapis.com/css2?family=Allura&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
     <script src="../assets/js/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.ckeditor.com/ckeditor5/27.1.0/decoupled-document/ckeditor.js"></script>
 </head>
+
 <body>
     <div class="sidebar">
         <div class="sidebar-logo">
@@ -135,18 +141,392 @@
         </ul>
     </div>
 
-    <script src="assets/js/admin.js"></script>
-    <!-- <script>
-        DecoupledEditor
-            .create(document.querySelector('#modal-add-movies'))
-            .then(editor => {
-                const toolbarContainer = document.querySelector('#toolbar-container');
+    <div class="main">
+        <div class="main-header">
+            <div class="mobile-toggle" id="mobile-toggle">
+                <i class='bx bx-menu-alt-right'></i>
+            </div>
+            <div class="main-title">
+                <span>Bảng điều khiển</span>
+            </div>
+        </div>
 
-                toolbarContainer.appendChild(editor.ui.view.toolbar.element);
-            })
-            .catch(error => {
-                console.error(error);
-            });
-    </script> -->
+        <div class="main-content">
+            <div class="row">
+                <div class="box-dashboard">
+                    <div class="counter">
+                        <div class="counter-title">
+                            Doanh thu
+                        </div>
+                        <div class="counter-info">
+                            <div class="counter-count">
+                                20,099,000
+                            </div>
+                            <i class="">VNĐ</i>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-dashboard">
+                    <div class="counter">
+                        <div class="counter-title">
+                            Tổng số gói vip đã bán
+                        </div>
+                        <div class="counter-info">
+                            <div class="counter-count">
+                                1,023
+                            </div>
+                            <i class="fas fa-money-bill-wave-alt"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-dashboard">
+                    <div class="counter">
+                        <div class="counter-title">
+                            Tổng lượt xem phim
+                        </div>
+                        <div class="counter-info">
+                            <div class="counter-count">
+                                1,023,012
+                            </div>
+                            <i class="far fa-eye"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-dashboard">
+                    <div class="counter">
+                        <div class="counter-title">
+                            Người dùng
+                        </div>
+                        <div class="counter-info">
+                            <div class="counter-count">
+                                702
+                            </div>
+                            <i class="fas fa-users"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-dashboard">
+                    <div class="counter">
+                        <div class="counter-title">
+                            Người dùng đang sử dụng gói Vip
+                        </div>
+                        <div class="counter-info">
+                            <div class="counter-count">
+                            346
+                            </div>
+                            <i class="fas fa-crown"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-dashboard">
+                    <div class="counter">
+                        <div class="counter-title">
+                            Khách thăm hàng ngày
+                        </div>
+                        <div class="counter-info">
+                            <div class="counter-count">
+                                2,023
+                            </div>
+                            <i class="fas fa-eye"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="top">
+                <div class="top-all top-sub">
+                    <div class="top-header">Top NMovies</div>
+                    <div class="top-body">
+                        <ul class="movie-list">
+                            <li class="movie-list-item">
+                                <div class="item-info">
+                                    <img src="../assets/img/image001.jpg" alt="">
+                                    <div class="item-name">
+                                        <div>Đội quân người chết</div>
+                                        <div>Phim Lẻ</div>
+                                    </div>
+                                </div>
+                                <div class="item-view">
+                                    <div>Lượt xem</div>
+                                    <div>80,213</div>
+                                </div>
+                            </li>
+                            <li class="movie-list-item">
+                                <div class="item-info">
+                                    <img src="../assets/img/image002.jpg" alt="">
+                                    <div class="item-name">
+                                        <div>Tình yêu, cái chết và robot</div>
+                                        <div>Phim Bộ</div>
+                                    </div>
+                                </div>
+                                <div class="item-view">
+                                    <div>Lượt xem</div>
+                                    <div>70,578</div>
+                                </div>
+                            </li>
+                            <li class="movie-list-item">
+                                <div class="item-info">
+                                    <img src="../assets/img/image003.jpg" alt="">
+                                    <div class="item-name">
+                                        <div>Sát thủ John Wick</div>
+                                        <div>Phim Lẻ</div>
+                                    </div>
+                                </div>
+                                <div class="item-view">
+                                    <div>Lượt xem</div>
+                                    <div>65,345</div>
+                                </div>
+                            </li>
+                            <li class="movie-list-item">
+                                <div class="item-info">
+                                    <img src="../assets/img/image004.jpg" alt="">
+                                    <div class="item-name">
+                                        <div>Gương đen</div>
+                                        <div>Phim Bộ</div>
+                                    </div>
+                                </div>
+                                <div class="item-view">
+                                    <div>Lượt xem</div>
+                                    <div>60,870</div>
+                                </div>
+                            </li>
+                            <li class="movie-list-item">
+                                <div class="item-info">
+                                    <img src="../assets/img/image005.jpg" alt="">
+                                    <div class="item-name">
+                                        <div>Học viện cây dù</div>
+                                        <div>Phim Bộ</div>
+                                    </div>
+                                </div>
+                                <div class="item-view">
+                                    <div>Lượt xem</div>
+                                    <div>57,023</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="top-month top-sub">
+                    <div class="top-header">Top Tháng</div>
+                    <div class="top-body">
+                        <ul class="movie-list">
+                            <li class="movie-list-item">
+                                <div class="item-info">
+                                    <img src="../assets/img/image006.jpg" alt="">
+                                    <div class="item-name">
+                                        <div>Cậu bé mất tích</div>
+                                        <div>Phim Bộ</div>
+                                    </div>
+                                </div>
+                                <div class="item-view">
+                                    <div>Lượt xem</div>
+                                    <div>30,023</div>
+                                </div>
+                            </li>
+                            <li class="movie-list-item">
+                                <div class="item-info">
+                                    <img src="../assets/img/image007.jpg" alt="">
+                                    <div class="item-name">
+                                        <div>Hãy bắt tôi nếu có thể</div>
+                                        <div>Phim Lẻ</div>
+                                    </div>
+                                </div>
+                                <div class="item-view">
+                                    <div>Lượt xem</div>
+                                    <div>29,456</div>
+                                </div>
+                            </li>
+                            <li class="movie-list-item">
+                                <div class="item-info">
+                                    <img src="../assets/img/image008.jpg" alt="">
+                                    <div class="item-name">
+                                        <div>Siêu giác quan</div>
+                                        <div>Phim Bộ</div>
+                                    </div>
+                                </div>
+                                <div class="item-view">
+                                    <div>Lượt xem</div>
+                                    <div>28,123</div>
+                                </div>
+                            </li>
+                            <li class="movie-list-item">
+                                <div class="item-info">
+                                    <img src="../assets/img/image010.jpg" alt="">
+                                    <div class="item-name">
+                                        <div>Linh hồn đổi xác</div>
+                                        <div>Phim Bộ</div>
+                                    </div>
+                                </div>
+                                <div class="item-view">
+                                    <div>Lượt xem</div>
+                                    <div>27,123</div>
+                                </div>
+                            </li>
+                            <li class="movie-list-item">
+                                <div class="item-info">
+                                    <img src="../assets/img/image011.jpg" alt="">
+                                    <div class="item-name">
+                                        <div>Lạc ngoài không gian</div>
+                                        <div>Phim Bộ</div>
+                                    </div>
+                                </div>
+                                <div class="item-view">
+                                    <div>Lượt xem</div>
+                                    <div>26,023</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="top-week top-sub">
+                    <div class="top-header">Top Tuần</div>
+                    <div class="top-body">
+                        <ul class="movie-list">
+                            <li class="movie-list-item">
+                                <div class="item-info">
+                                    <img src="../assets/img/image016.jpg" alt="">
+                                    <div class="item-name">
+                                        <div>Pacific Rim: Vùng tối</div>
+                                        <div>Phim Bộ</div>
+                                    </div>
+                                </div>
+                                <div class="item-view">
+                                    <div>Lượt xem</div>
+                                    <div>20,023</div>
+                                </div>
+                            </li>
+                            <li class="movie-list-item">
+                                <div class="item-info">
+                                    <img src="../assets/img/image017.jpg" alt="">
+                                    <div class="item-name">
+                                        <div>Thợ săn quái vật</div>
+                                        <div>Phim Bộ</div>
+                                    </div>
+                                </div>
+                                <div class="item-view">
+                                    <div>Lượt xem</div>
+                                    <div>19,213</div>
+                                </div>
+                            </li>
+                            <li class="movie-list-item">
+                                <div class="item-info">
+                                    <img src="../assets/img/image018.jpg" alt="">
+                                    <div class="item-name">
+                                        <div>Aquaman</div>
+                                        <div>Phim Lẻ</div>
+                                    </div>
+                                </div>
+                                <div class="item-view">
+                                    <div>Lượt xem</div>
+                                    <div>18,023</div>
+                                </div>
+                            </li>
+                            <li class="movie-list-item">
+                                <div class="item-info">
+                                    <img src="../assets/img/image019.jpg" alt="">
+                                    <div class="item-name">
+                                        <div>Outside the wire</div>
+                                        <div>Phim Lẻ</div>
+                                    </div>
+                                </div>
+                                <div class="item-view">
+                                    <div>Lượt xem</div>
+                                    <div>17,346</div>
+                                </div>
+                            </li>
+                            <li class="movie-list-item">
+                                <div class="item-info">
+                                    <img src="../assets/img/image020.jpg" alt="">
+                                    <div class="item-name">
+                                        <div>Bridgerton</div>
+                                        <div>Phim Bộ</div>
+                                    </div>
+                                </div>
+                                <div class="item-view">
+                                    <div>Lượt xem</div>
+                                    <div>16,696</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="top-day top-sub">
+                    <div class="top-header">Top Trong Ngày</div>
+                    <div class="top-body">
+                        <ul class="movie-list">
+                            <li class="movie-list-item">
+                                <div class="item-info">
+                                    <img src="../assets/img/image011.jpg" alt="">
+                                    <div class="item-name">
+                                        <div>Lạc ngoài không gian</div>
+                                        <div>Phim Bộ</div>
+                                    </div>
+                                </div>
+                                <div class="item-view">
+                                    <div>Lượt xem</div>
+                                    <div>4,023</div>
+                                </div>
+                            </li>
+                            <li class="movie-list-item">
+                                <div class="item-info">
+                                    <img src="../assets/img/image012.jpg" alt="">
+                                    <div class="item-name">
+                                        <div>Hobbit: Hành trình vô định</div>
+                                        <div>Phim Lẻ</div>
+                                    </div>
+                                </div>
+                                <div class="item-view">
+                                    <div>Lượt xem</div>
+                                    <div>3,523</div>
+                                </div>
+                            </li>
+                            <li class="movie-list-item">
+                                <div class="item-info">
+                                    <img src="../assets/img/image013.jpg" alt="">
+                                    <div class="item-name">
+                                        <div>Đội quân người chết</div>
+                                        <div>Phim Lẻ</div>
+                                    </div>
+                                </div>
+                                <div class="item-view">
+                                    <div>Lượt xem</div>
+                                    <div>3,123</div>
+                                </div>
+                            </li>
+                            <li class="movie-list-item">
+                                <div class="item-info">
+                                    <img src="../assets/img/image014.jpg" alt="">
+                                    <div class="item-name">
+                                        <div>Những người bạn</div>
+                                        <div>Phim Bộ</div>
+                                    </div>
+                                </div>
+                                <div class="item-view">
+                                    <div>Lượt xem</div>
+                                    <div>2,981</div>
+                                </div>
+                            </li>
+                            <li class="movie-list-item">
+                                <div class="item-info">
+                                    <img src="../assets/img/image015.jpg" alt="">
+                                    <div class="item-name">
+                                        <div>Tình yêu và quái vật</div>
+                                        <div>Phim Lẻ</div>
+                                    </div>
+                                </div>
+                                <div class="item-view">
+                                    <div>Lượt xem</div>
+                                    <div>1,023</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/admin.js"></script>
+   
 </body>
+
 </html>
