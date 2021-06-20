@@ -2,6 +2,8 @@ $(document).ready(function () {
     ClearArr()
     DeleteMoviesIsMyList()
     addList()
+    DeleteMoviesIsContinueMovie()
+    addContinueMovie()
 
     if (navigator.userAgent.match(/Android/i)
         || navigator.userAgent.match(/webOS/i)
@@ -1933,6 +1935,79 @@ $(document).ready(function () {
             }, 2600)
             toastSub.onclick = function () {
                 this.setAttribute("style", "transform: translateX(calc(100% + 32px)); transition: transform ease 0.3s; animation: none;")
+            }
+        }
+    }
+
+    function addContinueMovie() {
+        let continueRow = $('#continueRow > .row__container-sc')
+        let continueMovies = sessionStorage.getItem('watch')
+        let content = ""
+        if (continueMovies) {
+            $("#myContinueRow").show()
+            let continueMoviesArr = JSON.parse(continueMovies)
+            for (const cma of continueMoviesArr) {
+                let name = cma.name.split('|')
+                let getName = name[1] ? name[1] : name[0]
+
+                let processBar = ` <div class="processbar" style="background-color: #ffffff4D; height: 3px; width: 100%;">
+                                        <div class="process" style="background-color: #46e1ff; height: 3px; width: ${cma.percent}%;"></div>
+                                    </div>`
+
+                let detail = cma.isMovie == false ? `<div class="row__name row__name-tvshow">
+                                        <span>${getName}</span>
+                                        <div class="row__detail">
+                                            <div class="row__detail-left">
+                                                <span>2021</span>
+                                                <span>1 Mùa</span>
+                                            </div>
+                                            <span class="btn-genres">Phim Bộ</span>
+                                        </div>
+                                    </div>` : `<div class="row__name row__name-movies">
+                                        <span>${getName}</span>
+                                        <div class="row__detail">
+                                            <div class="row__detail-left">
+                                                <span>2021</span>
+                                                <span>90ph</span>
+                                            </div>
+                                            <span class="btn-genres">Phim Lẻ</span>
+                                        </div>
+                                    </div>`;
+
+                var myConItem = cma.isVip == false ?
+                    `<div class="row__img-link" data-movie="${cma.id}">
+                                                <div class="row__wrap ratioImg__wrap">
+                                                    <img src="./assets/img/image${cma.id}.jpg" alt="" class="row__img ratio__in">
+                                                </div>` + processBar + detail +
+                    `</div>` :
+                    `<div class="row__img-link" data-movie="${cma.id}">
+                                                <div class="row__wrap ratioImg__wrap">
+                                                    <img src="./assets/img/image${cma.id}.jpg" alt="" class="row__img ratio__in">
+                                                    <img src="./assets/img/iconvip.png" alt="vip" class="movies-vip">
+                                                </div>`+ processBar + detail +
+                    `</div>`;
+                content += myConItem;
+            }
+        }
+        continueRow.html(content)
+    }
+
+    function DeleteMoviesIsContinueMovie() {
+        let AllMovies = $(".row__img-link");
+        for (const movie of AllMovies) {
+            if (!$(movie).parent().parent().is("#topRow")) {
+                let id = $(movie).attr("data-movie")
+
+                let myMovies = sessionStorage.getItem("watch");
+                let myMoviesArr = JSON.parse(myMovies);
+                if (myMoviesArr) {
+                    for (const myMovie of myMoviesArr) {
+                        if (id == myMovie.id) {
+                            movie.remove();
+                            break;
+                        }
+                    }
+                }
             }
         }
     }

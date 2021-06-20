@@ -1165,7 +1165,8 @@ $(document).ready(function () {
             "isMovie": selectedMovie.isMovie,
             "isVip": selectedMovie.isVip,
             "currentTime": 0,
-            "percent": 0
+            "percent": 0,
+            "timeleft": myVideoWaych.duration
         }
         let moviesWatched = sessionStorage.getItem('watch')
         let moviesWatchedNew = []
@@ -1197,6 +1198,7 @@ $(document).ready(function () {
                 if (element.id == selectedMovie.id) {
                     element.currentTime = currentTime
                     element.percent = Math.ceil(currentTime / myVideoWaych.duration * 100)
+                    element.timeleft = myVideoWaych.duration - currentTime
                 }
             })
             sessionStorage.setItem('watch', JSON.stringify(moviesWatchedNew))
