@@ -384,7 +384,7 @@ $(document).ready(function () {
                 addStorage($(".hover-movie__button--add-removeList"), dataArr, posElement, id, main);
                 playMovies($(".hover-movie__button--play"), id, idWatchMovie)
 
-            }, 800)
+            }, 600)
         }).mouseleave(function () {
             clearTimeout(myTimeout);
             clearInterval(mySetInterVal);
