@@ -235,7 +235,7 @@ $(document).ready(function () {
                 }
             }
 
-            let idWatchMovie = isMovie == true ? `./watch.html?movie=${id}` : `/watch.html?movie=${id}&season=1&ep=01`
+            let idWatchMovie = isMovie == true ? `./watch.html?movie=${id}` : `./watch.html?movie=${id}&season=1&ep=01`
 
             var infoOther = isMovie == true ? `<div class="hover-movie__info">
                                                 <div>

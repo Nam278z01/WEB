@@ -2,8 +2,11 @@ $(document).ready(function () {
     ClearArr()
     DeleteMoviesIsMyList()
     addList()
-    DeleteMoviesIsContinueMovie()
-    addContinueMovie()
+    let isLogin = sessionStorage.getItem('account')
+    if (isLogin) {
+        DeleteMoviesIsContinueMovie()
+        addContinueMovie()
+    }
 
     if (navigator.userAgent.match(/Android/i)
         || navigator.userAgent.match(/webOS/i)
@@ -26,6 +29,7 @@ $(document).ready(function () {
         sliderGe($("#vipRow"), ".row__item-next", ".row__item-back", '.row__container-sc', ".row__img-link");
         sliderGe($("#comingRow"), ".row__item-next", ".row__item-back", '.row__container-sc', ".row__img-link");
         sliderGe($("#myRow"), ".row__item-next", ".row__item-back", '.row__container-sc', ".row__img-link");
+        sliderGe($("#continueRow"), ".row__item-next", ".row__item-back", '.row__container-sc', ".row__img-link");
     }
 
     // Scroll nav

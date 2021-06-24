@@ -554,7 +554,7 @@ function addStorage() {
 function signIn(email, password) {
     if (email == "nam@gmail.com" && password == "278") {
         let account = {
-            email: "nam278z01@gmail.com",
+            email: "nam@gmail.com",
             password: "278",
             name: "Nam Nguyễn",
             isVip: true
@@ -619,6 +619,7 @@ $("#loginForm .btn--primary").click(function () {
 $(".whenLogIn .signOut").click(function () {
     sessionStorage.removeItem("account")
     sessionStorage.removeItem("myList")
+    sessionStorage.removeItem("watch")
     $('body, html').scrollTop(0)
     location.reload()
 })
