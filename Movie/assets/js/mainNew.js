@@ -232,6 +232,7 @@ $(document).ready(function () {
             let isMyList
             let isComing
             let isVip
+            let srcMovie
 
             let dataArrLength = dataArr.length
             let posElement
@@ -241,6 +242,7 @@ $(document).ready(function () {
                     isMyList = dataArr[i].isMyList
                     isComing = dataArr[i].isComing
                     isVip = dataArr[i].isVip
+                    srcMovie = dataArr[i].src
                     posElement = i
                     break
                 }
@@ -326,7 +328,7 @@ $(document).ready(function () {
                                         <span>
                                             <img src="./assets/img/image${id}.jpg" alt="" class="hover-movie__img ratio__in">
                                             <video id="hover-movie__video" class="ratio__in">
-                                                <source src="./assets/video/video${id}.mp4" type="video/mp4">
+                                                <source src="${srcMovie}" type="video/mp4">
                                             </video>
                                         </span>
                                         <img src="./assets/img/image_name${id}.png" alt="" class="hover-movie__video-name">
