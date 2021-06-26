@@ -1243,7 +1243,7 @@ $(document).ready(function () {
                 <div class="hover-movie-link modal-movie-link ratio16-9__wrap">
                     <img src="./assets/img/image_big${dataWantToShow.id}.jpg" alt="" class="modal-movie__img ratio__in">
                     <video id="modal-movie__video" class="ratio__in">
-                        <source src="./assets/video/video${dataWantToShow.id}.mp4" type="video/mp4">
+                        <source src="${dataWantToShow.src}" type="video/mp4">
                     </video>
                 </div>
                 <div class="header-movie__content">

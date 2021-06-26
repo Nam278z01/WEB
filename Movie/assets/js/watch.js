@@ -690,7 +690,7 @@ $(document).ready(function () {
                 <div class="watch-movie-area">
                     <div class="watch-movie__header">
                         <video id="my-video-watch" class="ratio__in-watch" controls poster="./assets/img/image_big${selectedMovie.id}.jpg">
-                            <source src="./assets/video/video${selectedMovie.id}.mp4">
+                            <source src="${selectedMovie.src}">
                         </video>
                     </div>
                 </div>
