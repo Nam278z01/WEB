@@ -685,6 +685,9 @@ $(document).ready(function () {
                 return false
             }
         }
+        if (selectedMovie.id == "009") {
+            selectedMovie.src = selectedMovie.srcM
+        }
 
         let content =` <div class="watch-movie">
                 <div class="watch-movie-area">
