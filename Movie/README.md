@@ -1,5 +1,4 @@
-# Hello. This is a Netflix clone
-# ~50 video ~ 1GB
+# Hello. This is a Netflix + Vieon clone
 # Page: https://nam278z01.github.io/WEB/Movie/
 # Account: nam@gmail.com
 # Password: 278
