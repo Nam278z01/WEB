@@ -1,0 +1,129 @@
+:root {
+    --nav-color: rgba(33, 33, 33);
+    --bg-color: #181818;
+    --nav-element-active: #383838;
+    --main-color: #00e1cb;
+    --text-color: #ffffff;
+    --text-color-second: #adb5bd;
+    --text-color-third: #e9ecef;
+    --text-color-four: #000000;
+    --btn-color: #0b121e;
+    --btn-color-second: #162032;
+    --border-color: rgba(75, 74, 74, 0.8);
+    --scroll-thumb: rgba(111, 111, 111, 0.6);
+    --search-color: #121212;
+    --height-brand-name: 56px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: unset;
+    display: inline-block;
+}
+
+ul {
+    list-style-type: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+.btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px 24px;
+    background-color: transparent;
+    color: var(--text-color);
+    transition: background-color linear 0.35s;
+}
+
+.btn:hover {
+    background-color: var(--text-color-third);
+    color: var(--text-color-four);
+}
+
+.btn.btn-outline {
+    border: 1px solid var(--text-color);
+}
+
+.btn + .btn {
+    margin-left: 16px;
+}
+
+.btn i {
+    font-size: 2.4rem;
+}
+
+.btn span {
+    display: inline-block;
+    font-size: 1.6rem;
+    padding-left: 8px;
+}
+
+.btn.btn--circle {
+    padding: 0;
+    height: 42px;
+    width: 42px;
+    border-radius: 50%;
+}
+
+.btn.btn--half-circle {
+    border-radius: 2rem;
+}
+
+.btn.btn--primary {
+    color: var(--main-color);
+    border-color: var(--main-color);
+}
+
+.btn.btn--primary:hover {
+    color: var(--text-color-four);
+    background-color: var(--main-color);
+}
+
+.ratio16-9 {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+}
+
+.ratio-other {
+    position: relative;
+    width: 100%;
+    padding-bottom: 50%;
+}
+
+.ratioIn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}

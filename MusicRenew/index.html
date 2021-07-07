@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NMovies</title>
+    <link href="./assets/img/logo.png" type="image/png" rel="shortcut icon">
+    <link rel="stylesheet" href="./assets/css/base.css">
+    <link rel="stylesheet" href="./assets/css/grid.css">
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
+    <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Allura&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="header__brand">
+            <span class="brand__name">NMovies</span>
+        </div>
+        <form action="" id="header__search-form">
+            <div class="search__container">
+                <input type="text" name="q" placeholder="Phim, diễn viên, đạo diễn...">
+            </div>
+            <button class="btn">
+                <i class='bx bx-search-alt-2'></i>
+            </button>
+        </form>
+        <div class="header__other">
+            <div class="header__notify">
+                <i class='bx bx-bell'></i>
+            </div>
+            <div class="header__account">
+                <i class='bx bx-user-circle'></i>
+            </div>
+        </div>
+    </header>
+
+    <nav id="sidebar" class="small">
+        <div class="sidebar__brand">
+            <i class='bx bx-menu'></i>
+            <span class="brand__name">NMovies</span>
+        </div>
+        <div class="sidebar__body">
+            <div class="sidebar-body__element">
+                <ul class="sidebar-element__list">
+                    <li class="active">
+                        <a href="#" title="Trang Chủ">
+                            <i class='bx bx-home'></i>
+                            <span>Trang chủ</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title="Phim Lẻ">
+                            <i class='bx bx-camera-movie'></i>
+                            <span>Phim lẻ</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title="Phim Bộ">
+                            <i class='bx bx-movie'></i>
+                            <span>Phim bộ</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title="Thể Loại">
+                            <i class='bx bx-category'></i>
+                            <span>Thể loại</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title="Mới và Phổ biến">
+                            <i class='bx bx-album'></i>
+                            <span>Mới và phổ biến</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title="Phim Vip">
+                            <i class='bx bx-star'></i>
+                            <span>Phim vip</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <footer>
+
+        </footer>
+    </nav>
+
+    <section id="content">
+        <div class="content__slide">
+            <div class="content__slide-list">
+                <div class="slide-list__item">
+                    <div class="ratio-other">
+                        <img src="https://image.tmdb.org/t/p/w1280//fYI8WX2DquAHMqwh5mOMxc6RU5j.jpg" alt="The big sick" class="ratioIn">
+                    </div>
+                    <div class="slide-item__shadow">
+                        <div class="slide-item__info">
+                            <h2 class="slide-item__name-film">
+                                The big sick
+                            </h2>
+                            <div class="slide-item__score-genres">
+                                <span>IMDB 4.6</span>
+                                <span>112ph</span>
+                                <span>Hài</span>
+                                <span>Lãng mạn</span>
+                                <span>Kịch</span>
+                            </div>
+                            <div class="slide-item__description">
+                                The Big Sick là bộ phim hài lãng mạn được đạo diễn bởi Micheal Showalter (Hello My Name is Doris). Phim
+                                dựa trên câu
+                                chuyện cuộc đời của diễn viên chính kiêm biên kịch Kumail Nanjiani và người hiện là vợ anh Emily Gordon.
+                                Gia đình Hồi
+                                giáo gốc Pakistan của Kumail không hài lòng về mối quan hệ giữa anh và Emily, vốn là một người Mỹ. --
+                                Tình cảnh của 2
+                                người trở nên éo le hơn bao giờ hết khi Emily bị hành hạ bởi một căn bệnh bí hiểm trong khi Kumail lãnh
+                                trách nhiệm "đối
+                                đầu" với phụ huynh của cô. The Big Sick là một trong những bộ phim được đánh giá cao nhất về cả mặt nghệ
+                                thuật lẫn
+                                thương mại tại Liên hoan phim Sundance năm nay. --
+                            </div>
+                            <div class="slide-item__btn">
+                                <button class="btn btn--half-circle btn-outline btn--primary">
+                                    <i class='bx bxs-right-arrow'></i>
+                                    <span>Xem ngay</span>
+                                </button>
+                                <button class="btn btn--half-circle btn-outline">
+                                    <i class='bx bx-info-circle'></i>
+                                    <span>Chi tiết</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-list__item">
+                    <div class="ratio-other">
+                        <img src="https://image.tmdb.org/t/p/w1280//i80wifLk9w3q4Pq9UOPlfrsjKY1.jpg" alt="" class="ratioIn">
+                    </div>
+                    <div class="slide-item__shadow">
+                        <div class="slide-item__info">
+                            <h2 class="slide-item__name-film">
+                                She's Out of My League
+                            </h2>
+                            <div class="slide-item__score-genres">
+                                <span>IMDB 4.6</span>
+                                <span>112ph</span>
+                                <span>Hài</span>
+                                <span>Lãng mạn</span>
+                                <span>Kịch</span>
+                            </div>
+                            <div class="slide-item__description">
+                                Kirk Kettner là nhân viên an ninh tại sân bay Pittsburgh. Thời gian rảnh rỗi anh thường dành cho những người bạn từ thời
+                                trung học, đồng thời là đồng nghiệp. Mong ước duy nhất của anh là được quay lại với cô bạn gái cũ Marnie, người đã từ
+                                lâu đi tìm tình yêu mới. -- Kirk đơn giản lúc nào cũng hài lòng với hiện tại cho đến ngày Molly kiêu hãnh bước qua trạm
+                                kiểm soát của anh tại sân bay và vô tình để quên chiếc iPhone. Molly đẹp, ấn tượng và sắc sảo, lại thông minh, thạo đời.
+                                Rõ ràng cô hoàn toàn không phải người phụ nữ dành cho Kirk. -- Khi Kirk lịch sự đem trả điện thoại, cô đề nghị đáp lại
+                                thiện ý của anh bằng một cặp vé xem khúc côn cầu. Anh đồng ý, không thể nghĩ được rằng người phụ nữ trong mơ ấy thực ra
+                                đang muốn hẹn hò với mình. Với sự giúp đỡ từ những người bạn, Kirk bắt đầu kế hoạch dốc sức giành lại Molly. Mặc cho anh
+                                chàng bạn trai cũ bảnh bao của Molly, cùng cô bạn gái cũ Marnie vào cuộc, Kirk vẫn nỗ lực để chứng tỏ được rằng nếu cố
+                                gắng h…
+                            </div>
+                            <div class="slide-item__btn">
+                                <button class="btn btn--half-circle btn-outline btn--primary">
+                                    <i class='bx bxs-right-arrow'></i>
+                                    <span>Xem ngay</span>
+                                </button>
+                                <button class="btn btn--half-circle btn-outline">
+                                    <i class='bx bx-info-circle'></i>
+                                    <span>Chi tiết</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-list__item">
+                    <div class="ratio-other">
+                        <img src="https://image.tmdb.org/t/p/w1280//ab9RFSA8ZBFl2MWe3g0YFkqgeNe.jpg" alt="The Layover" class="ratioIn">
+                    </div>
+                    <div class="slide-item__shadow">
+                        <div class="slide-item__info">
+                            <h2 class="slide-item__name-film">
+                                The Layover
+                            </h2>
+                            <div class="slide-item__score-genres">
+                                <span>IMDB 4.7</span>
+                                <span>112ph</span>
+                                <span>Hài</span>
+                                <span>Lãng mạn</span>
+                                <span>Kịch</span>
+                            </div>
+                            <div class="slide-item__description">
+                                Phim Chuyến Đi Bất Ngờ - The Layover 2017 kể về câu chuyện hai mỹ nữ trong chuyến du lịch đi Florida. Họ phải đối mặt
+                                với nhiều tình huống trớ trêu trên chặng đường dài vì bị đổi hướng đi không như dự kiế…
+                            </div>
+                            <div class="slide-item__btn">
+                                <button class="btn btn--half-circle btn-outline btn--primary">
+                                    <i class='bx bxs-right-arrow'></i>
+                                    <span>Xem ngay</span>
+                                </button>
+                                <button class="btn btn--half-circle btn-outline">
+                                    <i class='bx bx-info-circle'></i>
+                                    <span>Chi tiết</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+            <div class="content__slide-pick">
+                <div class="slide-pick__item picked">
+                    <div class="ratio16-9">
+                        <img src="https://image.tmdb.org/t/p/w1280//fYI8WX2DquAHMqwh5mOMxc6RU5j.jpg" alt="The big sick" class="ratioIn">
+                    </div>
+                </div>
+                <div class="slide-pick__item">
+                    <div class="ratio16-9">
+                        <img src="https://image.tmdb.org/t/p/w1280//i80wifLk9w3q4Pq9UOPlfrsjKY1.jpg" alt="She's Out of My League"  class="ratioIn">
+                    </div>
+                </div>
+                <div class="slide-pick__item">
+                    <div class="ratio16-9">
+                        <img src="https://image.tmdb.org/t/p/w1280//ab9RFSA8ZBFl2MWe3g0YFkqgeNe.jpg" alt="The Layover"
+                            class="ratioIn">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="./assets/js/base.js"></script>
+
+</body>
+</html>
