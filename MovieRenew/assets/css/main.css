@@ -1,17 +1,19 @@
+#app {
+}
+
 /* Header */
-header {
+#header {
     height: var(--height-brand-name);
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    background-color: transparent;
-    padding: 0 4% 0 62px;
+    background-color: var(--nav-color);
+    padding: 0 3% 0 3%;
     z-index: 1;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    transition: background-color linear 0.35s;
 }
 
 .header__brand {
@@ -25,10 +27,15 @@ header {
     display: flex;
 }
 
-#header__search-form button.btn {
+#header__search-form .btn {
     padding: 0 24px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+    background-color: var(--border-color);
+}
+
+#header__search-form .btn:hover {
+    background-color: var(--text-color-third);
 }
 
 .search__container {
@@ -37,11 +44,11 @@ header {
 
 .search__container input {
     outline: none;
-    background-color: transparent;
+    background-color: var(--search-color);
     color: var(--text-color);
     border: 1px solid var(--border-color);
     height: 35px;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     padding-left: 16px;
     width: 100%;
     border-top-right-radius: 0;
@@ -55,7 +62,6 @@ header {
 .header__other {
     display: flex;
 }
-
 
 .header__account,
 .header__notify {
@@ -77,13 +83,18 @@ header {
     top: 0;
     bottom: 0;
     left: 0;
-    transition: width linear 0.35s;
+    transition: width linear 0.2s;
     overflow: hidden;
     z-index: 1;
 }
 
 #sidebar.small {
-    width: 86px;
+    width: var(--sidebar-width-small);
+}
+
+#sidebar.small .sidebar__brand {
+    padding: 0;
+    justify-content: center;
 }
 
 #sidebar.small .brand__name {
@@ -114,6 +125,12 @@ header {
     padding: 0 30px;
 }
 
+.header__brand i {
+    padding: 10px;
+    display: none;
+}
+
+.header__brand i,
 .sidebar__brand i {
     font-size: 3.2rem;
     cursor: pointer;
@@ -131,7 +148,7 @@ header {
 .sidebar__body {
     overflow-y: auto;
     height: calc(100% - var(--height-brand-name));
-    padding: 10px 0 20px;
+    padding: 0 0 20px;
 }
 
 .sidebar__body::-webkit-scrollbar {
@@ -176,7 +193,7 @@ header {
 .sidebar-element__list > li {
     height: 44px;
     border-left: 2px solid transparent;
-    transition: background-color linear 0.35s;
+    transition: background-color linear 0.2s;
 }
 
 .sidebar-element__list > li a {
@@ -217,18 +234,27 @@ header {
 }
 
 /* Content */
-section {
-
+#content {
+    margin-top: 56px;
+    overflow: hidden;
 }
 
 .content__slide {
-
 }
 
 .content__slide-list {
     position: relative;
     display: flex;
-    transition: transform linear 0.35s;
+    transform: translateX(-100%);
+    cursor: grab;
+}
+
+.content__slide-list.animation {
+    transition: transform linear 0.2s;
+}
+
+.content__slide-list.animation.stop {
+    transition-duration: 0s;
 }
 
 .slide-list__item {
@@ -236,32 +262,40 @@ section {
     flex-shrink: 0;
 }
 
-.slide-item__shadow {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    background-image: linear-gradient(180deg, hsla(0, 0%, 7%, 0), #111),
-        linear-gradient(90deg, hsla(0, 0%, 7%, 0.7), hsla(0, 0%, 7%, 0));
-}
-
 .slide-item__info {
     position: absolute;
     bottom: 20%;
-    left: 100px;
+    left: calc(var(--sidebar-width-small) + calc(3% + 14px));
     width: 60%;
 }
 
+.slide-item__name-film-vie,
 .slide-item__name-film {
     font-size: 4rem;
     font-weight: 500;
     margin-bottom: 16px;
     color: var(--text-color);
+    text-transform: uppercase;
+}
+
+.slide-item__name-film-vie {
+    font-size: 2.8rem;
     text-transform: capitalize;
 }
 
 .slide-item__score-genres {
     margin-bottom: 16px;
+    display: flex;
+}
+
+.slide-item__score-genres > span {
+    display: flex;
+    align-items: center;
+}
+
+.slide-item__score-genres i {
+    font-size: 2rem;
+    padding-right: 4px;
 }
 
 .slide-item__score-genres span {
@@ -271,7 +305,8 @@ section {
     color: var(--text-color-third);
 }
 
-.slide-item__score-genres span:hover:not(:first-child, :nth-child(2)) {
+.slide-item__score-genres
+    > span:hover:not(:first-child, :nth-child(2), :nth-child(3)) {
     text-decoration: underline;
     cursor: pointer;
     color: var(--text-color);
@@ -286,19 +321,17 @@ section {
 }
 
 .slide-item__btn {
-
 }
 
 .content__slide-pick {
-    display: flex;
-    justify-content: flex-end;
-    margin-right: 4%;
+    padding: 0 calc(3% + 14px) 0
+        calc(var(--sidebar-width-small) + calc(3% + 14px));
     position: relative;
     top: -80px;
 }
 
 .slide-pick__item {
-    width: 80px;
+    /* width: 80px; */
     cursor: pointer;
 }
 
@@ -306,28 +339,202 @@ section {
     border: 2px solid var(--main-color);
 }
 
-.slide-pick__item + .slide-pick__item {
+/* .slide-pick__item + .slide-pick__item {
     margin-left: 16px;
+} */
+
+/* Popup trailer */
+.modal-body__video-popup {
+    position: relative;
+    margin: auto;
+    width: 50%;
+    display: none;
 }
 
-/* Animation */
-@keyframes showLeft {
-    from {
-
-    }
-    to {
-
-    }
+.modal-body__video-popup.show {
+    display: block;
 }
 
-@keyframes hideLeft {
+.modal-body__video-popup .btn {
+    position: absolute;
+    top: -80px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--text-color-four);
+    border: 3px solid var(--text-color-four);
+}
+
+
+/* List movie */
+.content__list-movie {
+    width: 100%;
+    margin-bottom: 100px;
+}
+
+.content-list-movie__title {
+    margin-bottom: 24px;
+    padding: 0 calc(3% + 14px) 0
+        calc(var(--sidebar-width-small) + calc(3% + 14px));
+}
+
+.content-list-movie__name {
+    font-size: 2.4rem;
+    text-transform: capitalize;
+}
+
+.content-list-movie__slide {
+    position: relative;
+    padding: 0 calc(3% + 14px);
+    margin-left: var(--sidebar-width-small);
+}
+
+.btn__prev,
+.btn__next {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: calc(3% + 14px);
+    height: 100%;
+    z-index: 1;
+    background-color: rgba(17, 17, 17, 0.7);
+}
+
+.btn__prev {
+    left: 0;
+}
+
+.btn__prev > i,
+.btn__next > i {
+    font-size: 3.6rem;
+}
+
+.list-movie__slide-item {
+    width: 100%;
+    position: relative;
+    cursor: pointer;
+    transition-property: transform;
+    transition-duration: 0.4s;
+    transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
+}
+
+.list-movie__slide-item.show .movie-slide__play {
+    display: flex;
+}
+
+.list-movie__slide-item.show .btn {
+    display: inline-flex;
+}
+
+.movie-slide__play {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(17, 17, 17, 0.5);
+    z-index: 1;
+    display: none;
+}
+
+.movie-slide__play .btn {
+    margin: auto;
+    font-size: 4rem;
+    border-radius: 50%;
+    padding: 30px;
+    border-width: 2px;
+    opacity: 0.6;
+    transition: opacity linear 0.2s;
+}
+
+.movie-slide__play .btn:hover {
+    opacity: 1;
+}
+
+.movie-slide__feature {
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+}
+
+.movie-slide__feature .btn {
+    display: none;
+}
+
+.movie-slide__feature .btn i {
+    font-size: 3rem;
+}
+
+.movie-slide__info {
+    position: absolute;
+    bottom: 2%;
+    left: 4%;
+    right: 4%;
+    width: 100%;
+}
+
+.movie-slide__name {
     
 }
 
-@keyframes showLeft {
-    
+.movie-slide__name-eng {
+    font-size: 1.6rem;
+    font-weight: 400;
+    text-transform: capitalize;
 }
 
-@keyframes hideLeft {
-    
+.movie-slide__name-vie {
+    font-size: 1.4rem;
+    font-weight: 300;
+    text-transform: capitalize;
+    margin-top: 4px;
+}
+
+.movie-slide__category-time {
+    margin-top: 4px;
+}
+
+.movie-slide__category-time span {
+    display: inline-flex;
+    align-items: center;
+    font-size: 1.3rem;
+    font-weight: 300;
+    margin-right: 10px;
+}
+
+.movie-slide__category-time i {
+    margin-right: 4px;
+    font-size: 2rem;
+}
+
+.list-movie__slide-item.aniScale:hover {
+    transform: scale(1.4);
+}
+
+.list-movie__slide-item.aniScale.first:hover {
+    transform: translateX(20%) scale(1.4);
+}
+
+.list-movie__slide-item.aniScale.last:hover {
+    transform: translateX(-20%) scale(1.4);
+}
+
+.list-movie__slide-item.aniTranslateHalfLeft {
+    transform: translateX(-20%);
+}
+
+.list-movie__slide-item.aniTranslateHalfRight {
+    transform: translateX(20%);
+}
+
+.list-movie__slide-item.aniTranslateRight {
+    transform: translateX(40%);
+}
+.list-movie__slide-item.aniTranslateLeft {
+    transform: translateX(-40%);
 }

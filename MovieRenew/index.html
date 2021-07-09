@@ -17,222 +17,892 @@
         rel="stylesheet">
 </head>
 <body>
-
-    <header>
-        <div class="header__brand">
-            <span class="brand__name">NMovies</span>
-        </div>
-        <form action="" id="header__search-form">
-            <div class="search__container">
-                <input type="text" name="q" placeholder="Phim, diễn viên, đạo diễn...">
+    <div id="app">
+        <header id="header">
+            <div class="header__brand">
+                <i class='bx bx-menu'></i>
+                <a href="#" class="brand__name">
+                    NMovies
+                </a>
             </div>
-            <button class="btn">
-                <i class='bx bx-search-alt-2'></i>
-            </button>
-        </form>
-        <div class="header__other">
-            <div class="header__notify">
-                <i class='bx bx-bell'></i>
+            <form action="" id="header__search-form">
+                <div class="search__container">
+                    <input type="text" name="q" placeholder="Phim, diễn viên, đạo diễn...">
+                </div>
+                <button class="btn" title="Tìm kiếm">
+                    <i class='bx bx-search-alt-2'></i>
+                </button>
+            </form>
+            <div class="header__other">
+                <div class="header__notify" title="Thông báo">
+                    <i class='bx bx-bell'></i>
+                </div>
+                <div class="header__account" title="Tài khoản">
+                    <i class='bx bx-user-circle'></i>
+                </div>
             </div>
-            <div class="header__account">
-                <i class='bx bx-user-circle'></i>
+        </header>
+    
+        <nav id="sidebar" class="small">
+            <div class="sidebar__brand">
+                <i class='bx bx-menu'></i>
+                <a href="#" class="brand__name">
+                    NMovies
+                </a>
             </div>
-        </div>
-    </header>
-
-    <nav id="sidebar" class="small">
-        <div class="sidebar__brand">
-            <i class='bx bx-menu'></i>
-            <span class="brand__name">NMovies</span>
-        </div>
-        <div class="sidebar__body">
-            <div class="sidebar-body__element">
-                <ul class="sidebar-element__list">
-                    <li class="active">
-                        <a href="#" title="Trang Chủ">
-                            <i class='bx bx-home'></i>
-                            <span>Trang chủ</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" title="Phim Lẻ">
-                            <i class='bx bx-camera-movie'></i>
-                            <span>Phim lẻ</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" title="Phim Bộ">
-                            <i class='bx bx-movie'></i>
-                            <span>Phim bộ</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" title="Thể Loại">
-                            <i class='bx bx-category'></i>
-                            <span>Thể loại</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" title="Mới và Phổ biến">
-                            <i class='bx bx-album'></i>
-                            <span>Mới và phổ biến</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" title="Phim Vip">
-                            <i class='bx bx-star'></i>
-                            <span>Phim vip</span>
-                        </a>
-                    </li>
-                </ul>
+            <div class="sidebar__body">
+                <div class="sidebar-body__element">
+                    <ul class="sidebar-element__list">
+                        <li class="active">
+                            <a href="#" title="Trang Chủ">
+                                <i class='bx bx-home'></i>
+                                <span>Trang chủ</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" title="Phim Lẻ">
+                                <i class='bx bx-camera-movie'></i>
+                                <span>Phim lẻ</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" title="Phim Bộ">
+                                <i class='bx bx-movie'></i>
+                                <span>Phim bộ</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" title="Thể Loại">
+                                <i class='bx bx-category'></i>
+                                <span>Thể loại</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" title="Mới và Phổ biến">
+                                <i class='bx bx-album'></i>
+                                <span>Mới và phổ biến</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" title="Phim Vip">
+                                <i class='bx bx-star'></i>
+                                <span>Phim vip</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-        <footer>
-
-        </footer>
-    </nav>
-
-    <section id="content">
-        <div class="content__slide">
-            <div class="content__slide-list">
-                <div class="slide-list__item">
-                    <div class="ratio-other">
-                        <img src="https://image.tmdb.org/t/p/w1280//fYI8WX2DquAHMqwh5mOMxc6RU5j.jpg" alt="The big sick" class="ratioIn">
+        </nav>
+    
+        <section id="content">
+            <div class="content__slide">
+                <div class="content__slide-list">
+                    <div class="slide-list__item">
+                        <div class="ratio16-9 ratio--other">
+                            <img src="https://image.tmdb.org/t/p/w1280//aq2yEMgRQBPfRkrO0Repo2qhUAT.jpg" alt="Huyền thoại Vikings"
+                                class="ratioIn">
+                        </div>
+                        <div class="shadow">
+                            <div class="slide-item__info">
+                                <h1 class="slide-item__name-film">
+                                    Vikings
+                                </h1>
+                                <h3 class="slide-item__name-film-vie">
+                                    Huyền thoại Vikings
+                                </h3>
+                                <div class="slide-item__score-genres">
+                                    <span>
+                                        <i class='bx bx-movie'></i> Phim Bộ
+                                    </span>
+                                    <span>
+                                        <i class='bx bxl-imdb'></i> 8.6
+                                    </span>
+                                    <span>
+                                        <i class='bx bx-time-five'></i>
+                                        6 Mùa
+                                    </span>
+                                    <span>hành động & phiêu lưu</span>
+                                    <span>Chính kịch</span>
+                                </div>
+                                <div class="slide-item__description">
+                                    Bộ phim kể về cuộc phiêu lưu của Ragnar Lothbrok - người anh hùng vĩ đại của dân tộc Vikings. Cũng như
+                                    bao chiến binh
+                                    dũng cảm khác, Ragnar là hiện thân của truyền thống Bắc Âu, là biểu tượng của các vị thần dũng mãnh và
+                                    can đảm nhất. --
+                                </div>
+                                <div class="slide-item__btn">
+                                    <button class="btn btn--half-circle btn--outline btn--primary btn__play marginLeft">
+                                        <i class='bx bxs-right-arrow'></i>
+                                        <span>Xem ngay</span>
+                                    </button>
+                                    <button class="btn btn--half-circle btn--outline btn__trailer"
+                                        data-iframe="https://www.youtube.com/embed/Y7d0A5re7-0">
+                                        <i class='bx bx-movie-play'></i>
+                                        <span>Xem trailer</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="slide-item__shadow">
-                        <div class="slide-item__info">
-                            <h2 class="slide-item__name-film">
-                                The big sick
-                            </h2>
-                            <div class="slide-item__score-genres">
-                                <span>IMDB 4.6</span>
-                                <span>112ph</span>
-                                <span>Hài</span>
-                                <span>Lãng mạn</span>
-                                <span>Kịch</span>
+                    <div class="slide-list__item">
+                        <div class="ratio16-9 ratio--other">
+                            <img src="https://image.tmdb.org/t/p/w1280//fYI8WX2DquAHMqwh5mOMxc6RU5j.jpg" alt="The big sick" class="ratioIn">
+                        </div>
+                        <div class="shadow">
+                            <div class="slide-item__info">
+                                <h2 class="slide-item__name-film">
+                                    The big sick
+                                </h2>
+                                <h3 class="slide-item__name-film-vie">
+                                   
+                                </h3>
+                                <div class="slide-item__score-genres">
+                                    <span>
+                                        <i class='bx bx-camera-movie'></i> Phim Lẻ
+                                    </span>
+                                    <span>
+                                        <i class='bx bxl-imdb'></i> 4.6
+                                    </span>
+                                    <span>
+                                        <i class='bx bx-time-five'></i>
+                                        112ph
+                                    </span>
+                                    <span>Hài</span>
+                                    <span>Lãng mạn</span>
+                                    <span>Kịch</span>
+                                </div>
+                                <div class="slide-item__description">
+                                    The Big Sick là bộ phim hài lãng mạn được đạo diễn bởi Micheal Showalter (Hello My Name is Doris). Phim
+                                    dựa trên câu
+                                    chuyện cuộc đời của diễn viên chính kiêm biên kịch Kumail Nanjiani và người hiện là vợ anh Emily Gordon.
+                                    Gia đình Hồi
+                                    giáo gốc Pakistan của Kumail không hài lòng về mối quan hệ giữa anh và Emily, vốn là một người Mỹ. --
+                                    Tình cảnh của 2
+                                    người trở nên éo le hơn bao giờ hết khi Emily bị hành hạ bởi một căn bệnh bí hiểm trong khi Kumail lãnh
+                                    trách nhiệm "đối
+                                    đầu" với phụ huynh của cô. The Big Sick là một trong những bộ phim được đánh giá cao nhất về cả mặt nghệ
+                                    thuật lẫn
+                                    thương mại tại Liên hoan phim Sundance năm nay. --
+                                </div>
+                                <div class="slide-item__btn">
+                                    <button class="btn btn--half-circle btn--outline btn--primary btn__play marginLeft">
+                                        <i class='bx bxs-right-arrow'></i>
+                                        <span>Xem ngay</span>
+                                    </button>
+                                    <button class="btn btn--half-circle btn--outline btn__trailer" data-iframe="https://www.youtube.com/embed/jcD0Daqc3Yw">
+                                        <i class='bx bx-movie-play'></i>
+                                        <span>Xem trailer</span>
+                                    </button>
+                                </div>
                             </div>
-                            <div class="slide-item__description">
-                                The Big Sick là bộ phim hài lãng mạn được đạo diễn bởi Micheal Showalter (Hello My Name is Doris). Phim
-                                dựa trên câu
-                                chuyện cuộc đời của diễn viên chính kiêm biên kịch Kumail Nanjiani và người hiện là vợ anh Emily Gordon.
-                                Gia đình Hồi
-                                giáo gốc Pakistan của Kumail không hài lòng về mối quan hệ giữa anh và Emily, vốn là một người Mỹ. --
-                                Tình cảnh của 2
-                                người trở nên éo le hơn bao giờ hết khi Emily bị hành hạ bởi một căn bệnh bí hiểm trong khi Kumail lãnh
-                                trách nhiệm "đối
-                                đầu" với phụ huynh của cô. The Big Sick là một trong những bộ phim được đánh giá cao nhất về cả mặt nghệ
-                                thuật lẫn
-                                thương mại tại Liên hoan phim Sundance năm nay. --
+                        </div>
+                    </div>
+                    <div class="slide-list__item">
+                        <div class="ratio16-9 ratio--other">
+                            <img src="https://image.tmdb.org/t/p/w1280//suopoADq0k8YZr4dQXcU6pToj6s.jpg" alt="Cuộc Chiến Ngai Vàng"
+                                class="ratioIn">
+                        </div>
+                        <div class="shadow">
+                            <div class="slide-item__info">
+                                <h2 class="slide-item__name-film">
+                                    Game of Thrones
+                                </h2>
+                                <h3 class="slide-item__name-film-vie">
+                                    Cuộc Chiến Ngai Vàng
+                                </h3>
+                                <div class="slide-item__score-genres">
+                                    <span>
+                                        <i class='bx bx-movie'></i> Phim Bộ
+                                    </span>
+                                    <span>
+                                        <i class='bx bxl-imdb'></i> 9.5
+                                    </span>
+                                    <span>
+                                        <i class='bx bx-time-five'></i>
+                                        8 Mùa
+                                    </span>
+                                    <span>hành động & phiêu lưu</span>
+                                    <span>Chính kịch</span>
+                                </div>
+                                <div class="slide-item__description">
+                                    Game of Throne kể về bảy gia tộc chiến đấu để làm chủ vùng đất thần thoại Westeros. Những gia tộc thống trị là Houses
+                                    Stark, Lannister, và Baratheon. Vị vua của Westeros, Robert Baratheon, yêu cầu người bạn cũ của ông là Eddard – lãnh
+                                    chúa Stark giữ chức vụ cao, Eddard miễn cưỡng chấp nhận mệnh lệnh để tìm ra sự thật đằng sau. Trong lúc ấy, gia tộc của
+                                    Nữ hoàng, Lannisters, có lẽ đang dự tính mưu đồ để tước đoạt quyền lực. Ở phía bên kia biển khơi, những thành viên cuối
+                                    cùng của dòng tộc trước đây đã bị truất phế quyền thống trị ,Targaryens, cũng đang sắp đặt kế hoạch giành lại ngai vàng.
+                                    Còn ở phía cực Bắc, Bóng Trắng – loài quỷ vốn chìm trong giấc ngủ rất dài, nay đã thức giấc,… --
+                                </div>
+                                <div class="slide-item__btn">
+                                    <button class="btn btn--half-circle btn--outline btn--primary btn__play marginLeft">
+                                        <i class='bx bxs-right-arrow'></i>
+                                        <span>Xem ngay</span>
+                                    </button>
+                                    <button class="btn btn--half-circle btn--outline btn__trailer"
+                                        data-iframe="https://www.youtube.com/embed/rlR4PJn8b8I">
+                                        <i class='bx bx-movie-play'></i>
+                                        <span>Xem trailer</span>
+                                    </button>
+                                </div>
                             </div>
-                            <div class="slide-item__btn">
-                                <button class="btn btn--half-circle btn-outline btn--primary">
-                                    <i class='bx bxs-right-arrow'></i>
-                                    <span>Xem ngay</span>
-                                </button>
-                                <button class="btn btn--half-circle btn-outline">
-                                    <i class='bx bx-info-circle'></i>
-                                    <span>Chi tiết</span>
-                                </button>
+                        </div>
+                    </div>
+                    <div class="slide-list__item">
+                        <div class="ratio16-9 ratio--other">
+                            <img src="https://image.tmdb.org/t/p/w1280//i80wifLk9w3q4Pq9UOPlfrsjKY1.jpg" alt="" class="ratioIn">
+                        </div>
+                        <div class="shadow">
+                            <div class="slide-item__info">
+                                <h2 class="slide-item__name-film">
+                                    She's Out of My League
+                                </h2>
+                                <h3 class="slide-item__name-film-vie">
+                                    
+                                </h3>
+                                <div class="slide-item__score-genres">
+                                    <span>
+                                        <i class='bx bx-camera-movie'></i> Phim Lẻ
+                                    </span>
+                                    <span>
+                                        <i class='bx bxl-imdb'></i> 4.6
+                                    </span>
+                                    <span>
+                                        <i class='bx bx-time-five'></i>
+                                        112ph
+                                    </span>
+                                    <span>Hài</span>
+                                    <span>Lãng mạn</span>
+                                    <span>Kịch</span>
+                                </div>
+                                <div class="slide-item__description">
+                                    Kirk Kettner là nhân viên an ninh tại sân bay Pittsburgh. Thời gian rảnh rỗi anh thường dành cho những người bạn từ thời
+                                    trung học, đồng thời là đồng nghiệp. Mong ước duy nhất của anh là được quay lại với cô bạn gái cũ Marnie, người đã từ
+                                    lâu đi tìm tình yêu mới. -- Kirk đơn giản lúc nào cũng hài lòng với hiện tại cho đến ngày Molly kiêu hãnh bước qua trạm
+                                    kiểm soát của anh tại sân bay và vô tình để quên chiếc iPhone. Molly đẹp, ấn tượng và sắc sảo, lại thông minh, thạo đời.
+                                    Rõ ràng cô hoàn toàn không phải người phụ nữ dành cho Kirk. -- Khi Kirk lịch sự đem trả điện thoại, cô đề nghị đáp lại
+                                    thiện ý của anh bằng một cặp vé xem khúc côn cầu. Anh đồng ý, không thể nghĩ được rằng người phụ nữ trong mơ ấy thực ra
+                                    đang muốn hẹn hò với mình. Với sự giúp đỡ từ những người bạn, Kirk bắt đầu kế hoạch dốc sức giành lại Molly. Mặc cho anh
+                                    chàng bạn trai cũ bảnh bao của Molly, cùng cô bạn gái cũ Marnie vào cuộc, Kirk vẫn nỗ lực để chứng tỏ được rằng nếu cố
+                                    gắng h…
+                                </div>
+                                <div class="slide-item__btn">
+                                    <button class="btn btn--half-circle btn--outline btn--primary btn__play marginLeft">
+                                        <i class='bx bxs-right-arrow'></i>
+                                        <span>Xem ngay</span>
+                                    </button>
+                                    <button class="btn btn--half-circle btn--outline btn__trailer" data-iframe="https://www.youtube.com/embed/Wxo_5gNakBA">
+                                        <i class='bx bx-movie-play'></i>
+                                        <span>Xem trailer</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide-list__item">
+                        <div class="ratio16-9 ratio--other">
+                            <img src="https://image.tmdb.org/t/p/w1280//ab9RFSA8ZBFl2MWe3g0YFkqgeNe.jpg" alt="The Layover" class="ratioIn">
+                        </div>
+                        <div class="shadow">
+                            <div class="slide-item__info">
+                                <h2 class="slide-item__name-film">
+                                    The Layover
+                                </h2>
+                                <h3 class="slide-item__name-film-vie">
+                                    
+                                </h3>
+                                <div class="slide-item__score-genres">
+                                    <span>
+                                        <i class='bx bx-camera-movie'></i> Phim Lẻ
+                                    </span>
+                                    <span>
+                                        <i class='bx bxl-imdb'></i>4.7
+                                    </span>
+                                    <span>
+                                        <i class='bx bx-time-five'></i>
+                                        112ph
+                                    </span>
+                                    <span>Hài</span>
+                                    <span>Lãng mạn</span>
+                                    <span>Kịch</span>
+                                </div>
+                                <div class="slide-item__description">
+                                    Phim Chuyến Đi Bất Ngờ - The Layover 2017 kể về câu chuyện hai mỹ nữ trong chuyến du lịch đi Florida. Họ phải đối mặt
+                                    với nhiều tình huống trớ trêu trên chặng đường dài vì bị đổi hướng đi không như dự kiế…
+                                </div>
+                                <div class="slide-item__btn">
+                                    <button class="btn btn--half-circle btn--outline btn--primary btn__play marginLeft">
+                                        <i class='bx bxs-right-arrow'></i>
+                                        <span>Xem ngay</span>
+                                    </button>
+                                    <button class="btn btn--half-circle btn--outline btn__trailer" data-iframe="https://www.youtube.com/embed/lvhnNd0RoT8">
+                                        <i class='bx bx-movie-play'></i>
+                                        <span>Xem trailer</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide-list__item">
+                        <div class="ratio16-9 ratio--other">
+                            <img src="https://image.tmdb.org/t/p/w1280//ngBFDOsx13sFXiMweDoL54XYknR.jpg" alt="Bộ ba quái nhân" class="ratioIn">
+                        </div>
+                        <div class="shadow">
+                            <div class="slide-item__info">
+                                <h2 class="slide-item__name-film">
+                                    Glass
+                                </h2>
+                                <h3 class="slide-item__name-film-vie">
+                                    Bộ ba quái nhân
+                                </h3>
+                                <div class="slide-item__score-genres">
+                                    <span>
+                                        <i class='bx bx-camera-movie'></i> Phim Lẻ
+                                    </span>
+                                    <span>
+                                        <i class='bx bxl-imdb'></i> 6.7
+                                        </span>
+                                    <span>
+                                        <i class='bx bx-time-five'></i>
+                                        112ph
+                                    </span>
+                                    <span>Kinh dị</span>
+                                    <span>Khoa học viễn tưởng</span>
+                                    <span>Kịch</span>
+                                </div>
+                                <div class="slide-item__description">
+                                    Lần đầu tiên, khán giả sẽ được chứng kiến cuộc hội ngộ của hai kẻ dị nhân đến từ thế giới phim của đạo diễn M. Night
+                                    Shyamalan: Kevin Wendell Crumb - kẻ có 23 nhân cách trong Split và David Dunn - người đàn ông không bao giờ bị thương
+                                    trong Unbreakable. Tags: 9/10 trên tổng số 1201 bình chọn
+                                </div>
+                                <div class="slide-item__btn">
+                                    <button class="btn btn--half-circle btn--outline btn--primary btn__play marginLeft">
+                                        <i class='bx bxs-right-arrow'></i>
+                                        <span>Xem ngay</span>
+                                    </button>
+                                    <button class="btn btn--half-circle btn--outline btn__trailer"
+                                        data-iframe="https://www.youtube.com/embed/95ghQs5AmNk">
+                                        <i class='bx bx-movie-play'></i>
+                                        <span>Xem trailer</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+                <div class="content__slide-pick">
+                    <div class="grid">
+                        <div class="row medium-gutters">
+                            <div class="col c-1 c-o-6">
+                                <div class="slide-pick__item">
+                                    <div class="ratio16-9">
+                                        <img src="https://image.tmdb.org/t/p/w1280//aq2yEMgRQBPfRkrO0Repo2qhUAT.jpg" alt="Huyền thoại Vikings"
+                                            class="ratioIn">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col c-1">
+                                <div class="slide-pick__item picked">
+                                    <div class="ratio16-9">
+                                        <img src="https://image.tmdb.org/t/p/w1280//fYI8WX2DquAHMqwh5mOMxc6RU5j.jpg" alt="The big sick" class="ratioIn">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col c-1">
+                                <div class="slide-pick__item">
+                                    <div class="ratio16-9">
+                                        <img src="https://image.tmdb.org/t/p/w1280//suopoADq0k8YZr4dQXcU6pToj6s.jpg" alt="Cuộc chiến ngai vàng"
+                                            class="ratioIn">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col c-1">
+                                <div class="slide-pick__item">
+                                    <div class="ratio16-9">
+                                        <img src="https://image.tmdb.org/t/p/w1280//i80wifLk9w3q4Pq9UOPlfrsjKY1.jpg" alt="She's Out of My League"  class="ratioIn">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col c-1">
+                                <div class="slide-pick__item">
+                                    <div class="ratio16-9">
+                                        <img src="https://image.tmdb.org/t/p/w1280//ab9RFSA8ZBFl2MWe3g0YFkqgeNe.jpg" alt="The Layover"
+                                            class="ratioIn">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col c-1">
+                                <div class="slide-pick__item">
+                                    <div class="ratio16-9">
+                                        <img src="https://image.tmdb.org/t/p/w1280//ngBFDOsx13sFXiMweDoL54XYknR.jpg" alt="Bộ ba quái vật" class="ratioIn">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="slide-list__item">
-                    <div class="ratio-other">
-                        <img src="https://image.tmdb.org/t/p/w1280//i80wifLk9w3q4Pq9UOPlfrsjKY1.jpg" alt="" class="ratioIn">
-                    </div>
-                    <div class="slide-item__shadow">
-                        <div class="slide-item__info">
-                            <h2 class="slide-item__name-film">
-                                She's Out of My League
-                            </h2>
-                            <div class="slide-item__score-genres">
-                                <span>IMDB 4.6</span>
-                                <span>112ph</span>
-                                <span>Hài</span>
-                                <span>Lãng mạn</span>
-                                <span>Kịch</span>
+            </div>
+    
+            <div class="content__list-movie">
+                <div class="content-list-movie__title">
+                    <h4 class="content-list-movie__name">
+                       Top thịnh hành
+                    </h4>
+                </div>
+                <div class="content-list-movie__slide">
+                    <button class="btn btn__next">
+                        <i class='bx bx-right-arrow'></i>
+                    </button>
+                    <button class="btn btn__prev">
+                        <i class='bx bx-left-arrow'></i>
+                    </button>
+                    <div class="grid">
+                        <div class="row nowrap small-gutters">
+                            <div class="col l-2 m-3 c-4">
+                                <div class="list-movie__slide-item first">
+                                    <div class="ratio16-9 ratio--other-second">
+                                        <img src="./assets/img/the-queens-gambit.jpg" alt="Gambit Hậu" class="ratioIn ratioIn--In">
+                                    </div>
+                                    <div class="shadow shadow--second">
+                                        <div class="movie-slide__play">
+                                            <button class="btn btn--circle btn--outline btn--primary btn__play">
+                                                <i class='bx bxs-right-arrow'></i>
+                                            </button>
+                                        </div>
+                                        <div class="movie-slide__feature">
+                                            <button class="btn btn--circle btn__like-unlike">
+                                                <i class='bx bx-heart'></i>
+                                            </button>
+                                            <button class="btn btn--circle btn__add-remove">
+                                                <i class='bx bx-folder-plus'></i>
+                                            </button>
+                                            <button class="btn btn--circle btn__trailer" title="Xem trailer"
+                                                data-iframe="https://www.youtube.com/embed/CDrieqwSdgI">
+                                                <i class='bx bx-movie-play'></i>
+                                            </button>
+                                        </div>
+                                        <div class="movie-slide__info">
+                                            <div class="movie-slide__name">
+                                                <h5 class="movie-slide__name-eng">
+                                                    The queen's gambit
+                                                </h5>
+                                                <h6 class="movie-slide__name-vie">
+                                                    Gambit hậu
+                                                </h6>
+                                            </div>
+                                            <div class="movie-slide__category-time">
+                                                <span>
+                                                    <i class="bx bx-movie"></i> Phim bộ
+                                                </span>
+                                                <span>
+                                                    <i class="bx bx-time-five"></i> 1 Mùa
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="slide-item__description">
-                                Kirk Kettner là nhân viên an ninh tại sân bay Pittsburgh. Thời gian rảnh rỗi anh thường dành cho những người bạn từ thời
-                                trung học, đồng thời là đồng nghiệp. Mong ước duy nhất của anh là được quay lại với cô bạn gái cũ Marnie, người đã từ
-                                lâu đi tìm tình yêu mới. -- Kirk đơn giản lúc nào cũng hài lòng với hiện tại cho đến ngày Molly kiêu hãnh bước qua trạm
-                                kiểm soát của anh tại sân bay và vô tình để quên chiếc iPhone. Molly đẹp, ấn tượng và sắc sảo, lại thông minh, thạo đời.
-                                Rõ ràng cô hoàn toàn không phải người phụ nữ dành cho Kirk. -- Khi Kirk lịch sự đem trả điện thoại, cô đề nghị đáp lại
-                                thiện ý của anh bằng một cặp vé xem khúc côn cầu. Anh đồng ý, không thể nghĩ được rằng người phụ nữ trong mơ ấy thực ra
-                                đang muốn hẹn hò với mình. Với sự giúp đỡ từ những người bạn, Kirk bắt đầu kế hoạch dốc sức giành lại Molly. Mặc cho anh
-                                chàng bạn trai cũ bảnh bao của Molly, cùng cô bạn gái cũ Marnie vào cuộc, Kirk vẫn nỗ lực để chứng tỏ được rằng nếu cố
-                                gắng h…
+                            <div class="col l-2 m-3 c-4">
+                                <div class="list-movie__slide-item">
+                                    <div class="ratio16-9 ratio--other-second">
+                                        <img src="./assets/img/beaky-blinders.jpg" alt="Những bóng ma Anh Quốc" class="ratioIn ratioIn--In">
+                                    </div>
+                                    <div class="shadow shadow--second">
+                                        <div class="movie-slide__play">
+                                            <button class="btn btn--circle btn--outline btn--primary btn__play">
+                                                <i class='bx bxs-right-arrow'></i>
+                                            </button>
+                                        </div>
+                                        <div class="movie-slide__feature">
+                                            <button class="btn btn--circle btn__like-unlike">
+                                                <i class='bx bx-heart'></i>
+                                            </button>
+                                            <button class="btn btn--circle btn__add-remove">
+                                                <i class='bx bx-folder-plus'></i>
+                                            </button>
+                                            <button class="btn btn--circle btn__trailer" title="Xem trailer"
+                                                data-iframe="https://www.youtube.com/embed/YXoVpUCmOOc">
+                                                <i class='bx bx-movie-play'></i>
+                                            </button>
+                                        </div>
+                                        <div class="movie-slide__info">
+                                            <div class="movie-slide__name">
+                                                <h5 class="movie-slide__name-eng">
+                                                    Beaky Blinders
+                                                </h5>
+                                                <h6 class="movie-slide__name-vie">
+                                                    Những bóng ma anh quốc
+                                                </h6>
+                                            </div>
+                                            <div class="movie-slide__category-time">
+                                                <span>
+                                                    <i class="bx bx-movie"></i> Phim bộ
+                                                </span>
+                                                <span>
+                                                    <i class="bx bx-time-five"></i> 6 Mùa
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="slide-item__btn">
-                                <button class="btn btn--half-circle btn-outline btn--primary">
-                                    <i class='bx bxs-right-arrow'></i>
-                                    <span>Xem ngay</span>
-                                </button>
-                                <button class="btn btn--half-circle btn-outline">
-                                    <i class='bx bx-info-circle'></i>
-                                    <span>Chi tiết</span>
-                                </button>
+                            <div class="col l-2 m-3 c-4">
+                                <div class="list-movie__slide-item">
+                                    <div class="ratio16-9 ratio--other-second">
+                                        <img src="./assets/img/breaking-bad.jpg" alt="Tập làm người xấu" class="ratioIn ratioIn--In">
+                                    </div>
+                                    <div class="shadow shadow--second">
+                                        <div class="movie-slide__play">
+                                            <button class="btn btn--circle btn--outline btn--primary btn__play">
+                                                <i class='bx bxs-right-arrow'></i>
+                                            </button>
+                                        </div>
+                                        <div class="movie-slide__feature">
+                                            <button class="btn btn--circle btn__like-unlike">
+                                                <i class='bx bx-heart'></i>
+                                            </button>
+                                            <button class="btn btn--circle btn__add-remove">
+                                                <i class='bx bx-folder-plus'></i>
+                                            </button>
+                                            <button class="btn btn--circle btn__trailer" title="Xem trailer"
+                                                data-iframe="https://www.youtube.com/embed/HhesaQXLuRY">
+                                                <i class='bx bx-movie-play'></i>
+                                            </button>
+                                        </div>
+                                        <div class="movie-slide__info">
+                                            <div class="movie-slide__name">
+                                                <h5 class="movie-slide__name-eng">
+                                                    Breaking bad
+                                                </h5>
+                                                <h6 class="movie-slide__name-vie">
+                                                    Tập làm người xấu
+                                                </h6>
+                                            </div>
+                                            <div class="movie-slide__category-time">
+                                                <span>
+                                                    <i class="bx bx-movie"></i> Phim bộ
+                                                </span>
+                                                <span>
+                                                    <i class="bx bx-time-five"></i> 5 Mùa
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col l-2 m-3 c-4">
+                                <div class="list-movie__slide-item">
+                                    <div class="ratio16-9 ratio--other-second">
+                                        <img src="./assets/img/john-wick.jpg" alt="Sát thủ John Wick" class="ratioIn ratioIn--In">
+                                    </div>
+                                    <div class="shadow shadow--second">
+                                        <div class="movie-slide__play">
+                                            <button class="btn btn--circle btn--outline btn--primary btn__play">
+                                                <i class='bx bxs-right-arrow'></i>
+                                            </button>
+                                        </div>
+                                        <div class="movie-slide__feature">
+                                            <button class="btn btn--circle btn__like-unlike">
+                                                <i class='bx bx-heart'></i>
+                                            </button>
+                                            <button class="btn btn--circle btn__add-remove">
+                                                <i class='bx bx-folder-plus'></i>
+                                            </button>
+                                            <button class="btn btn--circle btn__trailer" title="Xem trailer"
+                                                data-iframe="https://www.youtube.com/embed/56pvThSsoSE">
+                                                <i class='bx bx-movie-play'></i>
+                                            </button>
+                                        </div>
+                                        <div class="movie-slide__info">
+                                            <div class="movie-slide__name">
+                                                <h5 class="movie-slide__name-eng">
+                                                    John Wick
+                                                </h5>
+                                                <h6 class="movie-slide__name-vie">
+                                                    Sát thủ John Wick
+                                                </h6>
+                                            </div>
+                                            <div class="movie-slide__category-time">
+                                                <span>
+                                                    <i class="bx bx-camera-movie"></i> Phim lẻ
+                                                </span>
+                                                <span>
+                                                    <i class="bx bx-time-five"></i> 120ph
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col l-2 m-3 c-4">
+                                <div class="list-movie__slide-item">
+                                    <div class="ratio16-9 ratio--other-second">
+                                        <img src="./assets/img/innocent.jpg" alt="Người vô tội" class="ratioIn ratioIn--In">
+                                    </div>
+                                    <div class="shadow shadow--second">
+                                        <div class="movie-slide__play">
+                                            <button class="btn btn--circle btn--outline btn--primary btn__play">
+                                                <i class='bx bxs-right-arrow'></i>
+                                            </button>
+                                        </div>
+                                        <div class="movie-slide__feature">
+                                            <button class="btn btn--circle btn__like-unlike">
+                                                <i class='bx bx-heart'></i>
+                                            </button>
+                                            <button class="btn btn--circle btn__add-remove">
+                                                <i class='bx bx-folder-plus'></i>
+                                            </button>
+                                            <button class="btn btn--circle btn__trailer" title="Xem trailer"
+                                                data-iframe="https://www.youtube.com/embed/LhERIj0ddXI">
+                                                <i class='bx bx-movie-play'></i>
+                                            </button>
+                                        </div>
+                                        <div class="movie-slide__info">
+                                            <div class="movie-slide__name">
+                                                <h5 class="movie-slide__name-eng">
+                                                    The Innocent
+                                                </h5>
+                                                <h6 class="movie-slide__name-vie">
+                                                    Người vô tội
+                                                </h6>
+                                            </div>
+                                            <div class="movie-slide__category-time">
+                                                <span>
+                                                    <i class="bx bx-movie"></i> Phim bộ
+                                                </span>
+                                                <span>
+                                                    <i class="bx bx-time-five"></i> 1 Mùa
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col l-2 m-3 c-4">
+                                <div class="list-movie__slide-item last">
+                                    <div class="ratio16-9 ratio--other-second">
+                                        <img src="./assets/img/love-and-monter.jpg" alt="Tình Yêu và Quái Vật" class="ratioIn ratioIn--In">
+                                    </div>
+                                    <div class="shadow shadow--second">
+                                        <div class="movie-slide__play">
+                                            <button class="btn btn--circle btn--outline btn--primary btn__play">
+                                                <i class='bx bxs-right-arrow'></i>
+                                            </button>
+                                        </div>
+                                        <div class="movie-slide__feature">
+                                            <button class="btn btn--circle btn__like-unlike">
+                                                <i class='bx bx-heart'></i>
+                                            </button>
+                                            <button class="btn btn--circle btn__add-remove">
+                                                <i class='bx bx-folder-plus'></i>
+                                            </button>
+                                            <button class="btn btn--circle btn__trailer" title="Xem trailer"
+                                                data-iframe="https://www.youtube.com/embed/-19tBHrZwOM">
+                                                <i class='bx bx-movie-play'></i>
+                                            </button>
+                                        </div>
+                                        <div class="movie-slide__info">
+                                            <div class="movie-slide__name">
+                                                <h5 class="movie-slide__name-eng">
+                                                    Love and Monters
+                                                </h5>
+                                                <h6 class="movie-slide__name-vie">
+                                                    Tìm yêu và quái vật
+                                                </h6>
+                                            </div>
+                                            <div class="movie-slide__category-time">
+                                                <span>
+                                                    <i class="bx bx-camera-movie"></i> Phim lẻ
+                                                </span>
+                                                <span>
+                                                    <i class="bx bx-time-five"></i> 120ph
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col l-2 m-3 c-4">
+                                <div class="list-movie__slide-item">
+                                    <div class="ratio16-9 ratio--other-second">
+                                        <img src="./assets/img/shadow-and-bone.jpg" alt="Shadow and Bone" class="ratioIn ratioIn--In">
+                                    </div>
+                                    <div class="shadow shadow--second">
+                                        <div class="movie-slide__play">
+                                            <button class="btn btn--circle btn--outline btn--primary btn__play">
+                                                <i class='bx bxs-right-arrow'></i>
+                                            </button>
+                                        </div>
+                                        <div class="movie-slide__feature">
+                                            <button class="btn btn--circle btn__like-unlike">
+                                                <i class='bx bx-heart'></i>
+                                            </button>
+                                            <button class="btn btn--circle btn__add-remove">
+                                                <i class='bx bx-folder-plus'></i>
+                                            </button>
+                                            <button class="btn btn--circle btn__trailer" title="Xem trailer"
+                                                data-iframe="https://www.youtube.com/embed/b1WHQTbJ7vE">
+                                                <i class='bx bx-movie-play'></i>
+                                            </button>
+                                        </div>
+                                        <div class="movie-slide__info">
+                                            <div class="movie-slide__name">
+                                                <h5 class="movie-slide__name-eng">
+                                                    Shadow and Bone
+                                                </h5>
+                                                <h6 class="movie-slide__name-vie">
+                                                    
+                                                </h6>
+                                            </div>
+                                            <div class="movie-slide__category-time">
+                                                <span>
+                                                    <i class="bx bx-movie"></i> Phim bộ
+                                                </span>
+                                                <span>
+                                                    <i class="bx bx-time-five"></i> 1 Mùa
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col l-2 m-3 c-4">
+                                <div class="list-movie__slide-item">
+                                    <div class="ratio16-9 ratio--other-second">
+                                        <img src="./assets/img/shazam.jpg" alt="Shazam" class="ratioIn ratioIn--In">
+                                    </div>
+                                    <div class="shadow shadow--second">
+                                        <div class="movie-slide__play">
+                                            <button class="btn btn--circle btn--outline btn--primary btn__play">
+                                                <i class='bx bxs-right-arrow'></i>
+                                            </button>
+                                        </div>
+                                        <div class="movie-slide__feature">
+                                            <button class="btn btn--circle btn__like-unlike">
+                                                <i class='bx bx-heart'></i>
+                                            </button>
+                                            <button class="btn btn--circle btn__add-remove">
+                                                <i class='bx bx-folder-plus'></i>
+                                            </button>
+                                            <button class="btn btn--circle btn__trailer" title="Xem trailer"
+                                                data-iframe="https://www.youtube.com/embed/go6GEIrcvFY">
+                                                <i class='bx bx-movie-play'></i>
+                                            </button>
+                                        </div>
+                                        <div class="movie-slide__info">
+                                            <div class="movie-slide__name">
+                                                <h5 class="movie-slide__name-eng">
+                                                    Shazam
+                                                </h5>
+                                                <h6 class="movie-slide__name-vie">
+                                                    
+                                                </h6>
+                                            </div>
+                                            <div class="movie-slide__category-time">
+                                                <span>
+                                                    <i class="bx bx-camera-movie"></i> Phim lẻ
+                                                </span>
+                                                <span>
+                                                    <i class="bx bx-time-five"></i> 100ph
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="slide-list__item">
-                    <div class="ratio-other">
-                        <img src="https://image.tmdb.org/t/p/w1280//ab9RFSA8ZBFl2MWe3g0YFkqgeNe.jpg" alt="The Layover" class="ratioIn">
-                    </div>
-                    <div class="slide-item__shadow">
-                        <div class="slide-item__info">
-                            <h2 class="slide-item__name-film">
-                                The Layover
-                            </h2>
-                            <div class="slide-item__score-genres">
-                                <span>IMDB 4.7</span>
-                                <span>112ph</span>
-                                <span>Hài</span>
-                                <span>Lãng mạn</span>
-                                <span>Kịch</span>
-                            </div>
-                            <div class="slide-item__description">
-                                Phim Chuyến Đi Bất Ngờ - The Layover 2017 kể về câu chuyện hai mỹ nữ trong chuyến du lịch đi Florida. Họ phải đối mặt
-                                với nhiều tình huống trớ trêu trên chặng đường dài vì bị đổi hướng đi không như dự kiế…
-                            </div>
-                            <div class="slide-item__btn">
-                                <button class="btn btn--half-circle btn-outline btn--primary">
-                                    <i class='bx bxs-right-arrow'></i>
-                                    <span>Xem ngay</span>
-                                </button>
-                                <button class="btn btn--half-circle btn-outline">
-                                    <i class='bx bx-info-circle'></i>
-                                    <span>Chi tiết</span>
-                                </button>
-                            </div>
+                
+            </div>
+        </section>
+    
+        <div id="modal">
+            <div class="modal__overlay"></div>
+            <div class="modal__body">
+                <div class="modal-body__video-popup">
+                    <button class="btn btn--circle btn--outline btn__hideModal">
+                        <i class='bx bx-x'></i>
+                    </button>
+                    <div class="modal-video-popup__container">
+                        <div class="ratio16-9">
+                            <iframe class="ratioIn ratioIn--In" src="" title="YouTube video player"
+                                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
                         </div>
-                    </div>
-                </div>
-            </div>  
-            <div class="content__slide-pick">
-                <div class="slide-pick__item picked">
-                    <div class="ratio16-9">
-                        <img src="https://image.tmdb.org/t/p/w1280//fYI8WX2DquAHMqwh5mOMxc6RU5j.jpg" alt="The big sick" class="ratioIn">
-                    </div>
-                </div>
-                <div class="slide-pick__item">
-                    <div class="ratio16-9">
-                        <img src="https://image.tmdb.org/t/p/w1280//i80wifLk9w3q4Pq9UOPlfrsjKY1.jpg" alt="She's Out of My League"  class="ratioIn">
-                    </div>
-                </div>
-                <div class="slide-pick__item">
-                    <div class="ratio16-9">
-                        <img src="https://image.tmdb.org/t/p/w1280//ab9RFSA8ZBFl2MWe3g0YFkqgeNe.jpg" alt="The Layover"
-                            class="ratioIn">
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
     <script src="./assets/js/base.js"></script>
+    <script>
+        let slideListMovie = document.querySelectorAll('.list-movie__slide-item')
+        slideListMovie.forEach(ele => {
+            let myTimeOut
+            let _this
+            ele.onmouseenter = function () {
+                _this = this
+                myTimeOut = setTimeout(() => {
+                    _this.classList.add('aniScale')
+                    _this.classList.add('show')
+                    if (_this.classList.contains('first')) {
+                        _this.classList.add('aniTranslateHalfRight')
+                        let leftThis = true
+                        slideListMovie.forEach(ele => {
+                            if (!ele.classList.contains('aniScale')) {
+                                if (!leftThis) {
+                                    ele.classList.add('aniTranslateRight')
+                                }
+                            } else {
+                                leftThis = false
+                            }
+                        })
+                    } else if (_this.classList.contains('last')) {
+                        _this.classList.add('aniTranslateHalfLeft')
+                        let leftThis = false
+                        slideListMovie.forEach(ele => {
+                            if (!ele.classList.contains('aniScale')) {
+                                if (!leftThis) {
+                                    ele.classList.add('aniTranslateLeft')
+                                }
+                            } else {
+                                leftThis = true
+                            }
+                        })
+                    } else {
+                        let leftOfThis = true
+                        slideListMovie.forEach(ele => {
+                            if (!ele.classList.contains('aniScale')) {
+                                if (leftOfThis) {
+                                    ele.classList.add('aniTranslateHalfLeft')
+                                } else {
+                                    ele.classList.add('aniTranslateHalfRight')
+                                }
+                            } else {
+                                leftOfThis = false
+                            }
+                        })
+                    }
+                }, 200)
 
+            }
+            ele.onmouseleave = function () {
+                clearTimeout(myTimeOut)
+                _this.classList.remove('show')
+                _this.classList.remove('aniScale')
+                removeClass()
+            }
+        })
+        function removeClass() {
+            slideListMovie.forEach(ele => {
+                ele.classList.remove('show')
+                ele.classList.remove('aniScale')
+                ele.classList.remove('aniTranslateHalfLeft')
+                ele.classList.remove('aniTranslateHalfRight')
+                ele.classList.remove('aniTranslateLeft')
+                ele.classList.remove('aniTranslateRight')
+            })
+        }
+    </script>
 </body>
 </html>

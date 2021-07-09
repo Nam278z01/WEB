@@ -1,0 +1,19 @@
+/* Mobile & Tablet */
+@media only screen and (max-width: 1023px) {
+    .hide-on-mb-tb {
+        display: none;
+    }
+}
+
+/* Tablet */
+@media only screen and (min-width: 740px) and (max-width: 1023px) {
+    .high-on-tb {
+        display: none;
+    }
+}
+/* Mobile */
+@media only screen and (max-width: 739px) {
+    .high-on-mb {
+        display: none;
+    }
+}
