@@ -3,25 +3,31 @@ const $$ = document.querySelectorAll.bind(document);
 
 let header = $('header')
 let sidebar = $("#sidebar")
+
 let btnMenu = sidebar.querySelector('.sidebar__brand i')
+
 let slideEntire = $('.content__slide')
 let slide = slideEntire.querySelector('.content__slide-list')
 let slideItem = slide.querySelectorAll('.slide-list__item')
 let btnSlideMovie = slideEntire.querySelectorAll('.slide-pick__item')
+let lengthSlideItem = slideItem.length
+slide.append(slideItem[0].cloneNode(true))
+slide.prepend(slideItem[lengthSlideItem - 1].cloneNode(true))
+
 let modal = $('#modal')
 let modalBody = modal.querySelector('.modal__body')
 let modalVideoPopup = modalBody.querySelector('.modal-body__video-popup')
 let btnHideModal = modalVideoPopup.querySelector('.btn__hideModal')
 let videoPopup = modalVideoPopup.querySelector('.modal-video-popup__container iframe')
+
 let btnTrailer = $$('.btn__trailer')
-slide.append(slideItem[0].cloneNode(true))
-slide.prepend(slideItem[slideItem.length - 1].cloneNode(true))
 
 const app = {
     currentIdx: 1,
     walk: 0,
     startX: 0,
     isDown: false,
+    isRun: false,
     time1: new Date,
     time2: new Date,
     // Xử lý sự kiện
@@ -38,28 +44,35 @@ const app = {
             ele.onclick = function () {
                 if (!this.classList.contains('picked')) {
                     _this.currentIdx = idx + 1
-                    _this.removeClassOfBtnSlide()
-                    slide.classList.add('animation')
-                    slide.style.transform = 'translateX(-' + 100 * _this.currentIdx + '%)'
+                    _this.moveSlide(_this.currentIdx)
                 }
             }
         })
 
         // Tự động chạy slide sau 5s
         let mySetInterval = setInterval(() => {
-            _this.autoSlide()
+            if (this.currentIdx == lengthSlideItem + 1) { //Bé transitionend ko chạy nên phải làm cái này ...
+                this.currentIdx = 1
+            }
+            _this.moveSlide(_this.currentIdx + 1)
         }, 5000)
 
         // Dừng slide khi mouseover lên toàn bộ silde
         slideEntire.onmouseover = () => {
             clearInterval(mySetInterval)
+            mySetInterval = undefined
         }
 
         // Kích hoạt auto chạy slide khi mouseleave lên toàn bộ silde
         slideEntire.onmouseleave = () => {
-            mySetInterval = setInterval(() => {
-                _this.autoSlide()
-            }, 5000)
+            if (mySetInterval == undefined) {
+                mySetInterval = setInterval(() => {
+                    if (this.currentIdx == lengthSlideItem + 1) {
+                        this.currentIdx = 1
+                    }
+                    _this.moveSlide(_this.currentIdx + 1)
+                }, 5000)
+            }
         }
 
         // Xem trailer
@@ -71,7 +84,7 @@ const app = {
             }
         })
 
-        // click vào overlay thì ẩn modal
+        // click vào overlay hoặc X thì ẩn modal
         window.onclick = e => {
             if (e.target.classList.contains('modal__body')) {
                 modal.classList.remove('show')
@@ -88,12 +101,14 @@ const app = {
         // Kéo slide
         'mousedown touchstart'.split(' ').forEach(ele => {
             slide.addEventListener(ele, e => {
-                _this.isDown = true
-                _this.time1 = new Date()
-                _this.walk = 0
-                _this.startX = e.clientX - slide.offsetLeft
-                slide.classList.add('animation')
-                slide.classList.add('stop')
+                if (!_this.isRun) {
+                    _this.isDown = true
+                    _this.time1 = new Date()
+                    _this.walk = 0
+                    _this.startX = e.clientX - slide.offsetLeft
+                    slide.classList.remove('animation')
+                }
+                // slide.classList.remove('animation') Bật lên để bỏ độ trễ khi drag thì khi click transition đang chạy sẽ mất event transtionend (Đã xử lý bằng isRun)
             })
         })
         'mouseup touchend'.split(' ').forEach(ele => {
@@ -101,10 +116,7 @@ const app = {
                 _this.isDown = false
                 _this.time2 = new Date()
                 _this.moveSlideWhenDrag(_this.walk)
-                _this.removeClassOfBtnSlide()
-                slide.style.transform = 'translateX(-' + 100 * _this.currentIdx + '%)'
-                _this.loopSlide()
-                slide.classList.remove('stop')
+                _this.moveSlide(_this.currentIdx)
             })
         })
         'mousemove touchmove'.split(' ').forEach(ele => {
@@ -123,59 +135,49 @@ const app = {
                 if (_this.isDown) {
                     time2 = new Date()
                     _this.moveSlideWhenDrag(_this.walk)
-                    _this.removeClassOfBtnSlide()
-                    slide.style.transform = 'translateX(-' + 100 * _this.currentIdx + '%)'
+                    _this.moveSlide(_this.currentIdx)
                 }
                 _this.isDown = false
-                slide.classList.remove('stop')
             })
         })
+
+        //Loop slide (Hình như transitionend ko hoạt động khi click vào cửa sổ khác (ko trong cửa sổ nó đang chạy))
+        slide.ontransitionend = () => {
+            if (_this.currentIdx == lengthSlideItem + 1) {
+                _this.currentIdx = 1
+                slide.classList.remove('animation')
+                slide.style.transform = 'translateX(-' + 100 * _this.currentIdx + '%)'
+            }
+            if (_this.currentIdx == 0) {
+                _this.currentIdx = lengthSlideItem
+                slide.classList.remove('animation')
+                slide.style.transform = 'translateX(-' + 100 * _this.currentIdx + '%)'
+            }
+            _this.removeClassOfBtnSlide()
+            _this.isRun = false
+        }
     },
     moveSlideWhenDrag(distance) {
-        if ((distance > 40 && this.currentIdx + 1 < btnSlideMovie.length + 2) || (distance > 0 && this.timeSpan(this.time1, this.time2) < 250)) {
+        if ((distance > 40 && this.currentIdx < lengthSlideItem + 1) || (distance > 1 && this.timeSpan(this.time1, this.time2) < 250)) {
             this.currentIdx++
+            this.isRun = true
         }
-        if ((distance < -40 && this.currentIdx - 1 > -1) || (distance < 0 && this.timeSpan(this.time1, this.time2) < 250)) {
+        if ((distance < -40 && this.currentIdx > 0) || (distance < -1 && this.timeSpan(this.time1, this.time2) < 250)) {
             this.currentIdx--
+            this.isRun = true
         }
-        console.log(this.timeSpan(this.time1, this.time2))
     },
-    // Tự động chạy slide
-    autoSlide() {
-        this.currentIdx++
+    moveSlide(num) {
+        this.currentIdx = num
         slide.classList.add('animation')
         slide.style.transform = 'translateX(-' + 100 * this.currentIdx + '%)'
-        this.loopSlide()
-        this.removeClassOfBtnSlide()
-    },
-    loopSlide() {
-        slide.addEventListener('transitionend', () => {
-            if (this.currentIdx == btnSlideMovie.length + 1) {
-                this.currentIdx = 1
-                slide.classList.remove('animation')
-                slide.style.transform = 'translateX(-' + 100 * this.currentIdx + '%)'
-            }
-            if (this.currentIdx == 0) {
-                this.currentIdx = btnSlideMovie.length
-                slide.classList.remove('animation')
-                slide.style.transform = 'translateX(-' + 100 * this.currentIdx + '%)'
-            }
-        })
     },
     // xóa class piked ở nút chọn chuyển slide
     removeClassOfBtnSlide() {
         btnSlideMovie.forEach(ele => {
             ele.classList.remove('picked')
         })
-        let idx = this.currentIdx
-        if (this.currentIdx == 0) {
-            idx = 5
-        } else if (this.currentIdx == 7) {
-            idx = 0
-        } else {
-            idx--
-        }
-        btnSlideMovie[idx].classList.add('picked')
+        btnSlideMovie[this.currentIdx - 1].classList.add('picked')
     },
     timeSpan(time1, time2) {
         return time2.getTime() - time1.getTime()
@@ -187,3 +189,172 @@ const app = {
 }
 
 app.start()
+
+
+// Animation Hover Slide
+let topSlide = $('#top-slide')
+let slideListMovie = topSlide.querySelectorAll('.list-movie__slide-item')
+let countSlide = slideListMovie.length
+
+slideListMovie.forEach(ele => {
+    let myTimeOut
+    let _this
+    ele.onmouseenter = function () {
+        _this = this
+        myTimeOut = setTimeout(() => {
+            _this.classList.add('aniScale')
+            _this.classList.add('show')
+            if (_this.classList.contains('first')) {
+                _this.classList.add('aniTranslateHalfRight')
+                let leftThis = true
+                slideListMovie.forEach( (ele, index) => {
+                    if (!ele.classList.contains('aniScale')) {
+                        if (!leftThis) {
+                            ele.classList.add('aniTranslateRight')
+                        }
+                    } else {
+                        leftThis = false
+                    }
+                })
+            } else if (_this.classList.contains('last')) {
+                _this.classList.add('aniTranslateHalfLeft')
+                let leftThis = false
+                slideListMovie.forEach((ele, index) => {
+                    if (!ele.classList.contains('aniScale')) {
+                        if (!leftThis) {
+                            ele.classList.add('aniTranslateLeft')
+                        }
+                    } else {
+                        leftThis = true
+                    }
+                })
+            } else {
+                let leftOfThis = true
+                slideListMovie.forEach( (ele, index) => {
+                    if (!ele.classList.contains('aniScale')) {
+                        if (leftOfThis) {
+                            ele.classList.add('aniTranslateHalfLeft')
+                        } else {
+                            ele.classList.add('aniTranslateHalfRight')
+                        }
+                    } else {
+                        leftOfThis = false
+                    }
+                })
+            }
+        }, 200)
+
+    }
+    ele.onmouseleave = function () {
+        clearTimeout(myTimeOut)
+        if (_this) {
+            _this.classList.remove('show')
+            _this.classList.remove('aniScale')
+        }
+        removeClass()
+    }
+})
+function removeClass() {
+    slideListMovie.forEach(ele => {
+        ele.classList.remove('show')
+        ele.classList.remove('aniScale')
+        ele.classList.remove('aniTranslateHalfLeft')
+        ele.classList.remove('aniTranslateHalfRight')
+        ele.classList.remove('aniTranslateLeft')
+        ele.classList.remove('aniTranslateRight')
+    })
+}
+
+
+// Multiple slide
+function Slide(options) {
+    let currentIdx = 0
+    let eleInView = 6
+
+    let slideChildren = options.selector.children
+    let btnNext = slideChildren[0]
+    let btnPrev = slideChildren[1]
+    let slide = slideChildren[2]
+
+    let countEleSlide = slide.children[0].childElementCount
+    let jump = (countEleSlide % 6) / 6 * 100
+
+    let show = () => {
+        if (countEleSlide >= eleInView) {
+            if (currentIdx * eleInView < countEleSlide - eleInView) {
+                btnNext.classList.add('btn--show')
+            }
+            if (currentIdx > 0) {
+                btnPrev.classList.add('btn--show')
+            }
+        }
+    }
+
+    let hide = () => {
+        btnNext.classList.remove('btn--show')
+        btnPrev.classList.remove('btn--show')
+    }
+
+    options.selector.addEventListener('mouseenter', show)
+    options.selector.addEventListener('mouseleave', hide)
+    // Next slide
+    btnNext.onclick = () => {
+        if (currentIdx * eleInView < countEleSlide - eleInView) {
+            if (countEleSlide - currentIdx * eleInView < 2 * eleInView) {
+                moveSlide(++currentIdx, jump - 100)
+            }
+            else {
+                moveSlide(++currentIdx, 0)
+            }
+        }
+        if (currentIdx * eleInView >= countEleSlide - eleInView) {
+            btnNext.classList.remove('btn--show')
+        }
+        btnPrev.classList.add('btn--show')
+    }
+
+    // Prev slide
+    btnPrev.onclick = () => {
+        if (currentIdx > 0) {
+            if (currentIdx * eleInView - countEleSlide % eleInView < eleInView) {
+                moveSlide(0, 0)
+            }
+            else {
+                moveSlide(--currentIdx, jump - 100)
+            }
+        }
+        if (currentIdx == 0) {
+            btnPrev.classList.remove('btn--show')
+        }
+        btnNext.classList.add('btn--show')
+    }
+
+    // Move slide
+    function moveSlide(index, percentJump) {
+        slide.animate([
+            { transform: `translateX(calc(${-100 * index - percentJump}% - ${4 * index}px))` }
+        ], {
+            duration: options.duration,
+            fill: 'forwards'
+        })
+        currentIdx = index
+    }
+}
+
+Slide({
+    selector: topSlide,
+    duration: 300
+})
+
+
+// ! Cấu trúc HTML slide
+// <div id="tên slide" {bọc toàn bộ slide} {padding nó và overflow}>
+//      button=next
+//      button-prev
+//      <div {bọc slide} {width: 100%}> {transform: translateX cái này}
+//          <div {row cho tràn} (flex-shirk: 0) or white-space: nowrap>
+//              <div {column} flex-shirk: 0 or (white-space: nowrap)></div>
+//              <div {column}></div>
+//          </div >
+//      </div >
+// </div >

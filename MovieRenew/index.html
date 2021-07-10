@@ -115,7 +115,7 @@
                                         <i class='bx bx-movie'></i> Phim Bộ
                                     </span>
                                     <span>
-                                        <i class='bx bxl-imdb'></i> 8.6
+                                        <img src="./assets/img/imdb-logo.png" alt=""> 8.6
                                     </span>
                                     <span>
                                         <i class='bx bx-time-five'></i>
@@ -161,7 +161,7 @@
                                         <i class='bx bx-camera-movie'></i> Phim Lẻ
                                     </span>
                                     <span>
-                                        <i class='bx bxl-imdb'></i> 4.6
+                                        <img src="./assets/img/imdb-logo.png" alt=""> 4.6
                                     </span>
                                     <span>
                                         <i class='bx bx-time-five'></i>
@@ -215,7 +215,7 @@
                                         <i class='bx bx-movie'></i> Phim Bộ
                                     </span>
                                     <span>
-                                        <i class='bx bxl-imdb'></i> 9.5
+                                        <img src="./assets/img/imdb-logo.png" alt=""> 9.5
                                     </span>
                                     <span>
                                         <i class='bx bx-time-five'></i>
@@ -263,7 +263,7 @@
                                         <i class='bx bx-camera-movie'></i> Phim Lẻ
                                     </span>
                                     <span>
-                                        <i class='bx bxl-imdb'></i> 4.6
+                                        <img src="./assets/img/imdb-logo.png" alt=""> 4.6
                                     </span>
                                     <span>
                                         <i class='bx bx-time-five'></i>
@@ -314,7 +314,7 @@
                                         <i class='bx bx-camera-movie'></i> Phim Lẻ
                                     </span>
                                     <span>
-                                        <i class='bx bxl-imdb'></i>4.7
+                                        <img src="./assets/img/imdb-logo.png" alt="">4.7
                                     </span>
                                     <span>
                                         <i class='bx bx-time-five'></i>
@@ -358,8 +358,8 @@
                                         <i class='bx bx-camera-movie'></i> Phim Lẻ
                                     </span>
                                     <span>
-                                        <i class='bx bxl-imdb'></i> 6.7
-                                        </span>
+                                        <img src="./assets/img/imdb-logo.png" alt=""> 6.7
+                                    </span>
                                     <span>
                                         <i class='bx bx-time-five'></i>
                                         112ph
@@ -392,7 +392,7 @@
                     <div class="grid">
                         <div class="row medium-gutters">
                             <div class="col c-1 c-o-6">
-                                <div class="slide-pick__item">
+                                <div class="slide-pick__item picked">
                                     <div class="ratio16-9">
                                         <img src="https://image.tmdb.org/t/p/w1280//aq2yEMgRQBPfRkrO0Repo2qhUAT.jpg" alt="Huyền thoại Vikings"
                                             class="ratioIn">
@@ -400,7 +400,7 @@
                                 </div>
                             </div>
                             <div class="col c-1">
-                                <div class="slide-pick__item picked">
+                                <div class="slide-pick__item">
                                     <div class="ratio16-9">
                                         <img src="https://image.tmdb.org/t/p/w1280//fYI8WX2DquAHMqwh5mOMxc6RU5j.jpg" alt="The big sick" class="ratioIn">
                                     </div>
@@ -447,7 +447,7 @@
                        Top thịnh hành
                     </h4>
                 </div>
-                <div class="content-list-movie__slide">
+                <div class="content-list-movie__slide" id="top-slide">
                     <button class="btn btn__next">
                         <i class='bx bx-right-arrow'></i>
                     </button>
@@ -496,6 +496,14 @@
                                                     <i class="bx bx-time-five"></i> 1 Mùa
                                                 </span>
                                             </div>
+                                            <div class="movie-slide__score-genres">
+                                                <span>
+                                                    <img src="./assets/img/imdb-logo.png" alt=""> 9.2
+                                                </span>
+                                                <span>
+                                                    Chính kịch
+                                                </span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -538,6 +546,378 @@
                                                 </span>
                                                 <span>
                                                     <i class="bx bx-time-five"></i> 6 Mùa
+                                                </span>
+                                            </div>
+                                            <div class="movie-slide__score-genres">
+                                                <span>
+                                                    <img src="./assets/img/imdb-logo.png" alt=""> 9.2
+                                                </span>
+                                                <span>
+                                                    Chính kịch
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col l-2 m-3 c-4">
+                                <div class="list-movie__slide-item">
+                                    <div class="ratio16-9 ratio--other-second">
+                                        <img src="./assets/img/breaking-bad.jpg" alt="Tập làm người xấu" class="ratioIn ratioIn--In">
+                                    </div>
+                                    <div class="shadow shadow--second">
+                                        <div class="movie-slide__play">
+                                            <button class="btn btn--circle btn--outline btn--primary btn__play">
+                                                <i class='bx bxs-right-arrow'></i>
+                                            </button>
+                                        </div>
+                                        <div class="movie-slide__feature">
+                                            <button class="btn btn--circle btn__like-unlike">
+                                                <i class='bx bx-heart'></i>
+                                            </button>
+                                            <button class="btn btn--circle btn__add-remove">
+                                                <i class='bx bx-folder-plus'></i>
+                                            </button>
+                                            <button class="btn btn--circle btn__trailer" title="Xem trailer"
+                                                data-iframe="https://www.youtube.com/embed/HhesaQXLuRY">
+                                                <i class='bx bx-movie-play'></i>
+                                            </button>
+                                        </div>
+                                        <div class="movie-slide__info">
+                                            <div class="movie-slide__name">
+                                                <h5 class="movie-slide__name-eng">
+                                                    Breaking bad
+                                                </h5>
+                                                <h6 class="movie-slide__name-vie">
+                                                    Tập làm người xấu
+                                                </h6>
+                                            </div>
+                                            <div class="movie-slide__category-time">
+                                                <span>
+                                                    <i class="bx bx-movie"></i> Phim bộ
+                                                </span>
+                                                <span>
+                                                    <i class="bx bx-time-five"></i> 5 Mùa
+                                                </span>
+                                            </div>
+                                            <div class="movie-slide__score-genres">
+                                                <span>
+                                                    <img src="./assets/img/imdb-logo.png" alt=""> 9.2
+                                                </span>
+                                                <span>
+                                                    Chính kịch
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col l-2 m-3 c-4">
+                                <div class="list-movie__slide-item">
+                                    <div class="ratio16-9 ratio--other-second">
+                                        <img src="./assets/img/john-wick.jpg" alt="Sát thủ John Wick" class="ratioIn ratioIn--In">
+                                    </div>
+                                    <div class="shadow shadow--second">
+                                        <div class="movie-slide__play">
+                                            <button class="btn btn--circle btn--outline btn--primary btn__play">
+                                                <i class='bx bxs-right-arrow'></i>
+                                            </button>
+                                        </div>
+                                        <div class="movie-slide__feature">
+                                            <button class="btn btn--circle btn__like-unlike">
+                                                <i class='bx bx-heart'></i>
+                                            </button>
+                                            <button class="btn btn--circle btn__add-remove">
+                                                <i class='bx bx-folder-plus'></i>
+                                            </button>
+                                            <button class="btn btn--circle btn__trailer" title="Xem trailer"
+                                                data-iframe="https://www.youtube.com/embed/56pvThSsoSE">
+                                                <i class='bx bx-movie-play'></i>
+                                            </button>
+                                        </div>
+                                        <div class="movie-slide__info">
+                                            <div class="movie-slide__name">
+                                                <h5 class="movie-slide__name-eng">
+                                                    John Wick
+                                                </h5>
+                                                <h6 class="movie-slide__name-vie">
+                                                    Sát thủ John Wick
+                                                </h6>
+                                            </div>
+                                            <div class="movie-slide__category-time">
+                                                <span>
+                                                    <i class="bx bx-camera-movie"></i> Phim lẻ
+                                                </span>
+                                                <span>
+                                                    <i class="bx bx-time-five"></i> 120ph
+                                                </span>
+                                            </div>
+                                            <div class="movie-slide__score-genres">
+                                                <span>
+                                                    <img src="./assets/img/imdb-logo.png" alt=""> 9.2
+                                                </span>
+                                                <span>
+                                                    Chính kịch
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col l-2 m-3 c-4">
+                                <div class="list-movie__slide-item">
+                                    <div class="ratio16-9 ratio--other-second">
+                                        <img src="./assets/img/innocent.jpg" alt="Người vô tội" class="ratioIn ratioIn--In">
+                                    </div>
+                                    <div class="shadow shadow--second">
+                                        <div class="movie-slide__play">
+                                            <button class="btn btn--circle btn--outline btn--primary btn__play">
+                                                <i class='bx bxs-right-arrow'></i>
+                                            </button>
+                                        </div>
+                                        <div class="movie-slide__feature">
+                                            <button class="btn btn--circle btn__like-unlike">
+                                                <i class='bx bx-heart'></i>
+                                            </button>
+                                            <button class="btn btn--circle btn__add-remove">
+                                                <i class='bx bx-folder-plus'></i>
+                                            </button>
+                                            <button class="btn btn--circle btn__trailer" title="Xem trailer"
+                                                data-iframe="https://www.youtube.com/embed/LhERIj0ddXI">
+                                                <i class='bx bx-movie-play'></i>
+                                            </button>
+                                        </div>
+                                        <div class="movie-slide__info">
+                                            <div class="movie-slide__name">
+                                                <h5 class="movie-slide__name-eng">
+                                                    The Innocent
+                                                </h5>
+                                                <h6 class="movie-slide__name-vie">
+                                                    Người vô tội
+                                                </h6>
+                                            </div>
+                                            <div class="movie-slide__category-time">
+                                                <span>
+                                                    <i class="bx bx-movie"></i> Phim bộ
+                                                </span>
+                                                <span>
+                                                    <i class="bx bx-time-five"></i> 1 Mùa
+                                                </span>
+                                            </div>
+                                            <div class="movie-slide__score-genres">
+                                                <span>
+                                                    <img src="./assets/img/imdb-logo.png" alt=""> 9.2
+                                                </span>
+                                                <span>
+                                                    Chính kịch
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col l-2 m-3 c-4">
+                                <div class="list-movie__slide-item last">
+                                    <div class="ratio16-9 ratio--other-second">
+                                        <img src="./assets/img/love-and-monter.jpg" alt="Tình Yêu và Quái Vật" class="ratioIn ratioIn--In">
+                                    </div>
+                                    <div class="shadow shadow--second">
+                                        <div class="movie-slide__play">
+                                            <button class="btn btn--circle btn--outline btn--primary btn__play">
+                                                <i class='bx bxs-right-arrow'></i>
+                                            </button>
+                                        </div>
+                                        <div class="movie-slide__feature">
+                                            <button class="btn btn--circle btn__like-unlike">
+                                                <i class='bx bx-heart'></i>
+                                            </button>
+                                            <button class="btn btn--circle btn__add-remove">
+                                                <i class='bx bx-folder-plus'></i>
+                                            </button>
+                                            <button class="btn btn--circle btn__trailer" title="Xem trailer"
+                                                data-iframe="https://www.youtube.com/embed/-19tBHrZwOM">
+                                                <i class='bx bx-movie-play'></i>
+                                            </button>
+                                        </div>
+                                        <div class="movie-slide__info">
+                                            <div class="movie-slide__name">
+                                                <h5 class="movie-slide__name-eng">
+                                                    Love and Monters
+                                                </h5>
+                                                <h6 class="movie-slide__name-vie">
+                                                    Tìm yêu và quái vật
+                                                </h6>
+                                            </div>
+                                            <div class="movie-slide__category-time">
+                                                <span>
+                                                    <i class="bx bx-camera-movie"></i> Phim lẻ
+                                                </span>
+                                                <span>
+                                                    <i class="bx bx-time-five"></i> 120ph
+                                                </span>
+                                            </div>
+                                            <div class="movie-slide__score-genres">
+                                                <span>
+                                                    <img src="./assets/img/imdb-logo.png" alt=""> 9.2
+                                                </span>
+                                                <span>
+                                                    Chính kịch
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col l-2 m-3 c-4">
+                                <div class="list-movie__slide-item">
+                                    <div class="ratio16-9 ratio--other-second">
+                                        <img src="./assets/img/shadow-and-bone.jpg" alt="Shadow and Bone" class="ratioIn ratioIn--In">
+                                    </div>
+                                    <div class="shadow shadow--second">
+                                        <div class="movie-slide__play">
+                                            <button class="btn btn--circle btn--outline btn--primary btn__play">
+                                                <i class='bx bxs-right-arrow'></i>
+                                            </button>
+                                        </div>
+                                        <div class="movie-slide__feature">
+                                            <button class="btn btn--circle btn__like-unlike">
+                                                <i class='bx bx-heart'></i>
+                                            </button>
+                                            <button class="btn btn--circle btn__add-remove">
+                                                <i class='bx bx-folder-plus'></i>
+                                            </button>
+                                            <button class="btn btn--circle btn__trailer" title="Xem trailer"
+                                                data-iframe="https://www.youtube.com/embed/b1WHQTbJ7vE">
+                                                <i class='bx bx-movie-play'></i>
+                                            </button>
+                                        </div>
+                                        <div class="movie-slide__info">
+                                            <div class="movie-slide__name">
+                                                <h5 class="movie-slide__name-eng">
+                                                    Shadow and Bone
+                                                </h5>
+                                                <h6 class="movie-slide__name-vie">
+                                                    
+                                                </h6>
+                                            </div>
+                                            <div class="movie-slide__category-time">
+                                                <span>
+                                                    <i class="bx bx-movie"></i> Phim bộ
+                                                </span>
+                                                <span>
+                                                    <i class="bx bx-time-five"></i> 1 Mùa
+                                                </span>
+                                            </div>
+                                            <div class="movie-slide__score-genres">
+                                                <span>
+                                                    <img src="./assets/img/imdb-logo.png" alt=""> 9.2
+                                                </span>
+                                                <span>
+                                                    Chính kịch
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col l-2 m-3 c-4">
+                                <div class="list-movie__slide-item">
+                                    <div class="ratio16-9 ratio--other-second">
+                                        <img src="./assets/img/shazam.jpg" alt="Shazam" class="ratioIn ratioIn--In">
+                                    </div>
+                                    <div class="shadow shadow--second">
+                                        <div class="movie-slide__play">
+                                            <button class="btn btn--circle btn--outline btn--primary btn__play">
+                                                <i class='bx bxs-right-arrow'></i>
+                                            </button>
+                                        </div>
+                                        <div class="movie-slide__feature">
+                                            <button class="btn btn--circle btn__like-unlike">
+                                                <i class='bx bx-heart'></i>
+                                            </button>
+                                            <button class="btn btn--circle btn__add-remove">
+                                                <i class='bx bx-folder-plus'></i>
+                                            </button>
+                                            <button class="btn btn--circle btn__trailer" title="Xem trailer"
+                                                data-iframe="https://www.youtube.com/embed/go6GEIrcvFY">
+                                                <i class='bx bx-movie-play'></i>
+                                            </button>
+                                        </div>
+                                        <div class="movie-slide__info">
+                                            <div class="movie-slide__name">
+                                                <h5 class="movie-slide__name-eng">
+                                                    Shazam
+                                                </h5>
+                                                <h6 class="movie-slide__name-vie">
+                                                    
+                                                </h6>
+                                            </div>
+                                            <div class="movie-slide__category-time">
+                                                <span>
+                                                    <i class="bx bx-camera-movie"></i> Phim lẻ
+                                                </span>
+                                                <span>
+                                                    <i class="bx bx-time-five"></i> 100ph
+                                                </span>
+                                            </div>
+                                            <div class="movie-slide__score-genres">
+                                                <span>
+                                                    <img src="./assets/img/imdb-logo.png" alt=""> 9.2
+                                                </span>
+                                                <span>
+                                                    Chính kịch
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col l-2 m-3 c-4">
+                                <div class="list-movie__slide-item">
+                                    <div class="ratio16-9 ratio--other-second">
+                                        <img src="./assets/img/beaky-blinders.jpg" alt="Những bóng ma Anh Quốc" class="ratioIn ratioIn--In">
+                                    </div>
+                                    <div class="shadow shadow--second">
+                                        <div class="movie-slide__play">
+                                            <button class="btn btn--circle btn--outline btn--primary btn__play">
+                                                <i class='bx bxs-right-arrow'></i>
+                                            </button>
+                                        </div>
+                                        <div class="movie-slide__feature">
+                                            <button class="btn btn--circle btn__like-unlike">
+                                                <i class='bx bx-heart'></i>
+                                            </button>
+                                            <button class="btn btn--circle btn__add-remove">
+                                                <i class='bx bx-folder-plus'></i>
+                                            </button>
+                                            <button class="btn btn--circle btn__trailer" title="Xem trailer"
+                                                data-iframe="https://www.youtube.com/embed/YXoVpUCmOOc">
+                                                <i class='bx bx-movie-play'></i>
+                                            </button>
+                                        </div>
+                                        <div class="movie-slide__info">
+                                            <div class="movie-slide__name">
+                                                <h5 class="movie-slide__name-eng">
+                                                    Beaky Blinders
+                                                </h5>
+                                                <h6 class="movie-slide__name-vie">
+                                                    Những bóng ma anh quốc
+                                                </h6>
+                                            </div>
+                                            <div class="movie-slide__category-time">
+                                                <span>
+                                                    <i class="bx bx-movie"></i> Phim bộ
+                                                </span>
+                                                <span>
+                                                    <i class="bx bx-time-five"></i> 6 Mùa
+                                                </span>
+                                            </div>
+                                            <div class="movie-slide__score-genres">
+                                                <span>
+                                                    <img src="./assets/img/imdb-logo.png" alt=""> 9.2
+                                                </span>
+                                                <span>
+                                                    Chính kịch
                                                 </span>
                                             </div>
                                         </div>
@@ -749,7 +1129,7 @@
                                                     Shadow and Bone
                                                 </h5>
                                                 <h6 class="movie-slide__name-vie">
-                                                    
+                            
                                                 </h6>
                                             </div>
                                             <div class="movie-slide__category-time">
@@ -793,7 +1173,7 @@
                                                     Shazam
                                                 </h5>
                                                 <h6 class="movie-slide__name-vie">
-                                                    
+                            
                                                 </h6>
                                             </div>
                                             <div class="movie-slide__category-time">
@@ -811,7 +1191,6 @@
                         </div>
                     </div>
                 </div>
-                
             </div>
         </section>
     
@@ -835,74 +1214,6 @@
     </div>
 
     <script src="./assets/js/base.js"></script>
-    <script>
-        let slideListMovie = document.querySelectorAll('.list-movie__slide-item')
-        slideListMovie.forEach(ele => {
-            let myTimeOut
-            let _this
-            ele.onmouseenter = function () {
-                _this = this
-                myTimeOut = setTimeout(() => {
-                    _this.classList.add('aniScale')
-                    _this.classList.add('show')
-                    if (_this.classList.contains('first')) {
-                        _this.classList.add('aniTranslateHalfRight')
-                        let leftThis = true
-                        slideListMovie.forEach(ele => {
-                            if (!ele.classList.contains('aniScale')) {
-                                if (!leftThis) {
-                                    ele.classList.add('aniTranslateRight')
-                                }
-                            } else {
-                                leftThis = false
-                            }
-                        })
-                    } else if (_this.classList.contains('last')) {
-                        _this.classList.add('aniTranslateHalfLeft')
-                        let leftThis = false
-                        slideListMovie.forEach(ele => {
-                            if (!ele.classList.contains('aniScale')) {
-                                if (!leftThis) {
-                                    ele.classList.add('aniTranslateLeft')
-                                }
-                            } else {
-                                leftThis = true
-                            }
-                        })
-                    } else {
-                        let leftOfThis = true
-                        slideListMovie.forEach(ele => {
-                            if (!ele.classList.contains('aniScale')) {
-                                if (leftOfThis) {
-                                    ele.classList.add('aniTranslateHalfLeft')
-                                } else {
-                                    ele.classList.add('aniTranslateHalfRight')
-                                }
-                            } else {
-                                leftOfThis = false
-                            }
-                        })
-                    }
-                }, 200)
 
-            }
-            ele.onmouseleave = function () {
-                clearTimeout(myTimeOut)
-                _this.classList.remove('show')
-                _this.classList.remove('aniScale')
-                removeClass()
-            }
-        })
-        function removeClass() {
-            slideListMovie.forEach(ele => {
-                ele.classList.remove('show')
-                ele.classList.remove('aniScale')
-                ele.classList.remove('aniTranslateHalfLeft')
-                ele.classList.remove('aniTranslateHalfRight')
-                ele.classList.remove('aniTranslateLeft')
-                ele.classList.remove('aniTranslateRight')
-            })
-        }
-    </script>
 </body>
 </html>
