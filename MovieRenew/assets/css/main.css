@@ -1,11 +1,11 @@
 #app {
 }
 
-#app.hide-side-bar .header__brand i {
+#app.hide-sidebar .header__brand i {
     display: block;
 }
 
-#app.hide-side-bar {
+#app.hide-sidebar {
     --sidebar-width-small: 0px;
 }
 
@@ -178,6 +178,11 @@
 }
 
 .sidebar__body::-webkit-scrollbar {
+    width: 0px;
+    background-color: var(--nav-color);
+}
+
+.sidebar__body:hover::-webkit-scrollbar {
     width: 10px;
     background-color: var(--nav-color);
 }
@@ -423,7 +428,6 @@
     z-index: 1;
     background-color: var(--btn-overlay);
     transform: translate(100%, -50%);
-    transition: all linear 0.1s;
 }
 
 .btn__prev {
@@ -434,6 +438,7 @@
 .btn__next.btn--show,
 .btn__prev.btn--show {
     transform: translate(0, -50%);
+    transition: transform linear 0.05s;
 }
 
 .btn__prev > i,
