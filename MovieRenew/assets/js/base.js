@@ -1,9 +1,10 @@
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
-let header = $('header')
-let sidebar = $("#sidebar")
+let header = $('#header')
+let btnSidebar = header.querySelector('.header__brand i')
 
+let sidebar = $("#sidebar")
 let btnMenu = sidebar.querySelector('.sidebar__brand i')
 
 let slideEntire = $('.content__slide')
@@ -37,6 +38,16 @@ const app = {
         // Toggle sidebar nhỏ/lớn
         btnMenu.onclick = () => {
             sidebar.classList.toggle('small')
+        }
+
+        // Scroll hiện header
+        window.onscroll = () => {
+            let posTop = $('html').scrollTop
+            if (posTop >= 80) {
+                header.classList.add('header-show')
+            } else {
+                header.classList.remove('header-show')
+            }
         }
 
         // Click để chuyển slide
@@ -195,19 +206,19 @@ app.start()
 let topSlide = $('#top-slide')
 let slideListMovie = topSlide.querySelectorAll('.list-movie__slide-item')
 let countSlide = slideListMovie.length
+let eleInView = 6
 
 slideListMovie.forEach(ele => {
     let myTimeOut
-    let _this
-    ele.onmouseenter = function () {
-        _this = this
+    ele.onmouseenter = () => {
         myTimeOut = setTimeout(() => {
-            _this.classList.add('aniScale')
-            _this.classList.add('show')
-            if (_this.classList.contains('first')) {
-                _this.classList.add('aniTranslateHalfRight')
+            ele.classList.add('aniScale')
+            ele.classList.add('show')
+            if (ele.offsetLeft < ele.offsetWidth) {
+                ele.classList.add('first')
+                ele.classList.add('aniTranslateHalfRight')
                 let leftThis = true
-                slideListMovie.forEach( (ele, index) => {
+                slideListMovie.forEach(ele => {
                     if (!ele.classList.contains('aniScale')) {
                         if (!leftThis) {
                             ele.classList.add('aniTranslateRight')
@@ -216,21 +227,9 @@ slideListMovie.forEach(ele => {
                         leftThis = false
                     }
                 })
-            } else if (_this.classList.contains('last')) {
-                _this.classList.add('aniTranslateHalfLeft')
-                let leftThis = false
-                slideListMovie.forEach((ele, index) => {
-                    if (!ele.classList.contains('aniScale')) {
-                        if (!leftThis) {
-                            ele.classList.add('aniTranslateLeft')
-                        }
-                    } else {
-                        leftThis = true
-                    }
-                })
-            } else {
+            } else if (ele.offsetLeft < ele.offsetWidth * (eleInView - 1)) {
                 let leftOfThis = true
-                slideListMovie.forEach( (ele, index) => {
+                slideListMovie.forEach(ele => {
                     if (!ele.classList.contains('aniScale')) {
                         if (leftOfThis) {
                             ele.classList.add('aniTranslateHalfLeft')
@@ -241,35 +240,35 @@ slideListMovie.forEach(ele => {
                         leftOfThis = false
                     }
                 })
+            } else {
+                ele.classList.add('last')
+                ele.classList.add('aniTranslateHalfLeft')
+                let leftThis = false
+                slideListMovie.forEach(ele => {
+                    if (!ele.classList.contains('aniScale')) {
+                        if (!leftThis) {
+                            ele.classList.add('aniTranslateLeft')
+                        }
+                    } else {
+                        leftThis = true
+                    }
+                })
             }
         }, 200)
-
     }
-    ele.onmouseleave = function () {
+    ele.onmouseleave = () => {
         clearTimeout(myTimeOut)
-        if (_this) {
-            _this.classList.remove('show')
-            _this.classList.remove('aniScale')
-        }
-        removeClass()
+        slideListMovie.forEach(ele => {
+            'show aniScale first last aniTranslateHalfLeft aniTranslateHalfRight aniTranslateLeft aniTranslateRight'.split(' ').forEach(eleClass => {
+                ele.classList.remove(eleClass)
+            })
+        })
     }
 })
-function removeClass() {
-    slideListMovie.forEach(ele => {
-        ele.classList.remove('show')
-        ele.classList.remove('aniScale')
-        ele.classList.remove('aniTranslateHalfLeft')
-        ele.classList.remove('aniTranslateHalfRight')
-        ele.classList.remove('aniTranslateLeft')
-        ele.classList.remove('aniTranslateRight')
-    })
-}
-
 
 // Multiple slide
 function Slide(options) {
     let currentIdx = 0
-    let eleInView = 6
 
     let slideChildren = options.selector.children
     let btnNext = slideChildren[0]

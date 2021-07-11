@@ -1,20 +1,24 @@
 :root {
+    --main-color: #00e1cb;
     --nav-color: #181818;
     --bg-color: #111;
     --nav-element-active: #272727;
-    --main-color: #00e1cb;
     --text-color: #ffffff;
     --text-color-second: #adb5bd;
     --text-color-third: #e9ecef;
     --text-color-four: #000000;
     --btn-color: #0b121e;
     --btn-color-second: #162032;
+    --btn-search-cl: #323232;
     --border-color: rgba(75, 74, 74, 0.8);
     --scroll-thumb: rgba(111, 111, 111, 0.6);
     --scroll-hover: #aaaaaa;
     --search-color: #121212;
     --modal-overlay: rgba(0, 0, 0, 0.6);
-    --btn-search-cl: #323232;
+    --shadow-color: rgb(18, 18, 18);
+    --shadow-color-second: rgba(18, 18, 18, 0.4);
+    --shadow-color-th: rgba(18, 18, 18, 0.95);
+    --btn-overlay: rgba(17, 17, 17, 0.7);
     --height-brand-name: 56px;
     --sidebar-width-small: 60px;
 }
@@ -142,7 +146,7 @@ img {
 }
 
 .ratio--other {
-    padding-bottom: 46%;
+    padding-bottom: 50.25%;
 }
 
 .ratio--other-second {
@@ -168,12 +172,12 @@ img {
     width: 100%;
     position: absolute;
     top: 0;
-    background-image: linear-gradient(180deg, rgba(18, 18, 18, 0), rgb(18, 18, 18)),
-        linear-gradient(90deg, rgba(18, 18, 18, 0.4), rgba(18, 18, 18, 0));
+    background-image: linear-gradient(180deg, rgba(18, 18, 18, 0), var(--shadow-color)),
+        linear-gradient(90deg, var(--shadow-color-second), rgba(18, 18, 18, 0));
 }
 
 .shadow--second {
-    background-image: linear-gradient(360deg, rgba(18, 18, 18, 0.95), rgba(18, 18, 18, 0));
+    background-image: linear-gradient(360deg, var(--shadow-color-th), rgba(18, 18, 18, 0));
 }
 
 /* Modal */
