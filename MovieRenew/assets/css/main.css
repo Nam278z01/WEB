@@ -170,6 +170,10 @@
     background-color: var(--scroll-thumb);
 }
 
+.sidebar__body::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scroll-hover);
+}
+
 .sidebar-body__element {
 }
 
