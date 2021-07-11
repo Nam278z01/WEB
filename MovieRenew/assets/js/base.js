@@ -232,7 +232,6 @@ window.onresize = () => {
 slideListMovie.forEach(ele => {
     let myTimeOut
     ele.onmouseenter = e => {
-        console.log(e.clientX, document.body.clientWidth - document.body.clientWidth * 0.03 - ele.offsetWidth)
         myTimeOut = setTimeout(() => {
             ele.classList.add('aniScale')
             ele.classList.add('show')
@@ -360,6 +359,7 @@ function Slide(options) {
                 moveSlide(++currentIdx, 0)
             }
         }
+        console.log(currentIdx)
         if (currentIdx * eleInView >= countEleSlide - eleInView) {
             btnNext.classList.remove('btn--show')
         }
@@ -369,14 +369,15 @@ function Slide(options) {
     // Prev slide
     btnPrev.onclick = () => {
         if (currentIdx > 0) {
-            if (currentIdx * eleInView - countEleSlide % eleInView < eleInView) {
-                moveSlide(0, 0)
+            if (currentIdx * eleInView - countEleSlide % eleInView <= eleInView) {
+                moveSlide(--currentIdx, 0)
             }
             else {
-                moveSlide(--currentIdx, jump - 100)
+                moveSlide(--currentIdx, jump)
             }
         }
-        if (currentIdx == 0) {
+        console.log(currentIdx)
+        if (currentIdx <= 0) {
             btnPrev.classList.remove('btn--show')
         }
         btnNext.classList.add('btn--show')
