@@ -330,7 +330,7 @@ slideListMovie.forEach(ele => {
                     }
                 }
             }
-        }, 200)
+        }, 0)
     }
     ele.onmouseleave = () => {
         clearTimeout(myTimeOut)
