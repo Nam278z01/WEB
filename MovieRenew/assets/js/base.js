@@ -261,19 +261,24 @@ let slideListMovie = topSlide.querySelectorAll('.list-movie__slide-item')
 let countSlide = slideListMovie.length
 let eleInView = 6
 
-window.onresize = () => {
-    if (document.body.clientWidth < 740) {
+window.addEventListener('resize', () => {
+    if (window.innerWidth < 576) {
+        eleInView = 2
+    }else if (window.innerWidth < 740) {
         eleInView = 3
-    } else if (document.body.clientWidth < 1113) {
+    } else if (window.innerWidth < 1113) {
         eleInView = 4
     } else {
         eleInView = 6
     }
-}
-
-if (document.body.clientWidth < 740) {
+})
+// document.body.clientWidth (get width without scrollbar)
+// window.innerWidth (get width with scrollbar) giống css query media
+if (window.innerWidth < 576) {
+    eleInView = 2
+} else if (window.innerWidth < 740) {
     eleInView = 3
-} else if (document.body.clientWidth < 1113) {
+} else if (window.innerWidth < 1113) {
     eleInView = 4
 } else {
     eleInView = 6
@@ -374,9 +379,11 @@ function Slide(options) {
     let currentIdx = 0
     let eleInViewOfThisSlide = 6
 
-    if (document.body.clientWidth < 740) {
+    if (window.innerWidth < 576) {
+        eleInViewOfThisSlide = 2
+    } else if (window.innerWidth < 740) {
         eleInViewOfThisSlide = 3
-    } else if (document.body.clientWidth < 1113) {
+    } else if (window.innerWidth < 1113) {
         eleInViewOfThisSlide = 4
     } else {
         eleInViewOfThisSlide = 6
@@ -431,7 +438,11 @@ function Slide(options) {
                 moveSlide(--currentIdx, 0)
             }
             else {
-                moveSlide(--currentIdx, jump - 100)
+                if (jump) {
+                    moveSlide(--currentIdx, jump - 100)
+                } else {
+                    moveSlide(--currentIdx, 0)
+                }
             }
         }
         if (currentIdx <= 0) {
@@ -448,11 +459,13 @@ function Slide(options) {
             duration: options.duration,
             fill: 'forwards'
         })
-        currentIdx = index
+        // currentIdx = index
     }
 
-    window.onresize = () => {
-        if (document.body.clientWidth < 740) {
+    window.addEventListener('resize', () => {
+        if (window.innerWidth < 576) {
+            eleInViewOfThisSlide = 2
+        }else if (document.body.clientWidth < 740) {
             eleInViewOfThisSlide = 3
         } else if (document.body.clientWidth < 1113) {
             eleInViewOfThisSlide = 4
@@ -460,7 +473,7 @@ function Slide(options) {
             eleInViewOfThisSlide = 6
         }
         jump = (countEleSlide % eleInViewOfThisSlide) / eleInViewOfThisSlide * 100
-    }
+    })
 }
 
 Slide({

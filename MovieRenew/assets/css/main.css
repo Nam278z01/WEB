@@ -290,9 +290,11 @@
 /* Content */
 #content {
     overflow: hidden;
+    position: relative;
 }
 
 .content__slide {
+    position: relative;
 }
 
 .content__slide-list {
@@ -335,6 +337,7 @@
 .slide-item__score-genres {
     margin-bottom: 16px;
     display: flex;
+    flex-wrap: wrap;
 }
 
 .slide-item__score-genres > span {
@@ -373,6 +376,10 @@
     font-weight: 300;
     color: var(--text-color-second);
     margin-bottom: 16px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 8;
+    -webkit-box-orient: vertical;
 }
 
 .slide-item__btn {
@@ -381,8 +388,10 @@
 .content__slide-pick {
     padding: 0 calc(3% + 14px) 0
         calc(var(--sidebar-width-small) + calc(3% + 14px));
-    position: relative;
-    top: -80px;
+    position: absolute;
+    bottom: 4%;
+    z-index: 1;
+    width: 100%;
 }
 
 .slide-pick__item {
@@ -417,7 +426,7 @@
 /* List movie */
 .content__list-movie {
     width: 100%;
-    margin-bottom: 100px;
+    margin: 50px 0 80px;
 }
 
 .content-list-movie__title {

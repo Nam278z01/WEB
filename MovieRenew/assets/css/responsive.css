@@ -3,17 +3,104 @@
     .hide-on-mb-tb {
         display: none;
     }
+
+    #app.hide-sidebar-mb-tb .header__brand i {
+    display: block;
+    }
+
+    #app.hide-sidebar-mb-tb {
+    --sidebar-width-small: 0px;
+    }
+
+    #content {
+        top: 56px
+    }
+
+    .slide-item__score-genres span {
+        line-height: 2.5rem;
+    }
+
+    .ratio--other {
+        padding-bottom: 56.25%;
+    }
+
+    .content-list-movie__slide {
+        overflow-x: auto;
+    }
+
+    .modal__body {
+        display: block;
+    }
+
+    .movie-slide__feature .btn {
+        display: flex;
+    }
 }
 
 /* Tablet */
 @media only screen and (min-width: 740px) and (max-width: 1023px) {
-    .high-on-tb {
+    .hide-on-tb {
         display: none;
+    }
+
+    .slide-item__description {
+        -webkit-line-clamp: 4;
+    }
+
+    .modal-body__video-popup {
+        width: 80%;
+        margin-top: 150px;
     }
 }
 /* Mobile */
 @media only screen and (max-width: 739px) {
-    .high-on-mb {
-        display: none;
+    .hide-on-mb {
+        display: none !important;
+    }
+
+    #header__search-form .btn {
+        padding: 0 8px;
+    }
+
+    .shadow {
+        bottom: -1px;
+        height: unset;
+    }
+
+    .slide-item__info {
+        bottom: -55%;
+        right: calc(3% + 14px);
+        width: calc(100% - 6% - 28px);
+    }
+
+    .slide-item__name-film {
+        font-size: 2.4rem;
+    }
+
+    .slide-item__name-film-vie {
+        font-size: 2rem;
+    }
+
+    .slide-item__description {
+        -webkit-line-clamp: 2;
+    }
+
+
+    .slide-item__btn {
+        display: flex;
+        justify-content: center;
+    }
+
+    .content__slide-pick {
+        bottom: -80%;
+    }
+
+    .content__list-movie {
+        margin-top: 230px;
+    }
+
+    .modal-body__video-popup {
+        width: calc(96% - 28px);
+        margin-top: 100px;
     }
 }
