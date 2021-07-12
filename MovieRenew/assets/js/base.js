@@ -36,7 +36,8 @@ const app = {
     handleEvent() {
         const _this = this
         let scrollTop
-
+        let toggle = true; //Bỏ ";" thì bị lỗi ??? wth
+        
         // Toggle sidebar nhỏ/lớn or ẩn
         [btnMenu, sidebarOverlay].forEach(ele => {
             ele.onclick = () => {
@@ -47,7 +48,21 @@ const app = {
                     document.body.classList.remove('no-scroll')
                     $('html').scrollTop = scrollTop
                 } else {
-                    sidebar.classList.toggle('small')
+                    if (toggle) {
+                        sidebar.classList.remove('small')
+                        // Ẩn thanh cuộn và giữ vị trí
+                        sidebarOverlay.style.display = 'block'
+                        scrollTop = $('html').scrollTop
+                        document.body.classList.add('no-scroll')
+                        $('body').style.top = -scrollTop + 'px'
+                    } else {
+                        sidebar.classList.add('small')
+                        sidebarOverlay.style.display = 'none'
+                        // Hiện & đặt vị trí ban đầu
+                        document.body.classList.remove('no-scroll')
+                        $('html').scrollTop = scrollTop
+                    }
+                    toggle = !toggle
                 }
             }
         })
@@ -67,7 +82,9 @@ const app = {
         // Scroll hiện header
         window.onscroll = () => {
             let posTop = $('html').scrollTop
-            if (posTop >= 80) {
+            // get property top
+            let top = window.getComputedStyle(document.body).getPropertyValue('top').replace('px', '')
+            if (posTop >= 80 || top < -80) {
                 header.classList.add('header-show')
             } else {
                 header.classList.remove('header-show')
