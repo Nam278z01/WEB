@@ -47,6 +47,7 @@ const app = {
                     // Hiện & đặt vị trí ban đầu
                     document.body.classList.remove('no-scroll')
                     $('html').scrollTop = scrollTop
+                    $('body').style.top = '0px'
                 } else {
                     if (toggle) {
                         sidebar.classList.remove('small')
@@ -61,6 +62,7 @@ const app = {
                         // Hiện & đặt vị trí ban đầu
                         document.body.classList.remove('no-scroll')
                         $('html').scrollTop = scrollTop
+                        $('body').style.top = '0px'
                     }
                     toggle = !toggle
                 }
@@ -330,7 +332,7 @@ slideListMovie.forEach(ele => {
                     }
                 }
             }
-        }, 0)
+        }, 200)
     }
     ele.onmouseleave = () => {
         clearTimeout(myTimeOut)
