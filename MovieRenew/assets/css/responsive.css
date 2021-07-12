@@ -1,5 +1,5 @@
 /* Mobile & Tablet */
-@media only screen and (max-width: 1023px) {
+@media only screen and (max-width: 1024px) {
     .hide-on-mb-tb {
         display: none;
     }
@@ -26,6 +26,12 @@
 
     .content-list-movie__slide {
         overflow-x: auto;
+        overflow-y: hidden;
+    }
+
+    .btn__next,
+    .btn__prev {
+        display: none;
     }
 
     .modal__body {
@@ -35,10 +41,26 @@
     .movie-slide__feature .btn {
         display: flex;
     }
+
+    #header.header-show-on-mb-tb #header__search-form .btn:active {
+        background-color: var(--text-color-third);
+    }
+
+    #header.header-show-on-mb-tb {
+        background-color: var(--nav-color);
+    }
+
+    #header.header-show-on-mb-tb #header__search-form .btn {
+        background-color: var(--btn-search-cl);
+    }
+
+    #header.header-show-on-mb-tb .search__container input {
+        background-color: var(--search-color);
+    }
 }
 
 /* Tablet */
-@media only screen and (min-width: 740px) and (max-width: 1023px) {
+@media only screen and (min-width: 740px) and (max-width: 1024px) {
     .hide-on-tb {
         display: none;
     }
@@ -60,11 +82,6 @@
 
     #header__search-form .btn {
         padding: 0 8px;
-    }
-
-    .shadow {
-        bottom: -1px;
-        height: unset;
     }
 
     .slide-item__info {
@@ -96,7 +113,7 @@
     }
 
     .content__list-movie {
-        margin-top: 230px;
+        margin-top: 55%;
     }
 
     .modal-body__video-popup {

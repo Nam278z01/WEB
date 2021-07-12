@@ -1,3 +1,20 @@
+if (navigator.userAgent.match(/Android/i)
+    || navigator.userAgent.match(/webOS/i)
+    || navigator.userAgent.match(/iPhone/i)
+    || navigator.userAgent.match(/iPad/i)
+    || navigator.userAgent.match(/iPod/i)
+    || navigator.userAgent.match(/BlackBerry/i)
+    || navigator.userAgent.match(/Windows Phone/i)) {
+    
+}
+else {
+    hoverMovies()
+    Slide({
+        selector: topSlide,
+        duration: 300
+    })
+}
+
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
@@ -260,119 +277,121 @@ let topSlide = $('#top-slide')
 let slideListMovie = topSlide.querySelectorAll('.list-movie__slide-item')
 let countSlide = slideListMovie.length
 let eleInView = 6
-
-window.addEventListener('resize', () => {
+function hoverMovies() {
+    window.addEventListener('resize', () => {
+        if (window.innerWidth < 576) {
+            eleInView = 2
+        }else if (window.innerWidth < 740) {
+            eleInView = 3
+        } else if (window.innerWidth < 1113) {
+            eleInView = 4
+        } else {
+            eleInView = 6
+        }
+    })
+    // document.body.clientWidth (get width without scrollbar)
+    // window.innerWidth (get width with scrollbar) giống css query media
     if (window.innerWidth < 576) {
         eleInView = 2
-    }else if (window.innerWidth < 740) {
+    } else if (window.innerWidth < 740) {
         eleInView = 3
     } else if (window.innerWidth < 1113) {
         eleInView = 4
     } else {
         eleInView = 6
     }
-})
-// document.body.clientWidth (get width without scrollbar)
-// window.innerWidth (get width with scrollbar) giống css query media
-if (window.innerWidth < 576) {
-    eleInView = 2
-} else if (window.innerWidth < 740) {
-    eleInView = 3
-} else if (window.innerWidth < 1113) {
-    eleInView = 4
-} else {
-    eleInView = 6
-}
-
-slideListMovie.forEach(ele => {
-    let myTimeOut
-    ele.onmouseenter = e => {
-        myTimeOut = setTimeout(() => {
-            ele.classList.add('aniScale')
-            ele.classList.add('show')
-            if (e.clientX <= ele.offsetWidth + document.body.clientWidth * 0.03 + sidebar.offsetWidth + 18) {
-                ele.classList.add('first')
-                ele.classList.add('aniTranslateHalfRight')
-                for (let i = 0, count = -1, leftThis = true; i < countSlide; i++) {
-                    if (!slideListMovie[i].classList.contains('aniScale')) {
-                        if (!leftThis) {
-                            slideListMovie[i].classList.add('aniTranslateRight')
-                        }
-                    } else {
-                        leftThis = false
-                    }
-                    if (!leftThis) {
-                        count ++
-                    }
-                    if (count == eleInView) {
-                        break
-                    }
-                }
-            } else if (e.clientX >= document.body.clientWidth - document.body.clientWidth * 0.03 - ele.offsetWidth - 18) {
-                ele.classList.add('last')
-                ele.classList.add('aniTranslateHalfLeft')
-                for (let i = countSlide - 1, count = -1, rightThis = true; i > -1; i--) {
-                    if (!slideListMovie[i].classList.contains('aniScale')) {
-                        if (!rightThis) {
-                            slideListMovie[i].classList.add('aniTranslateLeft')
-                        }
-                    } else {
-                        rightThis = false
-                    }
-                    if (!rightThis) {
-                        count++
-                    }
-                    if (count == eleInView) {
-                        break
-                    }
-                }
-            } else {
-                for (let i = 0, count = -1, leftOfThis = true; i < countSlide; i++) {
-                    if (!slideListMovie[i].classList.contains('aniScale')) {
-                        if (leftOfThis) {
-                            slideListMovie[i].classList.add('aniTranslateHalfLeft')
+    
+    slideListMovie.forEach(ele => {
+        let myTimeOut
+        ele.onmouseenter = e => {
+            myTimeOut = setTimeout(() => {
+                ele.classList.add('aniScale')
+                ele.classList.add('show')
+                if (e.clientX <= ele.offsetWidth + document.body.clientWidth * 0.03 + sidebar.offsetWidth + 18) {
+                    ele.classList.add('first')
+                    ele.classList.add('aniTranslateHalfRight')
+                    for (let i = 0, count = -1, leftThis = true; i < countSlide; i++) {
+                        if (!slideListMovie[i].classList.contains('aniScale')) {
+                            if (!leftThis) {
+                                slideListMovie[i].classList.add('aniTranslateRight')
+                            }
                         } else {
-                            slideListMovie[i].classList.add('aniTranslateHalfRight')
+                            leftThis = false
                         }
-                    } else {
-                        leftOfThis = false
+                        if (!leftThis) {
+                            count ++
+                        }
+                        if (count == eleInView) {
+                            break
+                        }
                     }
-                    if (!leftOfThis) {
-                        count++
+                } else if (e.clientX >= document.body.clientWidth - document.body.clientWidth * 0.03 - ele.offsetWidth - 18) {
+                    ele.classList.add('last')
+                    ele.classList.add('aniTranslateHalfLeft')
+                    for (let i = countSlide - 1, count = -1, rightThis = true; i > -1; i--) {
+                        if (!slideListMovie[i].classList.contains('aniScale')) {
+                            if (!rightThis) {
+                                slideListMovie[i].classList.add('aniTranslateLeft')
+                            }
+                        } else {
+                            rightThis = false
+                        }
+                        if (!rightThis) {
+                            count++
+                        }
+                        if (count == eleInView) {
+                            break
+                        }
                     }
-                    if (count == eleInView - 1) {
-                        break
+                } else {
+                    for (let i = 0, count = -1, leftOfThis = true; i < countSlide; i++) {
+                        if (!slideListMovie[i].classList.contains('aniScale')) {
+                            if (leftOfThis) {
+                                slideListMovie[i].classList.add('aniTranslateHalfLeft')
+                            } else {
+                                slideListMovie[i].classList.add('aniTranslateHalfRight')
+                            }
+                        } else {
+                            leftOfThis = false
+                        }
+                        if (!leftOfThis) {
+                            count++
+                        }
+                        if (count == eleInView - 1) {
+                            break
+                        }
                     }
                 }
-            }
-        }, 200)
-    }
-    ele.onmouseleave = () => {
-        clearTimeout(myTimeOut)
-        for (let i = 0, count = -1, leftOfThis = true; i < countSlide; i++) {
-            if (slideListMovie[i].classList.contains('aniScale')) {
-                'show aniScale first last aniTranslateHalfLeft aniTranslateHalfRight'.split(' ').forEach(eleClass => {
-                    if (slideListMovie[i].classList.contains(eleClass)) {
-                        slideListMovie[i].classList.remove(eleClass)
-                    }
-                })
-                leftOfThis = false
-            } else {
-                'aniTranslateHalfLeft aniTranslateHalfRight aniTranslateLeft aniTranslateRight'.split(' ').forEach(eleClass => {
-                    if (slideListMovie[i].classList.contains(eleClass)) {
-                        slideListMovie[i].classList.remove(eleClass)
-                    }
-                })
-            }
-            if (!leftOfThis) {
-                count++
-            }
-            if (count == eleInView) {
-                break
+            }, 200)
+        }
+        ele.onmouseleave = () => {
+            clearTimeout(myTimeOut)
+            for (let i = 0, count = -1, leftOfThis = true; i < countSlide; i++) {
+                if (slideListMovie[i].classList.contains('aniScale')) {
+                    'show aniScale first last aniTranslateHalfLeft aniTranslateHalfRight'.split(' ').forEach(eleClass => {
+                        if (slideListMovie[i].classList.contains(eleClass)) {
+                            slideListMovie[i].classList.remove(eleClass)
+                        }
+                    })
+                    leftOfThis = false
+                } else {
+                    'aniTranslateHalfLeft aniTranslateHalfRight aniTranslateLeft aniTranslateRight'.split(' ').forEach(eleClass => {
+                        if (slideListMovie[i].classList.contains(eleClass)) {
+                            slideListMovie[i].classList.remove(eleClass)
+                        }
+                    })
+                }
+                if (!leftOfThis) {
+                    count++
+                }
+                if (count == eleInView) {
+                    break
+                }
             }
         }
-    }
-})
+    })
+}
+
 
 // Multiple slide
 function Slide(options) {
@@ -475,11 +494,6 @@ function Slide(options) {
         jump = (countEleSlide % eleInViewOfThisSlide) / eleInViewOfThisSlide * 100
     })
 }
-
-Slide({
-    selector: topSlide,
-    duration: 300
-})
 
 
 // ! Cấu trúc HTML slide
