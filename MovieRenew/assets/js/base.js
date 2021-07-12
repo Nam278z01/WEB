@@ -6,6 +6,7 @@ let btnSidebar = header.querySelector('.header__brand i')
 
 let sidebar = $("#sidebar")
 let btnMenu = sidebar.querySelector('.sidebar__brand i')
+let sidebarOverlay = sidebar.querySelector('.sidebar__overlay')
 
 let slideEntire = $('.content__slide')
 let slide = slideEntire.querySelector('.content__slide-list')
@@ -34,21 +35,33 @@ const app = {
     // Xử lý sự kiện
     handleEvent() {
         const _this = this
+        let scrollTop
 
-        // Toggle sidebar nhỏ/lớn
-        btnMenu.onclick = () => {
-            if (sidebar.classList.contains('hiding')) {
-                sidebar.style.width = '0'
-            } else {
-                sidebar.classList.toggle('small')
+        // Toggle sidebar nhỏ/lớn or ẩn
+        [btnMenu, sidebarOverlay].forEach(ele => {
+            ele.onclick = () => {
+                if (sidebar.classList.contains('hiding')) {
+                    sidebar.style.width = '0'
+                    sidebarOverlay.style.display = 'none'
+                    // Hiện & đặt vị trí ban đầu
+                    document.body.classList.remove('no-scroll')
+                    $('html').scrollTop = scrollTop
+                } else {
+                    sidebar.classList.toggle('small')
+                }
             }
-        }
+        })
 
-        // Ẩn hiện sideber
+        // Hiện sideber
         btnSidebar.onclick = () => {
             sidebar.style.width = '280px'
             sidebar.classList.add('hiding')
             sidebar.classList.remove('small')
+            sidebarOverlay.style.display = 'block'
+            // Ẩn thanh cuộn và giữ vị trí
+            scrollTop = $('html').scrollTop
+            document.body.classList.add('no-scroll')
+            $('body').style.top = -scrollTop + 'px'
         }
 
         // Scroll hiện header
@@ -103,6 +116,10 @@ const app = {
                 videoPopup.src = this.getAttribute('data-iframe')
                 modal.classList.add('show')
                 modalVideoPopup.classList.add('show')
+                // Ẩn thanh cuộn và giữ vị trí
+                scrollTop = $('html').scrollTop
+                document.body.classList.add('no-scroll')
+                $('body').style.top = -scrollTop + 'px'
             }
         })
 
@@ -112,12 +129,18 @@ const app = {
                 modal.classList.remove('show')
                 modalVideoPopup.classList.remove('show')
                 videoPopup.src = ''
+                // Hiện & đặt vị trí ban đầu
+                document.body.classList.remove('no-scroll')
+                $('html').scrollTop = scrollTop
             }
         }
         btnHideModal.onclick = () => {
             modal.classList.remove('show')
             modalVideoPopup.classList.remove('show')
             videoPopup.src = ''
+            // Hiện & đặt vị trí ban đầu
+            document.body.classList.remove('no-scroll')
+            $('html').scrollTop = scrollTop
         }
 
         // Kéo slide
@@ -359,7 +382,6 @@ function Slide(options) {
                 moveSlide(++currentIdx, 0)
             }
         }
-        console.log(currentIdx)
         if (currentIdx * eleInView >= countEleSlide - eleInView) {
             btnNext.classList.remove('btn--show')
         }
@@ -376,7 +398,6 @@ function Slide(options) {
                 moveSlide(--currentIdx, jump)
             }
         }
-        console.log(currentIdx)
         if (currentIdx <= 0) {
             btnPrev.classList.remove('btn--show')
         }
