@@ -271,6 +271,14 @@ window.onresize = () => {
     }
 }
 
+if (document.body.clientWidth < 740) {
+    eleInView = 3
+} else if (document.body.clientWidth < 1113) {
+    eleInView = 4
+} else {
+    eleInView = 6
+}
+
 slideListMovie.forEach(ele => {
     let myTimeOut
     ele.onmouseenter = e => {
@@ -364,6 +372,15 @@ slideListMovie.forEach(ele => {
 // Multiple slide
 function Slide(options) {
     let currentIdx = 0
+    let eleInViewOfThisSlide = 6
+
+    if (document.body.clientWidth < 740) {
+        eleInViewOfThisSlide = 3
+    } else if (document.body.clientWidth < 1113) {
+        eleInViewOfThisSlide = 4
+    } else {
+        eleInViewOfThisSlide = 6
+    }
 
     let slideChildren = options.selector.children
     let btnNext = slideChildren[0]
@@ -371,11 +388,11 @@ function Slide(options) {
     let slide = slideChildren[2]
 
     let countEleSlide = slide.children[0].childElementCount
-    let jump = (countEleSlide % eleInView) / eleInView * 100
+    let jump = (countEleSlide % eleInViewOfThisSlide) / eleInViewOfThisSlide * 100
 
     let show = () => {
-        if (countEleSlide >= eleInView) {
-            if (currentIdx * eleInView < countEleSlide - eleInView) {
+        if (countEleSlide >= eleInViewOfThisSlide) {
+            if (currentIdx * eleInViewOfThisSlide < countEleSlide - eleInViewOfThisSlide) {
                 btnNext.classList.add('btn--show')
             }
             if (currentIdx > 0) {
@@ -393,15 +410,15 @@ function Slide(options) {
     options.selector.addEventListener('mouseleave', hide)
     // Next slide
     btnNext.onclick = () => {
-        if (currentIdx * eleInView < countEleSlide - eleInView) {
-            if (countEleSlide - currentIdx * eleInView < 2 * eleInView) {
+        if (currentIdx * eleInViewOfThisSlide < countEleSlide - eleInViewOfThisSlide) {
+            if (countEleSlide - currentIdx * eleInViewOfThisSlide < 2 * eleInViewOfThisSlide) {
                 moveSlide(++currentIdx, jump - 100)
             }
             else {
                 moveSlide(++currentIdx, 0)
             }
         }
-        if (currentIdx * eleInView >= countEleSlide - eleInView) {
+        if (currentIdx * eleInViewOfThisSlide >= countEleSlide - eleInViewOfThisSlide) {
             btnNext.classList.remove('btn--show')
         }
         btnPrev.classList.add('btn--show')
@@ -410,11 +427,11 @@ function Slide(options) {
     // Prev slide
     btnPrev.onclick = () => {
         if (currentIdx > 0) {
-            if (currentIdx * eleInView - countEleSlide % eleInView <= eleInView) {
+            if (currentIdx * eleInViewOfThisSlide - countEleSlide % eleInViewOfThisSlide <= eleInViewOfThisSlide) {
                 moveSlide(--currentIdx, 0)
             }
             else {
-                moveSlide(--currentIdx, jump)
+                moveSlide(--currentIdx, jump - 100)
             }
         }
         if (currentIdx <= 0) {
@@ -432,6 +449,17 @@ function Slide(options) {
             fill: 'forwards'
         })
         currentIdx = index
+    }
+
+    window.onresize = () => {
+        if (document.body.clientWidth < 740) {
+            eleInViewOfThisSlide = 3
+        } else if (document.body.clientWidth < 1113) {
+            eleInViewOfThisSlide = 4
+        } else {
+            eleInViewOfThisSlide = 6
+        }
+        jump = (countEleSlide % eleInViewOfThisSlide) / eleInViewOfThisSlide * 100
     }
 }
 
