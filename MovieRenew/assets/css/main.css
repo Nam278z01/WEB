@@ -407,7 +407,7 @@
 .modal-body__video-popup {
     position: relative;
     margin: auto;
-    width: 50%;
+    width: 60%;
     display: none;
 }
 
@@ -450,7 +450,7 @@
 .btn__prev,
 .btn__next {
     position: absolute;
-    right: 0;
+    right: -1px;
     top: 50%;
     width: calc(3% + 14px);
     height: 100%;
@@ -462,7 +462,7 @@
 
 .btn__prev {
     transform: translate(-100%, -50%);
-    left: 0;
+    left: -1px;
 }
 
 .btn__next.btn--show,
