@@ -93,7 +93,7 @@ img {
     text-decoration: none;
     border: none;
     cursor: pointer;
-    padding: 8px 20px;
+    padding: 8px 24px;
     background-color: transparent;
     color: var(--text-color);
     transition: background-color linear 0.35s;

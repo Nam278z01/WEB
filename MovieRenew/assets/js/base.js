@@ -1,20 +1,3 @@
-if (navigator.userAgent.match(/Android/i)
-    || navigator.userAgent.match(/webOS/i)
-    || navigator.userAgent.match(/iPhone/i)
-    || navigator.userAgent.match(/iPad/i)
-    || navigator.userAgent.match(/iPod/i)
-    || navigator.userAgent.match(/BlackBerry/i)
-    || navigator.userAgent.match(/Windows Phone/i)) {
-    
-}
-else {
-    hoverMovies()
-    Slide({
-        selector: topSlide,
-        duration: 300
-    })
-}
-
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
@@ -98,15 +81,17 @@ const app = {
             $('body').style.top = -scrollTop + 'px'
         }
 
-        // Scroll hiện header
-        window.onscroll = () => {
-            let posTop = $('html').scrollTop
-            // get property top
-            let top = window.getComputedStyle(document.body).getPropertyValue('top').replace('px', '')
-            if (posTop >= 80 || top < -80) {
-                header.classList.add('header-show')
-            } else {
-                header.classList.remove('header-show')
+        if (window.innerWidth > 1024) {
+            // Scroll hiện header
+            window.onscroll = () => {
+                let posTop = $('html').scrollTop
+                // get property top
+                let top = window.getComputedStyle(document.body).getPropertyValue('top').replace('px', '')
+                if (posTop >= 80 || top < -80) {
+                    header.classList.add('header-show')
+                } else {
+                    header.classList.remove('header-show')
+                }
             }
         }
 
@@ -492,6 +477,24 @@ function Slide(options) {
             eleInViewOfThisSlide = 6
         }
         jump = (countEleSlide % eleInViewOfThisSlide) / eleInViewOfThisSlide * 100
+    })
+}
+
+
+if (navigator.userAgent.match(/Android/i)
+    || navigator.userAgent.match(/webOS/i)
+    || navigator.userAgent.match(/iPhone/i)
+    || navigator.userAgent.match(/iPad/i)
+    || navigator.userAgent.match(/iPod/i)
+    || navigator.userAgent.match(/BlackBerry/i)
+    || navigator.userAgent.match(/Windows Phone/i)) {
+    
+}
+else {
+    hoverMovies()
+    Slide({
+        selector: topSlide,
+        duration: 300
     })
 }
 
