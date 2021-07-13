@@ -446,11 +446,12 @@ function Slide(options) {
                 moveSlide(--currentIdx, 0)
             }
             else {
-                if (jump) {
-                    moveSlide(--currentIdx, jump - 100)
-                } else {
+                // kết quả ko đúng nếu ko lướt hết slide
+                // if (jump) {
+                //     moveSlide(--currentIdx, jump - 100) 
+                // } else {
                     moveSlide(--currentIdx, 0)
-                }
+                // }
             }
         }
         if (currentIdx <= 0) {
