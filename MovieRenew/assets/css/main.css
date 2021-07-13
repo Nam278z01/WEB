@@ -326,7 +326,7 @@
 .slide-item__name-film {
     font-size: 3.6rem;
     font-weight: 500;
-    margin-bottom: 16px;
+    margin-bottom: var(--margin-info);
     color: var(--text-color);
     text-transform: uppercase;
 }
@@ -337,7 +337,7 @@
 }
 
 .slide-item__score-genres {
-    margin-bottom: 16px;
+    margin-bottom: var(--margin-info);
     display: flex;
     flex-wrap: wrap;
 }

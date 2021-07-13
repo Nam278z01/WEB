@@ -74,6 +74,9 @@
 }
 /* Mobile */
 @media only screen and (max-width: 739px) {
+    :root {
+        --margin-info: 8px;
+    }
     .hide-on-mb {
         display: none !important;
     }
