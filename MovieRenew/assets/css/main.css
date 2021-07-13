@@ -292,7 +292,7 @@
 #content {
     overflow: hidden;
     position: relative;
-    margin-bottom: 50px;
+    padding-bottom: 50px;
 }
 
 .content__slide {
