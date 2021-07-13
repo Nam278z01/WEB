@@ -114,22 +114,26 @@ const app = {
         }, 5000)
 
         // Dừng slide khi mouseover lên toàn bộ silde
-        slideEntire.onmouseover = () => {
-            clearInterval(mySetInterval)
-            mySetInterval = undefined
-        }
+        'mouseover touchstart'.split(' ').forEach(ele => {
+            slideEntire.addEventListener(ele, () => {
+                clearInterval(mySetInterval)
+                mySetInterval = undefined
+            })
+        })
 
         // Kích hoạt auto chạy slide khi mouseleave lên toàn bộ silde
-        slideEntire.onmouseleave = () => {
-            if (mySetInterval == undefined) {
-                mySetInterval = setInterval(() => {
-                    if (this.currentIdx == lengthSlideItem + 1) {
-                        this.currentIdx = 1
-                    }
-                    _this.moveSlide(_this.currentIdx + 1)
-                }, 5000)
-            }
-        }
+        'mouseleave touchend'.split(' ').forEach(ele => {
+            slideEntire.addEventListener(ele, () => {
+                if (mySetInterval == undefined) {
+                    mySetInterval = setInterval(() => {
+                        if (this.currentIdx == lengthSlideItem + 1) {
+                            this.currentIdx = 1
+                        }
+                        _this.moveSlide(_this.currentIdx + 1)
+                    }, 5000)
+                }
+            })
+        })
 
         // Xem trailer
         btnTrailer.forEach(ele => {
@@ -171,7 +175,7 @@ const app = {
                     _this.isDown = true
                     _this.time1 = new Date()
                     _this.walk = 0
-                    _this.startX = e.clientX - slide.offsetLeft
+                    _this.startX = (e.clientX || e.changedTouches[0].clientX) - slide.offsetLeft
                     slide.classList.remove('animation')
                 }
                 // slide.classList.remove('animation') Bật lên để bỏ độ trễ khi drag thì khi click transition đang chạy sẽ mất event transtionend (Đã xử lý bằng isRun)
@@ -191,7 +195,7 @@ const app = {
                     return
                 } else {
                     e.preventDefault()
-                    _this.walk = (_this.startX - e.clientX - slide.offsetLeft) / slide.offsetWidth * 100
+                    _this.walk = (_this.startX - (e.clientX || e.changedTouches[0].clientX) - slide.offsetLeft) / slide.offsetWidth * 100
                     slide.style.transform = 'translateX(' + (-(100 * _this.currentIdx + _this.walk)) + '%)'
                 }
             })
