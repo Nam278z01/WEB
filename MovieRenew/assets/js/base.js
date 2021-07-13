@@ -489,9 +489,17 @@ if (navigator.userAgent.match(/Android/i)
     || navigator.userAgent.match(/BlackBerry/i)
     || navigator.userAgent.match(/Windows Phone/i)) {
     
+    document.querySelectorAll('.btn__next, .btn__prev').forEach(ele => {
+        ele.style.display = 'none'
+    })
+
+    document.querySelectorAll('.content-list-movie__slide').forEach(ele => {
+        ele.setAttribute('style', 'overflow-x: auto; overflow-y: hidden')
+    })
 }
 else {
     hoverMovies()
+
     Slide({
         selector: topSlide,
         duration: 300

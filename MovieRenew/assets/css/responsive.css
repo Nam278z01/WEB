@@ -9,7 +9,7 @@
     }
 
     #app.hide-sidebar-mb-tb .header__brand i {
-    display: block;
+        display: block;
     }
 
     #app.hide-sidebar-mb-tb {
@@ -42,16 +42,6 @@
 
     .ratio--other {
         padding-bottom: 56.25%;
-    }
-
-    .content-list-movie__slide {
-        overflow-x: auto;
-        overflow-y: hidden;
-    }
-
-    .btn__next,
-    .btn__prev {
-        display: none;
     }
 
     .modal__body {
