@@ -4,10 +4,6 @@
         display: none;
     }
 
-    .btn {
-        padding: 8px 20px;
-    }
-
     #app.hide-sidebar-mb-tb .header__brand i {
         display: block;
     }
@@ -80,6 +76,10 @@
 @media only screen and (max-width: 739px) {
     .hide-on-mb {
         display: none !important;
+    }
+
+    .btn {
+        padding: 8px 16px;
     }
 
     #header__search-form .btn {
