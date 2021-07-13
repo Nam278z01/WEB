@@ -262,11 +262,11 @@ app.start()
 
 
 // Animation Hover Slide
-let topSlide = $('#top-slide')
-let slideListMovie = topSlide.querySelectorAll('.list-movie__slide-item')
-let countSlide = slideListMovie.length
-let eleInView = 6
-function hoverMovies() {
+function hoverMovies(slide) {
+    let slideListMovie = slide.querySelectorAll('.list-movie__slide-item')
+    let countSlide = slideListMovie.length
+    let eleInView = 6
+
     window.addEventListener('resize', () => {
         if (window.innerWidth < 576) {
             eleInView = 2
@@ -502,10 +502,20 @@ if (navigator.userAgent.match(/Android/i)
     })
 }
 else {
-    hoverMovies()
+    let topMovies = $('#top-movies')
+    let topTVSeries = $('#top-tvseries')
+
+    hoverMovies(topMovies)
+    
+    hoverMovies(topTVSeries)
 
     Slide({
-        selector: topSlide,
+        selector: topMovies,
+        duration: 300
+    })
+
+    Slide({
+        selector: topTVSeries,
         duration: 300
     })
 }
