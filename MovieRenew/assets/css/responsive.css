@@ -52,11 +52,11 @@
         display: flex;
     }
 
-    .list-movie__slide-item:active .movie-slide__play {
+    .list-movie__slide-item:hover .movie-slide__play {
         visibility: visible;
     }
 
-    .list-movie__slide-item:active .movie-slide__play .btn {
+    .list-movie__slide-item:hover .movie-slide__play .btn {
         transform: scale(1);
     }
 }
