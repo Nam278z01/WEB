@@ -72,6 +72,7 @@
         margin-top: 150px;
     }
 }
+
 /* Mobile */
 @media only screen and (max-width: 739px) {
     :root {
@@ -79,10 +80,6 @@
     }
     .hide-on-mb {
         display: none !important;
-    }
-
-    .btn {
-        padding: 8px 16px;
     }
 
     #header__search-form .btn {
@@ -128,5 +125,16 @@
     .modal-body__video-popup {
         width: calc(96% - 28px);
         margin-top: 100px;
+    }
+}
+
+/* Mobile small */
+@media (max-width: 375px) {
+    .hide-on-mb-sm {
+        display: none !important;
+    }
+
+    .btn {
+        padding: 8px 16px;
     }
 }

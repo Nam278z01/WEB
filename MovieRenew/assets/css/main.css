@@ -366,10 +366,9 @@
 }
 
 .slide-item__score-genres
-    > span:hover:not(:first-child, :nth-child(2), :nth-child(3)) {
-    text-decoration: underline;
+    > span:hover:not(:nth-child(2), :nth-child(3)) {
     cursor: pointer;
-    color: var(--text-color);
+    color: var(--main-color);
 }
 
 .slide-item__description {
@@ -498,7 +497,7 @@
     display: inline-flex;
 }
 
-.list-movie__slide-item.show .movie-slide__score-genres {
+.list-movie__slide-item.show .movie-slide__score-time-genres {
     display: flex;
 }
 
@@ -572,38 +571,34 @@
     margin-top: 4px;
 }
 
-.movie-slide__score-genres,
+.movie-slide__score-time-genres,
 .movie-slide__category-time {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
 }
 
-.movie-slide__score-genres {
+.movie-slide__score-time-genres {
     display: none;
 }
 
-.movie-slide__score-genres span ,
-.movie-slide__category-time span {
+.movie-slide__score-time-genres > span ,
+.movie-slide__category-time > span {
     display: inline-flex;
     align-items: center;
     font-size: 1.3rem;
     font-weight: 300;
     margin-top: 6px;
+    min-width: 50%;
 }
 
-
-.movie-slide__score-genres > span:first-child,
-.movie-slide__category-time > span:first-child {
-    margin-right: 10px;
-}
-
+.movie-slide__score-time-genres i,
 .movie-slide__category-time i {
     margin-right: 4px;
     font-size: 2rem;
 }
 
-.movie-slide__score-genres img {
+.movie-slide__score-time-genres img {
     width: 40px;
     margin-right: 4px;
 }
