@@ -590,6 +590,7 @@
     font-weight: 300;
     margin-top: 6px;
     min-width: 50%;
+    text-transform: capitalize;
 }
 
 .movie-slide__score-time-genres i,
