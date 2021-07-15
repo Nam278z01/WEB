@@ -54,6 +54,7 @@
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     background-color: transparent;
+    transition-duration: 0.2s;
 }
 
 #header__search-form .btn:hover {
@@ -458,7 +459,7 @@
     z-index: 1;
     background-color: var(--btn-overlay);
     transform: translate(100%, -50%);
-    transition: transform linear 0.05s;
+    transition: transform linear 0.05s, background-color linear 0.3s;
 }
 
 .btn__prev {

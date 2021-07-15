@@ -96,7 +96,7 @@ img {
     padding: 8px 24px;
     background-color: transparent;
     color: var(--text-color);
-    transition: background-color linear 0.35s;
+    transition: background-color linear 0.3s;
 }
 
 .btn:hover {
