@@ -25,7 +25,6 @@
 }
 
 .light {
-
 }
 
 * {
@@ -40,7 +39,7 @@ html {
 }
 
 body.no-scroll {
-    position: fixed; 
+    position: fixed;
     overflow-y: scroll;
     width: 100%;
 }
@@ -183,12 +182,20 @@ img {
     position: absolute;
     top: 0;
     bottom: -1px; /* height: 100% ko full đc */
-    background-image: linear-gradient(180deg, rgba(18, 18, 18, 0), var(--shadow-color)),
+    background-image: linear-gradient(
+            180deg,
+            rgba(18, 18, 18, 0),
+            var(--shadow-color)
+        ),
         linear-gradient(90deg, var(--shadow-color-second), rgba(18, 18, 18, 0));
 }
 
 .shadow--second {
-    background-image: linear-gradient(360deg, var(--shadow-color-th), rgba(18, 18, 18, 0));
+    background-image: linear-gradient(
+        360deg,
+        var(--shadow-color-th),
+        rgba(18, 18, 18, 0)
+    );
 }
 
 /* Modal */

@@ -89,7 +89,8 @@ const app = {
                 let top = window.getComputedStyle(document.body).getPropertyValue('top').replace('px', '')
                 if (posTop >= 80 || top < -80) {
                     header.classList.add('header-show')
-                } else {
+                }
+                if (posTop < 80) {
                     header.classList.remove('header-show')
                 }
             }
