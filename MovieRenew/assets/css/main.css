@@ -329,7 +329,7 @@
     font-weight: 500;
     margin-bottom: var(--margin-info);
     color: var(--text-color);
-    text-transform: uppercase;
+    text-transform: capitalize;
 }
 
 .slide-item__name-film-vie {
