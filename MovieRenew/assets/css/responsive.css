@@ -92,7 +92,7 @@
     }
 
     .slide-item__info {
-        bottom: -35%;
+        bottom: -20%;
         right: calc(3% + 14px);
         width: calc(100% - 6% - 28px);
     }
@@ -116,11 +116,11 @@
     }
 
     .content__slide-pick {
-        bottom: -52%;
+        bottom: -37%;
     }
 
     .content__list-movie:nth-child(2) {
-        margin-top: 55%;
+        margin-top: 40%;
     }
 
     .content__list-movie {
