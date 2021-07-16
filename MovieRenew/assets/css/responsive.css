@@ -4,6 +4,10 @@
         display: none;
     }
 
+    .ratio--other {
+        padding-bottom: 60%;
+    }
+
     #app.hide-sidebar-mb-tb .header__brand i {
         display: block;
     }
@@ -34,10 +38,6 @@
 
     .slide-item__score-genres span {
         line-height: 2.5rem;
-    }
-
-    .ratio--other {
-        padding-bottom: 56.25%;
     }
 
     .modal__body {
@@ -75,11 +75,16 @@
 
 /* Mobile */
 @media only screen and (max-width: 739px) {
+    .hide-on-mb {
+        display: none !important;
+    }
+
     :root {
         --margin-info: 8px;
     }
-    .hide-on-mb {
-        display: none !important;
+
+    .ratio--other {
+        padding-bottom: 80%;
     }
 
     #header__search-form .btn {
@@ -87,7 +92,7 @@
     }
 
     .slide-item__info {
-        bottom: -55%;
+        bottom: -35%;
         right: calc(3% + 14px);
         width: calc(100% - 6% - 28px);
     }
@@ -111,7 +116,7 @@
     }
 
     .content__slide-pick {
-        bottom: -80%;
+        bottom: -52%;
     }
 
     .content__list-movie:nth-child(2) {

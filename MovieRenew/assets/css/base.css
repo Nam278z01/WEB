@@ -156,7 +156,7 @@ img {
 }
 
 .ratio--other {
-    padding-bottom: 50.25%;
+    padding-bottom: 100vh;
 }
 
 .ratio--other-second {
@@ -170,9 +170,6 @@ img {
     right: 0;
     bottom: 0;
     width: 100%;
-}
-
-.ratioIn--In {
     height: 100%;
     object-fit: cover;
 }
