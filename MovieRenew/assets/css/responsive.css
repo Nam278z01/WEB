@@ -131,6 +131,10 @@
         width: calc(96% - 28px);
         margin-top: 100px;
     }
+
+    .content-list-movie__title {
+        margin-bottom: 12px;
+    }
 }
 
 /* Mobile small */
@@ -141,5 +145,15 @@
 
     .btn {
         padding: 8px 16px;
+    }
+}
+
+@media (max-width: 320px) {
+    .hide-on-mb-ssm {
+        display: none !important;
+    }
+
+    .btn {
+        padding: 8px 8px;
     }
 }
