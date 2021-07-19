@@ -13,7 +13,7 @@
     }
 
     #app.hide-sidebar-mb-tb {
-    --sidebar-width-small: 0px;
+        --sidebar-width-small: 0px;
     }
 
     #header.header-show-on-mb-tb #header__search-form .btn:active {
@@ -48,11 +48,11 @@
         display: flex;
     }
 
-    .list-movie__slide-item:hover .movie-slide__play {
+    .movie-slide__play:hover {
         visibility: visible;
     }
 
-    .list-movie__slide-item:hover .movie-slide__play .btn {
+    .movie-slide__play:hover .btn {
         transform: scale(1);
     }
 }
@@ -155,5 +155,9 @@
 
     .btn {
         padding: 8px 8px;
+    }
+
+    .movie-slide__feature .btn {
+        display: none;
     }
 }
