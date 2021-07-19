@@ -49,7 +49,7 @@
     }
 
     .movie-slide__play:hover {
-        visibility: visible;
+        opacity: 1;
     }
 
     .movie-slide__play:hover .btn {

@@ -487,7 +487,7 @@
 }
 
 .list-movie__slide-item.show .movie-slide__play {
-    visibility: visible;
+    opacity: 1;
 }
 
 .list-movie__slide-item.show .movie-slide__play .btn {
@@ -512,9 +512,9 @@
     height: 100%;
     background-image: linear-gradient(360deg, var(--shadow-color-second), rgba(18, 18, 18, 0));
     z-index: 1;
-    visibility: hidden;
+    opacity: 0;
     display: flex;
-    transition: visibility linear 0.15s;
+    transition: opacity linear 0.15s;
 }
 
 .movie-slide__play .btn {
