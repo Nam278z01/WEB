@@ -55,6 +55,7 @@
 #header__search-form {
     width: 50%;
     display: flex;
+    margin: 0 10px;
 }
 
 #header__search-form .btn {

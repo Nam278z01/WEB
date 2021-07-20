@@ -96,6 +96,10 @@
         padding-bottom: 80%;
     }
 
+    #header__search-form {
+        flex-grow: 1;
+    }
+
     #header__search-form .btn {
         padding: 0 8px;
     }
@@ -114,9 +118,8 @@
     }
 
     .slide-item__description {
-        -webkit-line-clamp: 2;
+        -webkit-line-clamp: 3;
     }
-
 
     .slide-item__btn {
         display: flex;
