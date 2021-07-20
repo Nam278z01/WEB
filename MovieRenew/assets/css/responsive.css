@@ -135,6 +135,10 @@
     .content-list-movie__title {
         margin-bottom: 12px;
     }
+
+    .content-list-movie__name {
+        font-size: 2rem;
+    }
 }
 
 /* Mobile small */
