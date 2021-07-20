@@ -14,9 +14,14 @@
 
     #app.hide-sidebar-mb-tb {
         --sidebar-width-small: 0px;
+        --pd-mg-per: 2%;
     }
 
-    #header.header-show-on-mb-tb #header__search-form .btn:active {
+    #header {
+        padding: 0 var(--pd-mg-per) 0 calc(var(--pd-mg-per) + var(--sidebar-width-small));
+    }
+
+    #header.header-show-on-mb-tb #header__search-form .btn:hover {
         background-color: var(--text-color-third);
     }
 
@@ -30,6 +35,10 @@
 
     #header.header-show-on-mb-tb .search__container input {
         background-color: var(--search-color);
+    }
+
+    .brand__name {
+        padding-left: 20px;
     }
 
     #content {
@@ -93,8 +102,7 @@
 
     .slide-item__info {
         bottom: -20%;
-        right: calc(3% + 14px);
-        width: calc(100% - 6% - 28px);
+        width: calc(100% - (var(--pd-mg-per) + var(--more-pd-mg))*2);
     }
 
     .slide-item__name-film {

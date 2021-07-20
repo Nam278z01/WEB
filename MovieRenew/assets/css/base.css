@@ -23,6 +23,7 @@
     --sidebar-width-small: 60px;
     --margin-info: 16px;
     --more-pd-mg: 14px;
+    --pd-mg-per: 1.5%;
 }
 
 .light {
@@ -157,6 +158,7 @@ img {
 }
 
 .ratio--other {
+    /*! Nên sửa lại cái này */
     padding-bottom: 100vh;
 }
 
