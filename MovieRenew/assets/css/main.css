@@ -387,6 +387,10 @@
 .slide-item__btn {
 }
 
+.slide-item__btn .btn {
+    -webkit-tap-highlight-color: transparent;
+}
+
 .content__slide-pick {
     padding: 0 calc(3% + var(--more-pd-mg)) 0
         calc(var(--sidebar-width-small) + calc(3% + var(--more-pd-mg)));
@@ -490,6 +494,7 @@
     transition-property: transform;
     transition-duration: 0.4s;
     transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
+    -webkit-tap-highlight-color: transparent;
 }
 
 .list-movie__slide-item.show .movie-slide__play {
