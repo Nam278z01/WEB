@@ -139,7 +139,7 @@
     }
 
     .modal-body__video-popup {
-        width: calc(96% - 28px);
+        width: calc(100%  - 2 * var(--pd-mg-per));
         margin-top: 100px;
     }
 
