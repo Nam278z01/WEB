@@ -168,11 +168,12 @@
         display: none !important;
     }
 
-    .btn {
-        padding: 8px 8px;
+    html {
+        font-size: 50%;
     }
 
-    .movie-slide__feature .btn {
-        display: none;
+    .btn.btn--circle {
+        width: 36px;
+        height: 36px;
     }
 }
